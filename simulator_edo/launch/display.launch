@@ -1,0 +1,15 @@
+<launch>
+  <!-- Load parameters into the parameter server -->
+  <param name="robot_description" textfile="$(find simulator_edo)/urdf/edo_sim.urdf"/>
+    
+  <!-- Run the joint state publisher nodes -->
+  <node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="jnt_st_pub" />
+
+  <!-- Run the robot state publisher node -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" />
+
+  <!-- Run rviz -->
+  <arg name="gui" default="true" />
+  <arg name="rvizconfig" default="$(find simulator_2link_planar)/rviz/urdf.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>

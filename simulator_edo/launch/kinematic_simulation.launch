@@ -1,0 +1,22 @@
+<launch>
+  <!-- Load parameters into the parameter server -->
+  <param name="use_sim_time" value="true"/>
+  <param name="robot_description" textfile="$(find simulator_edo)/urdf/edo_sim.urdf"/>
+    
+  <!-- Run the robot state publisher node -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" />
+
+  <!-- Run rviz -->
+  <arg name="rvizconfig" default="$(find simulator_edo)/rviz/urdf.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+  <!-- Run the kinematic simulator -->
+  <node pkg="kinsim_edo" type="kinsim_edo_node" name="kinsim_edo">
+    <rosparam param="q1_initial"> 1</rosparam>
+    <rosparam param="q2_initial">-1</rosparam>
+    <rosparam param="q3_initial"> 1</rosparam>
+    <rosparam param="q4_initial">-1</rosparam>
+    <rosparam param="q5_initial"> 1</rosparam>
+    <rosparam param="q6_initial">-1</rosparam>
+  </node>
+</launch>

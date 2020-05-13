@@ -1,0 +1,14 @@
+# Joint planner configuration parameters
+  /planner_joint/run_period: 0.01          # Node execution period
+  /planner_joint/start_delay: 0.5          # Execution start delay
+
+  /planner_joint/trajectoryType: 1         # Trajectory type: 1, trapezoidal; 2, polynomial
+
+  /planner_joint/qi: [0.7840, -1.5708]     # Initial joint positions [rad]
+  /planner_joint/qf: [3.14, 1.57]          # Final joint positions [rad]
+
+  /planner_joint/max_ang_acc: [0.5, 0.5]   # Maximum angular acceleration (for trapezoidal trajectory) [rad/s^2]
+  /planner_joint/max_ang_vel: [1.0, 1.0]   # Maximum angular velocity (for trapezoidal trajectory) [rad/s]
+
+  /planner_joint/tf: 5.0                   # Trajectory duration (for polynomial trajectory) [s]
+

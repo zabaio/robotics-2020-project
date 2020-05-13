@@ -1,0 +1,20 @@
+<launch>
+  <!-- Load parameters into the parameter server -->
+  <param name="use_sim_time" value="true"/>
+  <param name="robot_description" textfile="$(find simulator_2link_planar)/urdf/2link_planar_model.urdf"/>
+    
+  <!-- Run the robot staet publisher node -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" />
+
+  <!-- Run rviz -->
+  <arg name="rvizconfig" default="$(find simulator_2link_planar)/rviz/urdf.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+  <!-- Run the dynamic simulator -->
+  <node pkg="dynsim_2link_planar" type="dynsim_2link_planar_node" name="dynsim_2link_planar">
+    <rosparam param="q1_initial"> 0.7840</rosparam>
+    <rosparam param="q2_initial">-1.5708</rosparam>
+    <rosparam param="qv1_initial">0.0</rosparam>
+    <rosparam param="qv2_initial">0.0</rosparam>
+  </node>
+</launch>
