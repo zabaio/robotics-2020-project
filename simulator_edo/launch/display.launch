@@ -10,6 +10,6 @@
 
   <!-- Run rviz -->
   <arg name="gui" default="true" />
-  <arg name="rvizconfig" default="$(find simulator_2link_planar)/rviz/urdf.rviz" />
+  <arg name="rvizconfig" default="$(find simulator_edo)/rviz/urdf.rviz" />
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 </launch>
