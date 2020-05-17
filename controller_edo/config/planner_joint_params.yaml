@@ -4,8 +4,8 @@
 
   /planner_joint/trajectoryType: 1         # Trajectory type: 1, trapezoidal; 2, polynomial
 
-  /planner_joint/qi: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]     # Initial joint positions [rad]
-  /planner_joint/qf: [6.28, 6.28, 6.28,6.28,6.28,6.28]          # Final joint positions [rad]
+  /planner_joint/qi: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]            # Initial joint positions [rad]
+  /planner_joint/qf: [6.28, 6.28, 6.28,6.28,6.28,6.28]         # Final joint positions [rad]
 
   /planner_joint/max_ang_acc: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5]   # Maximum angular acceleration (for trapezoidal trajectory) [rad/s^2]
   /planner_joint/max_ang_vel: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]   # Maximum angular velocity (for trapezoidal trajectory) [rad/s]
