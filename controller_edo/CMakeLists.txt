@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(controller_2link_planar)
+project(controller_edo)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -104,7 +104,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES controller_2link_planar
+  LIBRARIES controller_edo
   CATKIN_DEPENDS roscpp std_msgs trajectory_msgs
 #  DEPENDS system_lib
 )
@@ -131,7 +131,7 @@ target_link_libraries(controller_joint ${catkin_LIBRARIES})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/controller_2link_planar.cpp
+#   src/${PROJECT_NAME}/controller_edo.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -142,7 +142,7 @@ target_link_libraries(controller_joint ${catkin_LIBRARIES})
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/controller_2link_planar_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/controller_edo_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -206,7 +206,7 @@ target_link_libraries(controller_joint ${catkin_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_controller_2link_planar.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_controller_edo.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

@@ -1,4 +1,4 @@
-#include "controller_2link_planar/planner_cartesian.h"
+#include "controller_edo/planner_cartesian.h"
 
 #include <trajectory_msgs/JointTrajectoryPoint.h>
 

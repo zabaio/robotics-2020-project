@@ -1,4 +1,4 @@
-#include "controller_2link_planar/planner_joint.h"
+#include "controller_edo/planner_joint.h"
 
 
 int main(int argc, char **argv)
