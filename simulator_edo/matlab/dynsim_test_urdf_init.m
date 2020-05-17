@@ -30,6 +30,6 @@ addBody(robot_2link, body, 'arm_link');
 showdetails(robot_2link)
 
 % Load robot object from URDF
-robot_2link_fromURDF = importrobot('../urdf/2link_planar_model.urdf');
+robot_2link_fromURDF = importrobot('../urdf/edo_model.urdf');
 
 showdetails(robot_2link_fromURDF)

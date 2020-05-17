@@ -2,7 +2,7 @@ clear all
 close all
 
 % Load robot object from URDF
-robot_2link_planar = importrobot('../urdf/2link_planar_model.urdf');
+robot_edo = importrobot('../urdf/edo_sim.urdf');
 
 % Parameters (same as in URDF)
 L1 = 0.337; % Arm length [m]

@@ -3,7 +3,7 @@
   <param name="use_sim_time" value="true"/>
   <param name="robot_description" textfile="$(find simulator_edo)/urdf/edo_model.urdf"/>
     
-  <!-- Run the robot staet publisher node -->
+  <!-- Run the robot state publisher node -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" />
 
   <!-- Run rviz -->
@@ -17,4 +17,15 @@
     <rosparam param="qv1_initial">0.0</rosparam>
     <rosparam param="qv2_initial">0.0</rosparam>
   </node>
+
+  <!--- Run planner_cartesian node -->
+  <node pkg="controller_edo" type="planner_cartesian" respawn="false" name="planner_cartesian" output="screen">
+    <rosparam file="$(find controller_edo)/config/planner_cartesian_params.yaml" command="load" />
+  </node>
+
+  <!--- Run controller_joint node -->
+  <node pkg="controller_edo" type="controller_joint" respawn="false" name="controller_joint" output="screen">
+    <rosparam file="$(find controller_edo)/config/controller_joint_params.yaml" command="load" />
+  </node>
 </launch>
+

@@ -1,4 +1,4 @@
-#include "controller_2link_planar/controller_joint.h"
+#include "controller_edo/controller_joint.h"
 
 #include "std_msgs/Float64MultiArray.h"
 

@@ -1,4 +1,4 @@
-#include "controller_2link_planar/planner_cartesian.h"
+#include "controller_edo/planner_cartesian.h"
 
 
 int main(int argc, char **argv)
