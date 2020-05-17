@@ -82,7 +82,12 @@
   </link>
   <joint
     name="joint_1"
-    type="continuous">
+    type="revolute">
+    <limit 
+      lower= "-3.14"
+      upper= "3.14"
+      velocity= "0.6632"
+      effort= "5000"/>
     <origin
       xyz="0.057188 0.0059831 0.13343"
       rpy="1.5708 6.9389E-16 -3.1416" />
@@ -135,7 +140,12 @@
   </link>
   <joint
     name="joint_2"
-    type="continuous">
+    type="revolute">
+    <limit 
+      lower= "-1.972"
+      upper= "1.972"
+      velocity= "0.6632"
+      effort= "5000"/>
     <origin
       xyz="0 0.18967 0"
       rpy="0.94237 -0.4634 -0.11653" />
@@ -188,7 +198,12 @@
   </link>
   <joint
     name="joint_3"
-    type="continuous">
+    type="revolute">
+    <limit 
+      lower= "-1.972"
+      upper= "1.972"
+      velocity= "0.6632"
+      effort= "5000"/>
     <origin
       xyz="-0.024558 0.12737 -0.16578"
       rpy="0.97336 -0.36296 2.8253" />
@@ -241,7 +256,12 @@
   </link>
   <joint
     name="joint_4"
-    type="continuous">
+    type="revolute">
+    <limit 
+      lower= "-3.14"
+      upper= "3.14"
+      velocity= "0.97738"
+      effort= "5000"/>
     <origin
       xyz="0.0088 -0.1588 0"
       rpy="-1.5708 0 0" />
@@ -294,7 +314,12 @@
   </link>
   <joint
     name="joint_5"
-    type="continuous">
+    type="revolute">
+    <limit 
+      lower= "-1.815"
+      upper= "1.815"
+      velocity= "0.97738"
+      effort= "5000"/>
     <origin
       xyz="0 0 -0.1053"
       rpy="3.1416 1.1102E-14 3.1416" />
@@ -347,7 +372,12 @@
   </link>
   <joint
     name="joint_6"
-    type="continuous">
+    type="revolute">
+    <limit 
+      lower= "-47.1238"
+      upper= "47.1238"
+      velocity= "0.97738"
+      effort= "5000"/>
     <origin
       xyz="-0.0039 0 0.1636"
       rpy="-1.5708 1.249E-14 0" />
