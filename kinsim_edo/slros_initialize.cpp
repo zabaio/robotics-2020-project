@@ -21,15 +21,6 @@ SimulinkParameterGetter<real64_T, double> ParamGet_kinsim_edo_61;
 // For Block kinsim_edo/Subsystem/Get Parameter1
 SimulinkParameterGetter<real64_T, double> ParamGet_kinsim_edo_65;
 
-// For Block kinsim_edo/Subsystem/Get Parameter2
-SimulinkParameterGetter<real64_T, double> ParamGet_kinsim_edo_81;
-
-// For Block kinsim_edo/Subsystem/Get Parameter3
-SimulinkParameterGetter<real64_T, double> ParamGet_kinsim_edo_82;
-
-// For Block kinsim_edo/Subsystem/Get Parameter4
-SimulinkParameterGetter<real64_T, double> ParamGet_kinsim_edo_83;
-
 // For Block kinsim_edo/Subsystem/Get Parameter5
 SimulinkParameterGetter<real64_T, double> ParamGet_kinsim_edo_84;
 

@@ -256,12 +256,7 @@
   </link>
   <joint
     name="joint_4"
-    type="revolute">
-    <limit 
-      lower= "-3.14"
-      upper= "3.14"
-      velocity= "0.97738"
-      effort= "5000"/>
+    type="fixed">
     <origin
       xyz="0.0088 -0.1588 0"
       rpy="-1.5708 0 0" />
@@ -314,12 +309,7 @@
   </link>
   <joint
     name="joint_5"
-    type="revolute">
-    <limit 
-      lower= "-1.815"
-      upper= "1.815"
-      velocity= "0.97738"
-      effort= "5000"/>
+    type="fixed">
     <origin
       xyz="0 0 -0.1053"
       rpy="3.1416 1.1102E-14 3.1416" />
@@ -372,12 +362,7 @@
   </link>
   <joint
     name="joint_6"
-    type="revolute">
-    <limit 
-      lower= "-47.1238"
-      upper= "47.1238"
-      velocity= "0.97738"
-      effort= "5000"/>
+    type="fixed">
     <origin
       xyz="-0.0039 0 0.1636"
       rpy="-1.5708 1.249E-14 0" />

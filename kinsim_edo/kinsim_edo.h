@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'kinsim_edo'.
 //
-// Model version                  : 1.117
+// Model version                  : 1.123
 // Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
-// C/C++ source code generated on : Sun May 17 11:21:23 2020
+// C/C++ source code generated on : Tue May 19 00:13:51 2020
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -158,14 +158,12 @@ typedef struct {
   real_T value;
   real_T value_m;
   real_T value_c;
-  real_T value_k;
-  real_T value_cx;
-  real_T value_b;
   real_T d;
   real_T d1;
-  cell_wrap_0_kinsim_edo_T b;
-  cell_wrap_0_kinsim_edo_T c;
-  cell_wrap_0_kinsim_edo_T d_p;
+  real_T d2;
+  real_T d3;
+  real_T d4;
+  real_T d5;
 } B_kinsim_edo_T;
 
 // Block states (default storage) for system '<Root>'
@@ -173,9 +171,6 @@ typedef struct {
   ros_slros_internal_block_GetP_T obj; // '<S11>/Get Parameter'
   ros_slros_internal_block_GetP_T obj_n;// '<S11>/Get Parameter1'
   ros_slros_internal_block_GetP_T obj_o;// '<S11>/Get Parameter5'
-  ros_slros_internal_block_GetP_T obj_b;// '<S11>/Get Parameter4'
-  ros_slros_internal_block_GetP_T obj_d;// '<S11>/Get Parameter3'
-  ros_slros_internal_block_GetP_T obj_i;// '<S11>/Get Parameter2'
   ros_slros_internal_block_Publ_T obj_m;// '<S9>/SinkBlock'
   ros_slros_internal_block_Publ_T obj_f;// '<S8>/SinkBlock'
   ros_slros_internal_block_Publ_T obj_nr;// '<S7>/SinkBlock'
@@ -185,17 +180,17 @@ typedef struct {
 
 // Continuous states (default storage)
 typedef struct {
-  real_T Integrator_CSTATE[6];         // '<Root>/Integrator'
+  real_T Integrator_CSTATE[3];         // '<Root>/Integrator'
 } X_kinsim_edo_T;
 
 // State derivatives (default storage)
 typedef struct {
-  real_T Integrator_CSTATE[6];         // '<Root>/Integrator'
+  real_T Integrator_CSTATE[3];         // '<Root>/Integrator'
 } XDot_kinsim_edo_T;
 
 // State disabled
 typedef struct {
-  boolean_T Integrator_CSTATE[6];      // '<Root>/Integrator'
+  boolean_T Integrator_CSTATE[3];      // '<Root>/Integrator'
 } XDis_kinsim_edo_T;
 
 #ifndef ODE3_INTG
@@ -223,9 +218,6 @@ struct P_kinsim_edo_T_ {
   SL_Bus_kinsim_edo_rosgraph_msgs_Clock Constant_Value_o;// Computed Parameter: Constant_Value_o
                                                             //  Referenced by: '<S5>/Constant'
 
-  real_T Constant_Value_m[6];          // Expression: [L1,L2,L3,L4,L5,L6]
-                                          //  Referenced by: '<Root>/Constant'
-
 };
 
 // Real-time Model Data Structure
@@ -240,8 +232,8 @@ struct tag_RTM_kinsim_edo_T {
   boolean_T zCCacheNeedsReset;
   boolean_T derivCacheNeedsReset;
   boolean_T CTOutputIncnstWithState;
-  real_T odeY[6];
-  real_T odeF[3][6];
+  real_T odeY[3];
+  real_T odeF[3][3];
   ODE3_IntgData intgData;
 
   //
