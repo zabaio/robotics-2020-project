@@ -27,7 +27,7 @@ class planner_joint
     double start_delay;
 
     std::vector<double> qi, qf;
-    std::vector<double> max_acc, max_vel;
+    std::vector<double> max_acc, max_vel, max_q;
 
     TrajectoryType trajectoryType;
 

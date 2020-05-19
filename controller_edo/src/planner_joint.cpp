@@ -53,6 +53,12 @@ void planner_joint::Prepare(void)
  if (false == Handle.getParam(FullParamName, tf))
   ROS_ERROR("Node %s: unable to retrieve parameter %s.", ros::this_node::getName().c_str(), FullParamName.c_str());
 
+// max_q
+ FullParamName = ros::this_node::getName()+"/max_q";
+
+ if (false == Handle.getParam(FullParamName, max_q))
+  ROS_ERROR("Node %s: unable to retrieve parameter %s.", ros::this_node::getName().c_str(), FullParamName.c_str());
+
  // trajectoryType
  FullParamName = ros::this_node::getName()+"/trajectoryType";
 
