@@ -8,8 +8,12 @@ void joint_planning_trapezoidal::init(double qi[], double qf[], double max_vel[]
     for(int i=0; i<num_joint; i++){
         this->qi[i] = qi[i];
         this->qf[i] = qf[i];
-        this->max_acc[i] = max_acc[i];
-        this->max_vel[i] = max_vel[i];
+        this->max_acc[i] = max_acc[i];		
+	    this->max_vel[i] = max_vel[i];
+        if (qi[i] > qf[i]){
+            this->max_acc[i] = -this->max_acc[i];
+            this->max_vel[i] = -this->max_vel[i];
+        }
     }
 
     this->num_joint = num_joint;
@@ -17,17 +21,17 @@ void joint_planning_trapezoidal::init(double qi[], double qf[], double max_vel[]
     //calcola i parametri della traiettoria trapezoidale
     for(int i=0;i<num_joint;i++){
         //verifica se deve usare un profilo triangolare o trapezoidale e calcola i parametri di conseguenza
-        if ( (pow(max_vel[i], 2.0) / max_acc[i]) >= (qf[i]-qi[i]) ){
+        if ( abs((pow(this->max_vel[i], 2.0) / this->max_acc[i])) >= abs((qf[i]-qi[i])) ){
             triangolare[i] = true;
 
-            tc[i] = pow((qf[i] - qi[i]) / max_acc[i], 0.5);
+            tc[i] = pow((qf[i] - qi[i]) / this->max_acc[i], 0.5);
             tf[i] = 2*tc[i];
         }
         else{
             triangolare[i] = false;
 
-            tc[i] = max_vel[i] / max_acc[i];
-            tf[i] = (qf[i] - qi[i] - max_acc[i] * pow(tc[i], 2.0)) / max_vel[i] + 2 * tc[i];
+            tc[i] = this->max_vel[i] / this->max_acc[i];
+            tf[i] = (qf[i] - qi[i] - this->max_acc[i] * pow(tc[i], 2.0)) / this->max_vel[i] + 2 * tc[i];
         }
     }
 }
