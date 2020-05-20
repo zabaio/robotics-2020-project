@@ -38,44 +38,38 @@ void joint_planning_trapezoidal::init(double qi[], double qf[], double max_vel[]
 
 void joint_planning_trapezoidal::plan(double time){
     for (int i=0; i<num_joint; i++){
-        if (abs(q[i]) >= max_q[i]){
-            v[i] = 0.0;
-            a[i] = 0.0;
+        if (triangolare[i]){
+            if (time <= tc[i]){
+                q[i] = qi[i] + 0.5 * max_acc[i] * pow(time, 2.0);
+                v[i] = max_acc[i] * time;
+                a[i] = max_acc[i];
+            } else if (time <= tf[i]){
+                q[i] = qf[i] - 0.5 * max_acc[i] * pow((tf[i] - time), 2.0);
+                v[i] = max_acc[i] * (tf[i] - time);
+                a[i] = -max_acc[i];
+            } else{
+                q[i] = qf[i];
+                v[i] = 0.0;
+                a[i] = 0.0;                
+            }
         }
         else{
-            if (triangolare[i]){
-                if (time <= tc[i]){
-                    q[i] = qi[i] + 0.5 * max_acc[i] * pow(time, 2.0);
-                    v[i] = max_acc[i] * time;
-                    a[i] = max_acc[i];
-                } else if (time <= tf[i]){
-                    q[i] = qf[i] - 0.5 * max_acc[i] * pow((tf[i] - time), 2.0);
-                    v[i] = max_acc[i] * (tf[i] - time);
-                    a[i] = -max_acc[i];
-                } else{
-                    q[i] = qf[i];
-                    v[i] = 0.0;
-                    a[i] = 0.0;                
-                }
-            }
-            else{
-                if (time <= tc[i]){
-                    q[i] = qi[i] + 0.5 * max_acc[i] * pow(time, 2.0);
-                    v[i] = max_acc[i] * time;
-                    a[i] = max_acc[i];
-                } else if (time <= (tf[i] - tc[i])){
-                    q[i] = (qi[i] + 0.5 * max_acc[i] * pow(tc[i], 2.0)) + max_vel[i] * (time - tc[i]);
-                    v[i] = max_vel[i];
-                    a[i] = 0.0;
-                } else if (time <= tf[i]){
-                    q[i] = qf[i] - 0.5 * max_acc[i] * pow(tf[i] - time, 2.0);
-                    v[i] = max_acc[i] * (tf[i] - time);
-                    a[i] = -max_acc[i];
-                } else{
-                    q[i] = qf[i];
-                    v[i] = 0.0;
-                    a[i] = 0.0;                
-                }
+            if (time <= tc[i]){
+                q[i] = qi[i] + 0.5 * max_acc[i] * pow(time, 2.0);
+                v[i] = max_acc[i] * time;
+                a[i] = max_acc[i];
+            } else if (time <= (tf[i] - tc[i])){
+                q[i] = (qi[i] + 0.5 * max_acc[i] * pow(tc[i], 2.0)) + max_vel[i] * (time - tc[i]);
+                v[i] = max_vel[i];
+                a[i] = 0.0;
+            } else if (time <= tf[i]){
+                q[i] = qf[i] - 0.5 * max_acc[i] * pow(tf[i] - time, 2.0);
+                v[i] = max_acc[i] * (tf[i] - time);
+                a[i] = -max_acc[i];
+            } else{
+                q[i] = qf[i];
+                v[i] = 0.0;
+                a[i] = 0.0;                
             }
         }
     }

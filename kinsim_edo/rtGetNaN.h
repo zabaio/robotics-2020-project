@@ -3,23 +3,38 @@
 // course requirements at degree granting institutions only.  Not for
 // government, commercial, or other organizational use.
 //
-// File: rtmodel.h
+// File: rtGetNaN.h
 //
 // Code generated for Simulink model 'kinsim_edo'.
 //
-// Model version                  : 1.125
+// Model version                  : 1.135
 // Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
-// C/C++ source code generated on : Tue May 19 01:50:46 2020
+// C/C++ source code generated on : Wed May 20 12:50:27 2020
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
 // Code generation objectives: Unspecified
 // Validation result: Not run
 //
-#ifndef RTW_HEADER_rtmodel_h_
-#define RTW_HEADER_rtmodel_h_
-#include "kinsim_edo.h"
-#endif                                 // RTW_HEADER_rtmodel_h_
+#ifndef RTW_HEADER_rtGetNaN_h_
+#define RTW_HEADER_rtGetNaN_h_
+#include <stddef.h>
+#include "rtwtypes.h"
+#include "rt_nonfinite.h"
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
+
+  extern real_T rtGetNaN(void);
+  extern real32_T rtGetNaNF(void);
+
+#ifdef __cplusplus
+
+}                                      // extern "C"
+#endif
+#endif                                 // RTW_HEADER_rtGetNaN_h_
 
 //
 // File trailer for generated code.

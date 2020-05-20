@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'kinsim_edo'.
 //
-// Model version                  : 1.123
+// Model version                  : 1.135
 // Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
-// C/C++ source code generated on : Tue May 19 00:13:51 2020
+// C/C++ source code generated on : Wed May 20 12:50:27 2020
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -22,7 +22,7 @@
 // Block parameters (default storage)
 P_kinsim_edo_T kinsim_edo_P = {
   // Computed Parameter: Constant_Value
-  //  Referenced by: '<S4>/Constant'
+  //  Referenced by: '<S6>/Constant'
 
   {
     {
@@ -368,7 +368,7 @@ P_kinsim_edo_T kinsim_edo_P = {
   },
 
   // Computed Parameter: Out1_Y0
-  //  Referenced by: '<S12>/Out1'
+  //  Referenced by: '<S14>/Out1'
 
   {
     {
@@ -446,7 +446,7 @@ P_kinsim_edo_T kinsim_edo_P = {
   },
 
   // Computed Parameter: Constant_Value_h
-  //  Referenced by: '<S10>/Constant'
+  //  Referenced by: '<S12>/Constant'
 
   {
     {
@@ -524,7 +524,7 @@ P_kinsim_edo_T kinsim_edo_P = {
   },
 
   // Computed Parameter: Constant_Value_o
-  //  Referenced by: '<S5>/Constant'
+  //  Referenced by: '<S7>/Constant'
 
   {
     {

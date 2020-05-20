@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'kinsim_edo'.
 //
-// Model version                  : 1.123
+// Model version                  : 1.135
 // Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
-// C/C++ source code generated on : Tue May 19 00:13:51 2020
+// C/C++ source code generated on : Wed May 20 12:50:27 2020
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)

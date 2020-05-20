@@ -1,2 +1,0 @@
-  kinsim_edo.cpp
-

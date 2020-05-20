@@ -12,9 +12,9 @@
 
   <!-- Run the kinematic simulator -->
   <node pkg="kinsim_edo" type="kinsim_edo_node" name="kinsim_edo">
-    <rosparam param="q1_initial"> 1.0</rosparam>
-    <rosparam param="q2_initial"> 1.0</rosparam>
-    <rosparam param="q3_initial"> 1.0</rosparam>
+    <rosparam param="q1_initial"> 0.0</rosparam>
+    <rosparam param="q2_initial"> 0.0</rosparam>
+    <rosparam param="q3_initial"> 0.0</rosparam>
   </node>
 
   <!--- Run planner_joint node -->

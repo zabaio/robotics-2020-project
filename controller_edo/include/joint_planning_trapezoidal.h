@@ -23,7 +23,6 @@ private:
 
 		double max_acc[MAX_NUM_JOINT]; //massima accelerazione angolare della traiettoria
 		double max_vel[MAX_NUM_JOINT]; //massima velocità angolare della traiettoria
-		double max_q[MAX_NUM_JOINT];   //massimo angolo raggiungibile da un giunto
 
 		double tc[MAX_NUM_JOINT]; //tempo di accelerazione/decelerazione
 		double tf[MAX_NUM_JOINT]; //tempo finale

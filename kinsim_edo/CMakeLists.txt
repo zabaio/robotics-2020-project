@@ -54,6 +54,9 @@ add_executable(${PROJECT_NAME}_node
    ert_main.cpp
    kinsim_edo.cpp
    kinsim_edo_data.cpp
+   rtGetInf.cpp
+   rtGetNaN.cpp
+   rt_nonfinite.cpp
    linuxinitialize.cpp
    slros_busmsg_conversion.cpp
    slros_initialize.cpp

@@ -14,8 +14,11 @@
   <node pkg="dynsim_edo" type="dynsim_edo_node" name="dynsim_edo">
     <rosparam param="q1_initial">0.0</rosparam>
     <rosparam param="q2_initial">0.0</rosparam>
+    <rosparam param="q3_initial">0.0</rosparam>
+
     <rosparam param="qv1_initial">0.0</rosparam>
     <rosparam param="qv2_initial">0.0</rosparam>
+    <rosparam param="qv3_initial">0.0</rosparam>
   </node>
 
   <!--- Run planner_joint node -->
