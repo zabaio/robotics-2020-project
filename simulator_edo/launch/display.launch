@@ -1,6 +1,6 @@
 <launch>
   <!-- Load parameters into the parameter server -->
-  <param name="robot_description" textfile="$(find simulator_edo)/urdf/edo_sim.urdf"/>
+  <param name="robot_description" textfile="$(find simulator_edo)/urdf/edo_sim_nuove_inerzie.urdf"/>
     
   <!-- Run the joint state publisher nodes -->
   <node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="jnt_st_pub" />

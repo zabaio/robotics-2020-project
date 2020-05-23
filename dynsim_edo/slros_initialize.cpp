@@ -21,12 +21,6 @@ SimulinkParameterGetter<real64_T, double> ParamGet_dynsim_edo_112;
 // For Block dynsim_edo/edo robot dynamic model/Subsystem/Get Parameter1
 SimulinkParameterGetter<real64_T, double> ParamGet_dynsim_edo_113;
 
-// For Block dynsim_edo/edo robot dynamic model/Subsystem/Get Parameter10
-SimulinkParameterGetter<real64_T, double> ParamGet_dynsim_edo_135;
-
-// For Block dynsim_edo/edo robot dynamic model/Subsystem/Get Parameter11
-SimulinkParameterGetter<real64_T, double> ParamGet_dynsim_edo_136;
-
 // For Block dynsim_edo/edo robot dynamic model/Subsystem/Get Parameter2
 SimulinkParameterGetter<real64_T, double> ParamGet_dynsim_edo_117;
 
@@ -36,20 +30,8 @@ SimulinkParameterGetter<real64_T, double> ParamGet_dynsim_edo_118;
 // For Block dynsim_edo/edo robot dynamic model/Subsystem/Get Parameter4
 SimulinkParameterGetter<real64_T, double> ParamGet_dynsim_edo_125;
 
-// For Block dynsim_edo/edo robot dynamic model/Subsystem/Get Parameter5
-SimulinkParameterGetter<real64_T, double> ParamGet_dynsim_edo_126;
-
-// For Block dynsim_edo/edo robot dynamic model/Subsystem/Get Parameter6
-SimulinkParameterGetter<real64_T, double> ParamGet_dynsim_edo_127;
-
-// For Block dynsim_edo/edo robot dynamic model/Subsystem/Get Parameter7
-SimulinkParameterGetter<real64_T, double> ParamGet_dynsim_edo_128;
-
 // For Block dynsim_edo/edo robot dynamic model/Subsystem/Get Parameter8
 SimulinkParameterGetter<real64_T, double> ParamGet_dynsim_edo_133;
-
-// For Block dynsim_edo/edo robot dynamic model/Subsystem/Get Parameter9
-SimulinkParameterGetter<real64_T, double> ParamGet_dynsim_edo_134;
 
 void slros_node_init(int argc, char** argv)
 {

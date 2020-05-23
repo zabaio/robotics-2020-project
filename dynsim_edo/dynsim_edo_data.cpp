@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'dynsim_edo'.
 //
-// Model version                  : 1.118
+// Model version                  : 1.121
 // Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
-// C/C++ source code generated on : Sun May 17 22:57:07 2020
+// C/C++ source code generated on : Sat May 23 02:11:17 2020
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -22,7 +22,7 @@
 // Block parameters (default storage)
 P_dynsim_edo_T dynsim_edo_P = {
   // Computed Parameter: Constant_Value
-  //  Referenced by: '<S4>/Constant'
+  //  Referenced by: '<S6>/Constant'
 
   {
     {
@@ -368,7 +368,7 @@ P_dynsim_edo_T dynsim_edo_P = {
   },
 
   // Computed Parameter: Out1_Y0
-  //  Referenced by: '<S12>/Out1'
+  //  Referenced by: '<S14>/Out1'
 
   {
     {
@@ -691,7 +691,7 @@ P_dynsim_edo_T dynsim_edo_P = {
   },
 
   // Computed Parameter: Constant_Value_h
-  //  Referenced by: '<S10>/Constant'
+  //  Referenced by: '<S12>/Constant'
 
   {
     {
@@ -1014,7 +1014,7 @@ P_dynsim_edo_T dynsim_edo_P = {
   },
 
   // Computed Parameter: Constant_Value_o
-  //  Referenced by: '<S5>/Constant'
+  //  Referenced by: '<S7>/Constant'
 
   {
     {
@@ -1024,16 +1024,11 @@ P_dynsim_edo_T dynsim_edo_P = {
   },
 
   // Expression: zeros(6,6)
-  //  Referenced by: '<S11>/Constant'
+  //  Referenced by: '<S13>/Constant'
 
   { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
-
-  // Expression: [L1,L2]
-  //  Referenced by: '<Root>/Constant'
-
-  { 0.337, 0.21 }
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0 }
 };
 
 //

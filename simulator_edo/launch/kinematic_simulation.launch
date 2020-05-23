@@ -1,7 +1,7 @@
 <launch>
   <!-- Load parameters into the parameter server -->
   <param name="use_sim_time" value="true"/>
-  <param name="robot_description" textfile="$(find simulator_edo)/urdf/edo_sim.urdf"/>
+  <param name="robot_description" textfile="$(find simulator_edo)/urdf/edo_sim_nuove_inerzie.urdf"/>
     
   <!-- Run the robot state publisher node -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" />

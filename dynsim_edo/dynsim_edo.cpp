@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'dynsim_edo'.
 //
-// Model version                  : 1.118
+// Model version                  : 1.121
 // Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
-// C/C++ source code generated on : Sun May 17 22:57:07 2020
+// C/C++ source code generated on : Sat May 23 02:11:17 2020
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -33,46 +33,62 @@ RT_MODEL_dynsim_edo_T dynsim_edo_M_ = RT_MODEL_dynsim_edo_T();
 RT_MODEL_dynsim_edo_T *const dynsim_edo_M = &dynsim_edo_M_;
 
 // Forward declaration for local functions
+static void dynsim_edo_emxInit_real_T(emxArray_real_T_dynsim_edo_T **pEmxArray,
+  int32_T numDimensions);
+static void dynsim_edo_emxInit_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
+  **pEmxArray, int32_T numDimensions);
+static void dynsim_edo_emxInit_char_T(emxArray_char_T_dynsim_edo_T **pEmxArray,
+  int32_T numDimensions);
+static void d_emxEnsureCapacity_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
+  *emxArray, int32_T oldNumel);
+static void dynsim_emxEnsureCapacity_char_T(emxArray_char_T_dynsim_edo_T
+  *emxArray, int32_T oldNumel);
+static void dy_rigidBodyJoint_get_JointAxis(const c_rigidBodyJoint_dynsim_edo_T *
+  obj, real_T ax[3]);
+static void dynsim_edo_emxFree_char_T(emxArray_char_T_dynsim_edo_T **pEmxArray);
+static void RigidBodyTree_forwardKinematics(n_robotics_manip_internal_Rig_T *obj,
+  const real_T qvec[3], emxArray_f_cell_wrap_dynsim_e_T *Ttree);
+static void dynsim_emxEnsureCapacity_real_T(emxArray_real_T_dynsim_edo_T
+  *emxArray, int32_T oldNumel);
+static void dynsim_edo_emxFree_real_T(emxArray_real_T_dynsim_edo_T **pEmxArray);
+static void dynsim_edo_emxFree_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
+  **pEmxArray);
+static void RigidBodyTree_geometricJacobian(n_robotics_manip_internal_Rig_T *obj,
+  const real_T Q[3], emxArray_real_T_dynsim_edo_T *Jac);
+static void rigidBodyJoint_get_JointAxis_h(const c_rigidBodyJoint_dynsim_edo_h_T
+  *obj, real_T ax[3]);
+static void RigidBodyTree_forwardKinemati_h(n_robotics_manip_internal_R_h_T *obj,
+  const real_T qvec[3], emxArray_f_cell_wrap_dynsim_e_T *Ttree);
 static void dynsim_edo_SystemCore_step(boolean_T *varargout_1, real_T
   varargout_2_Data[128], uint32_T *varargout_2_Data_SL_Info_Curren, uint32_T
   *varargout_2_Data_SL_Info_Receiv, uint32_T *varargout_2_Layout_DataOffset,
   SL_Bus_dynsim_edo_std_msgs_MultiArrayDimension varargout_2_Layout_Dim[16],
   uint32_T *varargout_2_Layout_Dim_SL_Info_, uint32_T
   *varargout_2_Layout_Dim_SL_Inf_0);
-static void dynsim_edo_emxInit_real_T(emxArray_real_T_dynsim_edo_T **pEmxArray,
-  int32_T numDimensions);
-static void dynsim_emxEnsureCapacity_real_T(emxArray_real_T_dynsim_edo_T
-  *emxArray, int32_T oldNumel);
-static void dynsim_edo_emxInit_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
+static void dynsim_edo_emxInit_f_cell_wrap1(emxArray_f_cell_wrap_dynsim_h_T
   **pEmxArray, int32_T numDimensions);
-static void d_emxEnsureCapacity_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
+static void emxEnsureCapacity_f_cell_wrap1(emxArray_f_cell_wrap_dynsim_h_T
   *emxArray, int32_T oldNumel);
-static void dy_rigidBodyJoint_get_JointAxis(const c_rigidBodyJoint_dynsim_edo_T *
-  obj, real_T ax[3]);
+static void rigidBodyJoint_get_JointAxis_ha(const
+  c_rigidBodyJoint_dynsim_ed_ha_T *obj, real_T ax[3]);
 static void dynsim_edo_cat(real_T varargin_1, real_T varargin_2, real_T
   varargin_3, real_T varargin_4, real_T varargin_5, real_T varargin_6, real_T
   varargin_7, real_T varargin_8, real_T varargin_9, real_T y[9]);
-static void rigidBodyJoint_transformBodyT_h(const c_rigidBodyJoint_dynsim_edo_T *
-  obj, const real_T q_data[], const int32_T *q_size, real_T T[16]);
-static void rigidBodyJoint_transformBodyToP(const c_rigidBodyJoint_dynsim_edo_T *
-  obj, real_T T[16]);
+static void rigidBodyJoint_transformBodyT_h(const
+  c_rigidBodyJoint_dynsim_ed_ha_T *obj, const real_T q_data[], const int32_T
+  *q_size, real_T T[16]);
+static void rigidBodyJoint_transformBodyToP(const
+  c_rigidBodyJoint_dynsim_ed_ha_T *obj, real_T T[16]);
 static void dynsim_edo_tforminv(const real_T T[16], real_T Tinv[16]);
 static void dynsim_edo_tformToSpatialXform(const real_T T[16], real_T X[36]);
-static void dynsim_edo_emxInit_char_T(emxArray_char_T_dynsim_edo_T **pEmxArray,
-  int32_T numDimensions);
-static void dynsim_emxEnsureCapacity_char_T(emxArray_char_T_dynsim_edo_T
-  *emxArray, int32_T oldNumel);
-static void dynsim_edo_emxFree_char_T(emxArray_char_T_dynsim_edo_T **pEmxArray);
-static void dynsim_edo_emxFree_real_T(emxArray_real_T_dynsim_edo_T **pEmxArray);
-static void dynsim_edo_emxFree_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
+static void dynsim_edo_emxFree_f_cell_wrap1(emxArray_f_cell_wrap_dynsim_h_T
   **pEmxArray);
-static void RigidBodyTreeDynamics_massMatri(n_robotics_manip_internal_Rig_T
-  *robot, const real_T q[6], emxArray_real_T_dynsim_edo_T *H,
+static void RigidBodyTreeDynamics_massMatri(n_robotics_manip_internal__ha_T
+  *robot, const real_T q[3], emxArray_real_T_dynsim_edo_T *H,
   emxArray_real_T_dynsim_edo_T *lambda);
-static void RigidBodyTreeDynamics_inverseDy(n_robotics_manip_internal_Rig_T
-  *robot, const real_T q[6], const real_T qdot[6], const real_T fext[36], real_T
-  tau[6]);
-static void matlabCodegenHandle_matlabC_hau(ros_slros_internal_block_Subs_T *obj);
+static void RigidBodyTreeDynamics_inverseDy(n_robotics_manip_internal__ha_T
+  *robot, const real_T q[3], const real_T qdot[3], const real_T fext[36], real_T
+  tau[3]);
 static void matlabCodegenHandle_matlab_hau4(ros_slros_internal_block_GetP_T *obj);
 static void emxFreeStruct_c_rigidBodyJoint(c_rigidBodyJoint_dynsim_edo_T
   *pStruct);
@@ -83,6 +99,27 @@ static void emxFreeStruct_n_robotics_manip_(n_robotics_manip_internal_Rig_T
 static void emxFreeStruct_robotics_slmanip_(robotics_slmanip_internal_blo_T
   *pStruct);
 static void emxFreeStruct_l_robotics_manip_(l_robotics_manip_internal_Rig_T
+  *pStruct);
+static void emxFreeStruct_c_rigidBodyJoint1(c_rigidBodyJoint_dynsim_edo_h_T
+  *pStruct);
+static void emxFreeStruct_m_robotics_mani_h(m_robotics_manip_internal_R_h_T
+  *pStruct);
+static void emxFreeStruct_n_robotics_mani_h(n_robotics_manip_internal_R_h_T
+  *pStruct);
+static void emxFreeStruct_robotics_slmani_h(robotics_slmanip_internal_b_h_T
+  *pStruct);
+static void emxFreeStruct_l_robotics_mani_h(l_robotics_manip_internal_R_h_T
+  *pStruct);
+static void matlabCodegenHandle_matlabC_hau(ros_slros_internal_block_Subs_T *obj);
+static void emxFreeStruct_c_rigidBodyJoint2(c_rigidBodyJoint_dynsim_ed_ha_T
+  *pStruct);
+static void emxFreeStruct_m_robotics_man_ha(m_robotics_manip_internal__ha_T
+  *pStruct);
+static void emxFreeStruct_n_robotics_man_ha(n_robotics_manip_internal__ha_T
+  *pStruct);
+static void emxFreeStruct_robotics_slman_ha(robotics_slmanip_internal__ha_T
+  *pStruct);
+static void emxFreeStruct_l_robotics_man_ha(l_robotics_manip_internal__ha_T
   *pStruct);
 static void matlabCodegenHandle_matlabCodeg(ros_slros_internal_block_Publ_T *obj);
 static void emxInitStruct_c_rigidBodyJoint(c_rigidBodyJoint_dynsim_edo_T
@@ -115,6 +152,58 @@ static n_robotics_manip_internal_Rig_T *dyn_RigidBodyTree_RigidBodyTree
    *iobj_2, l_robotics_manip_internal_Rig_T *iobj_3,
    l_robotics_manip_internal_Rig_T *iobj_4, l_robotics_manip_internal_Rig_T
    *iobj_5);
+static void emxInitStruct_c_rigidBodyJoint1(c_rigidBodyJoint_dynsim_edo_h_T
+  *pStruct);
+static void emxInitStruct_m_robotics_mani_h(m_robotics_manip_internal_R_h_T
+  *pStruct);
+static void emxInitStruct_n_robotics_mani_h(n_robotics_manip_internal_R_h_T
+  *pStruct);
+static void emxInitStruct_robotics_slmani_h(robotics_slmanip_internal_b_h_T
+  *pStruct);
+static void emxInitStruct_l_robotics_mani_h(l_robotics_manip_internal_R_h_T
+  *pStruct);
+static l_robotics_manip_internal_R_h_T *dyn_RigidBody_RigidBody_hau4ihh
+  (l_robotics_manip_internal_R_h_T *obj);
+static l_robotics_manip_internal_R_h_T *dy_RigidBody_RigidBody_hau4ihh0
+  (l_robotics_manip_internal_R_h_T *obj);
+static l_robotics_manip_internal_R_h_T *d_RigidBody_RigidBody_hau4ihh0a
+  (l_robotics_manip_internal_R_h_T *obj);
+static n_robotics_manip_internal_R_h_T *d_RigidBodyTree_RigidBodyTree_h
+  (n_robotics_manip_internal_R_h_T *obj, l_robotics_manip_internal_R_h_T *iobj_0,
+   l_robotics_manip_internal_R_h_T *iobj_1, l_robotics_manip_internal_R_h_T
+   *iobj_2, l_robotics_manip_internal_R_h_T *iobj_3,
+   l_robotics_manip_internal_R_h_T *iobj_4, l_robotics_manip_internal_R_h_T
+   *iobj_5);
+static void emxInitStruct_c_rigidBodyJoint2(c_rigidBodyJoint_dynsim_ed_ha_T
+  *pStruct);
+static void emxInitStruct_m_robotics_man_ha(m_robotics_manip_internal__ha_T
+  *pStruct);
+static void emxInitStruct_n_robotics_man_ha(n_robotics_manip_internal__ha_T
+  *pStruct);
+static void emxInitStruct_robotics_slman_ha(robotics_slmanip_internal__ha_T
+  *pStruct);
+static void emxInitStruct_l_robotics_man_ha(l_robotics_manip_internal__ha_T
+  *pStruct);
+static l_robotics_manip_internal__ha_T *RigidBody_RigidBody_hau4ihh0a3
+  (l_robotics_manip_internal__ha_T *obj);
+static l_robotics_manip_internal__ha_T *RigidBody_RigidBody_hau4ihh0a3c
+  (l_robotics_manip_internal__ha_T *obj);
+static l_robotics_manip_internal__ha_T *RigidBody_RigidBod_hau4ihh0a3ct
+  (l_robotics_manip_internal__ha_T *obj);
+static l_robotics_manip_internal__ha_T *RigidBody_RigidBo_hau4ihh0a3ctk
+  (l_robotics_manip_internal__ha_T *obj);
+static l_robotics_manip_internal__ha_T *RigidBody_RigidB_hau4ihh0a3ctk5
+  (l_robotics_manip_internal__ha_T *obj);
+static l_robotics_manip_internal__ha_T *RigidBody_Rigid_hau4ihh0a3ctk52
+  (l_robotics_manip_internal__ha_T *obj);
+static m_robotics_manip_internal__ha_T *d_RigidBody_Rigid_c
+  (m_robotics_manip_internal__ha_T *obj);
+static n_robotics_manip_internal__ha_T *RigidBodyTree_RigidBodyTree_ha
+  (n_robotics_manip_internal__ha_T *obj, l_robotics_manip_internal__ha_T *iobj_0,
+   l_robotics_manip_internal__ha_T *iobj_1, l_robotics_manip_internal__ha_T
+   *iobj_2, l_robotics_manip_internal__ha_T *iobj_3,
+   l_robotics_manip_internal__ha_T *iobj_4, l_robotics_manip_internal__ha_T
+   *iobj_5);
 
 //
 // This function updates continuous states using the ODE3 fixed-step
@@ -146,7 +235,7 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
   real_T *f2 = id->f[2];
   real_T hB[3];
   int_T i;
-  int_T nXc = 12;
+  int_T nXc = 6;
   rtsiSetSimTimeStep(si,MINOR_TIME_STEP);
 
   // Save the state values at time t in y, we'll use x as ynew.
@@ -197,6 +286,1557 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
   rtsiSetSimTimeStep(si,MAJOR_TIME_STEP);
 }
 
+static void dynsim_edo_emxInit_real_T(emxArray_real_T_dynsim_edo_T **pEmxArray,
+  int32_T numDimensions)
+{
+  emxArray_real_T_dynsim_edo_T *emxArray;
+  *pEmxArray = (emxArray_real_T_dynsim_edo_T *)malloc(sizeof
+    (emxArray_real_T_dynsim_edo_T));
+  emxArray = *pEmxArray;
+  emxArray->data = (real_T *)NULL;
+  emxArray->numDimensions = numDimensions;
+  emxArray->size = (int32_T *)malloc(sizeof(int32_T) * numDimensions);
+  emxArray->allocatedSize = 0;
+  emxArray->canFreeData = true;
+  for (dynsim_edo_B.i_j = 0; dynsim_edo_B.i_j < numDimensions; dynsim_edo_B.i_j
+       ++) {
+    emxArray->size[dynsim_edo_B.i_j] = 0;
+  }
+}
+
+static void dynsim_edo_emxInit_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
+  **pEmxArray, int32_T numDimensions)
+{
+  emxArray_f_cell_wrap_dynsim_e_T *emxArray;
+  int32_T i;
+  *pEmxArray = (emxArray_f_cell_wrap_dynsim_e_T *)malloc(sizeof
+    (emxArray_f_cell_wrap_dynsim_e_T));
+  emxArray = *pEmxArray;
+  emxArray->data = (f_cell_wrap_dynsim_edo_T *)NULL;
+  emxArray->numDimensions = numDimensions;
+  emxArray->size = (int32_T *)malloc(sizeof(int32_T) * numDimensions);
+  emxArray->allocatedSize = 0;
+  emxArray->canFreeData = true;
+  for (i = 0; i < numDimensions; i++) {
+    emxArray->size[i] = 0;
+  }
+}
+
+static void dynsim_edo_emxInit_char_T(emxArray_char_T_dynsim_edo_T **pEmxArray,
+  int32_T numDimensions)
+{
+  emxArray_char_T_dynsim_edo_T *emxArray;
+  *pEmxArray = (emxArray_char_T_dynsim_edo_T *)malloc(sizeof
+    (emxArray_char_T_dynsim_edo_T));
+  emxArray = *pEmxArray;
+  emxArray->data = (char_T *)NULL;
+  emxArray->numDimensions = numDimensions;
+  emxArray->size = (int32_T *)malloc(sizeof(int32_T) * numDimensions);
+  emxArray->allocatedSize = 0;
+  emxArray->canFreeData = true;
+  for (dynsim_edo_B.i_m = 0; dynsim_edo_B.i_m < numDimensions; dynsim_edo_B.i_m
+       ++) {
+    emxArray->size[dynsim_edo_B.i_m] = 0;
+  }
+}
+
+static void d_emxEnsureCapacity_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
+  *emxArray, int32_T oldNumel)
+{
+  int32_T newNumel;
+  int32_T i;
+  void *newData;
+  if (oldNumel < 0) {
+    oldNumel = 0;
+  }
+
+  newNumel = 1;
+  for (i = 0; i < emxArray->numDimensions; i++) {
+    newNumel *= emxArray->size[i];
+  }
+
+  if (newNumel > emxArray->allocatedSize) {
+    i = emxArray->allocatedSize;
+    if (i < 16) {
+      i = 16;
+    }
+
+    while (i < newNumel) {
+      if (i > 1073741823) {
+        i = MAX_int32_T;
+      } else {
+        i <<= 1;
+      }
+    }
+
+    newData = calloc(static_cast<uint32_T>(i), sizeof(f_cell_wrap_dynsim_edo_T));
+    if (emxArray->data != NULL) {
+      memcpy(newData, emxArray->data, sizeof(f_cell_wrap_dynsim_edo_T)
+             * oldNumel);
+      if (emxArray->canFreeData) {
+        free(emxArray->data);
+      }
+    }
+
+    emxArray->data = (f_cell_wrap_dynsim_edo_T *)newData;
+    emxArray->allocatedSize = i;
+    emxArray->canFreeData = true;
+  }
+}
+
+static void dynsim_emxEnsureCapacity_char_T(emxArray_char_T_dynsim_edo_T
+  *emxArray, int32_T oldNumel)
+{
+  void *newData;
+  if (oldNumel < 0) {
+    oldNumel = 0;
+  }
+
+  dynsim_edo_B.newNumel_b = 1;
+  for (dynsim_edo_B.i_c = 0; dynsim_edo_B.i_c < emxArray->numDimensions;
+       dynsim_edo_B.i_c++) {
+    dynsim_edo_B.newNumel_b *= emxArray->size[dynsim_edo_B.i_c];
+  }
+
+  if (dynsim_edo_B.newNumel_b > emxArray->allocatedSize) {
+    dynsim_edo_B.i_c = emxArray->allocatedSize;
+    if (dynsim_edo_B.i_c < 16) {
+      dynsim_edo_B.i_c = 16;
+    }
+
+    while (dynsim_edo_B.i_c < dynsim_edo_B.newNumel_b) {
+      if (dynsim_edo_B.i_c > 1073741823) {
+        dynsim_edo_B.i_c = MAX_int32_T;
+      } else {
+        dynsim_edo_B.i_c <<= 1;
+      }
+    }
+
+    newData = calloc(static_cast<uint32_T>(dynsim_edo_B.i_c), sizeof(char_T));
+    if (emxArray->data != NULL) {
+      memcpy(newData, emxArray->data, sizeof(char_T) * oldNumel);
+      if (emxArray->canFreeData) {
+        free(emxArray->data);
+      }
+    }
+
+    emxArray->data = (char_T *)newData;
+    emxArray->allocatedSize = dynsim_edo_B.i_c;
+    emxArray->canFreeData = true;
+  }
+}
+
+static void dy_rigidBodyJoint_get_JointAxis(const c_rigidBodyJoint_dynsim_edo_T *
+  obj, real_T ax[3])
+{
+  static const char_T tmp[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_0[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  boolean_T guard1 = false;
+  int32_T exitg1;
+  for (dynsim_edo_B.b_kstr_e = 0; dynsim_edo_B.b_kstr_e < 8;
+       dynsim_edo_B.b_kstr_e++) {
+    dynsim_edo_B.b_j[dynsim_edo_B.b_kstr_e] = tmp[dynsim_edo_B.b_kstr_e];
+  }
+
+  dynsim_edo_B.b_bool_n = false;
+  if (obj->Type->size[1] == 8) {
+    dynsim_edo_B.b_kstr_e = 1;
+    do {
+      exitg1 = 0;
+      if (dynsim_edo_B.b_kstr_e - 1 < 8) {
+        dynsim_edo_B.kstr_g = dynsim_edo_B.b_kstr_e - 1;
+        if (obj->Type->data[dynsim_edo_B.kstr_g] !=
+            dynsim_edo_B.b_j[dynsim_edo_B.kstr_g]) {
+          exitg1 = 1;
+        } else {
+          dynsim_edo_B.b_kstr_e++;
+        }
+      } else {
+        dynsim_edo_B.b_bool_n = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  guard1 = false;
+  if (dynsim_edo_B.b_bool_n) {
+    guard1 = true;
+  } else {
+    for (dynsim_edo_B.b_kstr_e = 0; dynsim_edo_B.b_kstr_e < 9;
+         dynsim_edo_B.b_kstr_e++) {
+      dynsim_edo_B.b_n[dynsim_edo_B.b_kstr_e] = tmp_0[dynsim_edo_B.b_kstr_e];
+    }
+
+    dynsim_edo_B.b_bool_n = false;
+    if (obj->Type->size[1] == 9) {
+      dynsim_edo_B.b_kstr_e = 1;
+      do {
+        exitg1 = 0;
+        if (dynsim_edo_B.b_kstr_e - 1 < 9) {
+          dynsim_edo_B.kstr_g = dynsim_edo_B.b_kstr_e - 1;
+          if (obj->Type->data[dynsim_edo_B.kstr_g] !=
+              dynsim_edo_B.b_n[dynsim_edo_B.kstr_g]) {
+            exitg1 = 1;
+          } else {
+            dynsim_edo_B.b_kstr_e++;
+          }
+        } else {
+          dynsim_edo_B.b_bool_n = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (dynsim_edo_B.b_bool_n) {
+      guard1 = true;
+    } else {
+      ax[0] = (rtNaN);
+      ax[1] = (rtNaN);
+      ax[2] = (rtNaN);
+    }
+  }
+
+  if (guard1) {
+    ax[0] = obj->JointAxisInternal[0];
+    ax[1] = obj->JointAxisInternal[1];
+    ax[2] = obj->JointAxisInternal[2];
+  }
+}
+
+static void dynsim_edo_emxFree_char_T(emxArray_char_T_dynsim_edo_T **pEmxArray)
+{
+  if (*pEmxArray != (emxArray_char_T_dynsim_edo_T *)NULL) {
+    if (((*pEmxArray)->data != (char_T *)NULL) && (*pEmxArray)->canFreeData) {
+      free((*pEmxArray)->data);
+    }
+
+    free((*pEmxArray)->size);
+    free(*pEmxArray);
+    *pEmxArray = (emxArray_char_T_dynsim_edo_T *)NULL;
+  }
+}
+
+static void RigidBodyTree_forwardKinematics(n_robotics_manip_internal_Rig_T *obj,
+  const real_T qvec[3], emxArray_f_cell_wrap_dynsim_e_T *Ttree)
+{
+  l_robotics_manip_internal_Rig_T *body;
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  static const int8_T tmp[16] = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+  };
+
+  static const char_T tmp_0[5] = { 'f', 'i', 'x', 'e', 'd' };
+
+  static const char_T tmp_1[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  int32_T exitg1;
+  dynsim_edo_B.n = obj->NumBodies;
+  for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 16; dynsim_edo_B.b_kstr++)
+  {
+    dynsim_edo_B.c_f1[dynsim_edo_B.b_kstr] = tmp[dynsim_edo_B.b_kstr];
+  }
+
+  dynsim_edo_B.b_kstr = Ttree->size[0] * Ttree->size[1];
+  Ttree->size[0] = 1;
+  dynsim_edo_B.e = static_cast<int32_T>(dynsim_edo_B.n);
+  Ttree->size[1] = dynsim_edo_B.e;
+  d_emxEnsureCapacity_f_cell_wrap(Ttree, dynsim_edo_B.b_kstr);
+  if (dynsim_edo_B.e != 0) {
+    dynsim_edo_B.ntilecols = dynsim_edo_B.e - 1;
+    if (0 <= dynsim_edo_B.ntilecols) {
+      memcpy(&dynsim_edo_B.expl_temp.f1[0], &dynsim_edo_B.c_f1[0], sizeof(real_T)
+             << 4U);
+    }
+
+    for (dynsim_edo_B.b_jtilecol = 0; dynsim_edo_B.b_jtilecol <=
+         dynsim_edo_B.ntilecols; dynsim_edo_B.b_jtilecol++) {
+      Ttree->data[dynsim_edo_B.b_jtilecol] = dynsim_edo_B.expl_temp;
+    }
+  }
+
+  dynsim_edo_B.k_a = 1.0;
+  dynsim_edo_B.ntilecols = static_cast<int32_T>(dynsim_edo_B.n) - 1;
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  if (0 <= dynsim_edo_B.ntilecols) {
+    for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 5; dynsim_edo_B.b_kstr++)
+    {
+      dynsim_edo_B.b_mc[dynsim_edo_B.b_kstr] = tmp_0[dynsim_edo_B.b_kstr];
+    }
+  }
+
+  for (dynsim_edo_B.b_jtilecol = 0; dynsim_edo_B.b_jtilecol <=
+       dynsim_edo_B.ntilecols; dynsim_edo_B.b_jtilecol++) {
+    body = obj->Bodies[dynsim_edo_B.b_jtilecol];
+    dynsim_edo_B.n = body->JointInternal.PositionNumber;
+    dynsim_edo_B.n += dynsim_edo_B.k_a;
+    if (dynsim_edo_B.k_a > dynsim_edo_B.n - 1.0) {
+      dynsim_edo_B.e = 0;
+      dynsim_edo_B.d_b = 0;
+    } else {
+      dynsim_edo_B.e = static_cast<int32_T>(dynsim_edo_B.k_a) - 1;
+      dynsim_edo_B.d_b = static_cast<int32_T>(dynsim_edo_B.n - 1.0);
+    }
+
+    dynsim_edo_B.b_kstr = switch_expression->size[0] * switch_expression->size[1];
+    switch_expression->size[0] = 1;
+    switch_expression->size[1] = body->JointInternal.Type->size[1];
+    dynsim_emxEnsureCapacity_char_T(switch_expression, dynsim_edo_B.b_kstr);
+    dynsim_edo_B.loop_ub_a = body->JointInternal.Type->size[0] *
+      body->JointInternal.Type->size[1] - 1;
+    for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr <= dynsim_edo_B.loop_ub_a;
+         dynsim_edo_B.b_kstr++) {
+      switch_expression->data[dynsim_edo_B.b_kstr] = body->
+        JointInternal.Type->data[dynsim_edo_B.b_kstr];
+    }
+
+    dynsim_edo_B.b_bool_g = false;
+    if (switch_expression->size[1] == 5) {
+      dynsim_edo_B.b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (dynsim_edo_B.b_kstr - 1 < 5) {
+          dynsim_edo_B.loop_ub_a = dynsim_edo_B.b_kstr - 1;
+          if (switch_expression->data[dynsim_edo_B.loop_ub_a] !=
+              dynsim_edo_B.b_mc[dynsim_edo_B.loop_ub_a]) {
+            exitg1 = 1;
+          } else {
+            dynsim_edo_B.b_kstr++;
+          }
+        } else {
+          dynsim_edo_B.b_bool_g = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (dynsim_edo_B.b_bool_g) {
+      dynsim_edo_B.b_kstr = 0;
+    } else {
+      for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 8; dynsim_edo_B.b_kstr
+           ++) {
+        dynsim_edo_B.b_m3[dynsim_edo_B.b_kstr] = tmp_1[dynsim_edo_B.b_kstr];
+      }
+
+      dynsim_edo_B.b_bool_g = false;
+      if (switch_expression->size[1] == 8) {
+        dynsim_edo_B.b_kstr = 1;
+        do {
+          exitg1 = 0;
+          if (dynsim_edo_B.b_kstr - 1 < 8) {
+            dynsim_edo_B.loop_ub_a = dynsim_edo_B.b_kstr - 1;
+            if (switch_expression->data[dynsim_edo_B.loop_ub_a] !=
+                dynsim_edo_B.b_m3[dynsim_edo_B.loop_ub_a]) {
+              exitg1 = 1;
+            } else {
+              dynsim_edo_B.b_kstr++;
+            }
+          } else {
+            dynsim_edo_B.b_bool_g = true;
+            exitg1 = 1;
+          }
+        } while (exitg1 == 0);
+      }
+
+      if (dynsim_edo_B.b_bool_g) {
+        dynsim_edo_B.b_kstr = 1;
+      } else {
+        dynsim_edo_B.b_kstr = -1;
+      }
+    }
+
+    switch (dynsim_edo_B.b_kstr) {
+     case 0:
+      memset(&dynsim_edo_B.c_f1[0], 0, sizeof(real_T) << 4U);
+      dynsim_edo_B.c_f1[0] = 1.0;
+      dynsim_edo_B.c_f1[5] = 1.0;
+      dynsim_edo_B.c_f1[10] = 1.0;
+      dynsim_edo_B.c_f1[15] = 1.0;
+      break;
+
+     case 1:
+      dy_rigidBodyJoint_get_JointAxis(&body->JointInternal, dynsim_edo_B.v);
+      dynsim_edo_B.d_b -= dynsim_edo_B.e;
+      for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < dynsim_edo_B.d_b;
+           dynsim_edo_B.b_kstr++) {
+        dynsim_edo_B.e_data[dynsim_edo_B.b_kstr] = dynsim_edo_B.e +
+          dynsim_edo_B.b_kstr;
+      }
+
+      dynsim_edo_B.result_data[0] = dynsim_edo_B.v[0];
+      dynsim_edo_B.result_data[1] = dynsim_edo_B.v[1];
+      dynsim_edo_B.result_data[2] = dynsim_edo_B.v[2];
+      if (0 <= (dynsim_edo_B.d_b != 0) - 1) {
+        dynsim_edo_B.result_data[3] = qvec[dynsim_edo_B.e_data[0]];
+      }
+
+      dynsim_edo_B.k_a = 1.0 / sqrt((dynsim_edo_B.result_data[0] *
+        dynsim_edo_B.result_data[0] + dynsim_edo_B.result_data[1] *
+        dynsim_edo_B.result_data[1]) + dynsim_edo_B.result_data[2] *
+        dynsim_edo_B.result_data[2]);
+      dynsim_edo_B.v[0] = dynsim_edo_B.result_data[0] * dynsim_edo_B.k_a;
+      dynsim_edo_B.v[1] = dynsim_edo_B.result_data[1] * dynsim_edo_B.k_a;
+      dynsim_edo_B.v[2] = dynsim_edo_B.result_data[2] * dynsim_edo_B.k_a;
+      dynsim_edo_B.k_a = cos(dynsim_edo_B.result_data[3]);
+      dynsim_edo_B.sth = sin(dynsim_edo_B.result_data[3]);
+      dynsim_edo_B.tempR[0] = dynsim_edo_B.v[0] * dynsim_edo_B.v[0] * (1.0 -
+        dynsim_edo_B.k_a) + dynsim_edo_B.k_a;
+      dynsim_edo_B.tempR_tmp = dynsim_edo_B.v[1] * dynsim_edo_B.v[0] * (1.0 -
+        dynsim_edo_B.k_a);
+      dynsim_edo_B.tempR_tmp_e = dynsim_edo_B.v[2] * dynsim_edo_B.sth;
+      dynsim_edo_B.tempR[1] = dynsim_edo_B.tempR_tmp - dynsim_edo_B.tempR_tmp_e;
+      dynsim_edo_B.tempR_tmp_a = dynsim_edo_B.v[2] * dynsim_edo_B.v[0] * (1.0 -
+        dynsim_edo_B.k_a);
+      dynsim_edo_B.tempR_tmp_as = dynsim_edo_B.v[1] * dynsim_edo_B.sth;
+      dynsim_edo_B.tempR[2] = dynsim_edo_B.tempR_tmp_a +
+        dynsim_edo_B.tempR_tmp_as;
+      dynsim_edo_B.tempR[3] = dynsim_edo_B.tempR_tmp + dynsim_edo_B.tempR_tmp_e;
+      dynsim_edo_B.tempR[4] = dynsim_edo_B.v[1] * dynsim_edo_B.v[1] * (1.0 -
+        dynsim_edo_B.k_a) + dynsim_edo_B.k_a;
+      dynsim_edo_B.tempR_tmp = dynsim_edo_B.v[2] * dynsim_edo_B.v[1] * (1.0 -
+        dynsim_edo_B.k_a);
+      dynsim_edo_B.tempR_tmp_e = dynsim_edo_B.v[0] * dynsim_edo_B.sth;
+      dynsim_edo_B.tempR[5] = dynsim_edo_B.tempR_tmp - dynsim_edo_B.tempR_tmp_e;
+      dynsim_edo_B.tempR[6] = dynsim_edo_B.tempR_tmp_a -
+        dynsim_edo_B.tempR_tmp_as;
+      dynsim_edo_B.tempR[7] = dynsim_edo_B.tempR_tmp + dynsim_edo_B.tempR_tmp_e;
+      dynsim_edo_B.tempR[8] = dynsim_edo_B.v[2] * dynsim_edo_B.v[2] * (1.0 -
+        dynsim_edo_B.k_a) + dynsim_edo_B.k_a;
+      for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 3; dynsim_edo_B.b_kstr
+           ++) {
+        dynsim_edo_B.e = dynsim_edo_B.b_kstr + 1;
+        dynsim_edo_B.R_dh[dynsim_edo_B.e - 1] = dynsim_edo_B.tempR
+          [(dynsim_edo_B.e - 1) * 3];
+        dynsim_edo_B.e = dynsim_edo_B.b_kstr + 1;
+        dynsim_edo_B.R_dh[dynsim_edo_B.e + 2] = dynsim_edo_B.tempR
+          [(dynsim_edo_B.e - 1) * 3 + 1];
+        dynsim_edo_B.e = dynsim_edo_B.b_kstr + 1;
+        dynsim_edo_B.R_dh[dynsim_edo_B.e + 5] = dynsim_edo_B.tempR
+          [(dynsim_edo_B.e - 1) * 3 + 2];
+      }
+
+      memset(&dynsim_edo_B.c_f1[0], 0, sizeof(real_T) << 4U);
+      for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 3; dynsim_edo_B.b_kstr
+           ++) {
+        dynsim_edo_B.d_b = dynsim_edo_B.b_kstr << 2;
+        dynsim_edo_B.c_f1[dynsim_edo_B.d_b] = dynsim_edo_B.R_dh[3 *
+          dynsim_edo_B.b_kstr];
+        dynsim_edo_B.c_f1[dynsim_edo_B.d_b + 1] = dynsim_edo_B.R_dh[3 *
+          dynsim_edo_B.b_kstr + 1];
+        dynsim_edo_B.c_f1[dynsim_edo_B.d_b + 2] = dynsim_edo_B.R_dh[3 *
+          dynsim_edo_B.b_kstr + 2];
+      }
+
+      dynsim_edo_B.c_f1[15] = 1.0;
+      break;
+
+     default:
+      dy_rigidBodyJoint_get_JointAxis(&body->JointInternal, dynsim_edo_B.v);
+      memset(&dynsim_edo_B.tempR[0], 0, 9U * sizeof(real_T));
+      dynsim_edo_B.tempR[0] = 1.0;
+      dynsim_edo_B.tempR[4] = 1.0;
+      dynsim_edo_B.tempR[8] = 1.0;
+      for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 3; dynsim_edo_B.b_kstr
+           ++) {
+        dynsim_edo_B.d_b = dynsim_edo_B.b_kstr << 2;
+        dynsim_edo_B.c_f1[dynsim_edo_B.d_b] = dynsim_edo_B.tempR[3 *
+          dynsim_edo_B.b_kstr];
+        dynsim_edo_B.c_f1[dynsim_edo_B.d_b + 1] = dynsim_edo_B.tempR[3 *
+          dynsim_edo_B.b_kstr + 1];
+        dynsim_edo_B.c_f1[dynsim_edo_B.d_b + 2] = dynsim_edo_B.tempR[3 *
+          dynsim_edo_B.b_kstr + 2];
+        dynsim_edo_B.c_f1[dynsim_edo_B.b_kstr + 12] =
+          dynsim_edo_B.v[dynsim_edo_B.b_kstr] * qvec[dynsim_edo_B.e];
+      }
+
+      dynsim_edo_B.c_f1[3] = 0.0;
+      dynsim_edo_B.c_f1[7] = 0.0;
+      dynsim_edo_B.c_f1[11] = 0.0;
+      dynsim_edo_B.c_f1[15] = 1.0;
+      break;
+    }
+
+    for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 16; dynsim_edo_B.b_kstr
+         ++) {
+      dynsim_edo_B.a[dynsim_edo_B.b_kstr] =
+        body->JointInternal.JointToParentTransform[dynsim_edo_B.b_kstr];
+    }
+
+    for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 16; dynsim_edo_B.b_kstr
+         ++) {
+      dynsim_edo_B.b[dynsim_edo_B.b_kstr] =
+        body->JointInternal.ChildToJointTransform[dynsim_edo_B.b_kstr];
+    }
+
+    for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 4; dynsim_edo_B.b_kstr++)
+    {
+      for (dynsim_edo_B.e = 0; dynsim_edo_B.e < 4; dynsim_edo_B.e++) {
+        dynsim_edo_B.d_b = dynsim_edo_B.e << 2;
+        dynsim_edo_B.loop_ub_a = dynsim_edo_B.b_kstr + dynsim_edo_B.d_b;
+        dynsim_edo_B.a_p[dynsim_edo_B.loop_ub_a] = 0.0;
+        dynsim_edo_B.a_p[dynsim_edo_B.loop_ub_a] +=
+          dynsim_edo_B.c_f1[dynsim_edo_B.d_b] *
+          dynsim_edo_B.a[dynsim_edo_B.b_kstr];
+        dynsim_edo_B.a_p[dynsim_edo_B.loop_ub_a] +=
+          dynsim_edo_B.c_f1[dynsim_edo_B.d_b + 1] *
+          dynsim_edo_B.a[dynsim_edo_B.b_kstr + 4];
+        dynsim_edo_B.a_p[dynsim_edo_B.loop_ub_a] +=
+          dynsim_edo_B.c_f1[dynsim_edo_B.d_b + 2] *
+          dynsim_edo_B.a[dynsim_edo_B.b_kstr + 8];
+        dynsim_edo_B.a_p[dynsim_edo_B.loop_ub_a] +=
+          dynsim_edo_B.c_f1[dynsim_edo_B.d_b + 3] *
+          dynsim_edo_B.a[dynsim_edo_B.b_kstr + 12];
+      }
+
+      for (dynsim_edo_B.e = 0; dynsim_edo_B.e < 4; dynsim_edo_B.e++) {
+        dynsim_edo_B.d_b = dynsim_edo_B.e << 2;
+        dynsim_edo_B.loop_ub_a = dynsim_edo_B.b_kstr + dynsim_edo_B.d_b;
+        Ttree->data[dynsim_edo_B.b_jtilecol].f1[dynsim_edo_B.loop_ub_a] = 0.0;
+        Ttree->data[dynsim_edo_B.b_jtilecol].f1[dynsim_edo_B.loop_ub_a] +=
+          dynsim_edo_B.b[dynsim_edo_B.d_b] *
+          dynsim_edo_B.a_p[dynsim_edo_B.b_kstr];
+        Ttree->data[dynsim_edo_B.b_jtilecol].f1[dynsim_edo_B.loop_ub_a] +=
+          dynsim_edo_B.b[dynsim_edo_B.d_b + 1] *
+          dynsim_edo_B.a_p[dynsim_edo_B.b_kstr + 4];
+        Ttree->data[dynsim_edo_B.b_jtilecol].f1[dynsim_edo_B.loop_ub_a] +=
+          dynsim_edo_B.b[dynsim_edo_B.d_b + 2] *
+          dynsim_edo_B.a_p[dynsim_edo_B.b_kstr + 8];
+        Ttree->data[dynsim_edo_B.b_jtilecol].f1[dynsim_edo_B.loop_ub_a] +=
+          dynsim_edo_B.b[dynsim_edo_B.d_b + 3] *
+          dynsim_edo_B.a_p[dynsim_edo_B.b_kstr + 12];
+      }
+    }
+
+    dynsim_edo_B.k_a = dynsim_edo_B.n;
+    if (body->ParentIndex > 0.0) {
+      for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 16;
+           dynsim_edo_B.b_kstr++) {
+        dynsim_edo_B.a[dynsim_edo_B.b_kstr] = Ttree->data[static_cast<int32_T>
+          (body->ParentIndex) - 1].f1[dynsim_edo_B.b_kstr];
+      }
+
+      for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 4; dynsim_edo_B.b_kstr
+           ++) {
+        for (dynsim_edo_B.e = 0; dynsim_edo_B.e < 4; dynsim_edo_B.e++) {
+          dynsim_edo_B.d_b = dynsim_edo_B.e << 2;
+          dynsim_edo_B.loop_ub_a = dynsim_edo_B.b_kstr + dynsim_edo_B.d_b;
+          dynsim_edo_B.a_p[dynsim_edo_B.loop_ub_a] = 0.0;
+          dynsim_edo_B.a_p[dynsim_edo_B.loop_ub_a] += Ttree->
+            data[dynsim_edo_B.b_jtilecol].f1[dynsim_edo_B.d_b] *
+            dynsim_edo_B.a[dynsim_edo_B.b_kstr];
+          dynsim_edo_B.a_p[dynsim_edo_B.loop_ub_a] += Ttree->
+            data[dynsim_edo_B.b_jtilecol].f1[dynsim_edo_B.d_b + 1] *
+            dynsim_edo_B.a[dynsim_edo_B.b_kstr + 4];
+          dynsim_edo_B.a_p[dynsim_edo_B.loop_ub_a] += Ttree->
+            data[dynsim_edo_B.b_jtilecol].f1[dynsim_edo_B.d_b + 2] *
+            dynsim_edo_B.a[dynsim_edo_B.b_kstr + 8];
+          dynsim_edo_B.a_p[dynsim_edo_B.loop_ub_a] += Ttree->
+            data[dynsim_edo_B.b_jtilecol].f1[dynsim_edo_B.d_b + 3] *
+            dynsim_edo_B.a[dynsim_edo_B.b_kstr + 12];
+        }
+      }
+
+      for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 16;
+           dynsim_edo_B.b_kstr++) {
+        Ttree->data[dynsim_edo_B.b_jtilecol].f1[dynsim_edo_B.b_kstr] =
+          dynsim_edo_B.a_p[dynsim_edo_B.b_kstr];
+      }
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+}
+
+static void dynsim_emxEnsureCapacity_real_T(emxArray_real_T_dynsim_edo_T
+  *emxArray, int32_T oldNumel)
+{
+  void *newData;
+  if (oldNumel < 0) {
+    oldNumel = 0;
+  }
+
+  dynsim_edo_B.newNumel = 1;
+  for (dynsim_edo_B.i_p = 0; dynsim_edo_B.i_p < emxArray->numDimensions;
+       dynsim_edo_B.i_p++) {
+    dynsim_edo_B.newNumel *= emxArray->size[dynsim_edo_B.i_p];
+  }
+
+  if (dynsim_edo_B.newNumel > emxArray->allocatedSize) {
+    dynsim_edo_B.i_p = emxArray->allocatedSize;
+    if (dynsim_edo_B.i_p < 16) {
+      dynsim_edo_B.i_p = 16;
+    }
+
+    while (dynsim_edo_B.i_p < dynsim_edo_B.newNumel) {
+      if (dynsim_edo_B.i_p > 1073741823) {
+        dynsim_edo_B.i_p = MAX_int32_T;
+      } else {
+        dynsim_edo_B.i_p <<= 1;
+      }
+    }
+
+    newData = calloc(static_cast<uint32_T>(dynsim_edo_B.i_p), sizeof(real_T));
+    if (emxArray->data != NULL) {
+      memcpy(newData, emxArray->data, sizeof(real_T) * oldNumel);
+      if (emxArray->canFreeData) {
+        free(emxArray->data);
+      }
+    }
+
+    emxArray->data = (real_T *)newData;
+    emxArray->allocatedSize = dynsim_edo_B.i_p;
+    emxArray->canFreeData = true;
+  }
+}
+
+static void dynsim_edo_emxFree_real_T(emxArray_real_T_dynsim_edo_T **pEmxArray)
+{
+  if (*pEmxArray != (emxArray_real_T_dynsim_edo_T *)NULL) {
+    if (((*pEmxArray)->data != (real_T *)NULL) && (*pEmxArray)->canFreeData) {
+      free((*pEmxArray)->data);
+    }
+
+    free((*pEmxArray)->size);
+    free(*pEmxArray);
+    *pEmxArray = (emxArray_real_T_dynsim_edo_T *)NULL;
+  }
+}
+
+static void dynsim_edo_emxFree_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
+  **pEmxArray)
+{
+  if (*pEmxArray != (emxArray_f_cell_wrap_dynsim_e_T *)NULL) {
+    if (((*pEmxArray)->data != (f_cell_wrap_dynsim_edo_T *)NULL) && (*pEmxArray
+        )->canFreeData) {
+      free((*pEmxArray)->data);
+    }
+
+    free((*pEmxArray)->size);
+    free(*pEmxArray);
+    *pEmxArray = (emxArray_f_cell_wrap_dynsim_e_T *)NULL;
+  }
+}
+
+static void RigidBodyTree_geometricJacobian(n_robotics_manip_internal_Rig_T *obj,
+  const real_T Q[3], emxArray_real_T_dynsim_edo_T *Jac)
+{
+  emxArray_f_cell_wrap_dynsim_e_T *Ttree;
+  l_robotics_manip_internal_Rig_T *body;
+  emxArray_real_T_dynsim_edo_T *JacSlice;
+  emxArray_char_T_dynsim_edo_T *bname;
+  emxArray_real_T_dynsim_edo_T *b;
+  static const char_T tmp[6] = { 'l', 'i', 'n', 'k', '_', '4' };
+
+  static const char_T tmp_0[5] = { 'f', 'i', 'x', 'e', 'd' };
+
+  int32_T exitg1;
+  boolean_T exitg2;
+  dynsim_edo_emxInit_f_cell_wrap(&Ttree, 2);
+  RigidBodyTree_forwardKinematics(obj, Q, Ttree);
+  dynsim_edo_B.ret_e = Jac->size[0] * Jac->size[1];
+  Jac->size[0] = 6;
+  Jac->size[1] = static_cast<int32_T>(obj->VelocityNumber);
+  dynsim_emxEnsureCapacity_real_T(Jac, dynsim_edo_B.ret_e);
+  dynsim_edo_B.loop_ub_o = 6 * static_cast<int32_T>(obj->VelocityNumber) - 1;
+  for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e <= dynsim_edo_B.loop_ub_o;
+       dynsim_edo_B.ret_e++) {
+    Jac->data[dynsim_edo_B.ret_e] = 0.0;
+  }
+
+  for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 6; dynsim_edo_B.ret_e++) {
+    dynsim_edo_B.chainmask[dynsim_edo_B.ret_e] = 0;
+  }
+
+  dynsim_edo_emxInit_char_T(&bname, 2);
+  dynsim_edo_B.ret_e = bname->size[0] * bname->size[1];
+  bname->size[0] = 1;
+  bname->size[1] = obj->Base.NameInternal->size[1];
+  dynsim_emxEnsureCapacity_char_T(bname, dynsim_edo_B.ret_e);
+  dynsim_edo_B.loop_ub_o = obj->Base.NameInternal->size[0] *
+    obj->Base.NameInternal->size[1] - 1;
+  for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e <= dynsim_edo_B.loop_ub_o;
+       dynsim_edo_B.ret_e++) {
+    bname->data[dynsim_edo_B.ret_e] = obj->Base.NameInternal->
+      data[dynsim_edo_B.ret_e];
+  }
+
+  for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 6; dynsim_edo_B.ret_e++) {
+    dynsim_edo_B.a_l5[dynsim_edo_B.ret_e] = tmp[dynsim_edo_B.ret_e];
+  }
+
+  dynsim_edo_B.b_bool_a = false;
+  if (6 == bname->size[1]) {
+    dynsim_edo_B.ret_e = 1;
+    do {
+      exitg1 = 0;
+      if (dynsim_edo_B.ret_e - 1 < 6) {
+        dynsim_edo_B.kstr = dynsim_edo_B.ret_e - 1;
+        if (dynsim_edo_B.a_l5[dynsim_edo_B.kstr] != bname->
+            data[dynsim_edo_B.kstr]) {
+          exitg1 = 1;
+        } else {
+          dynsim_edo_B.ret_e++;
+        }
+      } else {
+        dynsim_edo_B.b_bool_a = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (dynsim_edo_B.b_bool_a) {
+    memset(&dynsim_edo_B.T2inv[0], 0, sizeof(real_T) << 4U);
+    dynsim_edo_B.T2inv[0] = 1.0;
+    dynsim_edo_B.T2inv[5] = 1.0;
+    dynsim_edo_B.T2inv[10] = 1.0;
+    dynsim_edo_B.T2inv[15] = 1.0;
+    memset(&dynsim_edo_B.T2[0], 0, sizeof(real_T) << 4U);
+    dynsim_edo_B.T2[0] = 1.0;
+    dynsim_edo_B.T2[5] = 1.0;
+    dynsim_edo_B.T2[10] = 1.0;
+    dynsim_edo_B.T2[15] = 1.0;
+  } else {
+    dynsim_edo_B.endeffectorIndex = -1.0;
+    dynsim_edo_B.ret_e = bname->size[0] * bname->size[1];
+    bname->size[0] = 1;
+    bname->size[1] = obj->Base.NameInternal->size[1];
+    dynsim_emxEnsureCapacity_char_T(bname, dynsim_edo_B.ret_e);
+    dynsim_edo_B.loop_ub_o = obj->Base.NameInternal->size[0] *
+      obj->Base.NameInternal->size[1] - 1;
+    for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e <= dynsim_edo_B.loop_ub_o;
+         dynsim_edo_B.ret_e++) {
+      bname->data[dynsim_edo_B.ret_e] = obj->Base.NameInternal->
+        data[dynsim_edo_B.ret_e];
+    }
+
+    for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 6; dynsim_edo_B.ret_e++) {
+      dynsim_edo_B.a_l5[dynsim_edo_B.ret_e] = tmp[dynsim_edo_B.ret_e];
+    }
+
+    dynsim_edo_B.b_bool_a = false;
+    if (bname->size[1] == 6) {
+      dynsim_edo_B.ret_e = 1;
+      do {
+        exitg1 = 0;
+        if (dynsim_edo_B.ret_e - 1 < 6) {
+          dynsim_edo_B.kstr = dynsim_edo_B.ret_e - 1;
+          if (bname->data[dynsim_edo_B.kstr] !=
+              dynsim_edo_B.a_l5[dynsim_edo_B.kstr]) {
+            exitg1 = 1;
+          } else {
+            dynsim_edo_B.ret_e++;
+          }
+        } else {
+          dynsim_edo_B.b_bool_a = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (dynsim_edo_B.b_bool_a) {
+      dynsim_edo_B.endeffectorIndex = 0.0;
+    } else {
+      dynsim_edo_B.idx_idx_1 = obj->NumBodies;
+      dynsim_edo_B.b_i = 0;
+      exitg2 = false;
+      while ((!exitg2) && (dynsim_edo_B.b_i <= static_cast<int32_T>
+                           (dynsim_edo_B.idx_idx_1) - 1)) {
+        body = obj->Bodies[dynsim_edo_B.b_i];
+        for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 6; dynsim_edo_B.ret_e
+             ++) {
+          dynsim_edo_B.bname_h[dynsim_edo_B.ret_e] = body->
+            NameInternal[dynsim_edo_B.ret_e];
+        }
+
+        for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 6; dynsim_edo_B.ret_e
+             ++) {
+          dynsim_edo_B.a_l5[dynsim_edo_B.ret_e] = tmp[dynsim_edo_B.ret_e];
+        }
+
+        dynsim_edo_B.ret_e = memcmp(&dynsim_edo_B.bname_h[0],
+          &dynsim_edo_B.a_l5[0], 6);
+        if (dynsim_edo_B.ret_e == 0) {
+          dynsim_edo_B.endeffectorIndex = static_cast<real_T>(dynsim_edo_B.b_i)
+            + 1.0;
+          exitg2 = true;
+        } else {
+          dynsim_edo_B.b_i++;
+        }
+      }
+    }
+
+    dynsim_edo_B.b_i = static_cast<int32_T>(dynsim_edo_B.endeffectorIndex) - 1;
+    body = obj->Bodies[dynsim_edo_B.b_i];
+    for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 16; dynsim_edo_B.ret_e++)
+    {
+      dynsim_edo_B.T2[dynsim_edo_B.ret_e] = Ttree->data[dynsim_edo_B.b_i]
+        .f1[dynsim_edo_B.ret_e];
+    }
+
+    for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 3; dynsim_edo_B.ret_e++) {
+      dynsim_edo_B.R_g[3 * dynsim_edo_B.ret_e] = Ttree->data[dynsim_edo_B.b_i].
+        f1[dynsim_edo_B.ret_e];
+      dynsim_edo_B.R_g[3 * dynsim_edo_B.ret_e + 1] = Ttree->
+        data[dynsim_edo_B.b_i].f1[dynsim_edo_B.ret_e + 4];
+      dynsim_edo_B.R_g[3 * dynsim_edo_B.ret_e + 2] = Ttree->
+        data[dynsim_edo_B.b_i].f1[dynsim_edo_B.ret_e + 8];
+    }
+
+    for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 9; dynsim_edo_B.ret_e++) {
+      dynsim_edo_B.R_l[dynsim_edo_B.ret_e] =
+        -dynsim_edo_B.R_g[dynsim_edo_B.ret_e];
+    }
+
+    for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 3; dynsim_edo_B.ret_e++) {
+      dynsim_edo_B.endeffectorIndex = Ttree->data[dynsim_edo_B.b_i].f1[12] *
+        dynsim_edo_B.R_l[dynsim_edo_B.ret_e];
+      dynsim_edo_B.loop_ub_o = dynsim_edo_B.ret_e << 2;
+      dynsim_edo_B.T2inv[dynsim_edo_B.loop_ub_o] = dynsim_edo_B.R_g[3 *
+        dynsim_edo_B.ret_e];
+      dynsim_edo_B.endeffectorIndex += dynsim_edo_B.R_l[dynsim_edo_B.ret_e + 3] *
+        Ttree->data[dynsim_edo_B.b_i].f1[13];
+      dynsim_edo_B.T2inv[dynsim_edo_B.loop_ub_o + 1] = dynsim_edo_B.R_g[3 *
+        dynsim_edo_B.ret_e + 1];
+      dynsim_edo_B.endeffectorIndex += dynsim_edo_B.R_l[dynsim_edo_B.ret_e + 6] *
+        Ttree->data[dynsim_edo_B.b_i].f1[14];
+      dynsim_edo_B.T2inv[dynsim_edo_B.loop_ub_o + 2] = dynsim_edo_B.R_g[3 *
+        dynsim_edo_B.ret_e + 2];
+      dynsim_edo_B.T2inv[dynsim_edo_B.ret_e + 12] =
+        dynsim_edo_B.endeffectorIndex;
+    }
+
+    dynsim_edo_B.T2inv[3] = 0.0;
+    dynsim_edo_B.T2inv[7] = 0.0;
+    dynsim_edo_B.T2inv[11] = 0.0;
+    dynsim_edo_B.T2inv[15] = 1.0;
+    dynsim_edo_B.chainmask[dynsim_edo_B.b_i] = 1;
+    while (body->ParentIndex > 0.0) {
+      body = obj->Bodies[static_cast<int32_T>(body->ParentIndex) - 1];
+      dynsim_edo_B.chainmask[static_cast<int32_T>(body->Index) - 1] = 1;
+    }
+  }
+
+  dynsim_edo_B.idx_idx_1 = obj->NumBodies;
+  dynsim_edo_B.c_a = static_cast<int32_T>(dynsim_edo_B.idx_idx_1) - 1;
+  dynsim_edo_emxInit_real_T(&JacSlice, 2);
+  dynsim_edo_emxInit_real_T(&b, 2);
+  if (0 <= dynsim_edo_B.c_a) {
+    for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 5; dynsim_edo_B.ret_e++) {
+      dynsim_edo_B.b_me[dynsim_edo_B.ret_e] = tmp_0[dynsim_edo_B.ret_e];
+    }
+  }
+
+  for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i <= dynsim_edo_B.c_a;
+       dynsim_edo_B.b_i++) {
+    body = obj->Bodies[dynsim_edo_B.b_i];
+    dynsim_edo_B.ret_e = bname->size[0] * bname->size[1];
+    bname->size[0] = 1;
+    bname->size[1] = body->JointInternal.Type->size[1];
+    dynsim_emxEnsureCapacity_char_T(bname, dynsim_edo_B.ret_e);
+    dynsim_edo_B.loop_ub_o = body->JointInternal.Type->size[0] *
+      body->JointInternal.Type->size[1] - 1;
+    for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e <= dynsim_edo_B.loop_ub_o;
+         dynsim_edo_B.ret_e++) {
+      bname->data[dynsim_edo_B.ret_e] = body->JointInternal.Type->
+        data[dynsim_edo_B.ret_e];
+    }
+
+    dynsim_edo_B.b_bool_a = false;
+    if (bname->size[1] == 5) {
+      dynsim_edo_B.ret_e = 1;
+      do {
+        exitg1 = 0;
+        if (dynsim_edo_B.ret_e - 1 < 5) {
+          dynsim_edo_B.kstr = dynsim_edo_B.ret_e - 1;
+          if (bname->data[dynsim_edo_B.kstr] !=
+              dynsim_edo_B.b_me[dynsim_edo_B.kstr]) {
+            exitg1 = 1;
+          } else {
+            dynsim_edo_B.ret_e++;
+          }
+        } else {
+          dynsim_edo_B.b_bool_a = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if ((!dynsim_edo_B.b_bool_a) && (dynsim_edo_B.chainmask[dynsim_edo_B.b_i] !=
+         0)) {
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 16; dynsim_edo_B.ret_e++)
+      {
+        dynsim_edo_B.T1_b[dynsim_edo_B.ret_e] = Ttree->data[static_cast<int32_T>
+          (body->Index) - 1].f1[dynsim_edo_B.ret_e];
+      }
+
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 16; dynsim_edo_B.ret_e++)
+      {
+        dynsim_edo_B.Tdh[dynsim_edo_B.ret_e] =
+          body->JointInternal.ChildToJointTransform[dynsim_edo_B.ret_e];
+      }
+
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 3; dynsim_edo_B.ret_e++)
+      {
+        dynsim_edo_B.R_g[3 * dynsim_edo_B.ret_e] =
+          dynsim_edo_B.Tdh[dynsim_edo_B.ret_e];
+        dynsim_edo_B.R_g[3 * dynsim_edo_B.ret_e + 1] =
+          dynsim_edo_B.Tdh[dynsim_edo_B.ret_e + 4];
+        dynsim_edo_B.R_g[3 * dynsim_edo_B.ret_e + 2] =
+          dynsim_edo_B.Tdh[dynsim_edo_B.ret_e + 8];
+      }
+
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 9; dynsim_edo_B.ret_e++)
+      {
+        dynsim_edo_B.R_l[dynsim_edo_B.ret_e] =
+          -dynsim_edo_B.R_g[dynsim_edo_B.ret_e];
+      }
+
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 3; dynsim_edo_B.ret_e++)
+      {
+        dynsim_edo_B.R_a[dynsim_edo_B.ret_e] =
+          dynsim_edo_B.R_l[dynsim_edo_B.ret_e + 6] * dynsim_edo_B.Tdh[14] +
+          (dynsim_edo_B.R_l[dynsim_edo_B.ret_e + 3] * dynsim_edo_B.Tdh[13] +
+           dynsim_edo_B.R_l[dynsim_edo_B.ret_e] * dynsim_edo_B.Tdh[12]);
+      }
+
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 4; dynsim_edo_B.ret_e++)
+      {
+        for (dynsim_edo_B.kstr = 0; dynsim_edo_B.kstr < 4; dynsim_edo_B.kstr++)
+        {
+          dynsim_edo_B.n_j = dynsim_edo_B.kstr << 2;
+          dynsim_edo_B.loop_ub_o = dynsim_edo_B.ret_e + dynsim_edo_B.n_j;
+          dynsim_edo_B.Tdh[dynsim_edo_B.loop_ub_o] = 0.0;
+          dynsim_edo_B.Tdh[dynsim_edo_B.loop_ub_o] +=
+            dynsim_edo_B.T1_b[dynsim_edo_B.n_j] *
+            dynsim_edo_B.T2inv[dynsim_edo_B.ret_e];
+          dynsim_edo_B.Tdh[dynsim_edo_B.loop_ub_o] +=
+            dynsim_edo_B.T1_b[dynsim_edo_B.n_j + 1] *
+            dynsim_edo_B.T2inv[dynsim_edo_B.ret_e + 4];
+          dynsim_edo_B.Tdh[dynsim_edo_B.loop_ub_o] +=
+            dynsim_edo_B.T1_b[dynsim_edo_B.n_j + 2] *
+            dynsim_edo_B.T2inv[dynsim_edo_B.ret_e + 8];
+          dynsim_edo_B.Tdh[dynsim_edo_B.loop_ub_o] +=
+            dynsim_edo_B.T1_b[dynsim_edo_B.n_j + 3] *
+            dynsim_edo_B.T2inv[dynsim_edo_B.ret_e + 12];
+        }
+      }
+
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 3; dynsim_edo_B.ret_e++)
+      {
+        dynsim_edo_B.kstr = dynsim_edo_B.ret_e << 2;
+        dynsim_edo_B.T1_b[dynsim_edo_B.kstr] = dynsim_edo_B.R_g[3 *
+          dynsim_edo_B.ret_e];
+        dynsim_edo_B.T1_b[dynsim_edo_B.kstr + 1] = dynsim_edo_B.R_g[3 *
+          dynsim_edo_B.ret_e + 1];
+        dynsim_edo_B.T1_b[dynsim_edo_B.kstr + 2] = dynsim_edo_B.R_g[3 *
+          dynsim_edo_B.ret_e + 2];
+        dynsim_edo_B.T1_b[dynsim_edo_B.ret_e + 12] =
+          dynsim_edo_B.R_a[dynsim_edo_B.ret_e];
+      }
+
+      dynsim_edo_B.T1_b[3] = 0.0;
+      dynsim_edo_B.T1_b[7] = 0.0;
+      dynsim_edo_B.T1_b[11] = 0.0;
+      dynsim_edo_B.T1_b[15] = 1.0;
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 4; dynsim_edo_B.ret_e++)
+      {
+        for (dynsim_edo_B.kstr = 0; dynsim_edo_B.kstr < 4; dynsim_edo_B.kstr++)
+        {
+          dynsim_edo_B.loop_ub_o = dynsim_edo_B.kstr << 2;
+          dynsim_edo_B.n_j = dynsim_edo_B.ret_e + dynsim_edo_B.loop_ub_o;
+          dynsim_edo_B.T[dynsim_edo_B.n_j] = 0.0;
+          dynsim_edo_B.T[dynsim_edo_B.n_j] +=
+            dynsim_edo_B.T1_b[dynsim_edo_B.loop_ub_o] *
+            dynsim_edo_B.Tdh[dynsim_edo_B.ret_e];
+          dynsim_edo_B.T[dynsim_edo_B.n_j] +=
+            dynsim_edo_B.T1_b[dynsim_edo_B.loop_ub_o + 1] *
+            dynsim_edo_B.Tdh[dynsim_edo_B.ret_e + 4];
+          dynsim_edo_B.T[dynsim_edo_B.n_j] +=
+            dynsim_edo_B.T1_b[dynsim_edo_B.loop_ub_o + 2] *
+            dynsim_edo_B.Tdh[dynsim_edo_B.ret_e + 8];
+          dynsim_edo_B.T[dynsim_edo_B.n_j] +=
+            dynsim_edo_B.T1_b[dynsim_edo_B.loop_ub_o + 3] *
+            dynsim_edo_B.Tdh[dynsim_edo_B.ret_e + 12];
+        }
+      }
+
+      dynsim_edo_B.endeffectorIndex = obj->PositionDoFMap[dynsim_edo_B.b_i];
+      dynsim_edo_B.idx_idx_1 = obj->PositionDoFMap[dynsim_edo_B.b_i + 6];
+      dynsim_edo_B.R_g[0] = 0.0;
+      dynsim_edo_B.R_g[3] = -dynsim_edo_B.T[14];
+      dynsim_edo_B.R_g[6] = dynsim_edo_B.T[13];
+      dynsim_edo_B.R_g[1] = dynsim_edo_B.T[14];
+      dynsim_edo_B.R_g[4] = 0.0;
+      dynsim_edo_B.R_g[7] = -dynsim_edo_B.T[12];
+      dynsim_edo_B.R_g[2] = -dynsim_edo_B.T[13];
+      dynsim_edo_B.R_g[5] = dynsim_edo_B.T[12];
+      dynsim_edo_B.R_g[8] = 0.0;
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 3; dynsim_edo_B.ret_e++)
+      {
+        for (dynsim_edo_B.kstr = 0; dynsim_edo_B.kstr < 3; dynsim_edo_B.kstr++)
+        {
+          dynsim_edo_B.loop_ub_o = dynsim_edo_B.ret_e + 3 * dynsim_edo_B.kstr;
+          dynsim_edo_B.R_l[dynsim_edo_B.loop_ub_o] = 0.0;
+          dynsim_edo_B.n_j = dynsim_edo_B.kstr << 2;
+          dynsim_edo_B.R_l[dynsim_edo_B.loop_ub_o] +=
+            dynsim_edo_B.T[dynsim_edo_B.n_j] *
+            dynsim_edo_B.R_g[dynsim_edo_B.ret_e];
+          dynsim_edo_B.R_l[dynsim_edo_B.loop_ub_o] +=
+            dynsim_edo_B.T[dynsim_edo_B.n_j + 1] *
+            dynsim_edo_B.R_g[dynsim_edo_B.ret_e + 3];
+          dynsim_edo_B.R_l[dynsim_edo_B.loop_ub_o] +=
+            dynsim_edo_B.T[dynsim_edo_B.n_j + 2] *
+            dynsim_edo_B.R_g[dynsim_edo_B.ret_e + 6];
+          dynsim_edo_B.X[dynsim_edo_B.kstr + 6 * dynsim_edo_B.ret_e] =
+            dynsim_edo_B.T[(dynsim_edo_B.ret_e << 2) + dynsim_edo_B.kstr];
+          dynsim_edo_B.X[dynsim_edo_B.kstr + 6 * (dynsim_edo_B.ret_e + 3)] = 0.0;
+        }
+      }
+
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 3; dynsim_edo_B.ret_e++)
+      {
+        dynsim_edo_B.X[6 * dynsim_edo_B.ret_e + 3] = dynsim_edo_B.R_l[3 *
+          dynsim_edo_B.ret_e];
+        dynsim_edo_B.kstr = dynsim_edo_B.ret_e << 2;
+        dynsim_edo_B.loop_ub_o = 6 * (dynsim_edo_B.ret_e + 3);
+        dynsim_edo_B.X[dynsim_edo_B.loop_ub_o + 3] =
+          dynsim_edo_B.T[dynsim_edo_B.kstr];
+        dynsim_edo_B.X[6 * dynsim_edo_B.ret_e + 4] = dynsim_edo_B.R_l[3 *
+          dynsim_edo_B.ret_e + 1];
+        dynsim_edo_B.X[dynsim_edo_B.loop_ub_o + 4] =
+          dynsim_edo_B.T[dynsim_edo_B.kstr + 1];
+        dynsim_edo_B.X[6 * dynsim_edo_B.ret_e + 5] = dynsim_edo_B.R_l[3 *
+          dynsim_edo_B.ret_e + 2];
+        dynsim_edo_B.X[dynsim_edo_B.loop_ub_o + 5] =
+          dynsim_edo_B.T[dynsim_edo_B.kstr + 2];
+      }
+
+      dynsim_edo_B.ret_e = b->size[0] * b->size[1];
+      b->size[0] = 6;
+      b->size[1] = body->JointInternal.MotionSubspace->size[1];
+      dynsim_emxEnsureCapacity_real_T(b, dynsim_edo_B.ret_e);
+      dynsim_edo_B.loop_ub_o = body->JointInternal.MotionSubspace->size[0] *
+        body->JointInternal.MotionSubspace->size[1] - 1;
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e <= dynsim_edo_B.loop_ub_o;
+           dynsim_edo_B.ret_e++) {
+        b->data[dynsim_edo_B.ret_e] = body->JointInternal.MotionSubspace->
+          data[dynsim_edo_B.ret_e];
+      }
+
+      dynsim_edo_B.n_j = b->size[1] - 1;
+      dynsim_edo_B.ret_e = JacSlice->size[0] * JacSlice->size[1];
+      JacSlice->size[0] = 6;
+      JacSlice->size[1] = b->size[1];
+      dynsim_emxEnsureCapacity_real_T(JacSlice, dynsim_edo_B.ret_e);
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e <= dynsim_edo_B.n_j;
+           dynsim_edo_B.ret_e++) {
+        dynsim_edo_B.coffset_tmp = dynsim_edo_B.ret_e * 6 - 1;
+        for (dynsim_edo_B.kstr = 0; dynsim_edo_B.kstr < 6; dynsim_edo_B.kstr++)
+        {
+          dynsim_edo_B.s = 0.0;
+          for (dynsim_edo_B.loop_ub_o = 0; dynsim_edo_B.loop_ub_o < 6;
+               dynsim_edo_B.loop_ub_o++) {
+            dynsim_edo_B.s += dynsim_edo_B.X[dynsim_edo_B.loop_ub_o * 6 +
+              dynsim_edo_B.kstr] * b->data[(dynsim_edo_B.coffset_tmp +
+              dynsim_edo_B.loop_ub_o) + 1];
+          }
+
+          JacSlice->data[(dynsim_edo_B.coffset_tmp + dynsim_edo_B.kstr) + 1] =
+            dynsim_edo_B.s;
+        }
+      }
+
+      if (dynsim_edo_B.endeffectorIndex > dynsim_edo_B.idx_idx_1) {
+        dynsim_edo_B.n_j = 0;
+      } else {
+        dynsim_edo_B.n_j = static_cast<int32_T>(dynsim_edo_B.endeffectorIndex) -
+          1;
+      }
+
+      dynsim_edo_B.loop_ub_o = JacSlice->size[1];
+      for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < dynsim_edo_B.loop_ub_o;
+           dynsim_edo_B.ret_e++) {
+        for (dynsim_edo_B.kstr = 0; dynsim_edo_B.kstr < 6; dynsim_edo_B.kstr++)
+        {
+          Jac->data[dynsim_edo_B.kstr + 6 * (dynsim_edo_B.n_j +
+            dynsim_edo_B.ret_e)] = JacSlice->data[6 * dynsim_edo_B.ret_e +
+            dynsim_edo_B.kstr];
+        }
+      }
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&bname);
+  dynsim_edo_emxFree_real_T(&JacSlice);
+  dynsim_edo_emxFree_f_cell_wrap(&Ttree);
+  for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < 3; dynsim_edo_B.ret_e++) {
+    dynsim_edo_B.b_i = dynsim_edo_B.ret_e << 2;
+    dynsim_edo_B.X[6 * dynsim_edo_B.ret_e] = dynsim_edo_B.T2[dynsim_edo_B.b_i];
+    dynsim_edo_B.kstr = 6 * (dynsim_edo_B.ret_e + 3);
+    dynsim_edo_B.X[dynsim_edo_B.kstr] = 0.0;
+    dynsim_edo_B.X[6 * dynsim_edo_B.ret_e + 3] = 0.0;
+    dynsim_edo_B.X[dynsim_edo_B.kstr + 3] = dynsim_edo_B.T2[dynsim_edo_B.b_i];
+    dynsim_edo_B.endeffectorIndex = dynsim_edo_B.T2[dynsim_edo_B.b_i + 1];
+    dynsim_edo_B.X[6 * dynsim_edo_B.ret_e + 1] = dynsim_edo_B.endeffectorIndex;
+    dynsim_edo_B.X[dynsim_edo_B.kstr + 1] = 0.0;
+    dynsim_edo_B.X[6 * dynsim_edo_B.ret_e + 4] = 0.0;
+    dynsim_edo_B.X[dynsim_edo_B.kstr + 4] = dynsim_edo_B.endeffectorIndex;
+    dynsim_edo_B.endeffectorIndex = dynsim_edo_B.T2[dynsim_edo_B.b_i + 2];
+    dynsim_edo_B.X[6 * dynsim_edo_B.ret_e + 2] = dynsim_edo_B.endeffectorIndex;
+    dynsim_edo_B.X[dynsim_edo_B.kstr + 2] = 0.0;
+    dynsim_edo_B.X[6 * dynsim_edo_B.ret_e + 5] = 0.0;
+    dynsim_edo_B.X[dynsim_edo_B.kstr + 5] = dynsim_edo_B.endeffectorIndex;
+  }
+
+  dynsim_edo_B.n_j = Jac->size[1];
+  dynsim_edo_B.ret_e = b->size[0] * b->size[1];
+  b->size[0] = 6;
+  b->size[1] = Jac->size[1];
+  dynsim_emxEnsureCapacity_real_T(b, dynsim_edo_B.ret_e);
+  dynsim_edo_B.loop_ub_o = Jac->size[0] * Jac->size[1] - 1;
+  for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e <= dynsim_edo_B.loop_ub_o;
+       dynsim_edo_B.ret_e++) {
+    b->data[dynsim_edo_B.ret_e] = Jac->data[dynsim_edo_B.ret_e];
+  }
+
+  dynsim_edo_B.ret_e = Jac->size[0] * Jac->size[1];
+  Jac->size[0] = 6;
+  Jac->size[1] = dynsim_edo_B.n_j;
+  dynsim_emxEnsureCapacity_real_T(Jac, dynsim_edo_B.ret_e);
+  for (dynsim_edo_B.ret_e = 0; dynsim_edo_B.ret_e < dynsim_edo_B.n_j;
+       dynsim_edo_B.ret_e++) {
+    dynsim_edo_B.coffset_tmp = dynsim_edo_B.ret_e * 6 - 1;
+    for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i < 6; dynsim_edo_B.b_i++) {
+      dynsim_edo_B.s = 0.0;
+      for (dynsim_edo_B.loop_ub_o = 0; dynsim_edo_B.loop_ub_o < 6;
+           dynsim_edo_B.loop_ub_o++) {
+        dynsim_edo_B.s += dynsim_edo_B.X[dynsim_edo_B.loop_ub_o * 6 +
+          dynsim_edo_B.b_i] * b->data[(dynsim_edo_B.coffset_tmp +
+          dynsim_edo_B.loop_ub_o) + 1];
+      }
+
+      Jac->data[(dynsim_edo_B.coffset_tmp + dynsim_edo_B.b_i) + 1] =
+        dynsim_edo_B.s;
+    }
+  }
+
+  dynsim_edo_emxFree_real_T(&b);
+}
+
+static void rigidBodyJoint_get_JointAxis_h(const c_rigidBodyJoint_dynsim_edo_h_T
+  *obj, real_T ax[3])
+{
+  static const char_T tmp[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_0[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  boolean_T guard1 = false;
+  int32_T exitg1;
+  for (dynsim_edo_B.b_kstr_m = 0; dynsim_edo_B.b_kstr_m < 8;
+       dynsim_edo_B.b_kstr_m++) {
+    dynsim_edo_B.b_p5[dynsim_edo_B.b_kstr_m] = tmp[dynsim_edo_B.b_kstr_m];
+  }
+
+  dynsim_edo_B.b_bool_nj = false;
+  if (obj->Type->size[1] == 8) {
+    dynsim_edo_B.b_kstr_m = 1;
+    do {
+      exitg1 = 0;
+      if (dynsim_edo_B.b_kstr_m - 1 < 8) {
+        dynsim_edo_B.kstr_h = dynsim_edo_B.b_kstr_m - 1;
+        if (obj->Type->data[dynsim_edo_B.kstr_h] !=
+            dynsim_edo_B.b_p5[dynsim_edo_B.kstr_h]) {
+          exitg1 = 1;
+        } else {
+          dynsim_edo_B.b_kstr_m++;
+        }
+      } else {
+        dynsim_edo_B.b_bool_nj = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  guard1 = false;
+  if (dynsim_edo_B.b_bool_nj) {
+    guard1 = true;
+  } else {
+    for (dynsim_edo_B.b_kstr_m = 0; dynsim_edo_B.b_kstr_m < 9;
+         dynsim_edo_B.b_kstr_m++) {
+      dynsim_edo_B.b_c[dynsim_edo_B.b_kstr_m] = tmp_0[dynsim_edo_B.b_kstr_m];
+    }
+
+    dynsim_edo_B.b_bool_nj = false;
+    if (obj->Type->size[1] == 9) {
+      dynsim_edo_B.b_kstr_m = 1;
+      do {
+        exitg1 = 0;
+        if (dynsim_edo_B.b_kstr_m - 1 < 9) {
+          dynsim_edo_B.kstr_h = dynsim_edo_B.b_kstr_m - 1;
+          if (obj->Type->data[dynsim_edo_B.kstr_h] !=
+              dynsim_edo_B.b_c[dynsim_edo_B.kstr_h]) {
+            exitg1 = 1;
+          } else {
+            dynsim_edo_B.b_kstr_m++;
+          }
+        } else {
+          dynsim_edo_B.b_bool_nj = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (dynsim_edo_B.b_bool_nj) {
+      guard1 = true;
+    } else {
+      ax[0] = (rtNaN);
+      ax[1] = (rtNaN);
+      ax[2] = (rtNaN);
+    }
+  }
+
+  if (guard1) {
+    ax[0] = obj->JointAxisInternal[0];
+    ax[1] = obj->JointAxisInternal[1];
+    ax[2] = obj->JointAxisInternal[2];
+  }
+}
+
+static void RigidBodyTree_forwardKinemati_h(n_robotics_manip_internal_R_h_T *obj,
+  const real_T qvec[3], emxArray_f_cell_wrap_dynsim_e_T *Ttree)
+{
+  l_robotics_manip_internal_R_h_T *body;
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  static const int8_T tmp[16] = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+  };
+
+  static const char_T tmp_0[5] = { 'f', 'i', 'x', 'e', 'd' };
+
+  static const char_T tmp_1[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  int32_T exitg1;
+  dynsim_edo_B.n_l = obj->NumBodies;
+  for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < 16;
+       dynsim_edo_B.b_kstr_cu++) {
+    dynsim_edo_B.c_f1_m[dynsim_edo_B.b_kstr_cu] = tmp[dynsim_edo_B.b_kstr_cu];
+  }
+
+  dynsim_edo_B.b_kstr_cu = Ttree->size[0] * Ttree->size[1];
+  Ttree->size[0] = 1;
+  dynsim_edo_B.e_i = static_cast<int32_T>(dynsim_edo_B.n_l);
+  Ttree->size[1] = dynsim_edo_B.e_i;
+  d_emxEnsureCapacity_f_cell_wrap(Ttree, dynsim_edo_B.b_kstr_cu);
+  if (dynsim_edo_B.e_i != 0) {
+    dynsim_edo_B.ntilecols_o = dynsim_edo_B.e_i - 1;
+    if (0 <= dynsim_edo_B.ntilecols_o) {
+      memcpy(&dynsim_edo_B.expl_temp_c.f1[0], &dynsim_edo_B.c_f1_m[0], sizeof
+             (real_T) << 4U);
+    }
+
+    for (dynsim_edo_B.b_jtilecol_m = 0; dynsim_edo_B.b_jtilecol_m <=
+         dynsim_edo_B.ntilecols_o; dynsim_edo_B.b_jtilecol_m++) {
+      Ttree->data[dynsim_edo_B.b_jtilecol_m] = dynsim_edo_B.expl_temp_c;
+    }
+  }
+
+  dynsim_edo_B.k_m = 1.0;
+  dynsim_edo_B.ntilecols_o = static_cast<int32_T>(dynsim_edo_B.n_l) - 1;
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  if (0 <= dynsim_edo_B.ntilecols_o) {
+    for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < 5;
+         dynsim_edo_B.b_kstr_cu++) {
+      dynsim_edo_B.b_pxv[dynsim_edo_B.b_kstr_cu] = tmp_0[dynsim_edo_B.b_kstr_cu];
+    }
+  }
+
+  for (dynsim_edo_B.b_jtilecol_m = 0; dynsim_edo_B.b_jtilecol_m <=
+       dynsim_edo_B.ntilecols_o; dynsim_edo_B.b_jtilecol_m++) {
+    body = obj->Bodies[dynsim_edo_B.b_jtilecol_m];
+    dynsim_edo_B.n_l = body->JointInternal.PositionNumber;
+    dynsim_edo_B.n_l += dynsim_edo_B.k_m;
+    if (dynsim_edo_B.k_m > dynsim_edo_B.n_l - 1.0) {
+      dynsim_edo_B.e_i = 0;
+      dynsim_edo_B.d_k = 0;
+    } else {
+      dynsim_edo_B.e_i = static_cast<int32_T>(dynsim_edo_B.k_m) - 1;
+      dynsim_edo_B.d_k = static_cast<int32_T>(dynsim_edo_B.n_l - 1.0);
+    }
+
+    dynsim_edo_B.b_kstr_cu = switch_expression->size[0] *
+      switch_expression->size[1];
+    switch_expression->size[0] = 1;
+    switch_expression->size[1] = body->JointInternal.Type->size[1];
+    dynsim_emxEnsureCapacity_char_T(switch_expression, dynsim_edo_B.b_kstr_cu);
+    dynsim_edo_B.loop_ub_f = body->JointInternal.Type->size[0] *
+      body->JointInternal.Type->size[1] - 1;
+    for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu <=
+         dynsim_edo_B.loop_ub_f; dynsim_edo_B.b_kstr_cu++) {
+      switch_expression->data[dynsim_edo_B.b_kstr_cu] = body->
+        JointInternal.Type->data[dynsim_edo_B.b_kstr_cu];
+    }
+
+    dynsim_edo_B.b_bool_p2 = false;
+    if (switch_expression->size[1] == 5) {
+      dynsim_edo_B.b_kstr_cu = 1;
+      do {
+        exitg1 = 0;
+        if (dynsim_edo_B.b_kstr_cu - 1 < 5) {
+          dynsim_edo_B.loop_ub_f = dynsim_edo_B.b_kstr_cu - 1;
+          if (switch_expression->data[dynsim_edo_B.loop_ub_f] !=
+              dynsim_edo_B.b_pxv[dynsim_edo_B.loop_ub_f]) {
+            exitg1 = 1;
+          } else {
+            dynsim_edo_B.b_kstr_cu++;
+          }
+        } else {
+          dynsim_edo_B.b_bool_p2 = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (dynsim_edo_B.b_bool_p2) {
+      dynsim_edo_B.b_kstr_cu = 0;
+    } else {
+      for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < 8;
+           dynsim_edo_B.b_kstr_cu++) {
+        dynsim_edo_B.b_px[dynsim_edo_B.b_kstr_cu] = tmp_1[dynsim_edo_B.b_kstr_cu];
+      }
+
+      dynsim_edo_B.b_bool_p2 = false;
+      if (switch_expression->size[1] == 8) {
+        dynsim_edo_B.b_kstr_cu = 1;
+        do {
+          exitg1 = 0;
+          if (dynsim_edo_B.b_kstr_cu - 1 < 8) {
+            dynsim_edo_B.loop_ub_f = dynsim_edo_B.b_kstr_cu - 1;
+            if (switch_expression->data[dynsim_edo_B.loop_ub_f] !=
+                dynsim_edo_B.b_px[dynsim_edo_B.loop_ub_f]) {
+              exitg1 = 1;
+            } else {
+              dynsim_edo_B.b_kstr_cu++;
+            }
+          } else {
+            dynsim_edo_B.b_bool_p2 = true;
+            exitg1 = 1;
+          }
+        } while (exitg1 == 0);
+      }
+
+      if (dynsim_edo_B.b_bool_p2) {
+        dynsim_edo_B.b_kstr_cu = 1;
+      } else {
+        dynsim_edo_B.b_kstr_cu = -1;
+      }
+    }
+
+    switch (dynsim_edo_B.b_kstr_cu) {
+     case 0:
+      memset(&dynsim_edo_B.c_f1_m[0], 0, sizeof(real_T) << 4U);
+      dynsim_edo_B.c_f1_m[0] = 1.0;
+      dynsim_edo_B.c_f1_m[5] = 1.0;
+      dynsim_edo_B.c_f1_m[10] = 1.0;
+      dynsim_edo_B.c_f1_m[15] = 1.0;
+      break;
+
+     case 1:
+      rigidBodyJoint_get_JointAxis_h(&body->JointInternal, dynsim_edo_B.v_n);
+      dynsim_edo_B.d_k -= dynsim_edo_B.e_i;
+      for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < dynsim_edo_B.d_k;
+           dynsim_edo_B.b_kstr_cu++) {
+        dynsim_edo_B.e_data_o[dynsim_edo_B.b_kstr_cu] = dynsim_edo_B.e_i +
+          dynsim_edo_B.b_kstr_cu;
+      }
+
+      dynsim_edo_B.result_data_f[0] = dynsim_edo_B.v_n[0];
+      dynsim_edo_B.result_data_f[1] = dynsim_edo_B.v_n[1];
+      dynsim_edo_B.result_data_f[2] = dynsim_edo_B.v_n[2];
+      if (0 <= (dynsim_edo_B.d_k != 0) - 1) {
+        dynsim_edo_B.result_data_f[3] = qvec[dynsim_edo_B.e_data_o[0]];
+      }
+
+      dynsim_edo_B.k_m = 1.0 / sqrt((dynsim_edo_B.result_data_f[0] *
+        dynsim_edo_B.result_data_f[0] + dynsim_edo_B.result_data_f[1] *
+        dynsim_edo_B.result_data_f[1]) + dynsim_edo_B.result_data_f[2] *
+        dynsim_edo_B.result_data_f[2]);
+      dynsim_edo_B.v_n[0] = dynsim_edo_B.result_data_f[0] * dynsim_edo_B.k_m;
+      dynsim_edo_B.v_n[1] = dynsim_edo_B.result_data_f[1] * dynsim_edo_B.k_m;
+      dynsim_edo_B.v_n[2] = dynsim_edo_B.result_data_f[2] * dynsim_edo_B.k_m;
+      dynsim_edo_B.k_m = cos(dynsim_edo_B.result_data_f[3]);
+      dynsim_edo_B.sth_m = sin(dynsim_edo_B.result_data_f[3]);
+      dynsim_edo_B.tempR_h[0] = dynsim_edo_B.v_n[0] * dynsim_edo_B.v_n[0] * (1.0
+        - dynsim_edo_B.k_m) + dynsim_edo_B.k_m;
+      dynsim_edo_B.tempR_tmp_c = dynsim_edo_B.v_n[1] * dynsim_edo_B.v_n[0] *
+        (1.0 - dynsim_edo_B.k_m);
+      dynsim_edo_B.tempR_tmp_fm = dynsim_edo_B.v_n[2] * dynsim_edo_B.sth_m;
+      dynsim_edo_B.tempR_h[1] = dynsim_edo_B.tempR_tmp_c -
+        dynsim_edo_B.tempR_tmp_fm;
+      dynsim_edo_B.tempR_tmp_p = dynsim_edo_B.v_n[2] * dynsim_edo_B.v_n[0] *
+        (1.0 - dynsim_edo_B.k_m);
+      dynsim_edo_B.tempR_tmp_e1 = dynsim_edo_B.v_n[1] * dynsim_edo_B.sth_m;
+      dynsim_edo_B.tempR_h[2] = dynsim_edo_B.tempR_tmp_p +
+        dynsim_edo_B.tempR_tmp_e1;
+      dynsim_edo_B.tempR_h[3] = dynsim_edo_B.tempR_tmp_c +
+        dynsim_edo_B.tempR_tmp_fm;
+      dynsim_edo_B.tempR_h[4] = dynsim_edo_B.v_n[1] * dynsim_edo_B.v_n[1] * (1.0
+        - dynsim_edo_B.k_m) + dynsim_edo_B.k_m;
+      dynsim_edo_B.tempR_tmp_c = dynsim_edo_B.v_n[2] * dynsim_edo_B.v_n[1] *
+        (1.0 - dynsim_edo_B.k_m);
+      dynsim_edo_B.tempR_tmp_fm = dynsim_edo_B.v_n[0] * dynsim_edo_B.sth_m;
+      dynsim_edo_B.tempR_h[5] = dynsim_edo_B.tempR_tmp_c -
+        dynsim_edo_B.tempR_tmp_fm;
+      dynsim_edo_B.tempR_h[6] = dynsim_edo_B.tempR_tmp_p -
+        dynsim_edo_B.tempR_tmp_e1;
+      dynsim_edo_B.tempR_h[7] = dynsim_edo_B.tempR_tmp_c +
+        dynsim_edo_B.tempR_tmp_fm;
+      dynsim_edo_B.tempR_h[8] = dynsim_edo_B.v_n[2] * dynsim_edo_B.v_n[2] * (1.0
+        - dynsim_edo_B.k_m) + dynsim_edo_B.k_m;
+      for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < 3;
+           dynsim_edo_B.b_kstr_cu++) {
+        dynsim_edo_B.e_i = dynsim_edo_B.b_kstr_cu + 1;
+        dynsim_edo_B.R_ln[dynsim_edo_B.e_i - 1] = dynsim_edo_B.tempR_h
+          [(dynsim_edo_B.e_i - 1) * 3];
+        dynsim_edo_B.e_i = dynsim_edo_B.b_kstr_cu + 1;
+        dynsim_edo_B.R_ln[dynsim_edo_B.e_i + 2] = dynsim_edo_B.tempR_h
+          [(dynsim_edo_B.e_i - 1) * 3 + 1];
+        dynsim_edo_B.e_i = dynsim_edo_B.b_kstr_cu + 1;
+        dynsim_edo_B.R_ln[dynsim_edo_B.e_i + 5] = dynsim_edo_B.tempR_h
+          [(dynsim_edo_B.e_i - 1) * 3 + 2];
+      }
+
+      memset(&dynsim_edo_B.c_f1_m[0], 0, sizeof(real_T) << 4U);
+      for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < 3;
+           dynsim_edo_B.b_kstr_cu++) {
+        dynsim_edo_B.d_k = dynsim_edo_B.b_kstr_cu << 2;
+        dynsim_edo_B.c_f1_m[dynsim_edo_B.d_k] = dynsim_edo_B.R_ln[3 *
+          dynsim_edo_B.b_kstr_cu];
+        dynsim_edo_B.c_f1_m[dynsim_edo_B.d_k + 1] = dynsim_edo_B.R_ln[3 *
+          dynsim_edo_B.b_kstr_cu + 1];
+        dynsim_edo_B.c_f1_m[dynsim_edo_B.d_k + 2] = dynsim_edo_B.R_ln[3 *
+          dynsim_edo_B.b_kstr_cu + 2];
+      }
+
+      dynsim_edo_B.c_f1_m[15] = 1.0;
+      break;
+
+     default:
+      rigidBodyJoint_get_JointAxis_h(&body->JointInternal, dynsim_edo_B.v_n);
+      memset(&dynsim_edo_B.tempR_h[0], 0, 9U * sizeof(real_T));
+      dynsim_edo_B.tempR_h[0] = 1.0;
+      dynsim_edo_B.tempR_h[4] = 1.0;
+      dynsim_edo_B.tempR_h[8] = 1.0;
+      for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < 3;
+           dynsim_edo_B.b_kstr_cu++) {
+        dynsim_edo_B.d_k = dynsim_edo_B.b_kstr_cu << 2;
+        dynsim_edo_B.c_f1_m[dynsim_edo_B.d_k] = dynsim_edo_B.tempR_h[3 *
+          dynsim_edo_B.b_kstr_cu];
+        dynsim_edo_B.c_f1_m[dynsim_edo_B.d_k + 1] = dynsim_edo_B.tempR_h[3 *
+          dynsim_edo_B.b_kstr_cu + 1];
+        dynsim_edo_B.c_f1_m[dynsim_edo_B.d_k + 2] = dynsim_edo_B.tempR_h[3 *
+          dynsim_edo_B.b_kstr_cu + 2];
+        dynsim_edo_B.c_f1_m[dynsim_edo_B.b_kstr_cu + 12] =
+          dynsim_edo_B.v_n[dynsim_edo_B.b_kstr_cu] * qvec[dynsim_edo_B.e_i];
+      }
+
+      dynsim_edo_B.c_f1_m[3] = 0.0;
+      dynsim_edo_B.c_f1_m[7] = 0.0;
+      dynsim_edo_B.c_f1_m[11] = 0.0;
+      dynsim_edo_B.c_f1_m[15] = 1.0;
+      break;
+    }
+
+    for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < 16;
+         dynsim_edo_B.b_kstr_cu++) {
+      dynsim_edo_B.a_n[dynsim_edo_B.b_kstr_cu] =
+        body->JointInternal.JointToParentTransform[dynsim_edo_B.b_kstr_cu];
+    }
+
+    for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < 16;
+         dynsim_edo_B.b_kstr_cu++) {
+      dynsim_edo_B.b_p[dynsim_edo_B.b_kstr_cu] =
+        body->JointInternal.ChildToJointTransform[dynsim_edo_B.b_kstr_cu];
+    }
+
+    for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < 4;
+         dynsim_edo_B.b_kstr_cu++) {
+      for (dynsim_edo_B.e_i = 0; dynsim_edo_B.e_i < 4; dynsim_edo_B.e_i++) {
+        dynsim_edo_B.d_k = dynsim_edo_B.e_i << 2;
+        dynsim_edo_B.loop_ub_f = dynsim_edo_B.b_kstr_cu + dynsim_edo_B.d_k;
+        dynsim_edo_B.a_l[dynsim_edo_B.loop_ub_f] = 0.0;
+        dynsim_edo_B.a_l[dynsim_edo_B.loop_ub_f] +=
+          dynsim_edo_B.c_f1_m[dynsim_edo_B.d_k] *
+          dynsim_edo_B.a_n[dynsim_edo_B.b_kstr_cu];
+        dynsim_edo_B.a_l[dynsim_edo_B.loop_ub_f] +=
+          dynsim_edo_B.c_f1_m[dynsim_edo_B.d_k + 1] *
+          dynsim_edo_B.a_n[dynsim_edo_B.b_kstr_cu + 4];
+        dynsim_edo_B.a_l[dynsim_edo_B.loop_ub_f] +=
+          dynsim_edo_B.c_f1_m[dynsim_edo_B.d_k + 2] *
+          dynsim_edo_B.a_n[dynsim_edo_B.b_kstr_cu + 8];
+        dynsim_edo_B.a_l[dynsim_edo_B.loop_ub_f] +=
+          dynsim_edo_B.c_f1_m[dynsim_edo_B.d_k + 3] *
+          dynsim_edo_B.a_n[dynsim_edo_B.b_kstr_cu + 12];
+      }
+
+      for (dynsim_edo_B.e_i = 0; dynsim_edo_B.e_i < 4; dynsim_edo_B.e_i++) {
+        dynsim_edo_B.d_k = dynsim_edo_B.e_i << 2;
+        dynsim_edo_B.loop_ub_f = dynsim_edo_B.b_kstr_cu + dynsim_edo_B.d_k;
+        Ttree->data[dynsim_edo_B.b_jtilecol_m].f1[dynsim_edo_B.loop_ub_f] = 0.0;
+        Ttree->data[dynsim_edo_B.b_jtilecol_m].f1[dynsim_edo_B.loop_ub_f] +=
+          dynsim_edo_B.b_p[dynsim_edo_B.d_k] *
+          dynsim_edo_B.a_l[dynsim_edo_B.b_kstr_cu];
+        Ttree->data[dynsim_edo_B.b_jtilecol_m].f1[dynsim_edo_B.loop_ub_f] +=
+          dynsim_edo_B.b_p[dynsim_edo_B.d_k + 1] *
+          dynsim_edo_B.a_l[dynsim_edo_B.b_kstr_cu + 4];
+        Ttree->data[dynsim_edo_B.b_jtilecol_m].f1[dynsim_edo_B.loop_ub_f] +=
+          dynsim_edo_B.b_p[dynsim_edo_B.d_k + 2] *
+          dynsim_edo_B.a_l[dynsim_edo_B.b_kstr_cu + 8];
+        Ttree->data[dynsim_edo_B.b_jtilecol_m].f1[dynsim_edo_B.loop_ub_f] +=
+          dynsim_edo_B.b_p[dynsim_edo_B.d_k + 3] *
+          dynsim_edo_B.a_l[dynsim_edo_B.b_kstr_cu + 12];
+      }
+    }
+
+    dynsim_edo_B.k_m = dynsim_edo_B.n_l;
+    if (body->ParentIndex > 0.0) {
+      for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < 16;
+           dynsim_edo_B.b_kstr_cu++) {
+        dynsim_edo_B.a_n[dynsim_edo_B.b_kstr_cu] = Ttree->data
+          [static_cast<int32_T>(body->ParentIndex) - 1]
+          .f1[dynsim_edo_B.b_kstr_cu];
+      }
+
+      for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < 4;
+           dynsim_edo_B.b_kstr_cu++) {
+        for (dynsim_edo_B.e_i = 0; dynsim_edo_B.e_i < 4; dynsim_edo_B.e_i++) {
+          dynsim_edo_B.d_k = dynsim_edo_B.e_i << 2;
+          dynsim_edo_B.loop_ub_f = dynsim_edo_B.b_kstr_cu + dynsim_edo_B.d_k;
+          dynsim_edo_B.a_l[dynsim_edo_B.loop_ub_f] = 0.0;
+          dynsim_edo_B.a_l[dynsim_edo_B.loop_ub_f] += Ttree->
+            data[dynsim_edo_B.b_jtilecol_m].f1[dynsim_edo_B.d_k] *
+            dynsim_edo_B.a_n[dynsim_edo_B.b_kstr_cu];
+          dynsim_edo_B.a_l[dynsim_edo_B.loop_ub_f] += Ttree->
+            data[dynsim_edo_B.b_jtilecol_m].f1[dynsim_edo_B.d_k + 1] *
+            dynsim_edo_B.a_n[dynsim_edo_B.b_kstr_cu + 4];
+          dynsim_edo_B.a_l[dynsim_edo_B.loop_ub_f] += Ttree->
+            data[dynsim_edo_B.b_jtilecol_m].f1[dynsim_edo_B.d_k + 2] *
+            dynsim_edo_B.a_n[dynsim_edo_B.b_kstr_cu + 8];
+          dynsim_edo_B.a_l[dynsim_edo_B.loop_ub_f] += Ttree->
+            data[dynsim_edo_B.b_jtilecol_m].f1[dynsim_edo_B.d_k + 3] *
+            dynsim_edo_B.a_n[dynsim_edo_B.b_kstr_cu + 12];
+        }
+      }
+
+      for (dynsim_edo_B.b_kstr_cu = 0; dynsim_edo_B.b_kstr_cu < 16;
+           dynsim_edo_B.b_kstr_cu++) {
+        Ttree->data[dynsim_edo_B.b_jtilecol_m].f1[dynsim_edo_B.b_kstr_cu] =
+          dynsim_edo_B.a_l[dynsim_edo_B.b_kstr_cu];
+      }
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+}
+
 static void dynsim_edo_SystemCore_step(boolean_T *varargout_1, real_T
   varargout_2_Data[128], uint32_T *varargout_2_Data_SL_Info_Curren, uint32_T
   *varargout_2_Data_SL_Info_Receiv, uint32_T *varargout_2_Layout_DataOffset,
@@ -220,85 +1860,25 @@ static void dynsim_edo_SystemCore_step(boolean_T *varargout_1, real_T
     dynsim_edo_B.b_varargout_2.Layout.Dim_SL_Info.ReceivedLength;
 }
 
-static void dynsim_edo_emxInit_real_T(emxArray_real_T_dynsim_edo_T **pEmxArray,
-  int32_T numDimensions)
-{
-  emxArray_real_T_dynsim_edo_T *emxArray;
-  *pEmxArray = (emxArray_real_T_dynsim_edo_T *)malloc(sizeof
-    (emxArray_real_T_dynsim_edo_T));
-  emxArray = *pEmxArray;
-  emxArray->data = (real_T *)NULL;
-  emxArray->numDimensions = numDimensions;
-  emxArray->size = (int32_T *)malloc(sizeof(int32_T) * numDimensions);
-  emxArray->allocatedSize = 0;
-  emxArray->canFreeData = true;
-  for (dynsim_edo_B.i_oj = 0; dynsim_edo_B.i_oj < numDimensions;
-       dynsim_edo_B.i_oj++) {
-    emxArray->size[dynsim_edo_B.i_oj] = 0;
-  }
-}
-
-static void dynsim_emxEnsureCapacity_real_T(emxArray_real_T_dynsim_edo_T
-  *emxArray, int32_T oldNumel)
-{
-  void *newData;
-  if (oldNumel < 0) {
-    oldNumel = 0;
-  }
-
-  dynsim_edo_B.newNumel = 1;
-  for (dynsim_edo_B.i_a = 0; dynsim_edo_B.i_a < emxArray->numDimensions;
-       dynsim_edo_B.i_a++) {
-    dynsim_edo_B.newNumel *= emxArray->size[dynsim_edo_B.i_a];
-  }
-
-  if (dynsim_edo_B.newNumel > emxArray->allocatedSize) {
-    dynsim_edo_B.i_a = emxArray->allocatedSize;
-    if (dynsim_edo_B.i_a < 16) {
-      dynsim_edo_B.i_a = 16;
-    }
-
-    while (dynsim_edo_B.i_a < dynsim_edo_B.newNumel) {
-      if (dynsim_edo_B.i_a > 1073741823) {
-        dynsim_edo_B.i_a = MAX_int32_T;
-      } else {
-        dynsim_edo_B.i_a <<= 1;
-      }
-    }
-
-    newData = calloc(static_cast<uint32_T>(dynsim_edo_B.i_a), sizeof(real_T));
-    if (emxArray->data != NULL) {
-      memcpy(newData, emxArray->data, sizeof(real_T) * oldNumel);
-      if (emxArray->canFreeData) {
-        free(emxArray->data);
-      }
-    }
-
-    emxArray->data = (real_T *)newData;
-    emxArray->allocatedSize = dynsim_edo_B.i_a;
-    emxArray->canFreeData = true;
-  }
-}
-
-static void dynsim_edo_emxInit_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
+static void dynsim_edo_emxInit_f_cell_wrap1(emxArray_f_cell_wrap_dynsim_h_T
   **pEmxArray, int32_T numDimensions)
 {
-  emxArray_f_cell_wrap_dynsim_e_T *emxArray;
-  *pEmxArray = (emxArray_f_cell_wrap_dynsim_e_T *)malloc(sizeof
-    (emxArray_f_cell_wrap_dynsim_e_T));
+  emxArray_f_cell_wrap_dynsim_h_T *emxArray;
+  *pEmxArray = (emxArray_f_cell_wrap_dynsim_h_T *)malloc(sizeof
+    (emxArray_f_cell_wrap_dynsim_h_T));
   emxArray = *pEmxArray;
-  emxArray->data = (f_cell_wrap_dynsim_edo_T *)NULL;
+  emxArray->data = (f_cell_wrap_dynsim_edo_h_T *)NULL;
   emxArray->numDimensions = numDimensions;
   emxArray->size = (int32_T *)malloc(sizeof(int32_T) * numDimensions);
   emxArray->allocatedSize = 0;
   emxArray->canFreeData = true;
-  for (dynsim_edo_B.i_o2 = 0; dynsim_edo_B.i_o2 < numDimensions;
-       dynsim_edo_B.i_o2++) {
-    emxArray->size[dynsim_edo_B.i_o2] = 0;
+  for (dynsim_edo_B.i_e = 0; dynsim_edo_B.i_e < numDimensions; dynsim_edo_B.i_e
+       ++) {
+    emxArray->size[dynsim_edo_B.i_e] = 0;
   }
 }
 
-static void d_emxEnsureCapacity_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
+static void emxEnsureCapacity_f_cell_wrap1(emxArray_f_cell_wrap_dynsim_h_T
   *emxArray, int32_T oldNumel)
 {
   void *newData;
@@ -306,19 +1886,19 @@ static void d_emxEnsureCapacity_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
     oldNumel = 0;
   }
 
-  dynsim_edo_B.newNumel_a = 1;
+  dynsim_edo_B.newNumel_n = 1;
   for (dynsim_edo_B.i_i = 0; dynsim_edo_B.i_i < emxArray->numDimensions;
        dynsim_edo_B.i_i++) {
-    dynsim_edo_B.newNumel_a *= emxArray->size[dynsim_edo_B.i_i];
+    dynsim_edo_B.newNumel_n *= emxArray->size[dynsim_edo_B.i_i];
   }
 
-  if (dynsim_edo_B.newNumel_a > emxArray->allocatedSize) {
+  if (dynsim_edo_B.newNumel_n > emxArray->allocatedSize) {
     dynsim_edo_B.i_i = emxArray->allocatedSize;
     if (dynsim_edo_B.i_i < 16) {
       dynsim_edo_B.i_i = 16;
     }
 
-    while (dynsim_edo_B.i_i < dynsim_edo_B.newNumel_a) {
+    while (dynsim_edo_B.i_i < dynsim_edo_B.newNumel_n) {
       if (dynsim_edo_B.i_i > 1073741823) {
         dynsim_edo_B.i_i = MAX_int32_T;
       } else {
@@ -327,23 +1907,23 @@ static void d_emxEnsureCapacity_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
     }
 
     newData = calloc(static_cast<uint32_T>(dynsim_edo_B.i_i), sizeof
-                     (f_cell_wrap_dynsim_edo_T));
+                     (f_cell_wrap_dynsim_edo_h_T));
     if (emxArray->data != NULL) {
-      memcpy(newData, emxArray->data, sizeof(f_cell_wrap_dynsim_edo_T)
+      memcpy(newData, emxArray->data, sizeof(f_cell_wrap_dynsim_edo_h_T)
              * oldNumel);
       if (emxArray->canFreeData) {
         free(emxArray->data);
       }
     }
 
-    emxArray->data = (f_cell_wrap_dynsim_edo_T *)newData;
+    emxArray->data = (f_cell_wrap_dynsim_edo_h_T *)newData;
     emxArray->allocatedSize = dynsim_edo_B.i_i;
     emxArray->canFreeData = true;
   }
 }
 
-static void dy_rigidBodyJoint_get_JointAxis(const c_rigidBodyJoint_dynsim_edo_T *
-  obj, real_T ax[3])
+static void rigidBodyJoint_get_JointAxis_ha(const
+  c_rigidBodyJoint_dynsim_ed_ha_T *obj, real_T ax[3])
 {
   static const char_T tmp[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
 
@@ -351,23 +1931,23 @@ static void dy_rigidBodyJoint_get_JointAxis(const c_rigidBodyJoint_dynsim_edo_T 
 
   boolean_T guard1 = false;
   int32_T exitg1;
-  for (dynsim_edo_B.b_kstr_o = 0; dynsim_edo_B.b_kstr_o < 8;
-       dynsim_edo_B.b_kstr_o++) {
-    dynsim_edo_B.b_g[dynsim_edo_B.b_kstr_o] = tmp[dynsim_edo_B.b_kstr_o];
+  for (dynsim_edo_B.b_kstr_d = 0; dynsim_edo_B.b_kstr_d < 8;
+       dynsim_edo_B.b_kstr_d++) {
+    dynsim_edo_B.b_c0[dynsim_edo_B.b_kstr_d] = tmp[dynsim_edo_B.b_kstr_d];
   }
 
   dynsim_edo_B.b_bool_c = false;
   if (obj->Type->size[1] == 8) {
-    dynsim_edo_B.b_kstr_o = 1;
+    dynsim_edo_B.b_kstr_d = 1;
     do {
       exitg1 = 0;
-      if (dynsim_edo_B.b_kstr_o - 1 < 8) {
-        dynsim_edo_B.kstr_i = dynsim_edo_B.b_kstr_o - 1;
-        if (obj->Type->data[dynsim_edo_B.kstr_i] !=
-            dynsim_edo_B.b_g[dynsim_edo_B.kstr_i]) {
+      if (dynsim_edo_B.b_kstr_d - 1 < 8) {
+        dynsim_edo_B.kstr_a = dynsim_edo_B.b_kstr_d - 1;
+        if (obj->Type->data[dynsim_edo_B.kstr_a] !=
+            dynsim_edo_B.b_c0[dynsim_edo_B.kstr_a]) {
           exitg1 = 1;
         } else {
-          dynsim_edo_B.b_kstr_o++;
+          dynsim_edo_B.b_kstr_d++;
         }
       } else {
         dynsim_edo_B.b_bool_c = true;
@@ -380,23 +1960,23 @@ static void dy_rigidBodyJoint_get_JointAxis(const c_rigidBodyJoint_dynsim_edo_T 
   if (dynsim_edo_B.b_bool_c) {
     guard1 = true;
   } else {
-    for (dynsim_edo_B.b_kstr_o = 0; dynsim_edo_B.b_kstr_o < 9;
-         dynsim_edo_B.b_kstr_o++) {
-      dynsim_edo_B.b[dynsim_edo_B.b_kstr_o] = tmp_0[dynsim_edo_B.b_kstr_o];
+    for (dynsim_edo_B.b_kstr_d = 0; dynsim_edo_B.b_kstr_d < 9;
+         dynsim_edo_B.b_kstr_d++) {
+      dynsim_edo_B.b_m[dynsim_edo_B.b_kstr_d] = tmp_0[dynsim_edo_B.b_kstr_d];
     }
 
     dynsim_edo_B.b_bool_c = false;
     if (obj->Type->size[1] == 9) {
-      dynsim_edo_B.b_kstr_o = 1;
+      dynsim_edo_B.b_kstr_d = 1;
       do {
         exitg1 = 0;
-        if (dynsim_edo_B.b_kstr_o - 1 < 9) {
-          dynsim_edo_B.kstr_i = dynsim_edo_B.b_kstr_o - 1;
-          if (obj->Type->data[dynsim_edo_B.kstr_i] !=
-              dynsim_edo_B.b[dynsim_edo_B.kstr_i]) {
+        if (dynsim_edo_B.b_kstr_d - 1 < 9) {
+          dynsim_edo_B.kstr_a = dynsim_edo_B.b_kstr_d - 1;
+          if (obj->Type->data[dynsim_edo_B.kstr_a] !=
+              dynsim_edo_B.b_m[dynsim_edo_B.kstr_a]) {
             exitg1 = 1;
           } else {
-            dynsim_edo_B.b_kstr_o++;
+            dynsim_edo_B.b_kstr_d++;
           }
         } else {
           dynsim_edo_B.b_bool_c = true;
@@ -436,75 +2016,76 @@ static void dynsim_edo_cat(real_T varargin_1, real_T varargin_2, real_T
   y[8] = varargin_9;
 }
 
-static void rigidBodyJoint_transformBodyT_h(const c_rigidBodyJoint_dynsim_edo_T *
-  obj, const real_T q_data[], const int32_T *q_size, real_T T[16])
+static void rigidBodyJoint_transformBodyT_h(const
+  c_rigidBodyJoint_dynsim_ed_ha_T *obj, const real_T q_data[], const int32_T
+  *q_size, real_T T[16])
 {
   static const char_T tmp[5] = { 'f', 'i', 'x', 'e', 'd' };
 
   static const char_T tmp_0[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
 
   int32_T exitg1;
-  for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 5; dynsim_edo_B.b_kstr++)
-  {
-    dynsim_edo_B.b_f[dynsim_edo_B.b_kstr] = tmp[dynsim_edo_B.b_kstr];
+  for (dynsim_edo_B.b_kstr_c = 0; dynsim_edo_B.b_kstr_c < 5;
+       dynsim_edo_B.b_kstr_c++) {
+    dynsim_edo_B.b_cs[dynsim_edo_B.b_kstr_c] = tmp[dynsim_edo_B.b_kstr_c];
   }
 
-  dynsim_edo_B.b_bool_g = false;
+  dynsim_edo_B.b_bool_na = false;
   if (obj->Type->size[1] == 5) {
-    dynsim_edo_B.b_kstr = 1;
+    dynsim_edo_B.b_kstr_c = 1;
     do {
       exitg1 = 0;
-      if (dynsim_edo_B.b_kstr - 1 < 5) {
-        dynsim_edo_B.kstr = dynsim_edo_B.b_kstr - 1;
-        if (obj->Type->data[dynsim_edo_B.kstr] !=
-            dynsim_edo_B.b_f[dynsim_edo_B.kstr]) {
+      if (dynsim_edo_B.b_kstr_c - 1 < 5) {
+        dynsim_edo_B.kstr_e = dynsim_edo_B.b_kstr_c - 1;
+        if (obj->Type->data[dynsim_edo_B.kstr_e] !=
+            dynsim_edo_B.b_cs[dynsim_edo_B.kstr_e]) {
           exitg1 = 1;
         } else {
-          dynsim_edo_B.b_kstr++;
+          dynsim_edo_B.b_kstr_c++;
         }
       } else {
-        dynsim_edo_B.b_bool_g = true;
+        dynsim_edo_B.b_bool_na = true;
         exitg1 = 1;
       }
     } while (exitg1 == 0);
   }
 
-  if (dynsim_edo_B.b_bool_g) {
-    dynsim_edo_B.b_kstr = 0;
+  if (dynsim_edo_B.b_bool_na) {
+    dynsim_edo_B.b_kstr_c = 0;
   } else {
-    for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 8; dynsim_edo_B.b_kstr++)
-    {
-      dynsim_edo_B.b_d[dynsim_edo_B.b_kstr] = tmp_0[dynsim_edo_B.b_kstr];
+    for (dynsim_edo_B.b_kstr_c = 0; dynsim_edo_B.b_kstr_c < 8;
+         dynsim_edo_B.b_kstr_c++) {
+      dynsim_edo_B.b_h[dynsim_edo_B.b_kstr_c] = tmp_0[dynsim_edo_B.b_kstr_c];
     }
 
-    dynsim_edo_B.b_bool_g = false;
+    dynsim_edo_B.b_bool_na = false;
     if (obj->Type->size[1] == 8) {
-      dynsim_edo_B.b_kstr = 1;
+      dynsim_edo_B.b_kstr_c = 1;
       do {
         exitg1 = 0;
-        if (dynsim_edo_B.b_kstr - 1 < 8) {
-          dynsim_edo_B.kstr = dynsim_edo_B.b_kstr - 1;
-          if (obj->Type->data[dynsim_edo_B.kstr] !=
-              dynsim_edo_B.b_d[dynsim_edo_B.kstr]) {
+        if (dynsim_edo_B.b_kstr_c - 1 < 8) {
+          dynsim_edo_B.kstr_e = dynsim_edo_B.b_kstr_c - 1;
+          if (obj->Type->data[dynsim_edo_B.kstr_e] !=
+              dynsim_edo_B.b_h[dynsim_edo_B.kstr_e]) {
             exitg1 = 1;
           } else {
-            dynsim_edo_B.b_kstr++;
+            dynsim_edo_B.b_kstr_c++;
           }
         } else {
-          dynsim_edo_B.b_bool_g = true;
+          dynsim_edo_B.b_bool_na = true;
           exitg1 = 1;
         }
       } while (exitg1 == 0);
     }
 
-    if (dynsim_edo_B.b_bool_g) {
-      dynsim_edo_B.b_kstr = 1;
+    if (dynsim_edo_B.b_bool_na) {
+      dynsim_edo_B.b_kstr_c = 1;
     } else {
-      dynsim_edo_B.b_kstr = -1;
+      dynsim_edo_B.b_kstr_c = -1;
     }
   }
 
-  switch (dynsim_edo_B.b_kstr) {
+  switch (dynsim_edo_B.b_kstr_c) {
    case 0:
     memset(&dynsim_edo_B.TJ[0], 0, sizeof(real_T) << 4U);
     dynsim_edo_B.TJ[0] = 1.0;
@@ -514,88 +2095,89 @@ static void rigidBodyJoint_transformBodyT_h(const c_rigidBodyJoint_dynsim_edo_T 
     break;
 
    case 1:
-    dy_rigidBodyJoint_get_JointAxis(obj, dynsim_edo_B.v);
-    dynsim_edo_B.result_data[0] = dynsim_edo_B.v[0];
-    dynsim_edo_B.result_data[1] = dynsim_edo_B.v[1];
-    dynsim_edo_B.result_data[2] = dynsim_edo_B.v[2];
+    rigidBodyJoint_get_JointAxis_ha(obj, dynsim_edo_B.v_j);
+    dynsim_edo_B.result_data_j[0] = dynsim_edo_B.v_j[0];
+    dynsim_edo_B.result_data_j[1] = dynsim_edo_B.v_j[1];
+    dynsim_edo_B.result_data_j[2] = dynsim_edo_B.v_j[2];
     if (0 <= (*q_size != 0) - 1) {
-      dynsim_edo_B.result_data[3] = q_data[0];
+      dynsim_edo_B.result_data_j[3] = q_data[0];
     }
 
-    dynsim_edo_B.cth = 1.0 / sqrt((dynsim_edo_B.result_data[0] *
-      dynsim_edo_B.result_data[0] + dynsim_edo_B.result_data[1] *
-      dynsim_edo_B.result_data[1]) + dynsim_edo_B.result_data[2] *
-      dynsim_edo_B.result_data[2]);
-    dynsim_edo_B.v[0] = dynsim_edo_B.result_data[0] * dynsim_edo_B.cth;
-    dynsim_edo_B.v[1] = dynsim_edo_B.result_data[1] * dynsim_edo_B.cth;
-    dynsim_edo_B.v[2] = dynsim_edo_B.result_data[2] * dynsim_edo_B.cth;
-    dynsim_edo_B.cth = cos(dynsim_edo_B.result_data[3]);
-    dynsim_edo_B.sth = sin(dynsim_edo_B.result_data[3]);
-    dynsim_edo_B.tempR_tmp = dynsim_edo_B.v[1] * dynsim_edo_B.v[0] * (1.0 -
-      dynsim_edo_B.cth);
-    dynsim_edo_B.tempR_tmp_l = dynsim_edo_B.v[2] * dynsim_edo_B.sth;
-    dynsim_edo_B.tempR_tmp_o = dynsim_edo_B.v[2] * dynsim_edo_B.v[0] * (1.0 -
-      dynsim_edo_B.cth);
-    dynsim_edo_B.tempR_tmp_b = dynsim_edo_B.v[1] * dynsim_edo_B.sth;
-    dynsim_edo_B.tempR_tmp_n = dynsim_edo_B.v[2] * dynsim_edo_B.v[1] * (1.0 -
-      dynsim_edo_B.cth);
-    dynsim_edo_B.sth *= dynsim_edo_B.v[0];
-    dynsim_edo_cat(dynsim_edo_B.v[0] * dynsim_edo_B.v[0] * (1.0 -
-      dynsim_edo_B.cth) + dynsim_edo_B.cth, dynsim_edo_B.tempR_tmp -
-                   dynsim_edo_B.tempR_tmp_l, dynsim_edo_B.tempR_tmp_o +
-                   dynsim_edo_B.tempR_tmp_b, dynsim_edo_B.tempR_tmp +
-                   dynsim_edo_B.tempR_tmp_l, dynsim_edo_B.v[1] * dynsim_edo_B.v
-                   [1] * (1.0 - dynsim_edo_B.cth) + dynsim_edo_B.cth,
-                   dynsim_edo_B.tempR_tmp_n - dynsim_edo_B.sth,
-                   dynsim_edo_B.tempR_tmp_o - dynsim_edo_B.tempR_tmp_b,
-                   dynsim_edo_B.tempR_tmp_n + dynsim_edo_B.sth, dynsim_edo_B.v[2]
-                   * dynsim_edo_B.v[2] * (1.0 - dynsim_edo_B.cth) +
-                   dynsim_edo_B.cth, dynsim_edo_B.tempR);
-    for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 3; dynsim_edo_B.b_kstr++)
-    {
-      dynsim_edo_B.kstr = dynsim_edo_B.b_kstr + 1;
-      dynsim_edo_B.R_p[dynsim_edo_B.kstr - 1] = dynsim_edo_B.tempR
-        [(dynsim_edo_B.kstr - 1) * 3];
-      dynsim_edo_B.kstr = dynsim_edo_B.b_kstr + 1;
-      dynsim_edo_B.R_p[dynsim_edo_B.kstr + 2] = dynsim_edo_B.tempR
-        [(dynsim_edo_B.kstr - 1) * 3 + 1];
-      dynsim_edo_B.kstr = dynsim_edo_B.b_kstr + 1;
-      dynsim_edo_B.R_p[dynsim_edo_B.kstr + 5] = dynsim_edo_B.tempR
-        [(dynsim_edo_B.kstr - 1) * 3 + 2];
+    dynsim_edo_B.cth = 1.0 / sqrt((dynsim_edo_B.result_data_j[0] *
+      dynsim_edo_B.result_data_j[0] + dynsim_edo_B.result_data_j[1] *
+      dynsim_edo_B.result_data_j[1]) + dynsim_edo_B.result_data_j[2] *
+      dynsim_edo_B.result_data_j[2]);
+    dynsim_edo_B.v_j[0] = dynsim_edo_B.result_data_j[0] * dynsim_edo_B.cth;
+    dynsim_edo_B.v_j[1] = dynsim_edo_B.result_data_j[1] * dynsim_edo_B.cth;
+    dynsim_edo_B.v_j[2] = dynsim_edo_B.result_data_j[2] * dynsim_edo_B.cth;
+    dynsim_edo_B.cth = cos(dynsim_edo_B.result_data_j[3]);
+    dynsim_edo_B.sth_i = sin(dynsim_edo_B.result_data_j[3]);
+    dynsim_edo_B.tempR_tmp_l = dynsim_edo_B.v_j[1] * dynsim_edo_B.v_j[0] * (1.0
+      - dynsim_edo_B.cth);
+    dynsim_edo_B.tempR_tmp_o = dynsim_edo_B.v_j[2] * dynsim_edo_B.sth_i;
+    dynsim_edo_B.tempR_tmp_o2 = dynsim_edo_B.v_j[2] * dynsim_edo_B.v_j[0] * (1.0
+      - dynsim_edo_B.cth);
+    dynsim_edo_B.tempR_tmp_i = dynsim_edo_B.v_j[1] * dynsim_edo_B.sth_i;
+    dynsim_edo_B.tempR_tmp_f = dynsim_edo_B.v_j[2] * dynsim_edo_B.v_j[1] * (1.0
+      - dynsim_edo_B.cth);
+    dynsim_edo_B.sth_i *= dynsim_edo_B.v_j[0];
+    dynsim_edo_cat(dynsim_edo_B.v_j[0] * dynsim_edo_B.v_j[0] * (1.0 -
+      dynsim_edo_B.cth) + dynsim_edo_B.cth, dynsim_edo_B.tempR_tmp_l -
+                   dynsim_edo_B.tempR_tmp_o, dynsim_edo_B.tempR_tmp_o2 +
+                   dynsim_edo_B.tempR_tmp_i, dynsim_edo_B.tempR_tmp_l +
+                   dynsim_edo_B.tempR_tmp_o, dynsim_edo_B.v_j[1] *
+                   dynsim_edo_B.v_j[1] * (1.0 - dynsim_edo_B.cth) +
+                   dynsim_edo_B.cth, dynsim_edo_B.tempR_tmp_f -
+                   dynsim_edo_B.sth_i, dynsim_edo_B.tempR_tmp_o2 -
+                   dynsim_edo_B.tempR_tmp_i, dynsim_edo_B.tempR_tmp_f +
+                   dynsim_edo_B.sth_i, dynsim_edo_B.v_j[2] * dynsim_edo_B.v_j[2]
+                   * (1.0 - dynsim_edo_B.cth) + dynsim_edo_B.cth,
+                   dynsim_edo_B.tempR_b);
+    for (dynsim_edo_B.b_kstr_c = 0; dynsim_edo_B.b_kstr_c < 3;
+         dynsim_edo_B.b_kstr_c++) {
+      dynsim_edo_B.kstr_e = dynsim_edo_B.b_kstr_c + 1;
+      dynsim_edo_B.R_o[dynsim_edo_B.kstr_e - 1] = dynsim_edo_B.tempR_b
+        [(dynsim_edo_B.kstr_e - 1) * 3];
+      dynsim_edo_B.kstr_e = dynsim_edo_B.b_kstr_c + 1;
+      dynsim_edo_B.R_o[dynsim_edo_B.kstr_e + 2] = dynsim_edo_B.tempR_b
+        [(dynsim_edo_B.kstr_e - 1) * 3 + 1];
+      dynsim_edo_B.kstr_e = dynsim_edo_B.b_kstr_c + 1;
+      dynsim_edo_B.R_o[dynsim_edo_B.kstr_e + 5] = dynsim_edo_B.tempR_b
+        [(dynsim_edo_B.kstr_e - 1) * 3 + 2];
     }
 
     memset(&dynsim_edo_B.TJ[0], 0, sizeof(real_T) << 4U);
-    for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 3; dynsim_edo_B.b_kstr++)
-    {
-      dynsim_edo_B.kstr = dynsim_edo_B.b_kstr << 2;
-      dynsim_edo_B.TJ[dynsim_edo_B.kstr] = dynsim_edo_B.R_p[3 *
-        dynsim_edo_B.b_kstr];
-      dynsim_edo_B.TJ[dynsim_edo_B.kstr + 1] = dynsim_edo_B.R_p[3 *
-        dynsim_edo_B.b_kstr + 1];
-      dynsim_edo_B.TJ[dynsim_edo_B.kstr + 2] = dynsim_edo_B.R_p[3 *
-        dynsim_edo_B.b_kstr + 2];
+    for (dynsim_edo_B.b_kstr_c = 0; dynsim_edo_B.b_kstr_c < 3;
+         dynsim_edo_B.b_kstr_c++) {
+      dynsim_edo_B.kstr_e = dynsim_edo_B.b_kstr_c << 2;
+      dynsim_edo_B.TJ[dynsim_edo_B.kstr_e] = dynsim_edo_B.R_o[3 *
+        dynsim_edo_B.b_kstr_c];
+      dynsim_edo_B.TJ[dynsim_edo_B.kstr_e + 1] = dynsim_edo_B.R_o[3 *
+        dynsim_edo_B.b_kstr_c + 1];
+      dynsim_edo_B.TJ[dynsim_edo_B.kstr_e + 2] = dynsim_edo_B.R_o[3 *
+        dynsim_edo_B.b_kstr_c + 2];
     }
 
     dynsim_edo_B.TJ[15] = 1.0;
     break;
 
    default:
-    dy_rigidBodyJoint_get_JointAxis(obj, dynsim_edo_B.v);
-    memset(&dynsim_edo_B.tempR[0], 0, 9U * sizeof(real_T));
-    dynsim_edo_B.tempR[0] = 1.0;
-    dynsim_edo_B.tempR[4] = 1.0;
-    dynsim_edo_B.tempR[8] = 1.0;
-    for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 3; dynsim_edo_B.b_kstr++)
-    {
-      dynsim_edo_B.kstr = dynsim_edo_B.b_kstr << 2;
-      dynsim_edo_B.TJ[dynsim_edo_B.kstr] = dynsim_edo_B.tempR[3 *
-        dynsim_edo_B.b_kstr];
-      dynsim_edo_B.TJ[dynsim_edo_B.kstr + 1] = dynsim_edo_B.tempR[3 *
-        dynsim_edo_B.b_kstr + 1];
-      dynsim_edo_B.TJ[dynsim_edo_B.kstr + 2] = dynsim_edo_B.tempR[3 *
-        dynsim_edo_B.b_kstr + 2];
-      dynsim_edo_B.TJ[dynsim_edo_B.b_kstr + 12] =
-        dynsim_edo_B.v[dynsim_edo_B.b_kstr] * q_data[0];
+    rigidBodyJoint_get_JointAxis_ha(obj, dynsim_edo_B.v_j);
+    memset(&dynsim_edo_B.tempR_b[0], 0, 9U * sizeof(real_T));
+    dynsim_edo_B.tempR_b[0] = 1.0;
+    dynsim_edo_B.tempR_b[4] = 1.0;
+    dynsim_edo_B.tempR_b[8] = 1.0;
+    for (dynsim_edo_B.b_kstr_c = 0; dynsim_edo_B.b_kstr_c < 3;
+         dynsim_edo_B.b_kstr_c++) {
+      dynsim_edo_B.kstr_e = dynsim_edo_B.b_kstr_c << 2;
+      dynsim_edo_B.TJ[dynsim_edo_B.kstr_e] = dynsim_edo_B.tempR_b[3 *
+        dynsim_edo_B.b_kstr_c];
+      dynsim_edo_B.TJ[dynsim_edo_B.kstr_e + 1] = dynsim_edo_B.tempR_b[3 *
+        dynsim_edo_B.b_kstr_c + 1];
+      dynsim_edo_B.TJ[dynsim_edo_B.kstr_e + 2] = dynsim_edo_B.tempR_b[3 *
+        dynsim_edo_B.b_kstr_c + 2];
+      dynsim_edo_B.TJ[dynsim_edo_B.b_kstr_c + 12] =
+        dynsim_edo_B.v_j[dynsim_edo_B.b_kstr_c] * q_data[0];
     }
 
     dynsim_edo_B.TJ[3] = 0.0;
@@ -605,242 +2187,244 @@ static void rigidBodyJoint_transformBodyT_h(const c_rigidBodyJoint_dynsim_edo_T 
     break;
   }
 
-  for (dynsim_edo_B.b_kstr = 0; dynsim_edo_B.b_kstr < 4; dynsim_edo_B.b_kstr++)
-  {
-    for (dynsim_edo_B.kstr = 0; dynsim_edo_B.kstr < 4; dynsim_edo_B.kstr++) {
-      dynsim_edo_B.obj_tmp_tmp = dynsim_edo_B.kstr << 2;
-      dynsim_edo_B.obj_tmp = dynsim_edo_B.b_kstr + dynsim_edo_B.obj_tmp_tmp;
+  for (dynsim_edo_B.b_kstr_c = 0; dynsim_edo_B.b_kstr_c < 4;
+       dynsim_edo_B.b_kstr_c++) {
+    for (dynsim_edo_B.kstr_e = 0; dynsim_edo_B.kstr_e < 4; dynsim_edo_B.kstr_e++)
+    {
+      dynsim_edo_B.obj_tmp_tmp = dynsim_edo_B.kstr_e << 2;
+      dynsim_edo_B.obj_tmp = dynsim_edo_B.b_kstr_c + dynsim_edo_B.obj_tmp_tmp;
       dynsim_edo_B.obj[dynsim_edo_B.obj_tmp] = 0.0;
       dynsim_edo_B.obj[dynsim_edo_B.obj_tmp] +=
         dynsim_edo_B.TJ[dynsim_edo_B.obj_tmp_tmp] * obj->
-        JointToParentTransform[dynsim_edo_B.b_kstr];
+        JointToParentTransform[dynsim_edo_B.b_kstr_c];
       dynsim_edo_B.obj[dynsim_edo_B.obj_tmp] +=
         dynsim_edo_B.TJ[dynsim_edo_B.obj_tmp_tmp + 1] *
-        obj->JointToParentTransform[dynsim_edo_B.b_kstr + 4];
+        obj->JointToParentTransform[dynsim_edo_B.b_kstr_c + 4];
       dynsim_edo_B.obj[dynsim_edo_B.obj_tmp] +=
         dynsim_edo_B.TJ[dynsim_edo_B.obj_tmp_tmp + 2] *
-        obj->JointToParentTransform[dynsim_edo_B.b_kstr + 8];
+        obj->JointToParentTransform[dynsim_edo_B.b_kstr_c + 8];
       dynsim_edo_B.obj[dynsim_edo_B.obj_tmp] +=
         dynsim_edo_B.TJ[dynsim_edo_B.obj_tmp_tmp + 3] *
-        obj->JointToParentTransform[dynsim_edo_B.b_kstr + 12];
+        obj->JointToParentTransform[dynsim_edo_B.b_kstr_c + 12];
     }
 
-    for (dynsim_edo_B.kstr = 0; dynsim_edo_B.kstr < 4; dynsim_edo_B.kstr++) {
-      dynsim_edo_B.obj_tmp_tmp = dynsim_edo_B.kstr << 2;
-      dynsim_edo_B.obj_tmp = dynsim_edo_B.b_kstr + dynsim_edo_B.obj_tmp_tmp;
+    for (dynsim_edo_B.kstr_e = 0; dynsim_edo_B.kstr_e < 4; dynsim_edo_B.kstr_e++)
+    {
+      dynsim_edo_B.obj_tmp_tmp = dynsim_edo_B.kstr_e << 2;
+      dynsim_edo_B.obj_tmp = dynsim_edo_B.b_kstr_c + dynsim_edo_B.obj_tmp_tmp;
       T[dynsim_edo_B.obj_tmp] = 0.0;
       T[dynsim_edo_B.obj_tmp] += obj->
         ChildToJointTransform[dynsim_edo_B.obj_tmp_tmp] *
-        dynsim_edo_B.obj[dynsim_edo_B.b_kstr];
+        dynsim_edo_B.obj[dynsim_edo_B.b_kstr_c];
       T[dynsim_edo_B.obj_tmp] += obj->
         ChildToJointTransform[dynsim_edo_B.obj_tmp_tmp + 1] *
-        dynsim_edo_B.obj[dynsim_edo_B.b_kstr + 4];
+        dynsim_edo_B.obj[dynsim_edo_B.b_kstr_c + 4];
       T[dynsim_edo_B.obj_tmp] += obj->
         ChildToJointTransform[dynsim_edo_B.obj_tmp_tmp + 2] *
-        dynsim_edo_B.obj[dynsim_edo_B.b_kstr + 8];
+        dynsim_edo_B.obj[dynsim_edo_B.b_kstr_c + 8];
       T[dynsim_edo_B.obj_tmp] += obj->
         ChildToJointTransform[dynsim_edo_B.obj_tmp_tmp + 3] *
-        dynsim_edo_B.obj[dynsim_edo_B.b_kstr + 12];
+        dynsim_edo_B.obj[dynsim_edo_B.b_kstr_c + 12];
     }
   }
 }
 
-static void rigidBodyJoint_transformBodyToP(const c_rigidBodyJoint_dynsim_edo_T *
-  obj, real_T T[16])
+static void rigidBodyJoint_transformBodyToP(const
+  c_rigidBodyJoint_dynsim_ed_ha_T *obj, real_T T[16])
 {
   static const char_T tmp[5] = { 'f', 'i', 'x', 'e', 'd' };
 
   static const char_T tmp_0[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
 
   int32_T exitg1;
-  for (dynsim_edo_B.b_kstr_h = 0; dynsim_edo_B.b_kstr_h < 5;
-       dynsim_edo_B.b_kstr_h++) {
-    dynsim_edo_B.b_ju[dynsim_edo_B.b_kstr_h] = tmp[dynsim_edo_B.b_kstr_h];
+  for (dynsim_edo_B.b_kstr_f = 0; dynsim_edo_B.b_kstr_f < 5;
+       dynsim_edo_B.b_kstr_f++) {
+    dynsim_edo_B.b_pc[dynsim_edo_B.b_kstr_f] = tmp[dynsim_edo_B.b_kstr_f];
   }
 
-  dynsim_edo_B.b_bool_l = false;
+  dynsim_edo_B.b_bool_p = false;
   if (obj->Type->size[1] == 5) {
-    dynsim_edo_B.b_kstr_h = 1;
+    dynsim_edo_B.b_kstr_f = 1;
     do {
       exitg1 = 0;
-      if (dynsim_edo_B.b_kstr_h - 1 < 5) {
-        dynsim_edo_B.kstr_j = dynsim_edo_B.b_kstr_h - 1;
-        if (obj->Type->data[dynsim_edo_B.kstr_j] !=
-            dynsim_edo_B.b_ju[dynsim_edo_B.kstr_j]) {
+      if (dynsim_edo_B.b_kstr_f - 1 < 5) {
+        dynsim_edo_B.kstr_p = dynsim_edo_B.b_kstr_f - 1;
+        if (obj->Type->data[dynsim_edo_B.kstr_p] !=
+            dynsim_edo_B.b_pc[dynsim_edo_B.kstr_p]) {
           exitg1 = 1;
         } else {
-          dynsim_edo_B.b_kstr_h++;
+          dynsim_edo_B.b_kstr_f++;
         }
       } else {
-        dynsim_edo_B.b_bool_l = true;
+        dynsim_edo_B.b_bool_p = true;
         exitg1 = 1;
       }
     } while (exitg1 == 0);
   }
 
-  if (dynsim_edo_B.b_bool_l) {
-    dynsim_edo_B.b_kstr_h = 0;
+  if (dynsim_edo_B.b_bool_p) {
+    dynsim_edo_B.b_kstr_f = 0;
   } else {
-    for (dynsim_edo_B.b_kstr_h = 0; dynsim_edo_B.b_kstr_h < 8;
-         dynsim_edo_B.b_kstr_h++) {
-      dynsim_edo_B.b_l[dynsim_edo_B.b_kstr_h] = tmp_0[dynsim_edo_B.b_kstr_h];
+    for (dynsim_edo_B.b_kstr_f = 0; dynsim_edo_B.b_kstr_f < 8;
+         dynsim_edo_B.b_kstr_f++) {
+      dynsim_edo_B.b_ct[dynsim_edo_B.b_kstr_f] = tmp_0[dynsim_edo_B.b_kstr_f];
     }
 
-    dynsim_edo_B.b_bool_l = false;
+    dynsim_edo_B.b_bool_p = false;
     if (obj->Type->size[1] == 8) {
-      dynsim_edo_B.b_kstr_h = 1;
+      dynsim_edo_B.b_kstr_f = 1;
       do {
         exitg1 = 0;
-        if (dynsim_edo_B.b_kstr_h - 1 < 8) {
-          dynsim_edo_B.kstr_j = dynsim_edo_B.b_kstr_h - 1;
-          if (obj->Type->data[dynsim_edo_B.kstr_j] !=
-              dynsim_edo_B.b_l[dynsim_edo_B.kstr_j]) {
+        if (dynsim_edo_B.b_kstr_f - 1 < 8) {
+          dynsim_edo_B.kstr_p = dynsim_edo_B.b_kstr_f - 1;
+          if (obj->Type->data[dynsim_edo_B.kstr_p] !=
+              dynsim_edo_B.b_ct[dynsim_edo_B.kstr_p]) {
             exitg1 = 1;
           } else {
-            dynsim_edo_B.b_kstr_h++;
+            dynsim_edo_B.b_kstr_f++;
           }
         } else {
-          dynsim_edo_B.b_bool_l = true;
+          dynsim_edo_B.b_bool_p = true;
           exitg1 = 1;
         }
       } while (exitg1 == 0);
     }
 
-    if (dynsim_edo_B.b_bool_l) {
-      dynsim_edo_B.b_kstr_h = 1;
+    if (dynsim_edo_B.b_bool_p) {
+      dynsim_edo_B.b_kstr_f = 1;
     } else {
-      dynsim_edo_B.b_kstr_h = -1;
+      dynsim_edo_B.b_kstr_f = -1;
     }
   }
 
-  switch (dynsim_edo_B.b_kstr_h) {
+  switch (dynsim_edo_B.b_kstr_f) {
    case 0:
-    memset(&dynsim_edo_B.TJ_c[0], 0, sizeof(real_T) << 4U);
-    dynsim_edo_B.TJ_c[0] = 1.0;
-    dynsim_edo_B.TJ_c[5] = 1.0;
-    dynsim_edo_B.TJ_c[10] = 1.0;
-    dynsim_edo_B.TJ_c[15] = 1.0;
+    memset(&dynsim_edo_B.TJ_g[0], 0, sizeof(real_T) << 4U);
+    dynsim_edo_B.TJ_g[0] = 1.0;
+    dynsim_edo_B.TJ_g[5] = 1.0;
+    dynsim_edo_B.TJ_g[10] = 1.0;
+    dynsim_edo_B.TJ_g[15] = 1.0;
     break;
 
    case 1:
-    dy_rigidBodyJoint_get_JointAxis(obj, dynsim_edo_B.v_l);
-    dynsim_edo_B.axang_idx_0 = dynsim_edo_B.v_l[0];
-    dynsim_edo_B.axang_idx_1 = dynsim_edo_B.v_l[1];
-    dynsim_edo_B.axang_idx_2 = dynsim_edo_B.v_l[2];
-    dynsim_edo_B.b_da = 1.0 / sqrt((dynsim_edo_B.axang_idx_0 *
+    rigidBodyJoint_get_JointAxis_ha(obj, dynsim_edo_B.v_o);
+    dynsim_edo_B.axang_idx_0 = dynsim_edo_B.v_o[0];
+    dynsim_edo_B.axang_idx_1 = dynsim_edo_B.v_o[1];
+    dynsim_edo_B.axang_idx_2 = dynsim_edo_B.v_o[2];
+    dynsim_edo_B.b_o = 1.0 / sqrt((dynsim_edo_B.axang_idx_0 *
       dynsim_edo_B.axang_idx_0 + dynsim_edo_B.axang_idx_1 *
       dynsim_edo_B.axang_idx_1) + dynsim_edo_B.axang_idx_2 *
       dynsim_edo_B.axang_idx_2);
-    dynsim_edo_B.v_l[0] = dynsim_edo_B.axang_idx_0 * dynsim_edo_B.b_da;
-    dynsim_edo_B.v_l[1] = dynsim_edo_B.axang_idx_1 * dynsim_edo_B.b_da;
-    dynsim_edo_B.v_l[2] = dynsim_edo_B.axang_idx_2 * dynsim_edo_B.b_da;
-    dynsim_edo_B.axang_idx_0 = dynsim_edo_B.v_l[1] * dynsim_edo_B.v_l[0] * 0.0;
-    dynsim_edo_B.axang_idx_1 = dynsim_edo_B.v_l[2] * dynsim_edo_B.v_l[0] * 0.0;
-    dynsim_edo_B.axang_idx_2 = dynsim_edo_B.v_l[2] * dynsim_edo_B.v_l[1] * 0.0;
-    dynsim_edo_cat(dynsim_edo_B.v_l[0] * dynsim_edo_B.v_l[0] * 0.0 + 1.0,
-                   dynsim_edo_B.axang_idx_0 - dynsim_edo_B.v_l[2] * 0.0,
-                   dynsim_edo_B.axang_idx_1 + dynsim_edo_B.v_l[1] * 0.0,
-                   dynsim_edo_B.axang_idx_0 + dynsim_edo_B.v_l[2] * 0.0,
-                   dynsim_edo_B.v_l[1] * dynsim_edo_B.v_l[1] * 0.0 + 1.0,
-                   dynsim_edo_B.axang_idx_2 - dynsim_edo_B.v_l[0] * 0.0,
-                   dynsim_edo_B.axang_idx_1 - dynsim_edo_B.v_l[1] * 0.0,
-                   dynsim_edo_B.axang_idx_2 + dynsim_edo_B.v_l[0] * 0.0,
-                   dynsim_edo_B.v_l[2] * dynsim_edo_B.v_l[2] * 0.0 + 1.0,
-                   dynsim_edo_B.tempR_f);
-    for (dynsim_edo_B.b_kstr_h = 0; dynsim_edo_B.b_kstr_h < 3;
-         dynsim_edo_B.b_kstr_h++) {
-      dynsim_edo_B.kstr_j = dynsim_edo_B.b_kstr_h + 1;
-      dynsim_edo_B.R_cv[dynsim_edo_B.kstr_j - 1] = dynsim_edo_B.tempR_f
-        [(dynsim_edo_B.kstr_j - 1) * 3];
-      dynsim_edo_B.kstr_j = dynsim_edo_B.b_kstr_h + 1;
-      dynsim_edo_B.R_cv[dynsim_edo_B.kstr_j + 2] = dynsim_edo_B.tempR_f
-        [(dynsim_edo_B.kstr_j - 1) * 3 + 1];
-      dynsim_edo_B.kstr_j = dynsim_edo_B.b_kstr_h + 1;
-      dynsim_edo_B.R_cv[dynsim_edo_B.kstr_j + 5] = dynsim_edo_B.tempR_f
-        [(dynsim_edo_B.kstr_j - 1) * 3 + 2];
+    dynsim_edo_B.v_o[0] = dynsim_edo_B.axang_idx_0 * dynsim_edo_B.b_o;
+    dynsim_edo_B.v_o[1] = dynsim_edo_B.axang_idx_1 * dynsim_edo_B.b_o;
+    dynsim_edo_B.v_o[2] = dynsim_edo_B.axang_idx_2 * dynsim_edo_B.b_o;
+    dynsim_edo_B.axang_idx_0 = dynsim_edo_B.v_o[1] * dynsim_edo_B.v_o[0] * 0.0;
+    dynsim_edo_B.axang_idx_1 = dynsim_edo_B.v_o[2] * dynsim_edo_B.v_o[0] * 0.0;
+    dynsim_edo_B.axang_idx_2 = dynsim_edo_B.v_o[2] * dynsim_edo_B.v_o[1] * 0.0;
+    dynsim_edo_cat(dynsim_edo_B.v_o[0] * dynsim_edo_B.v_o[0] * 0.0 + 1.0,
+                   dynsim_edo_B.axang_idx_0 - dynsim_edo_B.v_o[2] * 0.0,
+                   dynsim_edo_B.axang_idx_1 + dynsim_edo_B.v_o[1] * 0.0,
+                   dynsim_edo_B.axang_idx_0 + dynsim_edo_B.v_o[2] * 0.0,
+                   dynsim_edo_B.v_o[1] * dynsim_edo_B.v_o[1] * 0.0 + 1.0,
+                   dynsim_edo_B.axang_idx_2 - dynsim_edo_B.v_o[0] * 0.0,
+                   dynsim_edo_B.axang_idx_1 - dynsim_edo_B.v_o[1] * 0.0,
+                   dynsim_edo_B.axang_idx_2 + dynsim_edo_B.v_o[0] * 0.0,
+                   dynsim_edo_B.v_o[2] * dynsim_edo_B.v_o[2] * 0.0 + 1.0,
+                   dynsim_edo_B.tempR_bs);
+    for (dynsim_edo_B.b_kstr_f = 0; dynsim_edo_B.b_kstr_f < 3;
+         dynsim_edo_B.b_kstr_f++) {
+      dynsim_edo_B.kstr_p = dynsim_edo_B.b_kstr_f + 1;
+      dynsim_edo_B.R_n[dynsim_edo_B.kstr_p - 1] = dynsim_edo_B.tempR_bs
+        [(dynsim_edo_B.kstr_p - 1) * 3];
+      dynsim_edo_B.kstr_p = dynsim_edo_B.b_kstr_f + 1;
+      dynsim_edo_B.R_n[dynsim_edo_B.kstr_p + 2] = dynsim_edo_B.tempR_bs
+        [(dynsim_edo_B.kstr_p - 1) * 3 + 1];
+      dynsim_edo_B.kstr_p = dynsim_edo_B.b_kstr_f + 1;
+      dynsim_edo_B.R_n[dynsim_edo_B.kstr_p + 5] = dynsim_edo_B.tempR_bs
+        [(dynsim_edo_B.kstr_p - 1) * 3 + 2];
     }
 
-    memset(&dynsim_edo_B.TJ_c[0], 0, sizeof(real_T) << 4U);
-    for (dynsim_edo_B.b_kstr_h = 0; dynsim_edo_B.b_kstr_h < 3;
-         dynsim_edo_B.b_kstr_h++) {
-      dynsim_edo_B.kstr_j = dynsim_edo_B.b_kstr_h << 2;
-      dynsim_edo_B.TJ_c[dynsim_edo_B.kstr_j] = dynsim_edo_B.R_cv[3 *
-        dynsim_edo_B.b_kstr_h];
-      dynsim_edo_B.TJ_c[dynsim_edo_B.kstr_j + 1] = dynsim_edo_B.R_cv[3 *
-        dynsim_edo_B.b_kstr_h + 1];
-      dynsim_edo_B.TJ_c[dynsim_edo_B.kstr_j + 2] = dynsim_edo_B.R_cv[3 *
-        dynsim_edo_B.b_kstr_h + 2];
+    memset(&dynsim_edo_B.TJ_g[0], 0, sizeof(real_T) << 4U);
+    for (dynsim_edo_B.b_kstr_f = 0; dynsim_edo_B.b_kstr_f < 3;
+         dynsim_edo_B.b_kstr_f++) {
+      dynsim_edo_B.kstr_p = dynsim_edo_B.b_kstr_f << 2;
+      dynsim_edo_B.TJ_g[dynsim_edo_B.kstr_p] = dynsim_edo_B.R_n[3 *
+        dynsim_edo_B.b_kstr_f];
+      dynsim_edo_B.TJ_g[dynsim_edo_B.kstr_p + 1] = dynsim_edo_B.R_n[3 *
+        dynsim_edo_B.b_kstr_f + 1];
+      dynsim_edo_B.TJ_g[dynsim_edo_B.kstr_p + 2] = dynsim_edo_B.R_n[3 *
+        dynsim_edo_B.b_kstr_f + 2];
     }
 
-    dynsim_edo_B.TJ_c[15] = 1.0;
+    dynsim_edo_B.TJ_g[15] = 1.0;
     break;
 
    default:
-    dy_rigidBodyJoint_get_JointAxis(obj, dynsim_edo_B.v_l);
-    memset(&dynsim_edo_B.tempR_f[0], 0, 9U * sizeof(real_T));
-    dynsim_edo_B.tempR_f[0] = 1.0;
-    dynsim_edo_B.tempR_f[4] = 1.0;
-    dynsim_edo_B.tempR_f[8] = 1.0;
-    for (dynsim_edo_B.b_kstr_h = 0; dynsim_edo_B.b_kstr_h < 3;
-         dynsim_edo_B.b_kstr_h++) {
-      dynsim_edo_B.kstr_j = dynsim_edo_B.b_kstr_h << 2;
-      dynsim_edo_B.TJ_c[dynsim_edo_B.kstr_j] = dynsim_edo_B.tempR_f[3 *
-        dynsim_edo_B.b_kstr_h];
-      dynsim_edo_B.TJ_c[dynsim_edo_B.kstr_j + 1] = dynsim_edo_B.tempR_f[3 *
-        dynsim_edo_B.b_kstr_h + 1];
-      dynsim_edo_B.TJ_c[dynsim_edo_B.kstr_j + 2] = dynsim_edo_B.tempR_f[3 *
-        dynsim_edo_B.b_kstr_h + 2];
-      dynsim_edo_B.TJ_c[dynsim_edo_B.b_kstr_h + 12] =
-        dynsim_edo_B.v_l[dynsim_edo_B.b_kstr_h] * 0.0;
+    rigidBodyJoint_get_JointAxis_ha(obj, dynsim_edo_B.v_o);
+    memset(&dynsim_edo_B.tempR_bs[0], 0, 9U * sizeof(real_T));
+    dynsim_edo_B.tempR_bs[0] = 1.0;
+    dynsim_edo_B.tempR_bs[4] = 1.0;
+    dynsim_edo_B.tempR_bs[8] = 1.0;
+    for (dynsim_edo_B.b_kstr_f = 0; dynsim_edo_B.b_kstr_f < 3;
+         dynsim_edo_B.b_kstr_f++) {
+      dynsim_edo_B.kstr_p = dynsim_edo_B.b_kstr_f << 2;
+      dynsim_edo_B.TJ_g[dynsim_edo_B.kstr_p] = dynsim_edo_B.tempR_bs[3 *
+        dynsim_edo_B.b_kstr_f];
+      dynsim_edo_B.TJ_g[dynsim_edo_B.kstr_p + 1] = dynsim_edo_B.tempR_bs[3 *
+        dynsim_edo_B.b_kstr_f + 1];
+      dynsim_edo_B.TJ_g[dynsim_edo_B.kstr_p + 2] = dynsim_edo_B.tempR_bs[3 *
+        dynsim_edo_B.b_kstr_f + 2];
+      dynsim_edo_B.TJ_g[dynsim_edo_B.b_kstr_f + 12] =
+        dynsim_edo_B.v_o[dynsim_edo_B.b_kstr_f] * 0.0;
     }
 
-    dynsim_edo_B.TJ_c[3] = 0.0;
-    dynsim_edo_B.TJ_c[7] = 0.0;
-    dynsim_edo_B.TJ_c[11] = 0.0;
-    dynsim_edo_B.TJ_c[15] = 1.0;
+    dynsim_edo_B.TJ_g[3] = 0.0;
+    dynsim_edo_B.TJ_g[7] = 0.0;
+    dynsim_edo_B.TJ_g[11] = 0.0;
+    dynsim_edo_B.TJ_g[15] = 1.0;
     break;
   }
 
-  for (dynsim_edo_B.b_kstr_h = 0; dynsim_edo_B.b_kstr_h < 4;
-       dynsim_edo_B.b_kstr_h++) {
-    for (dynsim_edo_B.kstr_j = 0; dynsim_edo_B.kstr_j < 4; dynsim_edo_B.kstr_j++)
+  for (dynsim_edo_B.b_kstr_f = 0; dynsim_edo_B.b_kstr_f < 4;
+       dynsim_edo_B.b_kstr_f++) {
+    for (dynsim_edo_B.kstr_p = 0; dynsim_edo_B.kstr_p < 4; dynsim_edo_B.kstr_p++)
     {
-      dynsim_edo_B.obj_tmp_tmp_c = dynsim_edo_B.kstr_j << 2;
-      dynsim_edo_B.obj_tmp_c = dynsim_edo_B.b_kstr_h +
-        dynsim_edo_B.obj_tmp_tmp_c;
-      dynsim_edo_B.obj_k[dynsim_edo_B.obj_tmp_c] = 0.0;
-      dynsim_edo_B.obj_k[dynsim_edo_B.obj_tmp_c] +=
-        dynsim_edo_B.TJ_c[dynsim_edo_B.obj_tmp_tmp_c] *
-        obj->JointToParentTransform[dynsim_edo_B.b_kstr_h];
-      dynsim_edo_B.obj_k[dynsim_edo_B.obj_tmp_c] +=
-        dynsim_edo_B.TJ_c[dynsim_edo_B.obj_tmp_tmp_c + 1] *
-        obj->JointToParentTransform[dynsim_edo_B.b_kstr_h + 4];
-      dynsim_edo_B.obj_k[dynsim_edo_B.obj_tmp_c] +=
-        dynsim_edo_B.TJ_c[dynsim_edo_B.obj_tmp_tmp_c + 2] *
-        obj->JointToParentTransform[dynsim_edo_B.b_kstr_h + 8];
-      dynsim_edo_B.obj_k[dynsim_edo_B.obj_tmp_c] +=
-        dynsim_edo_B.TJ_c[dynsim_edo_B.obj_tmp_tmp_c + 3] *
-        obj->JointToParentTransform[dynsim_edo_B.b_kstr_h + 12];
+      dynsim_edo_B.obj_tmp_tmp_o = dynsim_edo_B.kstr_p << 2;
+      dynsim_edo_B.obj_tmp_i = dynsim_edo_B.b_kstr_f +
+        dynsim_edo_B.obj_tmp_tmp_o;
+      dynsim_edo_B.obj_g[dynsim_edo_B.obj_tmp_i] = 0.0;
+      dynsim_edo_B.obj_g[dynsim_edo_B.obj_tmp_i] +=
+        dynsim_edo_B.TJ_g[dynsim_edo_B.obj_tmp_tmp_o] *
+        obj->JointToParentTransform[dynsim_edo_B.b_kstr_f];
+      dynsim_edo_B.obj_g[dynsim_edo_B.obj_tmp_i] +=
+        dynsim_edo_B.TJ_g[dynsim_edo_B.obj_tmp_tmp_o + 1] *
+        obj->JointToParentTransform[dynsim_edo_B.b_kstr_f + 4];
+      dynsim_edo_B.obj_g[dynsim_edo_B.obj_tmp_i] +=
+        dynsim_edo_B.TJ_g[dynsim_edo_B.obj_tmp_tmp_o + 2] *
+        obj->JointToParentTransform[dynsim_edo_B.b_kstr_f + 8];
+      dynsim_edo_B.obj_g[dynsim_edo_B.obj_tmp_i] +=
+        dynsim_edo_B.TJ_g[dynsim_edo_B.obj_tmp_tmp_o + 3] *
+        obj->JointToParentTransform[dynsim_edo_B.b_kstr_f + 12];
     }
 
-    for (dynsim_edo_B.kstr_j = 0; dynsim_edo_B.kstr_j < 4; dynsim_edo_B.kstr_j++)
+    for (dynsim_edo_B.kstr_p = 0; dynsim_edo_B.kstr_p < 4; dynsim_edo_B.kstr_p++)
     {
-      dynsim_edo_B.obj_tmp_tmp_c = dynsim_edo_B.kstr_j << 2;
-      dynsim_edo_B.obj_tmp_c = dynsim_edo_B.b_kstr_h +
-        dynsim_edo_B.obj_tmp_tmp_c;
-      T[dynsim_edo_B.obj_tmp_c] = 0.0;
-      T[dynsim_edo_B.obj_tmp_c] += obj->
-        ChildToJointTransform[dynsim_edo_B.obj_tmp_tmp_c] *
-        dynsim_edo_B.obj_k[dynsim_edo_B.b_kstr_h];
-      T[dynsim_edo_B.obj_tmp_c] += obj->
-        ChildToJointTransform[dynsim_edo_B.obj_tmp_tmp_c + 1] *
-        dynsim_edo_B.obj_k[dynsim_edo_B.b_kstr_h + 4];
-      T[dynsim_edo_B.obj_tmp_c] += obj->
-        ChildToJointTransform[dynsim_edo_B.obj_tmp_tmp_c + 2] *
-        dynsim_edo_B.obj_k[dynsim_edo_B.b_kstr_h + 8];
-      T[dynsim_edo_B.obj_tmp_c] += obj->
-        ChildToJointTransform[dynsim_edo_B.obj_tmp_tmp_c + 3] *
-        dynsim_edo_B.obj_k[dynsim_edo_B.b_kstr_h + 12];
+      dynsim_edo_B.obj_tmp_tmp_o = dynsim_edo_B.kstr_p << 2;
+      dynsim_edo_B.obj_tmp_i = dynsim_edo_B.b_kstr_f +
+        dynsim_edo_B.obj_tmp_tmp_o;
+      T[dynsim_edo_B.obj_tmp_i] = 0.0;
+      T[dynsim_edo_B.obj_tmp_i] += obj->
+        ChildToJointTransform[dynsim_edo_B.obj_tmp_tmp_o] *
+        dynsim_edo_B.obj_g[dynsim_edo_B.b_kstr_f];
+      T[dynsim_edo_B.obj_tmp_i] += obj->
+        ChildToJointTransform[dynsim_edo_B.obj_tmp_tmp_o + 1] *
+        dynsim_edo_B.obj_g[dynsim_edo_B.b_kstr_f + 4];
+      T[dynsim_edo_B.obj_tmp_i] += obj->
+        ChildToJointTransform[dynsim_edo_B.obj_tmp_tmp_o + 2] *
+        dynsim_edo_B.obj_g[dynsim_edo_B.b_kstr_f + 8];
+      T[dynsim_edo_B.obj_tmp_i] += obj->
+        ChildToJointTransform[dynsim_edo_B.obj_tmp_tmp_o + 3] *
+        dynsim_edo_B.obj_g[dynsim_edo_B.b_kstr_f + 12];
     }
   }
 }
@@ -848,23 +2432,23 @@ static void rigidBodyJoint_transformBodyToP(const c_rigidBodyJoint_dynsim_edo_T 
 static void dynsim_edo_tforminv(const real_T T[16], real_T Tinv[16])
 {
   for (dynsim_edo_B.i3 = 0; dynsim_edo_B.i3 < 3; dynsim_edo_B.i3++) {
-    dynsim_edo_B.R_g[3 * dynsim_edo_B.i3] = T[dynsim_edo_B.i3];
-    dynsim_edo_B.R_g[3 * dynsim_edo_B.i3 + 1] = T[dynsim_edo_B.i3 + 4];
-    dynsim_edo_B.R_g[3 * dynsim_edo_B.i3 + 2] = T[dynsim_edo_B.i3 + 8];
+    dynsim_edo_B.R_b[3 * dynsim_edo_B.i3] = T[dynsim_edo_B.i3];
+    dynsim_edo_B.R_b[3 * dynsim_edo_B.i3 + 1] = T[dynsim_edo_B.i3 + 4];
+    dynsim_edo_B.R_b[3 * dynsim_edo_B.i3 + 2] = T[dynsim_edo_B.i3 + 8];
   }
 
   for (dynsim_edo_B.i3 = 0; dynsim_edo_B.i3 < 9; dynsim_edo_B.i3++) {
-    dynsim_edo_B.R_g1[dynsim_edo_B.i3] = -dynsim_edo_B.R_g[dynsim_edo_B.i3];
+    dynsim_edo_B.R_da[dynsim_edo_B.i3] = -dynsim_edo_B.R_b[dynsim_edo_B.i3];
   }
 
   for (dynsim_edo_B.i3 = 0; dynsim_edo_B.i3 < 3; dynsim_edo_B.i3++) {
     dynsim_edo_B.Tinv_tmp = dynsim_edo_B.i3 << 2;
-    Tinv[dynsim_edo_B.Tinv_tmp] = dynsim_edo_B.R_g[3 * dynsim_edo_B.i3];
-    Tinv[dynsim_edo_B.Tinv_tmp + 1] = dynsim_edo_B.R_g[3 * dynsim_edo_B.i3 + 1];
-    Tinv[dynsim_edo_B.Tinv_tmp + 2] = dynsim_edo_B.R_g[3 * dynsim_edo_B.i3 + 2];
-    Tinv[dynsim_edo_B.i3 + 12] = dynsim_edo_B.R_g1[dynsim_edo_B.i3 + 6] * T[14]
-      + (dynsim_edo_B.R_g1[dynsim_edo_B.i3 + 3] * T[13] +
-         dynsim_edo_B.R_g1[dynsim_edo_B.i3] * T[12]);
+    Tinv[dynsim_edo_B.Tinv_tmp] = dynsim_edo_B.R_b[3 * dynsim_edo_B.i3];
+    Tinv[dynsim_edo_B.Tinv_tmp + 1] = dynsim_edo_B.R_b[3 * dynsim_edo_B.i3 + 1];
+    Tinv[dynsim_edo_B.Tinv_tmp + 2] = dynsim_edo_B.R_b[3 * dynsim_edo_B.i3 + 2];
+    Tinv[dynsim_edo_B.i3 + 12] = dynsim_edo_B.R_da[dynsim_edo_B.i3 + 6] * T[14]
+      + (dynsim_edo_B.R_da[dynsim_edo_B.i3 + 3] * T[13] +
+         dynsim_edo_B.R_da[dynsim_edo_B.i3] * T[12]);
   }
 
   Tinv[3] = 0.0;
@@ -885,237 +2469,152 @@ static void dynsim_edo_tformToSpatialXform(const real_T T[16], real_T X[36])
   dynsim_edo_B.dv2[5] = T[12];
   dynsim_edo_B.dv2[8] = 0.0;
   for (dynsim_edo_B.i1 = 0; dynsim_edo_B.i1 < 3; dynsim_edo_B.i1++) {
-    for (dynsim_edo_B.X_tmp_p = 0; dynsim_edo_B.X_tmp_p < 3;
-         dynsim_edo_B.X_tmp_p++) {
-      dynsim_edo_B.X_tmp_p5 = dynsim_edo_B.i1 + 3 * dynsim_edo_B.X_tmp_p;
-      dynsim_edo_B.dv3[dynsim_edo_B.X_tmp_p5] = 0.0;
-      dynsim_edo_B.i2 = dynsim_edo_B.X_tmp_p << 2;
-      dynsim_edo_B.dv3[dynsim_edo_B.X_tmp_p5] += T[dynsim_edo_B.i2] *
+    for (dynsim_edo_B.X_tmp_a = 0; dynsim_edo_B.X_tmp_a < 3;
+         dynsim_edo_B.X_tmp_a++) {
+      dynsim_edo_B.X_tmp_k = dynsim_edo_B.i1 + 3 * dynsim_edo_B.X_tmp_a;
+      dynsim_edo_B.dv3[dynsim_edo_B.X_tmp_k] = 0.0;
+      dynsim_edo_B.i2 = dynsim_edo_B.X_tmp_a << 2;
+      dynsim_edo_B.dv3[dynsim_edo_B.X_tmp_k] += T[dynsim_edo_B.i2] *
         dynsim_edo_B.dv2[dynsim_edo_B.i1];
-      dynsim_edo_B.dv3[dynsim_edo_B.X_tmp_p5] += T[dynsim_edo_B.i2 + 1] *
+      dynsim_edo_B.dv3[dynsim_edo_B.X_tmp_k] += T[dynsim_edo_B.i2 + 1] *
         dynsim_edo_B.dv2[dynsim_edo_B.i1 + 3];
-      dynsim_edo_B.dv3[dynsim_edo_B.X_tmp_p5] += T[dynsim_edo_B.i2 + 2] *
+      dynsim_edo_B.dv3[dynsim_edo_B.X_tmp_k] += T[dynsim_edo_B.i2 + 2] *
         dynsim_edo_B.dv2[dynsim_edo_B.i1 + 6];
-      X[dynsim_edo_B.X_tmp_p + 6 * dynsim_edo_B.i1] = T[(dynsim_edo_B.i1 << 2) +
-        dynsim_edo_B.X_tmp_p];
-      X[dynsim_edo_B.X_tmp_p + 6 * (dynsim_edo_B.i1 + 3)] = 0.0;
+      X[dynsim_edo_B.X_tmp_a + 6 * dynsim_edo_B.i1] = T[(dynsim_edo_B.i1 << 2) +
+        dynsim_edo_B.X_tmp_a];
+      X[dynsim_edo_B.X_tmp_a + 6 * (dynsim_edo_B.i1 + 3)] = 0.0;
     }
   }
 
   for (dynsim_edo_B.i1 = 0; dynsim_edo_B.i1 < 3; dynsim_edo_B.i1++) {
     X[6 * dynsim_edo_B.i1 + 3] = dynsim_edo_B.dv3[3 * dynsim_edo_B.i1];
-    dynsim_edo_B.X_tmp_p = dynsim_edo_B.i1 << 2;
-    dynsim_edo_B.X_tmp_p5 = 6 * (dynsim_edo_B.i1 + 3);
-    X[dynsim_edo_B.X_tmp_p5 + 3] = T[dynsim_edo_B.X_tmp_p];
+    dynsim_edo_B.X_tmp_a = dynsim_edo_B.i1 << 2;
+    dynsim_edo_B.X_tmp_k = 6 * (dynsim_edo_B.i1 + 3);
+    X[dynsim_edo_B.X_tmp_k + 3] = T[dynsim_edo_B.X_tmp_a];
     X[6 * dynsim_edo_B.i1 + 4] = dynsim_edo_B.dv3[3 * dynsim_edo_B.i1 + 1];
-    X[dynsim_edo_B.X_tmp_p5 + 4] = T[dynsim_edo_B.X_tmp_p + 1];
+    X[dynsim_edo_B.X_tmp_k + 4] = T[dynsim_edo_B.X_tmp_a + 1];
     X[6 * dynsim_edo_B.i1 + 5] = dynsim_edo_B.dv3[3 * dynsim_edo_B.i1 + 2];
-    X[dynsim_edo_B.X_tmp_p5 + 5] = T[dynsim_edo_B.X_tmp_p + 2];
+    X[dynsim_edo_B.X_tmp_k + 5] = T[dynsim_edo_B.X_tmp_a + 2];
   }
 }
 
-static void dynsim_edo_emxInit_char_T(emxArray_char_T_dynsim_edo_T **pEmxArray,
-  int32_T numDimensions)
-{
-  emxArray_char_T_dynsim_edo_T *emxArray;
-  *pEmxArray = (emxArray_char_T_dynsim_edo_T *)malloc(sizeof
-    (emxArray_char_T_dynsim_edo_T));
-  emxArray = *pEmxArray;
-  emxArray->data = (char_T *)NULL;
-  emxArray->numDimensions = numDimensions;
-  emxArray->size = (int32_T *)malloc(sizeof(int32_T) * numDimensions);
-  emxArray->allocatedSize = 0;
-  emxArray->canFreeData = true;
-  for (dynsim_edo_B.i_l = 0; dynsim_edo_B.i_l < numDimensions; dynsim_edo_B.i_l
-       ++) {
-    emxArray->size[dynsim_edo_B.i_l] = 0;
-  }
-}
-
-static void dynsim_emxEnsureCapacity_char_T(emxArray_char_T_dynsim_edo_T
-  *emxArray, int32_T oldNumel)
-{
-  void *newData;
-  if (oldNumel < 0) {
-    oldNumel = 0;
-  }
-
-  dynsim_edo_B.newNumel_e = 1;
-  for (dynsim_edo_B.i_ax = 0; dynsim_edo_B.i_ax < emxArray->numDimensions;
-       dynsim_edo_B.i_ax++) {
-    dynsim_edo_B.newNumel_e *= emxArray->size[dynsim_edo_B.i_ax];
-  }
-
-  if (dynsim_edo_B.newNumel_e > emxArray->allocatedSize) {
-    dynsim_edo_B.i_ax = emxArray->allocatedSize;
-    if (dynsim_edo_B.i_ax < 16) {
-      dynsim_edo_B.i_ax = 16;
-    }
-
-    while (dynsim_edo_B.i_ax < dynsim_edo_B.newNumel_e) {
-      if (dynsim_edo_B.i_ax > 1073741823) {
-        dynsim_edo_B.i_ax = MAX_int32_T;
-      } else {
-        dynsim_edo_B.i_ax <<= 1;
-      }
-    }
-
-    newData = calloc(static_cast<uint32_T>(dynsim_edo_B.i_ax), sizeof(char_T));
-    if (emxArray->data != NULL) {
-      memcpy(newData, emxArray->data, sizeof(char_T) * oldNumel);
-      if (emxArray->canFreeData) {
-        free(emxArray->data);
-      }
-    }
-
-    emxArray->data = (char_T *)newData;
-    emxArray->allocatedSize = dynsim_edo_B.i_ax;
-    emxArray->canFreeData = true;
-  }
-}
-
-static void dynsim_edo_emxFree_char_T(emxArray_char_T_dynsim_edo_T **pEmxArray)
-{
-  if (*pEmxArray != (emxArray_char_T_dynsim_edo_T *)NULL) {
-    if (((*pEmxArray)->data != (char_T *)NULL) && (*pEmxArray)->canFreeData) {
-      free((*pEmxArray)->data);
-    }
-
-    free((*pEmxArray)->size);
-    free(*pEmxArray);
-    *pEmxArray = (emxArray_char_T_dynsim_edo_T *)NULL;
-  }
-}
-
-static void dynsim_edo_emxFree_real_T(emxArray_real_T_dynsim_edo_T **pEmxArray)
-{
-  if (*pEmxArray != (emxArray_real_T_dynsim_edo_T *)NULL) {
-    if (((*pEmxArray)->data != (real_T *)NULL) && (*pEmxArray)->canFreeData) {
-      free((*pEmxArray)->data);
-    }
-
-    free((*pEmxArray)->size);
-    free(*pEmxArray);
-    *pEmxArray = (emxArray_real_T_dynsim_edo_T *)NULL;
-  }
-}
-
-static void dynsim_edo_emxFree_f_cell_wrap(emxArray_f_cell_wrap_dynsim_e_T
+static void dynsim_edo_emxFree_f_cell_wrap1(emxArray_f_cell_wrap_dynsim_h_T
   **pEmxArray)
 {
-  if (*pEmxArray != (emxArray_f_cell_wrap_dynsim_e_T *)NULL) {
-    if (((*pEmxArray)->data != (f_cell_wrap_dynsim_edo_T *)NULL) && (*pEmxArray
-        )->canFreeData) {
+  if (*pEmxArray != (emxArray_f_cell_wrap_dynsim_h_T *)NULL) {
+    if (((*pEmxArray)->data != (f_cell_wrap_dynsim_edo_h_T *)NULL) &&
+        (*pEmxArray)->canFreeData) {
       free((*pEmxArray)->data);
     }
 
     free((*pEmxArray)->size);
     free(*pEmxArray);
-    *pEmxArray = (emxArray_f_cell_wrap_dynsim_e_T *)NULL;
+    *pEmxArray = (emxArray_f_cell_wrap_dynsim_h_T *)NULL;
   }
 }
 
-static void RigidBodyTreeDynamics_massMatri(n_robotics_manip_internal_Rig_T
-  *robot, const real_T q[6], emxArray_real_T_dynsim_edo_T *H,
+static void RigidBodyTreeDynamics_massMatri(n_robotics_manip_internal__ha_T
+  *robot, const real_T q[3], emxArray_real_T_dynsim_edo_T *H,
   emxArray_real_T_dynsim_edo_T *lambda)
 {
-  emxArray_f_cell_wrap_dynsim_e_T *Ic;
-  emxArray_f_cell_wrap_dynsim_e_T *X;
+  emxArray_f_cell_wrap_dynsim_h_T *Ic;
+  emxArray_f_cell_wrap_dynsim_h_T *X;
   emxArray_real_T_dynsim_edo_T *lambda_;
   emxArray_real_T_dynsim_edo_T *Si;
   emxArray_real_T_dynsim_edo_T *Fi;
   emxArray_real_T_dynsim_edo_T *Hji;
   emxArray_real_T_dynsim_edo_T *s;
-  l_robotics_manip_internal_Rig_T *obj;
+  l_robotics_manip_internal__ha_T *obj;
   emxArray_char_T_dynsim_edo_T *a;
   static const char_T tmp[5] = { 'f', 'i', 'x', 'e', 'd' };
 
   boolean_T exitg1;
   int32_T exitg2;
-  dynsim_edo_B.nb_b = robot->NumBodies;
-  dynsim_edo_B.vNum_l = robot->VelocityNumber;
-  dynsim_edo_B.f_n = H->size[0] * H->size[1];
-  dynsim_edo_B.b_i = static_cast<int32_T>(dynsim_edo_B.vNum_l);
-  H->size[0] = dynsim_edo_B.b_i;
-  H->size[1] = dynsim_edo_B.b_i;
-  dynsim_emxEnsureCapacity_real_T(H, dynsim_edo_B.f_n);
-  dynsim_edo_B.loop_ub = dynsim_edo_B.b_i * dynsim_edo_B.b_i - 1;
-  for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n <= dynsim_edo_B.loop_ub;
-       dynsim_edo_B.f_n++) {
-    H->data[dynsim_edo_B.f_n] = 0.0;
+  dynsim_edo_B.nb_i = robot->NumBodies;
+  dynsim_edo_B.vNum = robot->VelocityNumber;
+  dynsim_edo_B.f = H->size[0] * H->size[1];
+  dynsim_edo_B.b_i_a = static_cast<int32_T>(dynsim_edo_B.vNum);
+  H->size[0] = dynsim_edo_B.b_i_a;
+  H->size[1] = dynsim_edo_B.b_i_a;
+  dynsim_emxEnsureCapacity_real_T(H, dynsim_edo_B.f);
+  dynsim_edo_B.loop_ub_n = dynsim_edo_B.b_i_a * dynsim_edo_B.b_i_a - 1;
+  for (dynsim_edo_B.f = 0; dynsim_edo_B.f <= dynsim_edo_B.loop_ub_n;
+       dynsim_edo_B.f++) {
+    H->data[dynsim_edo_B.f] = 0.0;
   }
 
   dynsim_edo_emxInit_real_T(&lambda_, 2);
-  dynsim_edo_B.f_n = lambda_->size[0] * lambda_->size[1];
+  dynsim_edo_B.f = lambda_->size[0] * lambda_->size[1];
   lambda_->size[0] = 1;
-  dynsim_edo_B.nm1d2 = static_cast<int32_T>(dynsim_edo_B.nb_b);
+  dynsim_edo_B.nm1d2 = static_cast<int32_T>(dynsim_edo_B.nb_i);
   lambda_->size[1] = dynsim_edo_B.nm1d2;
-  dynsim_emxEnsureCapacity_real_T(lambda_, dynsim_edo_B.f_n);
+  dynsim_emxEnsureCapacity_real_T(lambda_, dynsim_edo_B.f);
   dynsim_edo_B.idx = dynsim_edo_B.nm1d2 - 1;
-  for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n <= dynsim_edo_B.idx;
-       dynsim_edo_B.f_n++) {
-    lambda_->data[dynsim_edo_B.f_n] = 0.0;
+  for (dynsim_edo_B.f = 0; dynsim_edo_B.f <= dynsim_edo_B.idx; dynsim_edo_B.f++)
+  {
+    lambda_->data[dynsim_edo_B.f] = 0.0;
   }
 
-  dynsim_edo_B.f_n = lambda->size[0] * lambda->size[1];
+  dynsim_edo_B.f = lambda->size[0] * lambda->size[1];
   lambda->size[0] = 1;
-  lambda->size[1] = dynsim_edo_B.b_i;
-  dynsim_emxEnsureCapacity_real_T(lambda, dynsim_edo_B.f_n);
-  dynsim_edo_B.loop_ub = dynsim_edo_B.b_i - 1;
-  for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n <= dynsim_edo_B.loop_ub;
-       dynsim_edo_B.f_n++) {
-    lambda->data[dynsim_edo_B.f_n] = 0.0;
+  lambda->size[1] = dynsim_edo_B.b_i_a;
+  dynsim_emxEnsureCapacity_real_T(lambda, dynsim_edo_B.f);
+  dynsim_edo_B.loop_ub_n = dynsim_edo_B.b_i_a - 1;
+  for (dynsim_edo_B.f = 0; dynsim_edo_B.f <= dynsim_edo_B.loop_ub_n;
+       dynsim_edo_B.f++) {
+    lambda->data[dynsim_edo_B.f] = 0.0;
   }
 
-  dynsim_edo_emxInit_f_cell_wrap(&Ic, 2);
-  dynsim_edo_emxInit_f_cell_wrap(&X, 2);
-  dynsim_edo_B.f_n = Ic->size[0] * Ic->size[1];
+  dynsim_edo_emxInit_f_cell_wrap1(&Ic, 2);
+  dynsim_edo_emxInit_f_cell_wrap1(&X, 2);
+  dynsim_edo_B.f = Ic->size[0] * Ic->size[1];
   Ic->size[0] = 1;
   Ic->size[1] = dynsim_edo_B.nm1d2;
-  d_emxEnsureCapacity_f_cell_wrap(Ic, dynsim_edo_B.f_n);
-  dynsim_edo_B.f_n = X->size[0] * X->size[1];
+  emxEnsureCapacity_f_cell_wrap1(Ic, dynsim_edo_B.f);
+  dynsim_edo_B.f = X->size[0] * X->size[1];
   X->size[0] = 1;
   X->size[1] = dynsim_edo_B.nm1d2;
-  d_emxEnsureCapacity_f_cell_wrap(X, dynsim_edo_B.f_n);
-  for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i <= dynsim_edo_B.idx;
-       dynsim_edo_B.b_i++) {
-    for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < 36; dynsim_edo_B.f_n++) {
-      Ic->data[dynsim_edo_B.b_i].f1[dynsim_edo_B.f_n] = robot->
-        Bodies[dynsim_edo_B.b_i]->SpatialInertia[dynsim_edo_B.f_n];
+  emxEnsureCapacity_f_cell_wrap1(X, dynsim_edo_B.f);
+  for (dynsim_edo_B.b_i_a = 0; dynsim_edo_B.b_i_a <= dynsim_edo_B.idx;
+       dynsim_edo_B.b_i_a++) {
+    for (dynsim_edo_B.f = 0; dynsim_edo_B.f < 36; dynsim_edo_B.f++) {
+      Ic->data[dynsim_edo_B.b_i_a].f1[dynsim_edo_B.f] = robot->
+        Bodies[dynsim_edo_B.b_i_a]->SpatialInertia[dynsim_edo_B.f];
     }
 
-    dynsim_edo_B.vNum_l = robot->PositionDoFMap[dynsim_edo_B.b_i];
-    dynsim_edo_B.p_idx_1 = robot->PositionDoFMap[dynsim_edo_B.b_i + 6];
-    if (dynsim_edo_B.p_idx_1 < dynsim_edo_B.vNum_l) {
-      obj = robot->Bodies[dynsim_edo_B.b_i];
-      rigidBodyJoint_transformBodyToP(&obj->JointInternal, dynsim_edo_B.T_m);
+    dynsim_edo_B.vNum = robot->PositionDoFMap[dynsim_edo_B.b_i_a];
+    dynsim_edo_B.p_idx_1 = robot->PositionDoFMap[dynsim_edo_B.b_i_a + 6];
+    if (dynsim_edo_B.p_idx_1 < dynsim_edo_B.vNum) {
+      obj = robot->Bodies[dynsim_edo_B.b_i_a];
+      rigidBodyJoint_transformBodyToP(&obj->JointInternal, dynsim_edo_B.T_f);
     } else {
-      if (dynsim_edo_B.vNum_l > dynsim_edo_B.p_idx_1) {
+      if (dynsim_edo_B.vNum > dynsim_edo_B.p_idx_1) {
         dynsim_edo_B.nm1d2 = 0;
-        dynsim_edo_B.f_n = -1;
+        dynsim_edo_B.f = -1;
       } else {
-        dynsim_edo_B.nm1d2 = static_cast<int32_T>(dynsim_edo_B.vNum_l) - 1;
-        dynsim_edo_B.f_n = static_cast<int32_T>(dynsim_edo_B.p_idx_1) - 1;
+        dynsim_edo_B.nm1d2 = static_cast<int32_T>(dynsim_edo_B.vNum) - 1;
+        dynsim_edo_B.f = static_cast<int32_T>(dynsim_edo_B.p_idx_1) - 1;
       }
 
-      obj = robot->Bodies[dynsim_edo_B.b_i];
-      dynsim_edo_B.loop_ub = dynsim_edo_B.f_n - dynsim_edo_B.nm1d2;
-      dynsim_edo_B.q_size_m = dynsim_edo_B.loop_ub + 1;
-      for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n <= dynsim_edo_B.loop_ub;
-           dynsim_edo_B.f_n++) {
-        dynsim_edo_B.q_data_p[dynsim_edo_B.f_n] = q[dynsim_edo_B.nm1d2 +
-          dynsim_edo_B.f_n];
+      obj = robot->Bodies[dynsim_edo_B.b_i_a];
+      dynsim_edo_B.loop_ub_n = dynsim_edo_B.f - dynsim_edo_B.nm1d2;
+      dynsim_edo_B.q_size_l = dynsim_edo_B.loop_ub_n + 1;
+      for (dynsim_edo_B.f = 0; dynsim_edo_B.f <= dynsim_edo_B.loop_ub_n;
+           dynsim_edo_B.f++) {
+        dynsim_edo_B.q_data_j[dynsim_edo_B.f] = q[dynsim_edo_B.nm1d2 +
+          dynsim_edo_B.f];
       }
 
-      rigidBodyJoint_transformBodyT_h(&obj->JointInternal, dynsim_edo_B.q_data_p,
-        &dynsim_edo_B.q_size_m, dynsim_edo_B.T_m);
+      rigidBodyJoint_transformBodyT_h(&obj->JointInternal, dynsim_edo_B.q_data_j,
+        &dynsim_edo_B.q_size_l, dynsim_edo_B.T_f);
     }
 
-    dynsim_edo_tforminv(dynsim_edo_B.T_m, dynsim_edo_B.dv);
-    dynsim_edo_tformToSpatialXform(dynsim_edo_B.dv, X->data[dynsim_edo_B.b_i].f1);
+    dynsim_edo_tforminv(dynsim_edo_B.T_f, dynsim_edo_B.dv);
+    dynsim_edo_tformToSpatialXform(dynsim_edo_B.dv, X->data[dynsim_edo_B.b_i_a].
+      f1);
   }
 
-  dynsim_edo_B.nm1d2 = static_cast<int32_T>(((-1.0 - dynsim_edo_B.nb_b) + 1.0) /
+  dynsim_edo_B.nm1d2 = static_cast<int32_T>(((-1.0 - dynsim_edo_B.nb_i) + 1.0) /
     -1.0) - 1;
   dynsim_edo_emxInit_real_T(&Si, 2);
   dynsim_edo_emxInit_real_T(&Fi, 2);
@@ -1123,40 +2622,43 @@ static void RigidBodyTreeDynamics_massMatri(n_robotics_manip_internal_Rig_T
   dynsim_edo_emxInit_char_T(&a, 2);
   for (dynsim_edo_B.idx = 0; dynsim_edo_B.idx <= dynsim_edo_B.nm1d2;
        dynsim_edo_B.idx++) {
-    dynsim_edo_B.n_m = static_cast<int32_T>(dynsim_edo_B.nb_b +
+    dynsim_edo_B.n_pb = static_cast<int32_T>(dynsim_edo_B.nb_i +
       -static_cast<real_T>(dynsim_edo_B.idx));
-    dynsim_edo_B.pid_tmp = dynsim_edo_B.n_m - 1;
+    dynsim_edo_B.pid_tmp = dynsim_edo_B.n_pb - 1;
     dynsim_edo_B.pid = robot->Bodies[dynsim_edo_B.pid_tmp]->ParentIndex;
-    dynsim_edo_B.vNum_l = robot->VelocityDoFMap[dynsim_edo_B.n_m - 1];
-    dynsim_edo_B.p_idx_1 = robot->VelocityDoFMap[dynsim_edo_B.n_m + 5];
+    dynsim_edo_B.vNum = robot->VelocityDoFMap[dynsim_edo_B.n_pb - 1];
+    dynsim_edo_B.p_idx_1 = robot->VelocityDoFMap[dynsim_edo_B.n_pb + 5];
     if (dynsim_edo_B.pid > 0.0) {
-      for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < 6; dynsim_edo_B.f_n++) {
-        for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i < 6; dynsim_edo_B.b_i++) {
-          dynsim_edo_B.X_tmp = dynsim_edo_B.f_n + 6 * dynsim_edo_B.b_i;
-          dynsim_edo_B.X[dynsim_edo_B.X_tmp] = 0.0;
-          for (dynsim_edo_B.loop_ub = 0; dynsim_edo_B.loop_ub < 6;
-               dynsim_edo_B.loop_ub++) {
-            dynsim_edo_B.X[dynsim_edo_B.X_tmp] += X->data[dynsim_edo_B.pid_tmp].
-              f1[6 * dynsim_edo_B.f_n + dynsim_edo_B.loop_ub] * Ic->
-              data[dynsim_edo_B.pid_tmp].f1[6 * dynsim_edo_B.b_i +
-              dynsim_edo_B.loop_ub];
+      for (dynsim_edo_B.f = 0; dynsim_edo_B.f < 6; dynsim_edo_B.f++) {
+        for (dynsim_edo_B.b_i_a = 0; dynsim_edo_B.b_i_a < 6; dynsim_edo_B.b_i_a
+             ++) {
+          dynsim_edo_B.X_tmp = dynsim_edo_B.f + 6 * dynsim_edo_B.b_i_a;
+          dynsim_edo_B.X_m[dynsim_edo_B.X_tmp] = 0.0;
+          for (dynsim_edo_B.loop_ub_n = 0; dynsim_edo_B.loop_ub_n < 6;
+               dynsim_edo_B.loop_ub_n++) {
+            dynsim_edo_B.X_m[dynsim_edo_B.X_tmp] += X->data[dynsim_edo_B.pid_tmp]
+              .f1[6 * dynsim_edo_B.f + dynsim_edo_B.loop_ub_n] * Ic->
+              data[dynsim_edo_B.pid_tmp].f1[6 * dynsim_edo_B.b_i_a +
+              dynsim_edo_B.loop_ub_n];
           }
         }
       }
 
-      for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < 6; dynsim_edo_B.f_n++) {
-        for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i < 6; dynsim_edo_B.b_i++) {
-          dynsim_edo_B.b_idx_0_h = 0.0;
-          for (dynsim_edo_B.loop_ub = 0; dynsim_edo_B.loop_ub < 6;
-               dynsim_edo_B.loop_ub++) {
-            dynsim_edo_B.b_idx_0_h += dynsim_edo_B.X[6 * dynsim_edo_B.loop_ub +
-              dynsim_edo_B.f_n] * X->data[dynsim_edo_B.pid_tmp].f1[6 *
-              dynsim_edo_B.b_i + dynsim_edo_B.loop_ub];
+      for (dynsim_edo_B.f = 0; dynsim_edo_B.f < 6; dynsim_edo_B.f++) {
+        for (dynsim_edo_B.b_i_a = 0; dynsim_edo_B.b_i_a < 6; dynsim_edo_B.b_i_a
+             ++) {
+          dynsim_edo_B.b_idx_0_g = 0.0;
+          for (dynsim_edo_B.loop_ub_n = 0; dynsim_edo_B.loop_ub_n < 6;
+               dynsim_edo_B.loop_ub_n++) {
+            dynsim_edo_B.b_idx_0_g += dynsim_edo_B.X_m[6 *
+              dynsim_edo_B.loop_ub_n + dynsim_edo_B.f] * X->
+              data[dynsim_edo_B.pid_tmp].f1[6 * dynsim_edo_B.b_i_a +
+              dynsim_edo_B.loop_ub_n];
           }
 
-          dynsim_edo_B.loop_ub = 6 * dynsim_edo_B.b_i + dynsim_edo_B.f_n;
+          dynsim_edo_B.loop_ub_n = 6 * dynsim_edo_B.b_i_a + dynsim_edo_B.f;
           Ic->data[static_cast<int32_T>(dynsim_edo_B.pid) - 1]
-            .f1[dynsim_edo_B.loop_ub] += dynsim_edo_B.b_idx_0_h;
+            .f1[dynsim_edo_B.loop_ub_n] += dynsim_edo_B.b_idx_0_g;
         }
       }
 
@@ -1165,43 +2667,42 @@ static void RigidBodyTreeDynamics_massMatri(n_robotics_manip_internal_Rig_T
       while ((!exitg1) && (lambda_->data[dynsim_edo_B.pid_tmp] > 0.0)) {
         obj = robot->Bodies[static_cast<int32_T>(lambda_->
           data[dynsim_edo_B.pid_tmp]) - 1];
-        dynsim_edo_B.f_n = a->size[0] * a->size[1];
+        dynsim_edo_B.f = a->size[0] * a->size[1];
         a->size[0] = 1;
         a->size[1] = obj->JointInternal.Type->size[1];
-        dynsim_emxEnsureCapacity_char_T(a, dynsim_edo_B.f_n);
-        dynsim_edo_B.loop_ub = obj->JointInternal.Type->size[0] *
+        dynsim_emxEnsureCapacity_char_T(a, dynsim_edo_B.f);
+        dynsim_edo_B.loop_ub_n = obj->JointInternal.Type->size[0] *
           obj->JointInternal.Type->size[1] - 1;
-        for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n <= dynsim_edo_B.loop_ub;
-             dynsim_edo_B.f_n++) {
-          a->data[dynsim_edo_B.f_n] = obj->JointInternal.Type->
-            data[dynsim_edo_B.f_n];
+        for (dynsim_edo_B.f = 0; dynsim_edo_B.f <= dynsim_edo_B.loop_ub_n;
+             dynsim_edo_B.f++) {
+          a->data[dynsim_edo_B.f] = obj->JointInternal.Type->data[dynsim_edo_B.f];
         }
 
-        for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < 5; dynsim_edo_B.f_n++) {
-          dynsim_edo_B.b_a[dynsim_edo_B.f_n] = tmp[dynsim_edo_B.f_n];
+        for (dynsim_edo_B.f = 0; dynsim_edo_B.f < 5; dynsim_edo_B.f++) {
+          dynsim_edo_B.b_k[dynsim_edo_B.f] = tmp[dynsim_edo_B.f];
         }
 
-        dynsim_edo_B.b_bool_o = false;
+        dynsim_edo_B.b_bool_f = false;
         if (a->size[1] == 5) {
-          dynsim_edo_B.f_n = 1;
+          dynsim_edo_B.f = 1;
           do {
             exitg2 = 0;
-            if (dynsim_edo_B.f_n - 1 < 5) {
-              dynsim_edo_B.b_i = dynsim_edo_B.f_n - 1;
-              if (a->data[dynsim_edo_B.b_i] != dynsim_edo_B.b_a[dynsim_edo_B.b_i])
-              {
+            if (dynsim_edo_B.f - 1 < 5) {
+              dynsim_edo_B.b_i_a = dynsim_edo_B.f - 1;
+              if (a->data[dynsim_edo_B.b_i_a] !=
+                  dynsim_edo_B.b_k[dynsim_edo_B.b_i_a]) {
                 exitg2 = 1;
               } else {
-                dynsim_edo_B.f_n++;
+                dynsim_edo_B.f++;
               }
             } else {
-              dynsim_edo_B.b_bool_o = true;
+              dynsim_edo_B.b_bool_f = true;
               exitg2 = 1;
             }
           } while (exitg2 == 0);
         }
 
-        if (dynsim_edo_B.b_bool_o) {
+        if (dynsim_edo_B.b_bool_f) {
           lambda_->data[dynsim_edo_B.pid_tmp] = robot->Bodies
             [static_cast<int32_T>(lambda_->data[dynsim_edo_B.pid_tmp]) - 1]
             ->ParentIndex;
@@ -1211,251 +2712,252 @@ static void RigidBodyTreeDynamics_massMatri(n_robotics_manip_internal_Rig_T
       }
     }
 
-    dynsim_edo_B.b_idx_0_h = robot->VelocityDoFMap[dynsim_edo_B.n_m - 1];
-    dynsim_edo_B.b_idx_1_b = robot->VelocityDoFMap[dynsim_edo_B.n_m + 5];
-    if (dynsim_edo_B.b_idx_0_h <= dynsim_edo_B.b_idx_1_b) {
+    dynsim_edo_B.b_idx_0_g = robot->VelocityDoFMap[dynsim_edo_B.n_pb - 1];
+    dynsim_edo_B.b_idx_1_c = robot->VelocityDoFMap[dynsim_edo_B.n_pb + 5];
+    if (dynsim_edo_B.b_idx_0_g <= dynsim_edo_B.b_idx_1_c) {
       obj = robot->Bodies[dynsim_edo_B.pid_tmp];
-      dynsim_edo_B.f_n = Si->size[0] * Si->size[1];
+      dynsim_edo_B.f = Si->size[0] * Si->size[1];
       Si->size[0] = 6;
       Si->size[1] = obj->JointInternal.MotionSubspace->size[1];
-      dynsim_emxEnsureCapacity_real_T(Si, dynsim_edo_B.f_n);
-      dynsim_edo_B.loop_ub = obj->JointInternal.MotionSubspace->size[0] *
+      dynsim_emxEnsureCapacity_real_T(Si, dynsim_edo_B.f);
+      dynsim_edo_B.loop_ub_n = obj->JointInternal.MotionSubspace->size[0] *
         obj->JointInternal.MotionSubspace->size[1] - 1;
-      for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n <= dynsim_edo_B.loop_ub;
-           dynsim_edo_B.f_n++) {
-        Si->data[dynsim_edo_B.f_n] = obj->JointInternal.MotionSubspace->
-          data[dynsim_edo_B.f_n];
+      for (dynsim_edo_B.f = 0; dynsim_edo_B.f <= dynsim_edo_B.loop_ub_n;
+           dynsim_edo_B.f++) {
+        Si->data[dynsim_edo_B.f] = obj->JointInternal.MotionSubspace->
+          data[dynsim_edo_B.f];
       }
 
-      dynsim_edo_B.n_m = Si->size[1] - 1;
-      dynsim_edo_B.f_n = Fi->size[0] * Fi->size[1];
+      dynsim_edo_B.n_pb = Si->size[1] - 1;
+      dynsim_edo_B.f = Fi->size[0] * Fi->size[1];
       Fi->size[0] = 6;
       Fi->size[1] = Si->size[1];
-      dynsim_emxEnsureCapacity_real_T(Fi, dynsim_edo_B.f_n);
-      for (dynsim_edo_B.loop_ub = 0; dynsim_edo_B.loop_ub <= dynsim_edo_B.n_m;
-           dynsim_edo_B.loop_ub++) {
-        dynsim_edo_B.coffset_tmp = dynsim_edo_B.loop_ub * 6 - 1;
-        for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i < 6; dynsim_edo_B.b_i++) {
-          dynsim_edo_B.s = 0.0;
-          for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < 6; dynsim_edo_B.f_n++) {
-            dynsim_edo_B.s += Ic->data[dynsim_edo_B.pid_tmp].f1[dynsim_edo_B.f_n
-              * 6 + dynsim_edo_B.b_i] * Si->data[(dynsim_edo_B.coffset_tmp +
-              dynsim_edo_B.f_n) + 1];
+      dynsim_emxEnsureCapacity_real_T(Fi, dynsim_edo_B.f);
+      for (dynsim_edo_B.loop_ub_n = 0; dynsim_edo_B.loop_ub_n <=
+           dynsim_edo_B.n_pb; dynsim_edo_B.loop_ub_n++) {
+        dynsim_edo_B.coffset_tmp_p = dynsim_edo_B.loop_ub_n * 6 - 1;
+        for (dynsim_edo_B.b_i_a = 0; dynsim_edo_B.b_i_a < 6; dynsim_edo_B.b_i_a
+             ++) {
+          dynsim_edo_B.s_f = 0.0;
+          for (dynsim_edo_B.f = 0; dynsim_edo_B.f < 6; dynsim_edo_B.f++) {
+            dynsim_edo_B.s_f += Ic->data[dynsim_edo_B.pid_tmp].f1[dynsim_edo_B.f
+              * 6 + dynsim_edo_B.b_i_a] * Si->data[(dynsim_edo_B.coffset_tmp_p +
+              dynsim_edo_B.f) + 1];
           }
 
-          Fi->data[(dynsim_edo_B.coffset_tmp + dynsim_edo_B.b_i) + 1] =
-            dynsim_edo_B.s;
+          Fi->data[(dynsim_edo_B.coffset_tmp_p + dynsim_edo_B.b_i_a) + 1] =
+            dynsim_edo_B.s_f;
         }
       }
 
-      if (dynsim_edo_B.vNum_l > dynsim_edo_B.p_idx_1) {
-        dynsim_edo_B.coffset_tmp = 0;
+      if (dynsim_edo_B.vNum > dynsim_edo_B.p_idx_1) {
+        dynsim_edo_B.coffset_tmp_p = 0;
         dynsim_edo_B.cb = 0;
       } else {
-        dynsim_edo_B.coffset_tmp = static_cast<int32_T>(dynsim_edo_B.vNum_l) - 1;
-        dynsim_edo_B.cb = static_cast<int32_T>(dynsim_edo_B.vNum_l) - 1;
+        dynsim_edo_B.coffset_tmp_p = static_cast<int32_T>(dynsim_edo_B.vNum) - 1;
+        dynsim_edo_B.cb = static_cast<int32_T>(dynsim_edo_B.vNum) - 1;
       }
 
-      dynsim_edo_B.m_c = Si->size[1];
-      dynsim_edo_B.n_m = Fi->size[1] - 1;
-      dynsim_edo_B.f_n = Hji->size[0] * Hji->size[1];
+      dynsim_edo_B.m_m = Si->size[1];
+      dynsim_edo_B.n_pb = Fi->size[1] - 1;
+      dynsim_edo_B.f = Hji->size[0] * Hji->size[1];
       Hji->size[0] = Si->size[1];
       Hji->size[1] = Fi->size[1];
-      dynsim_emxEnsureCapacity_real_T(Hji, dynsim_edo_B.f_n);
-      for (dynsim_edo_B.loop_ub = 0; dynsim_edo_B.loop_ub <= dynsim_edo_B.n_m;
-           dynsim_edo_B.loop_ub++) {
-        dynsim_edo_B.coffset = dynsim_edo_B.loop_ub * dynsim_edo_B.m_c - 1;
-        dynsim_edo_B.boffset = dynsim_edo_B.loop_ub * 6 - 1;
-        for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i < dynsim_edo_B.m_c;
-             dynsim_edo_B.b_i++) {
-          dynsim_edo_B.aoffset_m = dynsim_edo_B.b_i * 6 - 1;
-          dynsim_edo_B.s = 0.0;
-          for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < 6; dynsim_edo_B.f_n++) {
-            dynsim_edo_B.X_tmp = dynsim_edo_B.f_n + 1;
-            dynsim_edo_B.s += Si->data[dynsim_edo_B.aoffset_m +
+      dynsim_emxEnsureCapacity_real_T(Hji, dynsim_edo_B.f);
+      for (dynsim_edo_B.loop_ub_n = 0; dynsim_edo_B.loop_ub_n <=
+           dynsim_edo_B.n_pb; dynsim_edo_B.loop_ub_n++) {
+        dynsim_edo_B.coffset = dynsim_edo_B.loop_ub_n * dynsim_edo_B.m_m - 1;
+        dynsim_edo_B.boffset = dynsim_edo_B.loop_ub_n * 6 - 1;
+        for (dynsim_edo_B.b_i_a = 0; dynsim_edo_B.b_i_a < dynsim_edo_B.m_m;
+             dynsim_edo_B.b_i_a++) {
+          dynsim_edo_B.aoffset_o = dynsim_edo_B.b_i_a * 6 - 1;
+          dynsim_edo_B.s_f = 0.0;
+          for (dynsim_edo_B.f = 0; dynsim_edo_B.f < 6; dynsim_edo_B.f++) {
+            dynsim_edo_B.X_tmp = dynsim_edo_B.f + 1;
+            dynsim_edo_B.s_f += Si->data[dynsim_edo_B.aoffset_o +
               dynsim_edo_B.X_tmp] * Fi->data[dynsim_edo_B.boffset +
               dynsim_edo_B.X_tmp];
           }
 
-          Hji->data[(dynsim_edo_B.coffset + dynsim_edo_B.b_i) + 1] =
-            dynsim_edo_B.s;
+          Hji->data[(dynsim_edo_B.coffset + dynsim_edo_B.b_i_a) + 1] =
+            dynsim_edo_B.s_f;
         }
       }
 
-      dynsim_edo_B.loop_ub = Hji->size[1];
-      for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < dynsim_edo_B.loop_ub;
-           dynsim_edo_B.f_n++) {
-        dynsim_edo_B.n_m = Hji->size[0];
-        for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i < dynsim_edo_B.n_m;
-             dynsim_edo_B.b_i++) {
-          H->data[(dynsim_edo_B.coffset_tmp + dynsim_edo_B.b_i) + H->size[0] *
-            (dynsim_edo_B.cb + dynsim_edo_B.f_n)] = Hji->data[Hji->size[0] *
-            dynsim_edo_B.f_n + dynsim_edo_B.b_i];
+      dynsim_edo_B.loop_ub_n = Hji->size[1];
+      for (dynsim_edo_B.f = 0; dynsim_edo_B.f < dynsim_edo_B.loop_ub_n;
+           dynsim_edo_B.f++) {
+        dynsim_edo_B.n_pb = Hji->size[0];
+        for (dynsim_edo_B.b_i_a = 0; dynsim_edo_B.b_i_a < dynsim_edo_B.n_pb;
+             dynsim_edo_B.b_i_a++) {
+          H->data[(dynsim_edo_B.coffset_tmp_p + dynsim_edo_B.b_i_a) + H->size[0]
+            * (dynsim_edo_B.cb + dynsim_edo_B.f)] = Hji->data[Hji->size[0] *
+            dynsim_edo_B.f + dynsim_edo_B.b_i_a];
         }
       }
 
-      dynsim_edo_B.n_m = Fi->size[1];
-      dynsim_edo_B.f_n = Si->size[0] * Si->size[1];
+      dynsim_edo_B.n_pb = Fi->size[1];
+      dynsim_edo_B.f = Si->size[0] * Si->size[1];
       Si->size[0] = 6;
       Si->size[1] = Fi->size[1];
-      dynsim_emxEnsureCapacity_real_T(Si, dynsim_edo_B.f_n);
-      dynsim_edo_B.loop_ub = Fi->size[0] * Fi->size[1] - 1;
-      for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n <= dynsim_edo_B.loop_ub;
-           dynsim_edo_B.f_n++) {
-        Si->data[dynsim_edo_B.f_n] = Fi->data[dynsim_edo_B.f_n];
+      dynsim_emxEnsureCapacity_real_T(Si, dynsim_edo_B.f);
+      dynsim_edo_B.loop_ub_n = Fi->size[0] * Fi->size[1] - 1;
+      for (dynsim_edo_B.f = 0; dynsim_edo_B.f <= dynsim_edo_B.loop_ub_n;
+           dynsim_edo_B.f++) {
+        Si->data[dynsim_edo_B.f] = Fi->data[dynsim_edo_B.f];
       }
 
-      dynsim_edo_B.f_n = Fi->size[0] * Fi->size[1];
+      dynsim_edo_B.f = Fi->size[0] * Fi->size[1];
       Fi->size[0] = 6;
-      Fi->size[1] = dynsim_edo_B.n_m;
-      dynsim_emxEnsureCapacity_real_T(Fi, dynsim_edo_B.f_n);
-      for (dynsim_edo_B.loop_ub = 0; dynsim_edo_B.loop_ub < dynsim_edo_B.n_m;
-           dynsim_edo_B.loop_ub++) {
-        dynsim_edo_B.coffset_tmp = dynsim_edo_B.loop_ub * 6 - 1;
-        for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i < 6; dynsim_edo_B.b_i++) {
-          dynsim_edo_B.aoffset_m = dynsim_edo_B.b_i * 6 - 1;
-          dynsim_edo_B.s = 0.0;
-          for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < 6; dynsim_edo_B.f_n++) {
-            dynsim_edo_B.X_tmp = dynsim_edo_B.f_n + 1;
-            dynsim_edo_B.s += X->data[dynsim_edo_B.pid_tmp]
-              .f1[dynsim_edo_B.aoffset_m + dynsim_edo_B.X_tmp] * Si->
-              data[dynsim_edo_B.coffset_tmp + dynsim_edo_B.X_tmp];
+      Fi->size[1] = dynsim_edo_B.n_pb;
+      dynsim_emxEnsureCapacity_real_T(Fi, dynsim_edo_B.f);
+      for (dynsim_edo_B.loop_ub_n = 0; dynsim_edo_B.loop_ub_n <
+           dynsim_edo_B.n_pb; dynsim_edo_B.loop_ub_n++) {
+        dynsim_edo_B.coffset_tmp_p = dynsim_edo_B.loop_ub_n * 6 - 1;
+        for (dynsim_edo_B.b_i_a = 0; dynsim_edo_B.b_i_a < 6; dynsim_edo_B.b_i_a
+             ++) {
+          dynsim_edo_B.aoffset_o = dynsim_edo_B.b_i_a * 6 - 1;
+          dynsim_edo_B.s_f = 0.0;
+          for (dynsim_edo_B.f = 0; dynsim_edo_B.f < 6; dynsim_edo_B.f++) {
+            dynsim_edo_B.X_tmp = dynsim_edo_B.f + 1;
+            dynsim_edo_B.s_f += X->data[dynsim_edo_B.pid_tmp]
+              .f1[dynsim_edo_B.aoffset_o + dynsim_edo_B.X_tmp] * Si->
+              data[dynsim_edo_B.coffset_tmp_p + dynsim_edo_B.X_tmp];
           }
 
-          Fi->data[(dynsim_edo_B.coffset_tmp + dynsim_edo_B.b_i) + 1] =
-            dynsim_edo_B.s;
+          Fi->data[(dynsim_edo_B.coffset_tmp_p + dynsim_edo_B.b_i_a) + 1] =
+            dynsim_edo_B.s_f;
         }
       }
 
       while (dynsim_edo_B.pid > 0.0) {
-        dynsim_edo_B.b_i = static_cast<int32_T>(dynsim_edo_B.pid);
-        dynsim_edo_B.pid_tmp = dynsim_edo_B.b_i - 1;
+        dynsim_edo_B.b_i_a = static_cast<int32_T>(dynsim_edo_B.pid);
+        dynsim_edo_B.pid_tmp = dynsim_edo_B.b_i_a - 1;
         obj = robot->Bodies[dynsim_edo_B.pid_tmp];
-        dynsim_edo_B.f_n = Si->size[0] * Si->size[1];
+        dynsim_edo_B.f = Si->size[0] * Si->size[1];
         Si->size[0] = 6;
         Si->size[1] = obj->JointInternal.MotionSubspace->size[1];
-        dynsim_emxEnsureCapacity_real_T(Si, dynsim_edo_B.f_n);
-        dynsim_edo_B.loop_ub = obj->JointInternal.MotionSubspace->size[0] *
+        dynsim_emxEnsureCapacity_real_T(Si, dynsim_edo_B.f);
+        dynsim_edo_B.loop_ub_n = obj->JointInternal.MotionSubspace->size[0] *
           obj->JointInternal.MotionSubspace->size[1] - 1;
-        for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n <= dynsim_edo_B.loop_ub;
-             dynsim_edo_B.f_n++) {
-          Si->data[dynsim_edo_B.f_n] = obj->JointInternal.MotionSubspace->
-            data[dynsim_edo_B.f_n];
+        for (dynsim_edo_B.f = 0; dynsim_edo_B.f <= dynsim_edo_B.loop_ub_n;
+             dynsim_edo_B.f++) {
+          Si->data[dynsim_edo_B.f] = obj->JointInternal.MotionSubspace->
+            data[dynsim_edo_B.f];
         }
 
-        dynsim_edo_B.b_idx_0_h = robot->VelocityDoFMap[dynsim_edo_B.b_i - 1];
-        dynsim_edo_B.b_idx_1_b = robot->VelocityDoFMap[dynsim_edo_B.b_i + 5];
-        if (dynsim_edo_B.b_idx_0_h <= dynsim_edo_B.b_idx_1_b) {
-          dynsim_edo_B.m_c = Si->size[1];
-          dynsim_edo_B.n_m = Fi->size[1] - 1;
-          dynsim_edo_B.f_n = Hji->size[0] * Hji->size[1];
+        dynsim_edo_B.b_idx_0_g = robot->VelocityDoFMap[dynsim_edo_B.b_i_a - 1];
+        dynsim_edo_B.b_idx_1_c = robot->VelocityDoFMap[dynsim_edo_B.b_i_a + 5];
+        if (dynsim_edo_B.b_idx_0_g <= dynsim_edo_B.b_idx_1_c) {
+          dynsim_edo_B.m_m = Si->size[1];
+          dynsim_edo_B.n_pb = Fi->size[1] - 1;
+          dynsim_edo_B.f = Hji->size[0] * Hji->size[1];
           Hji->size[0] = Si->size[1];
           Hji->size[1] = Fi->size[1];
-          dynsim_emxEnsureCapacity_real_T(Hji, dynsim_edo_B.f_n);
-          for (dynsim_edo_B.loop_ub = 0; dynsim_edo_B.loop_ub <=
-               dynsim_edo_B.n_m; dynsim_edo_B.loop_ub++) {
-            dynsim_edo_B.coffset = dynsim_edo_B.loop_ub * dynsim_edo_B.m_c - 1;
-            dynsim_edo_B.boffset = dynsim_edo_B.loop_ub * 6 - 1;
-            for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i < dynsim_edo_B.m_c;
-                 dynsim_edo_B.b_i++) {
-              dynsim_edo_B.aoffset_m = dynsim_edo_B.b_i * 6 - 1;
-              dynsim_edo_B.s = 0.0;
-              for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < 6; dynsim_edo_B.f_n
-                   ++) {
-                dynsim_edo_B.X_tmp = dynsim_edo_B.f_n + 1;
-                dynsim_edo_B.s += Si->data[dynsim_edo_B.aoffset_m +
+          dynsim_emxEnsureCapacity_real_T(Hji, dynsim_edo_B.f);
+          for (dynsim_edo_B.loop_ub_n = 0; dynsim_edo_B.loop_ub_n <=
+               dynsim_edo_B.n_pb; dynsim_edo_B.loop_ub_n++) {
+            dynsim_edo_B.coffset = dynsim_edo_B.loop_ub_n * dynsim_edo_B.m_m - 1;
+            dynsim_edo_B.boffset = dynsim_edo_B.loop_ub_n * 6 - 1;
+            for (dynsim_edo_B.b_i_a = 0; dynsim_edo_B.b_i_a < dynsim_edo_B.m_m;
+                 dynsim_edo_B.b_i_a++) {
+              dynsim_edo_B.aoffset_o = dynsim_edo_B.b_i_a * 6 - 1;
+              dynsim_edo_B.s_f = 0.0;
+              for (dynsim_edo_B.f = 0; dynsim_edo_B.f < 6; dynsim_edo_B.f++) {
+                dynsim_edo_B.X_tmp = dynsim_edo_B.f + 1;
+                dynsim_edo_B.s_f += Si->data[dynsim_edo_B.aoffset_o +
                   dynsim_edo_B.X_tmp] * Fi->data[dynsim_edo_B.boffset +
                   dynsim_edo_B.X_tmp];
               }
 
-              Hji->data[(dynsim_edo_B.coffset + dynsim_edo_B.b_i) + 1] =
-                dynsim_edo_B.s;
+              Hji->data[(dynsim_edo_B.coffset + dynsim_edo_B.b_i_a) + 1] =
+                dynsim_edo_B.s_f;
             }
           }
 
-          if (dynsim_edo_B.b_idx_0_h > dynsim_edo_B.b_idx_1_b) {
+          if (dynsim_edo_B.b_idx_0_g > dynsim_edo_B.b_idx_1_c) {
             dynsim_edo_B.X_tmp = 0;
           } else {
-            dynsim_edo_B.X_tmp = static_cast<int32_T>(dynsim_edo_B.b_idx_0_h) -
+            dynsim_edo_B.X_tmp = static_cast<int32_T>(dynsim_edo_B.b_idx_0_g) -
               1;
           }
 
-          if (dynsim_edo_B.vNum_l > dynsim_edo_B.p_idx_1) {
-            dynsim_edo_B.coffset_tmp = 0;
+          if (dynsim_edo_B.vNum > dynsim_edo_B.p_idx_1) {
+            dynsim_edo_B.coffset_tmp_p = 0;
           } else {
-            dynsim_edo_B.coffset_tmp = static_cast<int32_T>(dynsim_edo_B.vNum_l)
+            dynsim_edo_B.coffset_tmp_p = static_cast<int32_T>(dynsim_edo_B.vNum)
               - 1;
           }
 
-          dynsim_edo_B.loop_ub = Hji->size[1];
-          for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < dynsim_edo_B.loop_ub;
-               dynsim_edo_B.f_n++) {
-            dynsim_edo_B.n_m = Hji->size[0];
-            for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i < dynsim_edo_B.n_m;
-                 dynsim_edo_B.b_i++) {
-              H->data[(dynsim_edo_B.X_tmp + dynsim_edo_B.b_i) + H->size[0] *
-                (dynsim_edo_B.coffset_tmp + dynsim_edo_B.f_n)] = Hji->data
-                [Hji->size[0] * dynsim_edo_B.f_n + dynsim_edo_B.b_i];
+          dynsim_edo_B.loop_ub_n = Hji->size[1];
+          for (dynsim_edo_B.f = 0; dynsim_edo_B.f < dynsim_edo_B.loop_ub_n;
+               dynsim_edo_B.f++) {
+            dynsim_edo_B.n_pb = Hji->size[0];
+            for (dynsim_edo_B.b_i_a = 0; dynsim_edo_B.b_i_a < dynsim_edo_B.n_pb;
+                 dynsim_edo_B.b_i_a++) {
+              H->data[(dynsim_edo_B.X_tmp + dynsim_edo_B.b_i_a) + H->size[0] *
+                (dynsim_edo_B.coffset_tmp_p + dynsim_edo_B.f)] = Hji->data
+                [Hji->size[0] * dynsim_edo_B.f + dynsim_edo_B.b_i_a];
             }
           }
 
-          if (dynsim_edo_B.vNum_l > dynsim_edo_B.p_idx_1) {
+          if (dynsim_edo_B.vNum > dynsim_edo_B.p_idx_1) {
             dynsim_edo_B.X_tmp = 0;
           } else {
-            dynsim_edo_B.X_tmp = static_cast<int32_T>(dynsim_edo_B.vNum_l) - 1;
+            dynsim_edo_B.X_tmp = static_cast<int32_T>(dynsim_edo_B.vNum) - 1;
           }
 
-          if (dynsim_edo_B.b_idx_0_h > dynsim_edo_B.b_idx_1_b) {
-            dynsim_edo_B.coffset_tmp = 0;
+          if (dynsim_edo_B.b_idx_0_g > dynsim_edo_B.b_idx_1_c) {
+            dynsim_edo_B.coffset_tmp_p = 0;
           } else {
-            dynsim_edo_B.coffset_tmp = static_cast<int32_T>
-              (dynsim_edo_B.b_idx_0_h) - 1;
+            dynsim_edo_B.coffset_tmp_p = static_cast<int32_T>
+              (dynsim_edo_B.b_idx_0_g) - 1;
           }
 
-          dynsim_edo_B.loop_ub = Hji->size[0];
-          for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < dynsim_edo_B.loop_ub;
-               dynsim_edo_B.f_n++) {
-            dynsim_edo_B.n_m = Hji->size[1];
-            for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i < dynsim_edo_B.n_m;
-                 dynsim_edo_B.b_i++) {
-              H->data[(dynsim_edo_B.X_tmp + dynsim_edo_B.b_i) + H->size[0] *
-                (dynsim_edo_B.coffset_tmp + dynsim_edo_B.f_n)] = Hji->data
-                [Hji->size[0] * dynsim_edo_B.b_i + dynsim_edo_B.f_n];
+          dynsim_edo_B.loop_ub_n = Hji->size[0];
+          for (dynsim_edo_B.f = 0; dynsim_edo_B.f < dynsim_edo_B.loop_ub_n;
+               dynsim_edo_B.f++) {
+            dynsim_edo_B.n_pb = Hji->size[1];
+            for (dynsim_edo_B.b_i_a = 0; dynsim_edo_B.b_i_a < dynsim_edo_B.n_pb;
+                 dynsim_edo_B.b_i_a++) {
+              H->data[(dynsim_edo_B.X_tmp + dynsim_edo_B.b_i_a) + H->size[0] *
+                (dynsim_edo_B.coffset_tmp_p + dynsim_edo_B.f)] = Hji->data
+                [Hji->size[0] * dynsim_edo_B.b_i_a + dynsim_edo_B.f];
             }
           }
         }
 
-        dynsim_edo_B.n_m = Fi->size[1];
-        dynsim_edo_B.f_n = Si->size[0] * Si->size[1];
+        dynsim_edo_B.n_pb = Fi->size[1];
+        dynsim_edo_B.f = Si->size[0] * Si->size[1];
         Si->size[0] = 6;
         Si->size[1] = Fi->size[1];
-        dynsim_emxEnsureCapacity_real_T(Si, dynsim_edo_B.f_n);
-        dynsim_edo_B.loop_ub = Fi->size[0] * Fi->size[1] - 1;
-        for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n <= dynsim_edo_B.loop_ub;
-             dynsim_edo_B.f_n++) {
-          Si->data[dynsim_edo_B.f_n] = Fi->data[dynsim_edo_B.f_n];
+        dynsim_emxEnsureCapacity_real_T(Si, dynsim_edo_B.f);
+        dynsim_edo_B.loop_ub_n = Fi->size[0] * Fi->size[1] - 1;
+        for (dynsim_edo_B.f = 0; dynsim_edo_B.f <= dynsim_edo_B.loop_ub_n;
+             dynsim_edo_B.f++) {
+          Si->data[dynsim_edo_B.f] = Fi->data[dynsim_edo_B.f];
         }
 
-        dynsim_edo_B.f_n = Fi->size[0] * Fi->size[1];
+        dynsim_edo_B.f = Fi->size[0] * Fi->size[1];
         Fi->size[0] = 6;
-        Fi->size[1] = dynsim_edo_B.n_m;
-        dynsim_emxEnsureCapacity_real_T(Fi, dynsim_edo_B.f_n);
-        for (dynsim_edo_B.loop_ub = 0; dynsim_edo_B.loop_ub < dynsim_edo_B.n_m;
-             dynsim_edo_B.loop_ub++) {
-          dynsim_edo_B.coffset_tmp = dynsim_edo_B.loop_ub * 6 - 1;
-          for (dynsim_edo_B.b_i = 0; dynsim_edo_B.b_i < 6; dynsim_edo_B.b_i++) {
-            dynsim_edo_B.aoffset_m = dynsim_edo_B.b_i * 6 - 1;
-            dynsim_edo_B.s = 0.0;
-            for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < 6; dynsim_edo_B.f_n++)
-            {
-              dynsim_edo_B.X_tmp = dynsim_edo_B.f_n + 1;
-              dynsim_edo_B.s += X->data[dynsim_edo_B.pid_tmp]
-                .f1[dynsim_edo_B.aoffset_m + dynsim_edo_B.X_tmp] * Si->
-                data[dynsim_edo_B.coffset_tmp + dynsim_edo_B.X_tmp];
+        Fi->size[1] = dynsim_edo_B.n_pb;
+        dynsim_emxEnsureCapacity_real_T(Fi, dynsim_edo_B.f);
+        for (dynsim_edo_B.loop_ub_n = 0; dynsim_edo_B.loop_ub_n <
+             dynsim_edo_B.n_pb; dynsim_edo_B.loop_ub_n++) {
+          dynsim_edo_B.coffset_tmp_p = dynsim_edo_B.loop_ub_n * 6 - 1;
+          for (dynsim_edo_B.b_i_a = 0; dynsim_edo_B.b_i_a < 6;
+               dynsim_edo_B.b_i_a++) {
+            dynsim_edo_B.aoffset_o = dynsim_edo_B.b_i_a * 6 - 1;
+            dynsim_edo_B.s_f = 0.0;
+            for (dynsim_edo_B.f = 0; dynsim_edo_B.f < 6; dynsim_edo_B.f++) {
+              dynsim_edo_B.X_tmp = dynsim_edo_B.f + 1;
+              dynsim_edo_B.s_f += X->data[dynsim_edo_B.pid_tmp]
+                .f1[dynsim_edo_B.aoffset_o + dynsim_edo_B.X_tmp] * Si->
+                data[dynsim_edo_B.coffset_tmp_p + dynsim_edo_B.X_tmp];
             }
 
-            Fi->data[(dynsim_edo_B.coffset_tmp + dynsim_edo_B.b_i) + 1] =
-              dynsim_edo_B.s;
+            Fi->data[(dynsim_edo_B.coffset_tmp_p + dynsim_edo_B.b_i_a) + 1] =
+              dynsim_edo_B.s_f;
           }
         }
 
@@ -1468,28 +2970,27 @@ static void RigidBodyTreeDynamics_massMatri(n_robotics_manip_internal_Rig_T
   dynsim_edo_emxFree_real_T(&Hji);
   dynsim_edo_emxFree_real_T(&Fi);
   dynsim_edo_emxFree_real_T(&Si);
-  dynsim_edo_emxFree_f_cell_wrap(&X);
-  dynsim_edo_emxFree_f_cell_wrap(&Ic);
-  for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < 6; dynsim_edo_B.f_n++) {
-    dynsim_edo_B.mask[dynsim_edo_B.f_n] = (robot->
-      VelocityDoFMap[dynsim_edo_B.f_n] <= robot->VelocityDoFMap[dynsim_edo_B.f_n
-      + 6]);
+  dynsim_edo_emxFree_f_cell_wrap1(&X);
+  dynsim_edo_emxFree_f_cell_wrap1(&Ic);
+  for (dynsim_edo_B.f = 0; dynsim_edo_B.f < 6; dynsim_edo_B.f++) {
+    dynsim_edo_B.mask[dynsim_edo_B.f] = (robot->VelocityDoFMap[dynsim_edo_B.f] <=
+      robot->VelocityDoFMap[dynsim_edo_B.f + 6]);
   }
 
   dynsim_edo_B.idx = 0;
-  dynsim_edo_B.f_n = 1;
+  dynsim_edo_B.f = 1;
   exitg1 = false;
-  while ((!exitg1) && (dynsim_edo_B.f_n - 1 < 6)) {
-    if (dynsim_edo_B.mask[dynsim_edo_B.f_n - 1]) {
+  while ((!exitg1) && (dynsim_edo_B.f - 1 < 6)) {
+    if (dynsim_edo_B.mask[dynsim_edo_B.f - 1]) {
       dynsim_edo_B.idx++;
-      dynsim_edo_B.ii_data[dynsim_edo_B.idx - 1] = dynsim_edo_B.f_n;
+      dynsim_edo_B.ii_data[dynsim_edo_B.idx - 1] = dynsim_edo_B.f;
       if (dynsim_edo_B.idx >= 6) {
         exitg1 = true;
       } else {
-        dynsim_edo_B.f_n++;
+        dynsim_edo_B.f++;
       }
     } else {
-      dynsim_edo_B.f_n++;
+      dynsim_edo_B.f++;
     }
   }
 
@@ -1497,102 +2998,102 @@ static void RigidBodyTreeDynamics_massMatri(n_robotics_manip_internal_Rig_T
     dynsim_edo_B.idx = 0;
   }
 
-  for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < dynsim_edo_B.idx;
-       dynsim_edo_B.f_n++) {
-    dynsim_edo_B.nonFixedIndices_data[dynsim_edo_B.f_n] =
-      dynsim_edo_B.ii_data[dynsim_edo_B.f_n];
+  for (dynsim_edo_B.f = 0; dynsim_edo_B.f < dynsim_edo_B.idx; dynsim_edo_B.f++)
+  {
+    dynsim_edo_B.nonFixedIndices_data[dynsim_edo_B.f] =
+      dynsim_edo_B.ii_data[dynsim_edo_B.f];
   }
 
-  dynsim_edo_B.b_i = dynsim_edo_B.idx - 1;
+  dynsim_edo_B.b_i_a = dynsim_edo_B.idx - 1;
   dynsim_edo_emxInit_real_T(&s, 2);
-  for (dynsim_edo_B.idx = 0; dynsim_edo_B.idx <= dynsim_edo_B.b_i;
+  for (dynsim_edo_B.idx = 0; dynsim_edo_B.idx <= dynsim_edo_B.b_i_a;
        dynsim_edo_B.idx++) {
-    dynsim_edo_B.vNum_l = robot->
+    dynsim_edo_B.vNum = robot->
       VelocityDoFMap[dynsim_edo_B.nonFixedIndices_data[dynsim_edo_B.idx] - 1];
     dynsim_edo_B.p_idx_1 = robot->
       VelocityDoFMap[dynsim_edo_B.nonFixedIndices_data[dynsim_edo_B.idx] + 5];
-    if (rtIsNaN(dynsim_edo_B.vNum_l) || rtIsNaN(dynsim_edo_B.p_idx_1)) {
-      dynsim_edo_B.f_n = s->size[0] * s->size[1];
+    if (rtIsNaN(dynsim_edo_B.vNum) || rtIsNaN(dynsim_edo_B.p_idx_1)) {
+      dynsim_edo_B.f = s->size[0] * s->size[1];
       s->size[0] = 1;
       s->size[1] = 1;
-      dynsim_emxEnsureCapacity_real_T(s, dynsim_edo_B.f_n);
+      dynsim_emxEnsureCapacity_real_T(s, dynsim_edo_B.f);
       s->data[0] = (rtNaN);
-    } else if (dynsim_edo_B.p_idx_1 < dynsim_edo_B.vNum_l) {
+    } else if (dynsim_edo_B.p_idx_1 < dynsim_edo_B.vNum) {
       s->size[0] = 1;
       s->size[1] = 0;
-    } else if ((rtIsInf(dynsim_edo_B.vNum_l) || rtIsInf(dynsim_edo_B.p_idx_1)) &&
-               (dynsim_edo_B.vNum_l == dynsim_edo_B.p_idx_1)) {
-      dynsim_edo_B.f_n = s->size[0] * s->size[1];
+    } else if ((rtIsInf(dynsim_edo_B.vNum) || rtIsInf(dynsim_edo_B.p_idx_1)) &&
+               (dynsim_edo_B.vNum == dynsim_edo_B.p_idx_1)) {
+      dynsim_edo_B.f = s->size[0] * s->size[1];
       s->size[0] = 1;
       s->size[1] = 1;
-      dynsim_emxEnsureCapacity_real_T(s, dynsim_edo_B.f_n);
+      dynsim_emxEnsureCapacity_real_T(s, dynsim_edo_B.f);
       s->data[0] = (rtNaN);
-    } else if (floor(dynsim_edo_B.vNum_l) == dynsim_edo_B.vNum_l) {
-      dynsim_edo_B.f_n = s->size[0] * s->size[1];
+    } else if (floor(dynsim_edo_B.vNum) == dynsim_edo_B.vNum) {
+      dynsim_edo_B.f = s->size[0] * s->size[1];
       s->size[0] = 1;
-      dynsim_edo_B.loop_ub = static_cast<int32_T>(floor(dynsim_edo_B.p_idx_1 -
-        dynsim_edo_B.vNum_l));
-      s->size[1] = dynsim_edo_B.loop_ub + 1;
-      dynsim_emxEnsureCapacity_real_T(s, dynsim_edo_B.f_n);
-      for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n <= dynsim_edo_B.loop_ub;
-           dynsim_edo_B.f_n++) {
-        s->data[dynsim_edo_B.f_n] = dynsim_edo_B.vNum_l + static_cast<real_T>
-          (dynsim_edo_B.f_n);
+      dynsim_edo_B.loop_ub_n = static_cast<int32_T>(floor(dynsim_edo_B.p_idx_1 -
+        dynsim_edo_B.vNum));
+      s->size[1] = dynsim_edo_B.loop_ub_n + 1;
+      dynsim_emxEnsureCapacity_real_T(s, dynsim_edo_B.f);
+      for (dynsim_edo_B.f = 0; dynsim_edo_B.f <= dynsim_edo_B.loop_ub_n;
+           dynsim_edo_B.f++) {
+        s->data[dynsim_edo_B.f] = dynsim_edo_B.vNum + static_cast<real_T>
+          (dynsim_edo_B.f);
       }
     } else {
-      dynsim_edo_B.nb_b = floor((dynsim_edo_B.p_idx_1 - dynsim_edo_B.vNum_l) +
-        0.5);
-      dynsim_edo_B.pid = dynsim_edo_B.vNum_l + dynsim_edo_B.nb_b;
-      dynsim_edo_B.b_idx_0_h = dynsim_edo_B.pid - dynsim_edo_B.p_idx_1;
-      dynsim_edo_B.b_idx_1_b = fabs(dynsim_edo_B.vNum_l);
-      dynsim_edo_B.s = fabs(dynsim_edo_B.p_idx_1);
-      if ((dynsim_edo_B.b_idx_1_b > dynsim_edo_B.s) || rtIsNaN(dynsim_edo_B.s))
-      {
-        dynsim_edo_B.s = dynsim_edo_B.b_idx_1_b;
+      dynsim_edo_B.nb_i = floor((dynsim_edo_B.p_idx_1 - dynsim_edo_B.vNum) + 0.5);
+      dynsim_edo_B.pid = dynsim_edo_B.vNum + dynsim_edo_B.nb_i;
+      dynsim_edo_B.b_idx_0_g = dynsim_edo_B.pid - dynsim_edo_B.p_idx_1;
+      dynsim_edo_B.b_idx_1_c = fabs(dynsim_edo_B.vNum);
+      dynsim_edo_B.s_f = fabs(dynsim_edo_B.p_idx_1);
+      if ((dynsim_edo_B.b_idx_1_c > dynsim_edo_B.s_f) || rtIsNaN
+          (dynsim_edo_B.s_f)) {
+        dynsim_edo_B.s_f = dynsim_edo_B.b_idx_1_c;
       }
 
-      if (fabs(dynsim_edo_B.b_idx_0_h) < 4.4408920985006262E-16 * dynsim_edo_B.s)
-      {
-        dynsim_edo_B.nb_b++;
+      if (fabs(dynsim_edo_B.b_idx_0_g) < 4.4408920985006262E-16 *
+          dynsim_edo_B.s_f) {
+        dynsim_edo_B.nb_i++;
         dynsim_edo_B.pid = dynsim_edo_B.p_idx_1;
-      } else if (dynsim_edo_B.b_idx_0_h > 0.0) {
-        dynsim_edo_B.pid = (dynsim_edo_B.nb_b - 1.0) + dynsim_edo_B.vNum_l;
+      } else if (dynsim_edo_B.b_idx_0_g > 0.0) {
+        dynsim_edo_B.pid = (dynsim_edo_B.nb_i - 1.0) + dynsim_edo_B.vNum;
       } else {
-        dynsim_edo_B.nb_b++;
+        dynsim_edo_B.nb_i++;
       }
 
-      if (dynsim_edo_B.nb_b >= 0.0) {
-        dynsim_edo_B.f_n = static_cast<int32_T>(dynsim_edo_B.nb_b);
+      if (dynsim_edo_B.nb_i >= 0.0) {
+        dynsim_edo_B.f = static_cast<int32_T>(dynsim_edo_B.nb_i);
       } else {
-        dynsim_edo_B.f_n = 0;
+        dynsim_edo_B.f = 0;
       }
 
-      dynsim_edo_B.n_m = dynsim_edo_B.f_n - 1;
-      dynsim_edo_B.f_n = s->size[0] * s->size[1];
+      dynsim_edo_B.n_pb = dynsim_edo_B.f - 1;
+      dynsim_edo_B.f = s->size[0] * s->size[1];
       s->size[0] = 1;
-      s->size[1] = dynsim_edo_B.n_m + 1;
-      dynsim_emxEnsureCapacity_real_T(s, dynsim_edo_B.f_n);
-      if (dynsim_edo_B.n_m + 1 > 0) {
-        s->data[0] = dynsim_edo_B.vNum_l;
-        if (dynsim_edo_B.n_m + 1 > 1) {
-          s->data[dynsim_edo_B.n_m] = dynsim_edo_B.pid;
-          dynsim_edo_B.nm1d2 = ((dynsim_edo_B.n_m < 0) + dynsim_edo_B.n_m) >> 1;
-          dynsim_edo_B.loop_ub = dynsim_edo_B.nm1d2 - 2;
-          for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n <= dynsim_edo_B.loop_ub;
-               dynsim_edo_B.f_n++) {
-            dynsim_edo_B.X_tmp = dynsim_edo_B.f_n + 1;
-            s->data[dynsim_edo_B.X_tmp] = dynsim_edo_B.vNum_l +
-              static_cast<real_T>(dynsim_edo_B.X_tmp);
-            s->data[dynsim_edo_B.n_m - dynsim_edo_B.X_tmp] = dynsim_edo_B.pid -
+      s->size[1] = dynsim_edo_B.n_pb + 1;
+      dynsim_emxEnsureCapacity_real_T(s, dynsim_edo_B.f);
+      if (dynsim_edo_B.n_pb + 1 > 0) {
+        s->data[0] = dynsim_edo_B.vNum;
+        if (dynsim_edo_B.n_pb + 1 > 1) {
+          s->data[dynsim_edo_B.n_pb] = dynsim_edo_B.pid;
+          dynsim_edo_B.nm1d2 = ((dynsim_edo_B.n_pb < 0) + dynsim_edo_B.n_pb) >>
+            1;
+          dynsim_edo_B.loop_ub_n = dynsim_edo_B.nm1d2 - 2;
+          for (dynsim_edo_B.f = 0; dynsim_edo_B.f <= dynsim_edo_B.loop_ub_n;
+               dynsim_edo_B.f++) {
+            dynsim_edo_B.X_tmp = dynsim_edo_B.f + 1;
+            s->data[dynsim_edo_B.X_tmp] = dynsim_edo_B.vNum + static_cast<real_T>
+              (dynsim_edo_B.X_tmp);
+            s->data[dynsim_edo_B.n_pb - dynsim_edo_B.X_tmp] = dynsim_edo_B.pid -
               static_cast<real_T>(dynsim_edo_B.X_tmp);
           }
 
-          if (dynsim_edo_B.nm1d2 << 1 == dynsim_edo_B.n_m) {
-            s->data[dynsim_edo_B.nm1d2] = (dynsim_edo_B.vNum_l +
-              dynsim_edo_B.pid) / 2.0;
+          if (dynsim_edo_B.nm1d2 << 1 == dynsim_edo_B.n_pb) {
+            s->data[dynsim_edo_B.nm1d2] = (dynsim_edo_B.vNum + dynsim_edo_B.pid)
+              / 2.0;
           } else {
-            s->data[dynsim_edo_B.nm1d2] = dynsim_edo_B.vNum_l +
-              static_cast<real_T>(dynsim_edo_B.nm1d2);
+            s->data[dynsim_edo_B.nm1d2] = dynsim_edo_B.vNum + static_cast<real_T>
+              (dynsim_edo_B.nm1d2);
             s->data[dynsim_edo_B.nm1d2 + 1] = dynsim_edo_B.pid -
               static_cast<real_T>(dynsim_edo_B.nm1d2);
           }
@@ -1600,28 +3101,28 @@ static void RigidBodyTreeDynamics_massMatri(n_robotics_manip_internal_Rig_T
       }
     }
 
-    if (dynsim_edo_B.vNum_l > dynsim_edo_B.p_idx_1) {
+    if (dynsim_edo_B.vNum > dynsim_edo_B.p_idx_1) {
       dynsim_edo_B.nm1d2 = 0;
     } else {
-      dynsim_edo_B.nm1d2 = static_cast<int32_T>(dynsim_edo_B.vNum_l) - 1;
+      dynsim_edo_B.nm1d2 = static_cast<int32_T>(dynsim_edo_B.vNum) - 1;
     }
 
-    dynsim_edo_B.loop_ub = s->size[1];
-    for (dynsim_edo_B.f_n = 0; dynsim_edo_B.f_n < dynsim_edo_B.loop_ub;
-         dynsim_edo_B.f_n++) {
-      lambda->data[dynsim_edo_B.nm1d2 + dynsim_edo_B.f_n] = s->
-        data[dynsim_edo_B.f_n] - 1.0;
+    dynsim_edo_B.loop_ub_n = s->size[1];
+    for (dynsim_edo_B.f = 0; dynsim_edo_B.f < dynsim_edo_B.loop_ub_n;
+         dynsim_edo_B.f++) {
+      lambda->data[dynsim_edo_B.nm1d2 + dynsim_edo_B.f] = s->data[dynsim_edo_B.f]
+        - 1.0;
     }
 
     if (lambda_->data[dynsim_edo_B.nonFixedIndices_data[dynsim_edo_B.idx] - 1] ==
         0.0) {
-      lambda->data[static_cast<int32_T>(dynsim_edo_B.vNum_l) - 1] = 0.0;
+      lambda->data[static_cast<int32_T>(dynsim_edo_B.vNum) - 1] = 0.0;
     } else {
-      dynsim_edo_B.f_n = static_cast<int32_T>(lambda_->
+      dynsim_edo_B.f = static_cast<int32_T>(lambda_->
         data[dynsim_edo_B.nonFixedIndices_data[dynsim_edo_B.idx] - 1]);
-      dynsim_edo_B.b_idx_1_b = robot->VelocityDoFMap[dynsim_edo_B.f_n + 5];
-      lambda->data[static_cast<int32_T>(dynsim_edo_B.vNum_l) - 1] =
-        dynsim_edo_B.b_idx_1_b;
+      dynsim_edo_B.b_idx_1_c = robot->VelocityDoFMap[dynsim_edo_B.f + 5];
+      lambda->data[static_cast<int32_T>(dynsim_edo_B.vNum) - 1] =
+        dynsim_edo_B.b_idx_1_c;
     }
   }
 
@@ -1629,19 +3130,19 @@ static void RigidBodyTreeDynamics_massMatri(n_robotics_manip_internal_Rig_T
   dynsim_edo_emxFree_real_T(&lambda_);
 }
 
-static void RigidBodyTreeDynamics_inverseDy(n_robotics_manip_internal_Rig_T
-  *robot, const real_T q[6], const real_T qdot[6], const real_T fext[36], real_T
-  tau[6])
+static void RigidBodyTreeDynamics_inverseDy(n_robotics_manip_internal__ha_T
+  *robot, const real_T q[3], const real_T qdot[3], const real_T fext[36], real_T
+  tau[3])
 {
-  emxArray_f_cell_wrap_dynsim_e_T *X;
-  emxArray_f_cell_wrap_dynsim_e_T *Xtree;
+  emxArray_f_cell_wrap_dynsim_h_T *X;
+  emxArray_f_cell_wrap_dynsim_h_T *Xtree;
   emxArray_real_T_dynsim_edo_T *vJ;
   emxArray_real_T_dynsim_edo_T *vB;
   emxArray_real_T_dynsim_edo_T *aB;
   emxArray_real_T_dynsim_edo_T *f;
   emxArray_real_T_dynsim_edo_T *S;
   emxArray_real_T_dynsim_edo_T *taui;
-  l_robotics_manip_internal_Rig_T *obj;
+  l_robotics_manip_internal__ha_T *obj;
   emxArray_char_T_dynsim_edo_T *a;
   static const char_T tmp[5] = { 'f', 'i', 'x', 'e', 'd' };
 
@@ -1654,78 +3155,79 @@ static void RigidBodyTreeDynamics_inverseDy(n_robotics_manip_internal_Rig_T
   dynsim_edo_B.a0[5] = -robot->Gravity[2];
   dynsim_edo_emxInit_real_T(&vJ, 2);
   dynsim_edo_B.nb = robot->NumBodies;
-  dynsim_edo_B.i_n = vJ->size[0] * vJ->size[1];
+  dynsim_edo_B.b_k_h = vJ->size[0] * vJ->size[1];
   vJ->size[0] = 6;
   dynsim_edo_B.unnamed_idx_1 = static_cast<int32_T>(dynsim_edo_B.nb);
   vJ->size[1] = dynsim_edo_B.unnamed_idx_1;
-  dynsim_emxEnsureCapacity_real_T(vJ, dynsim_edo_B.i_n);
+  dynsim_emxEnsureCapacity_real_T(vJ, dynsim_edo_B.b_k_h);
   dynsim_edo_B.loop_ub_tmp = 6 * dynsim_edo_B.unnamed_idx_1 - 1;
-  for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n <= dynsim_edo_B.loop_ub_tmp;
-       dynsim_edo_B.i_n++) {
-    vJ->data[dynsim_edo_B.i_n] = 0.0;
+  for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h <= dynsim_edo_B.loop_ub_tmp;
+       dynsim_edo_B.b_k_h++) {
+    vJ->data[dynsim_edo_B.b_k_h] = 0.0;
   }
 
   dynsim_edo_emxInit_real_T(&vB, 2);
-  dynsim_edo_B.i_n = vB->size[0] * vB->size[1];
+  dynsim_edo_B.b_k_h = vB->size[0] * vB->size[1];
   vB->size[0] = 6;
   vB->size[1] = dynsim_edo_B.unnamed_idx_1;
-  dynsim_emxEnsureCapacity_real_T(vB, dynsim_edo_B.i_n);
-  for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n <= dynsim_edo_B.loop_ub_tmp;
-       dynsim_edo_B.i_n++) {
-    vB->data[dynsim_edo_B.i_n] = 0.0;
+  dynsim_emxEnsureCapacity_real_T(vB, dynsim_edo_B.b_k_h);
+  for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h <= dynsim_edo_B.loop_ub_tmp;
+       dynsim_edo_B.b_k_h++) {
+    vB->data[dynsim_edo_B.b_k_h] = 0.0;
   }
 
   dynsim_edo_emxInit_real_T(&aB, 2);
-  dynsim_edo_B.i_n = aB->size[0] * aB->size[1];
+  dynsim_edo_B.b_k_h = aB->size[0] * aB->size[1];
   aB->size[0] = 6;
   aB->size[1] = dynsim_edo_B.unnamed_idx_1;
-  dynsim_emxEnsureCapacity_real_T(aB, dynsim_edo_B.i_n);
-  for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n <= dynsim_edo_B.loop_ub_tmp;
-       dynsim_edo_B.i_n++) {
-    aB->data[dynsim_edo_B.i_n] = 0.0;
+  dynsim_emxEnsureCapacity_real_T(aB, dynsim_edo_B.b_k_h);
+  for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h <= dynsim_edo_B.loop_ub_tmp;
+       dynsim_edo_B.b_k_h++) {
+    aB->data[dynsim_edo_B.b_k_h] = 0.0;
   }
 
-  for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
-    tau[dynsim_edo_B.i_n] = 0.0;
-  }
-
-  dynsim_edo_emxInit_f_cell_wrap(&X, 2);
-  dynsim_edo_emxInit_f_cell_wrap(&Xtree, 2);
+  tau[0] = 0.0;
+  tau[1] = 0.0;
+  tau[2] = 0.0;
+  dynsim_edo_emxInit_f_cell_wrap1(&X, 2);
+  dynsim_edo_emxInit_f_cell_wrap1(&Xtree, 2);
   dynsim_edo_B.loop_ub_tmp = dynsim_edo_B.unnamed_idx_1 - 1;
-  dynsim_edo_B.i_n = Xtree->size[0] * Xtree->size[1];
+  dynsim_edo_B.b_k_h = Xtree->size[0] * Xtree->size[1];
   Xtree->size[0] = 1;
   Xtree->size[1] = dynsim_edo_B.unnamed_idx_1;
-  d_emxEnsureCapacity_f_cell_wrap(Xtree, dynsim_edo_B.i_n);
-  dynsim_edo_B.i_n = X->size[0] * X->size[1];
+  emxEnsureCapacity_f_cell_wrap1(Xtree, dynsim_edo_B.b_k_h);
+  dynsim_edo_B.b_k_h = X->size[0] * X->size[1];
   X->size[0] = 1;
   X->size[1] = dynsim_edo_B.unnamed_idx_1;
-  d_emxEnsureCapacity_f_cell_wrap(X, dynsim_edo_B.i_n);
-  for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k <= dynsim_edo_B.loop_ub_tmp;
-       dynsim_edo_B.b_k++) {
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 36; dynsim_edo_B.i_n++) {
-      Xtree->data[dynsim_edo_B.b_k].f1[dynsim_edo_B.i_n] = 0.0;
+  emxEnsureCapacity_f_cell_wrap1(X, dynsim_edo_B.b_k_h);
+  for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f <= dynsim_edo_B.loop_ub_tmp;
+       dynsim_edo_B.b_k_f++) {
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 36; dynsim_edo_B.b_k_h++)
+    {
+      Xtree->data[dynsim_edo_B.b_k_f].f1[dynsim_edo_B.b_k_h] = 0.0;
     }
 
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
-      Xtree->data[dynsim_edo_B.b_k].f1[dynsim_edo_B.i_n + 6 * dynsim_edo_B.i_n] =
-        1.0;
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++) {
+      Xtree->data[dynsim_edo_B.b_k_f].f1[dynsim_edo_B.b_k_h + 6 *
+        dynsim_edo_B.b_k_h] = 1.0;
     }
 
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 36; dynsim_edo_B.i_n++) {
-      X->data[dynsim_edo_B.b_k].f1[dynsim_edo_B.i_n] = 0.0;
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 36; dynsim_edo_B.b_k_h++)
+    {
+      X->data[dynsim_edo_B.b_k_f].f1[dynsim_edo_B.b_k_h] = 0.0;
     }
 
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
-      X->data[dynsim_edo_B.b_k].f1[dynsim_edo_B.i_n + 6 * dynsim_edo_B.i_n] =
-        1.0;
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++) {
+      X->data[dynsim_edo_B.b_k_f].f1[dynsim_edo_B.b_k_h + 6 * dynsim_edo_B.b_k_h]
+        = 1.0;
     }
   }
 
   dynsim_edo_emxInit_real_T(&f, 2);
-  dynsim_edo_B.i_n = f->size[0] * f->size[1];
+  dynsim_edo_B.b_k_h = f->size[0] * f->size[1];
   f->size[0] = 6;
   f->size[1] = dynsim_edo_B.unnamed_idx_1;
-  dynsim_emxEnsureCapacity_real_T(f, dynsim_edo_B.i_n);
+  dynsim_emxEnsureCapacity_real_T(f, dynsim_edo_B.b_k_h);
   dynsim_edo_emxInit_real_T(&S, 2);
   if (0 <= dynsim_edo_B.loop_ub_tmp) {
     dynsim_edo_B.dv1[0] = 0.0;
@@ -1736,16 +3238,16 @@ static void RigidBodyTreeDynamics_inverseDy(n_robotics_manip_internal_Rig_T
   for (dynsim_edo_B.unnamed_idx_1 = 0; dynsim_edo_B.unnamed_idx_1 <=
        dynsim_edo_B.loop_ub_tmp; dynsim_edo_B.unnamed_idx_1++) {
     obj = robot->Bodies[dynsim_edo_B.unnamed_idx_1];
-    dynsim_edo_B.i_n = S->size[0] * S->size[1];
+    dynsim_edo_B.b_k_h = S->size[0] * S->size[1];
     S->size[0] = 6;
     S->size[1] = obj->JointInternal.MotionSubspace->size[1];
-    dynsim_emxEnsureCapacity_real_T(S, dynsim_edo_B.i_n);
-    dynsim_edo_B.b_k = obj->JointInternal.MotionSubspace->size[0] *
+    dynsim_emxEnsureCapacity_real_T(S, dynsim_edo_B.b_k_h);
+    dynsim_edo_B.b_k_f = obj->JointInternal.MotionSubspace->size[0] *
       obj->JointInternal.MotionSubspace->size[1] - 1;
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n <= dynsim_edo_B.b_k;
-         dynsim_edo_B.i_n++) {
-      S->data[dynsim_edo_B.i_n] = obj->JointInternal.MotionSubspace->
-        data[dynsim_edo_B.i_n];
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h <= dynsim_edo_B.b_k_f;
+         dynsim_edo_B.b_k_h++) {
+      S->data[dynsim_edo_B.b_k_h] = obj->JointInternal.MotionSubspace->
+        data[dynsim_edo_B.b_k_h];
     }
 
     dynsim_edo_B.a_idx_0 = robot->PositionDoFMap[dynsim_edo_B.unnamed_idx_1];
@@ -1754,17 +3256,18 @@ static void RigidBodyTreeDynamics_inverseDy(n_robotics_manip_internal_Rig_T
     dynsim_edo_B.b_idx_1 = robot->VelocityDoFMap[dynsim_edo_B.unnamed_idx_1 + 6];
     if (dynsim_edo_B.a_idx_1 < dynsim_edo_B.a_idx_0) {
       obj = robot->Bodies[dynsim_edo_B.unnamed_idx_1];
-      rigidBodyJoint_transformBodyToP(&obj->JointInternal, dynsim_edo_B.T);
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
-        vJ->data[dynsim_edo_B.i_n + 6 * dynsim_edo_B.unnamed_idx_1] = 0.0;
+      rigidBodyJoint_transformBodyToP(&obj->JointInternal, dynsim_edo_B.T_c);
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++)
+      {
+        vJ->data[dynsim_edo_B.b_k_h + 6 * dynsim_edo_B.unnamed_idx_1] = 0.0;
       }
     } else {
       if (dynsim_edo_B.a_idx_0 > dynsim_edo_B.a_idx_1) {
-        dynsim_edo_B.b_k = 0;
-        dynsim_edo_B.i_n = -1;
+        dynsim_edo_B.b_k_f = 0;
+        dynsim_edo_B.b_k_h = -1;
       } else {
-        dynsim_edo_B.b_k = static_cast<int32_T>(dynsim_edo_B.a_idx_0) - 1;
-        dynsim_edo_B.i_n = static_cast<int32_T>(dynsim_edo_B.a_idx_1) - 1;
+        dynsim_edo_B.b_k_f = static_cast<int32_T>(dynsim_edo_B.a_idx_0) - 1;
+        dynsim_edo_B.b_k_h = static_cast<int32_T>(dynsim_edo_B.a_idx_1) - 1;
       }
 
       if (dynsim_edo_B.b_idx_0 > dynsim_edo_B.b_idx_1) {
@@ -1774,59 +3277,62 @@ static void RigidBodyTreeDynamics_inverseDy(n_robotics_manip_internal_Rig_T
       }
 
       obj = robot->Bodies[dynsim_edo_B.unnamed_idx_1];
-      dynsim_edo_B.q_size_tmp = dynsim_edo_B.i_n - dynsim_edo_B.b_k;
+      dynsim_edo_B.q_size_tmp = dynsim_edo_B.b_k_h - dynsim_edo_B.b_k_f;
       dynsim_edo_B.q_size = dynsim_edo_B.q_size_tmp + 1;
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n <= dynsim_edo_B.q_size_tmp;
-           dynsim_edo_B.i_n++) {
-        dynsim_edo_B.q_data[dynsim_edo_B.i_n] = q[dynsim_edo_B.b_k +
-          dynsim_edo_B.i_n];
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h <= dynsim_edo_B.q_size_tmp;
+           dynsim_edo_B.b_k_h++) {
+        dynsim_edo_B.q_data[dynsim_edo_B.b_k_h] = q[dynsim_edo_B.b_k_f +
+          dynsim_edo_B.b_k_h];
       }
 
       rigidBodyJoint_transformBodyT_h(&obj->JointInternal, dynsim_edo_B.q_data,
-        &dynsim_edo_B.q_size, dynsim_edo_B.T);
+        &dynsim_edo_B.q_size, dynsim_edo_B.T_c);
       dynsim_edo_B.inner = S->size[1] - 1;
-      for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 6; dynsim_edo_B.b_k++) {
-        vJ->data[dynsim_edo_B.b_k + 6 * dynsim_edo_B.unnamed_idx_1] = 0.0;
+      for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 6; dynsim_edo_B.b_k_f++)
+      {
+        vJ->data[dynsim_edo_B.b_k_f + 6 * dynsim_edo_B.unnamed_idx_1] = 0.0;
       }
 
-      for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k <= dynsim_edo_B.inner;
-           dynsim_edo_B.b_k++) {
-        dynsim_edo_B.aoffset = dynsim_edo_B.b_k * 6 - 1;
+      for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f <= dynsim_edo_B.inner;
+           dynsim_edo_B.b_k_f++) {
+        dynsim_edo_B.aoffset = dynsim_edo_B.b_k_f * 6 - 1;
         for (dynsim_edo_B.q_size_tmp = 0; dynsim_edo_B.q_size_tmp < 6;
              dynsim_edo_B.q_size_tmp++) {
-          dynsim_edo_B.i_n = 6 * dynsim_edo_B.unnamed_idx_1 +
+          dynsim_edo_B.b_k_h = 6 * dynsim_edo_B.unnamed_idx_1 +
             dynsim_edo_B.q_size_tmp;
-          vJ->data[dynsim_edo_B.i_n] += S->data[(dynsim_edo_B.aoffset +
+          vJ->data[dynsim_edo_B.b_k_h] += S->data[(dynsim_edo_B.aoffset +
             dynsim_edo_B.q_size_tmp) + 1] * qdot[(dynsim_edo_B.p +
-            dynsim_edo_B.b_k) + 1];
+            dynsim_edo_B.b_k_f) + 1];
         }
       }
     }
 
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 3; dynsim_edo_B.i_n++) {
-      dynsim_edo_B.R_c[3 * dynsim_edo_B.i_n] = dynsim_edo_B.T[dynsim_edo_B.i_n];
-      dynsim_edo_B.R_c[3 * dynsim_edo_B.i_n + 1] =
-        dynsim_edo_B.T[dynsim_edo_B.i_n + 4];
-      dynsim_edo_B.R_c[3 * dynsim_edo_B.i_n + 2] =
-        dynsim_edo_B.T[dynsim_edo_B.i_n + 8];
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 3; dynsim_edo_B.b_k_h++) {
+      dynsim_edo_B.R_dy[3 * dynsim_edo_B.b_k_h] =
+        dynsim_edo_B.T_c[dynsim_edo_B.b_k_h];
+      dynsim_edo_B.R_dy[3 * dynsim_edo_B.b_k_h + 1] =
+        dynsim_edo_B.T_c[dynsim_edo_B.b_k_h + 4];
+      dynsim_edo_B.R_dy[3 * dynsim_edo_B.b_k_h + 2] =
+        dynsim_edo_B.T_c[dynsim_edo_B.b_k_h + 8];
     }
 
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 9; dynsim_edo_B.i_n++) {
-      dynsim_edo_B.R_b[dynsim_edo_B.i_n] = -dynsim_edo_B.R_c[dynsim_edo_B.i_n];
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 9; dynsim_edo_B.b_k_h++) {
+      dynsim_edo_B.R_lx[dynsim_edo_B.b_k_h] =
+        -dynsim_edo_B.R_dy[dynsim_edo_B.b_k_h];
     }
 
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 3; dynsim_edo_B.i_n++) {
-      dynsim_edo_B.b_k = dynsim_edo_B.i_n << 2;
-      dynsim_edo_B.Tinv[dynsim_edo_B.b_k] = dynsim_edo_B.R_c[3 *
-        dynsim_edo_B.i_n];
-      dynsim_edo_B.Tinv[dynsim_edo_B.b_k + 1] = dynsim_edo_B.R_c[3 *
-        dynsim_edo_B.i_n + 1];
-      dynsim_edo_B.Tinv[dynsim_edo_B.b_k + 2] = dynsim_edo_B.R_c[3 *
-        dynsim_edo_B.i_n + 2];
-      dynsim_edo_B.Tinv[dynsim_edo_B.i_n + 12] =
-        dynsim_edo_B.R_b[dynsim_edo_B.i_n + 6] * dynsim_edo_B.T[14] +
-        (dynsim_edo_B.R_b[dynsim_edo_B.i_n + 3] * dynsim_edo_B.T[13] +
-         dynsim_edo_B.R_b[dynsim_edo_B.i_n] * dynsim_edo_B.T[12]);
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 3; dynsim_edo_B.b_k_h++) {
+      dynsim_edo_B.b_k_f = dynsim_edo_B.b_k_h << 2;
+      dynsim_edo_B.Tinv[dynsim_edo_B.b_k_f] = dynsim_edo_B.R_dy[3 *
+        dynsim_edo_B.b_k_h];
+      dynsim_edo_B.Tinv[dynsim_edo_B.b_k_f + 1] = dynsim_edo_B.R_dy[3 *
+        dynsim_edo_B.b_k_h + 1];
+      dynsim_edo_B.Tinv[dynsim_edo_B.b_k_f + 2] = dynsim_edo_B.R_dy[3 *
+        dynsim_edo_B.b_k_h + 2];
+      dynsim_edo_B.Tinv[dynsim_edo_B.b_k_h + 12] =
+        dynsim_edo_B.R_lx[dynsim_edo_B.b_k_h + 6] * dynsim_edo_B.T_c[14] +
+        (dynsim_edo_B.R_lx[dynsim_edo_B.b_k_h + 3] * dynsim_edo_B.T_c[13] +
+         dynsim_edo_B.R_lx[dynsim_edo_B.b_k_h] * dynsim_edo_B.T_c[12]);
     }
 
     dynsim_edo_B.Tinv[3] = 0.0;
@@ -1839,380 +3345,410 @@ static void RigidBodyTreeDynamics_inverseDy(n_robotics_manip_internal_Rig_T
     dynsim_edo_B.dv1[7] = -dynsim_edo_B.Tinv[12];
     dynsim_edo_B.dv1[2] = -dynsim_edo_B.Tinv[13];
     dynsim_edo_B.dv1[5] = dynsim_edo_B.Tinv[12];
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 3; dynsim_edo_B.i_n++) {
-      for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 3; dynsim_edo_B.b_k++) {
-        dynsim_edo_B.q_size_tmp = dynsim_edo_B.i_n + 3 * dynsim_edo_B.b_k;
-        dynsim_edo_B.R_c[dynsim_edo_B.q_size_tmp] = 0.0;
-        dynsim_edo_B.p = dynsim_edo_B.b_k << 2;
-        dynsim_edo_B.R_c[dynsim_edo_B.q_size_tmp] +=
-          dynsim_edo_B.Tinv[dynsim_edo_B.p] * dynsim_edo_B.dv1[dynsim_edo_B.i_n];
-        dynsim_edo_B.R_c[dynsim_edo_B.q_size_tmp] +=
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 3; dynsim_edo_B.b_k_h++) {
+      for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 3; dynsim_edo_B.b_k_f++)
+      {
+        dynsim_edo_B.q_size_tmp = dynsim_edo_B.b_k_h + 3 * dynsim_edo_B.b_k_f;
+        dynsim_edo_B.R_dy[dynsim_edo_B.q_size_tmp] = 0.0;
+        dynsim_edo_B.p = dynsim_edo_B.b_k_f << 2;
+        dynsim_edo_B.R_dy[dynsim_edo_B.q_size_tmp] +=
+          dynsim_edo_B.Tinv[dynsim_edo_B.p] *
+          dynsim_edo_B.dv1[dynsim_edo_B.b_k_h];
+        dynsim_edo_B.R_dy[dynsim_edo_B.q_size_tmp] +=
           dynsim_edo_B.Tinv[dynsim_edo_B.p + 1] *
-          dynsim_edo_B.dv1[dynsim_edo_B.i_n + 3];
-        dynsim_edo_B.R_c[dynsim_edo_B.q_size_tmp] +=
+          dynsim_edo_B.dv1[dynsim_edo_B.b_k_h + 3];
+        dynsim_edo_B.R_dy[dynsim_edo_B.q_size_tmp] +=
           dynsim_edo_B.Tinv[dynsim_edo_B.p + 2] *
-          dynsim_edo_B.dv1[dynsim_edo_B.i_n + 6];
-        X->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.b_k + 6 *
-          dynsim_edo_B.i_n] = dynsim_edo_B.Tinv[(dynsim_edo_B.i_n << 2) +
-          dynsim_edo_B.b_k];
-        X->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.b_k + 6 *
-          (dynsim_edo_B.i_n + 3)] = 0.0;
+          dynsim_edo_B.dv1[dynsim_edo_B.b_k_h + 6];
+        X->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.b_k_f + 6 *
+          dynsim_edo_B.b_k_h] = dynsim_edo_B.Tinv[(dynsim_edo_B.b_k_h << 2) +
+          dynsim_edo_B.b_k_f];
+        X->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.b_k_f + 6 *
+          (dynsim_edo_B.b_k_h + 3)] = 0.0;
       }
     }
 
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 3; dynsim_edo_B.i_n++) {
-      X->data[dynsim_edo_B.unnamed_idx_1].f1[6 * dynsim_edo_B.i_n + 3] =
-        dynsim_edo_B.R_c[3 * dynsim_edo_B.i_n];
-      dynsim_edo_B.b_k = dynsim_edo_B.i_n << 2;
-      dynsim_edo_B.q_size_tmp = 6 * (dynsim_edo_B.i_n + 3);
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 3; dynsim_edo_B.b_k_h++) {
+      X->data[dynsim_edo_B.unnamed_idx_1].f1[6 * dynsim_edo_B.b_k_h + 3] =
+        dynsim_edo_B.R_dy[3 * dynsim_edo_B.b_k_h];
+      dynsim_edo_B.b_k_f = dynsim_edo_B.b_k_h << 2;
+      dynsim_edo_B.q_size_tmp = 6 * (dynsim_edo_B.b_k_h + 3);
       X->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.q_size_tmp + 3] =
-        dynsim_edo_B.Tinv[dynsim_edo_B.b_k];
-      X->data[dynsim_edo_B.unnamed_idx_1].f1[6 * dynsim_edo_B.i_n + 4] =
-        dynsim_edo_B.R_c[3 * dynsim_edo_B.i_n + 1];
+        dynsim_edo_B.Tinv[dynsim_edo_B.b_k_f];
+      X->data[dynsim_edo_B.unnamed_idx_1].f1[6 * dynsim_edo_B.b_k_h + 4] =
+        dynsim_edo_B.R_dy[3 * dynsim_edo_B.b_k_h + 1];
       X->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.q_size_tmp + 4] =
-        dynsim_edo_B.Tinv[dynsim_edo_B.b_k + 1];
-      X->data[dynsim_edo_B.unnamed_idx_1].f1[6 * dynsim_edo_B.i_n + 5] =
-        dynsim_edo_B.R_c[3 * dynsim_edo_B.i_n + 2];
+        dynsim_edo_B.Tinv[dynsim_edo_B.b_k_f + 1];
+      X->data[dynsim_edo_B.unnamed_idx_1].f1[6 * dynsim_edo_B.b_k_h + 5] =
+        dynsim_edo_B.R_dy[3 * dynsim_edo_B.b_k_h + 2];
       X->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.q_size_tmp + 5] =
-        dynsim_edo_B.Tinv[dynsim_edo_B.b_k + 2];
+        dynsim_edo_B.Tinv[dynsim_edo_B.b_k_f + 2];
     }
 
     dynsim_edo_B.a_idx_0 = robot->Bodies[dynsim_edo_B.unnamed_idx_1]
       ->ParentIndex;
     if (dynsim_edo_B.a_idx_0 > 0.0) {
       dynsim_edo_B.m = static_cast<int32_T>(dynsim_edo_B.a_idx_0);
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++)
+      {
         dynsim_edo_B.a_idx_1 = 0.0;
-        for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 6; dynsim_edo_B.b_k++) {
+        for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 6; dynsim_edo_B.b_k_f
+             ++) {
           dynsim_edo_B.a_idx_1 += vB->data[(dynsim_edo_B.m - 1) * 6 +
-            dynsim_edo_B.b_k] * X->data[dynsim_edo_B.unnamed_idx_1].f1[6 *
-            dynsim_edo_B.b_k + dynsim_edo_B.i_n];
+            dynsim_edo_B.b_k_f] * X->data[dynsim_edo_B.unnamed_idx_1].f1[6 *
+            dynsim_edo_B.b_k_f + dynsim_edo_B.b_k_h];
         }
 
-        dynsim_edo_B.q_data[dynsim_edo_B.i_n] = vJ->data[6 *
-          dynsim_edo_B.unnamed_idx_1 + dynsim_edo_B.i_n] + dynsim_edo_B.a_idx_1;
+        dynsim_edo_B.y[dynsim_edo_B.b_k_h] = vJ->data[6 *
+          dynsim_edo_B.unnamed_idx_1 + dynsim_edo_B.b_k_h] +
+          dynsim_edo_B.a_idx_1;
       }
 
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
-        vB->data[dynsim_edo_B.i_n + 6 * dynsim_edo_B.unnamed_idx_1] =
-          dynsim_edo_B.q_data[dynsim_edo_B.i_n];
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++)
+      {
+        vB->data[dynsim_edo_B.b_k_h + 6 * dynsim_edo_B.unnamed_idx_1] =
+          dynsim_edo_B.y[dynsim_edo_B.b_k_h];
       }
 
       dynsim_edo_B.inner = S->size[1] - 1;
-      for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 6; dynsim_edo_B.b_k++) {
-        dynsim_edo_B.q_data[dynsim_edo_B.b_k] = 0.0;
+      for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 6; dynsim_edo_B.b_k_f++)
+      {
+        dynsim_edo_B.y[dynsim_edo_B.b_k_f] = 0.0;
       }
 
-      for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k <= dynsim_edo_B.inner;
-           dynsim_edo_B.b_k++) {
-        dynsim_edo_B.aoffset = dynsim_edo_B.b_k * 6 - 1;
+      for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f <= dynsim_edo_B.inner;
+           dynsim_edo_B.b_k_f++) {
+        dynsim_edo_B.aoffset = dynsim_edo_B.b_k_f * 6 - 1;
         for (dynsim_edo_B.q_size_tmp = 0; dynsim_edo_B.q_size_tmp < 6;
              dynsim_edo_B.q_size_tmp++) {
           dynsim_edo_B.a_idx_1 = S->data[(dynsim_edo_B.aoffset +
             dynsim_edo_B.q_size_tmp) + 1] * 0.0 +
-            dynsim_edo_B.q_data[dynsim_edo_B.q_size_tmp];
-          dynsim_edo_B.q_data[dynsim_edo_B.q_size_tmp] = dynsim_edo_B.a_idx_1;
+            dynsim_edo_B.y[dynsim_edo_B.q_size_tmp];
+          dynsim_edo_B.y[dynsim_edo_B.q_size_tmp] = dynsim_edo_B.a_idx_1;
         }
       }
 
-      dynsim_edo_B.R_c[0] = 0.0;
-      dynsim_edo_B.b_k = 6 * dynsim_edo_B.unnamed_idx_1 + 2;
-      dynsim_edo_B.R_c[3] = -vB->data[dynsim_edo_B.b_k];
-      dynsim_edo_B.i_n = 6 * dynsim_edo_B.unnamed_idx_1 + 1;
-      dynsim_edo_B.R_c[6] = vB->data[dynsim_edo_B.i_n];
-      dynsim_edo_B.R_c[1] = vB->data[dynsim_edo_B.b_k];
-      dynsim_edo_B.R_c[4] = 0.0;
-      dynsim_edo_B.R_c[7] = -vB->data[6 * dynsim_edo_B.unnamed_idx_1];
-      dynsim_edo_B.R_c[2] = -vB->data[dynsim_edo_B.i_n];
-      dynsim_edo_B.R_c[5] = vB->data[6 * dynsim_edo_B.unnamed_idx_1];
-      dynsim_edo_B.R_c[8] = 0.0;
+      dynsim_edo_B.R_dy[0] = 0.0;
+      dynsim_edo_B.b_k_f = 6 * dynsim_edo_B.unnamed_idx_1 + 2;
+      dynsim_edo_B.R_dy[3] = -vB->data[dynsim_edo_B.b_k_f];
+      dynsim_edo_B.b_k_h = 6 * dynsim_edo_B.unnamed_idx_1 + 1;
+      dynsim_edo_B.R_dy[6] = vB->data[dynsim_edo_B.b_k_h];
+      dynsim_edo_B.R_dy[1] = vB->data[dynsim_edo_B.b_k_f];
+      dynsim_edo_B.R_dy[4] = 0.0;
+      dynsim_edo_B.R_dy[7] = -vB->data[6 * dynsim_edo_B.unnamed_idx_1];
+      dynsim_edo_B.R_dy[2] = -vB->data[dynsim_edo_B.b_k_h];
+      dynsim_edo_B.R_dy[5] = vB->data[6 * dynsim_edo_B.unnamed_idx_1];
+      dynsim_edo_B.R_dy[8] = 0.0;
       dynsim_edo_B.R[3] = 0.0;
-      dynsim_edo_B.b_k = 6 * dynsim_edo_B.unnamed_idx_1 + 5;
-      dynsim_edo_B.R[9] = -vB->data[dynsim_edo_B.b_k];
-      dynsim_edo_B.i_n = 6 * dynsim_edo_B.unnamed_idx_1 + 4;
-      dynsim_edo_B.R[15] = vB->data[dynsim_edo_B.i_n];
-      dynsim_edo_B.R[4] = vB->data[dynsim_edo_B.b_k];
+      dynsim_edo_B.b_k_f = 6 * dynsim_edo_B.unnamed_idx_1 + 5;
+      dynsim_edo_B.R[9] = -vB->data[dynsim_edo_B.b_k_f];
+      dynsim_edo_B.b_k_h = 6 * dynsim_edo_B.unnamed_idx_1 + 4;
+      dynsim_edo_B.R[15] = vB->data[dynsim_edo_B.b_k_h];
+      dynsim_edo_B.R[4] = vB->data[dynsim_edo_B.b_k_f];
       dynsim_edo_B.R[10] = 0.0;
-      dynsim_edo_B.b_k = 6 * dynsim_edo_B.unnamed_idx_1 + 3;
-      dynsim_edo_B.R[16] = -vB->data[dynsim_edo_B.b_k];
-      dynsim_edo_B.R[5] = -vB->data[dynsim_edo_B.i_n];
-      dynsim_edo_B.R[11] = vB->data[dynsim_edo_B.b_k];
+      dynsim_edo_B.b_k_f = 6 * dynsim_edo_B.unnamed_idx_1 + 3;
+      dynsim_edo_B.R[16] = -vB->data[dynsim_edo_B.b_k_f];
+      dynsim_edo_B.R[5] = -vB->data[dynsim_edo_B.b_k_h];
+      dynsim_edo_B.R[11] = vB->data[dynsim_edo_B.b_k_f];
       dynsim_edo_B.R[17] = 0.0;
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 3; dynsim_edo_B.i_n++) {
-        dynsim_edo_B.a_idx_1 = dynsim_edo_B.R_c[3 * dynsim_edo_B.i_n];
-        dynsim_edo_B.R[6 * dynsim_edo_B.i_n] = dynsim_edo_B.a_idx_1;
-        dynsim_edo_B.b_k = 6 * (dynsim_edo_B.i_n + 3);
-        dynsim_edo_B.R[dynsim_edo_B.b_k] = 0.0;
-        dynsim_edo_B.R[dynsim_edo_B.b_k + 3] = dynsim_edo_B.a_idx_1;
-        dynsim_edo_B.a_idx_1 = dynsim_edo_B.R_c[3 * dynsim_edo_B.i_n + 1];
-        dynsim_edo_B.R[6 * dynsim_edo_B.i_n + 1] = dynsim_edo_B.a_idx_1;
-        dynsim_edo_B.R[dynsim_edo_B.b_k + 1] = 0.0;
-        dynsim_edo_B.R[dynsim_edo_B.b_k + 4] = dynsim_edo_B.a_idx_1;
-        dynsim_edo_B.a_idx_1 = dynsim_edo_B.R_c[3 * dynsim_edo_B.i_n + 2];
-        dynsim_edo_B.R[6 * dynsim_edo_B.i_n + 2] = dynsim_edo_B.a_idx_1;
-        dynsim_edo_B.R[dynsim_edo_B.b_k + 2] = 0.0;
-        dynsim_edo_B.R[dynsim_edo_B.b_k + 5] = dynsim_edo_B.a_idx_1;
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 3; dynsim_edo_B.b_k_h++)
+      {
+        dynsim_edo_B.a_idx_1 = dynsim_edo_B.R_dy[3 * dynsim_edo_B.b_k_h];
+        dynsim_edo_B.R[6 * dynsim_edo_B.b_k_h] = dynsim_edo_B.a_idx_1;
+        dynsim_edo_B.b_k_f = 6 * (dynsim_edo_B.b_k_h + 3);
+        dynsim_edo_B.R[dynsim_edo_B.b_k_f] = 0.0;
+        dynsim_edo_B.R[dynsim_edo_B.b_k_f + 3] = dynsim_edo_B.a_idx_1;
+        dynsim_edo_B.a_idx_1 = dynsim_edo_B.R_dy[3 * dynsim_edo_B.b_k_h + 1];
+        dynsim_edo_B.R[6 * dynsim_edo_B.b_k_h + 1] = dynsim_edo_B.a_idx_1;
+        dynsim_edo_B.R[dynsim_edo_B.b_k_f + 1] = 0.0;
+        dynsim_edo_B.R[dynsim_edo_B.b_k_f + 4] = dynsim_edo_B.a_idx_1;
+        dynsim_edo_B.a_idx_1 = dynsim_edo_B.R_dy[3 * dynsim_edo_B.b_k_h + 2];
+        dynsim_edo_B.R[6 * dynsim_edo_B.b_k_h + 2] = dynsim_edo_B.a_idx_1;
+        dynsim_edo_B.R[dynsim_edo_B.b_k_f + 2] = 0.0;
+        dynsim_edo_B.R[dynsim_edo_B.b_k_f + 5] = dynsim_edo_B.a_idx_1;
       }
 
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++)
+      {
         dynsim_edo_B.a_idx_1 = 0.0;
-        for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 6; dynsim_edo_B.b_k++) {
+        for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 6; dynsim_edo_B.b_k_f
+             ++) {
           dynsim_edo_B.a_idx_1 += aB->data[(dynsim_edo_B.m - 1) * 6 +
-            dynsim_edo_B.b_k] * X->data[dynsim_edo_B.unnamed_idx_1].f1[6 *
-            dynsim_edo_B.b_k + dynsim_edo_B.i_n];
+            dynsim_edo_B.b_k_f] * X->data[dynsim_edo_B.unnamed_idx_1].f1[6 *
+            dynsim_edo_B.b_k_f + dynsim_edo_B.b_k_h];
         }
 
-        dynsim_edo_B.X_m[dynsim_edo_B.i_n] = dynsim_edo_B.a_idx_1 +
-          dynsim_edo_B.q_data[dynsim_edo_B.i_n];
+        dynsim_edo_B.X_e[dynsim_edo_B.b_k_h] = dynsim_edo_B.a_idx_1 +
+          dynsim_edo_B.y[dynsim_edo_B.b_k_h];
       }
 
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
-        dynsim_edo_B.q_data[dynsim_edo_B.i_n] = 0.0;
-        for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 6; dynsim_edo_B.b_k++) {
-          dynsim_edo_B.a_idx_1 = dynsim_edo_B.R[6 * dynsim_edo_B.b_k +
-            dynsim_edo_B.i_n] * vJ->data[6 * dynsim_edo_B.unnamed_idx_1 +
-            dynsim_edo_B.b_k] + dynsim_edo_B.q_data[dynsim_edo_B.i_n];
-          dynsim_edo_B.q_data[dynsim_edo_B.i_n] = dynsim_edo_B.a_idx_1;
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++)
+      {
+        dynsim_edo_B.y[dynsim_edo_B.b_k_h] = 0.0;
+        for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 6; dynsim_edo_B.b_k_f
+             ++) {
+          dynsim_edo_B.a_idx_1 = dynsim_edo_B.R[6 * dynsim_edo_B.b_k_f +
+            dynsim_edo_B.b_k_h] * vJ->data[6 * dynsim_edo_B.unnamed_idx_1 +
+            dynsim_edo_B.b_k_f] + dynsim_edo_B.y[dynsim_edo_B.b_k_h];
+          dynsim_edo_B.y[dynsim_edo_B.b_k_h] = dynsim_edo_B.a_idx_1;
         }
 
-        aB->data[dynsim_edo_B.i_n + 6 * dynsim_edo_B.unnamed_idx_1] =
-          dynsim_edo_B.X_m[dynsim_edo_B.i_n] +
-          dynsim_edo_B.q_data[dynsim_edo_B.i_n];
+        aB->data[dynsim_edo_B.b_k_h + 6 * dynsim_edo_B.unnamed_idx_1] =
+          dynsim_edo_B.X_e[dynsim_edo_B.b_k_h] +
+          dynsim_edo_B.y[dynsim_edo_B.b_k_h];
       }
 
-      dynsim_edo_B.R_c[0] = 0.0;
-      dynsim_edo_B.R_c[3] = -dynsim_edo_B.T[14];
-      dynsim_edo_B.R_c[6] = dynsim_edo_B.T[13];
-      dynsim_edo_B.R_c[1] = dynsim_edo_B.T[14];
-      dynsim_edo_B.R_c[4] = 0.0;
-      dynsim_edo_B.R_c[7] = -dynsim_edo_B.T[12];
-      dynsim_edo_B.R_c[2] = -dynsim_edo_B.T[13];
-      dynsim_edo_B.R_c[5] = dynsim_edo_B.T[12];
-      dynsim_edo_B.R_c[8] = 0.0;
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 3; dynsim_edo_B.i_n++) {
-        for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 3; dynsim_edo_B.b_k++) {
-          dynsim_edo_B.q_size_tmp = dynsim_edo_B.i_n + 3 * dynsim_edo_B.b_k;
-          dynsim_edo_B.R_b[dynsim_edo_B.q_size_tmp] = 0.0;
-          dynsim_edo_B.p = dynsim_edo_B.b_k << 2;
-          dynsim_edo_B.R_b[dynsim_edo_B.q_size_tmp] +=
-            dynsim_edo_B.T[dynsim_edo_B.p] * dynsim_edo_B.R_c[dynsim_edo_B.i_n];
-          dynsim_edo_B.R_b[dynsim_edo_B.q_size_tmp] +=
-            dynsim_edo_B.T[dynsim_edo_B.p + 1] *
-            dynsim_edo_B.R_c[dynsim_edo_B.i_n + 3];
-          dynsim_edo_B.R_b[dynsim_edo_B.q_size_tmp] +=
-            dynsim_edo_B.T[dynsim_edo_B.p + 2] *
-            dynsim_edo_B.R_c[dynsim_edo_B.i_n + 6];
-          dynsim_edo_B.R[dynsim_edo_B.b_k + 6 * dynsim_edo_B.i_n] =
-            dynsim_edo_B.T[(dynsim_edo_B.i_n << 2) + dynsim_edo_B.b_k];
-          dynsim_edo_B.R[dynsim_edo_B.b_k + 6 * (dynsim_edo_B.i_n + 3)] = 0.0;
+      dynsim_edo_B.R_dy[0] = 0.0;
+      dynsim_edo_B.R_dy[3] = -dynsim_edo_B.T_c[14];
+      dynsim_edo_B.R_dy[6] = dynsim_edo_B.T_c[13];
+      dynsim_edo_B.R_dy[1] = dynsim_edo_B.T_c[14];
+      dynsim_edo_B.R_dy[4] = 0.0;
+      dynsim_edo_B.R_dy[7] = -dynsim_edo_B.T_c[12];
+      dynsim_edo_B.R_dy[2] = -dynsim_edo_B.T_c[13];
+      dynsim_edo_B.R_dy[5] = dynsim_edo_B.T_c[12];
+      dynsim_edo_B.R_dy[8] = 0.0;
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 3; dynsim_edo_B.b_k_h++)
+      {
+        for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 3; dynsim_edo_B.b_k_f
+             ++) {
+          dynsim_edo_B.q_size_tmp = dynsim_edo_B.b_k_h + 3 * dynsim_edo_B.b_k_f;
+          dynsim_edo_B.R_lx[dynsim_edo_B.q_size_tmp] = 0.0;
+          dynsim_edo_B.p = dynsim_edo_B.b_k_f << 2;
+          dynsim_edo_B.R_lx[dynsim_edo_B.q_size_tmp] +=
+            dynsim_edo_B.T_c[dynsim_edo_B.p] *
+            dynsim_edo_B.R_dy[dynsim_edo_B.b_k_h];
+          dynsim_edo_B.R_lx[dynsim_edo_B.q_size_tmp] +=
+            dynsim_edo_B.T_c[dynsim_edo_B.p + 1] *
+            dynsim_edo_B.R_dy[dynsim_edo_B.b_k_h + 3];
+          dynsim_edo_B.R_lx[dynsim_edo_B.q_size_tmp] +=
+            dynsim_edo_B.T_c[dynsim_edo_B.p + 2] *
+            dynsim_edo_B.R_dy[dynsim_edo_B.b_k_h + 6];
+          dynsim_edo_B.R[dynsim_edo_B.b_k_f + 6 * dynsim_edo_B.b_k_h] =
+            dynsim_edo_B.T_c[(dynsim_edo_B.b_k_h << 2) + dynsim_edo_B.b_k_f];
+          dynsim_edo_B.R[dynsim_edo_B.b_k_f + 6 * (dynsim_edo_B.b_k_h + 3)] =
+            0.0;
         }
       }
 
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 3; dynsim_edo_B.i_n++) {
-        dynsim_edo_B.R[6 * dynsim_edo_B.i_n + 3] = dynsim_edo_B.R_b[3 *
-          dynsim_edo_B.i_n];
-        dynsim_edo_B.b_k = dynsim_edo_B.i_n << 2;
-        dynsim_edo_B.q_size_tmp = 6 * (dynsim_edo_B.i_n + 3);
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 3; dynsim_edo_B.b_k_h++)
+      {
+        dynsim_edo_B.R[6 * dynsim_edo_B.b_k_h + 3] = dynsim_edo_B.R_lx[3 *
+          dynsim_edo_B.b_k_h];
+        dynsim_edo_B.b_k_f = dynsim_edo_B.b_k_h << 2;
+        dynsim_edo_B.q_size_tmp = 6 * (dynsim_edo_B.b_k_h + 3);
         dynsim_edo_B.R[dynsim_edo_B.q_size_tmp + 3] =
-          dynsim_edo_B.T[dynsim_edo_B.b_k];
-        dynsim_edo_B.R[6 * dynsim_edo_B.i_n + 4] = dynsim_edo_B.R_b[3 *
-          dynsim_edo_B.i_n + 1];
+          dynsim_edo_B.T_c[dynsim_edo_B.b_k_f];
+        dynsim_edo_B.R[6 * dynsim_edo_B.b_k_h + 4] = dynsim_edo_B.R_lx[3 *
+          dynsim_edo_B.b_k_h + 1];
         dynsim_edo_B.R[dynsim_edo_B.q_size_tmp + 4] =
-          dynsim_edo_B.T[dynsim_edo_B.b_k + 1];
-        dynsim_edo_B.R[6 * dynsim_edo_B.i_n + 5] = dynsim_edo_B.R_b[3 *
-          dynsim_edo_B.i_n + 2];
+          dynsim_edo_B.T_c[dynsim_edo_B.b_k_f + 1];
+        dynsim_edo_B.R[6 * dynsim_edo_B.b_k_h + 5] = dynsim_edo_B.R_lx[3 *
+          dynsim_edo_B.b_k_h + 2];
         dynsim_edo_B.R[dynsim_edo_B.q_size_tmp + 5] =
-          dynsim_edo_B.T[dynsim_edo_B.b_k + 2];
+          dynsim_edo_B.T_c[dynsim_edo_B.b_k_f + 2];
       }
 
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
-        for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 6; dynsim_edo_B.b_k++) {
-          dynsim_edo_B.p = dynsim_edo_B.i_n + 6 * dynsim_edo_B.b_k;
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++)
+      {
+        for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 6; dynsim_edo_B.b_k_f
+             ++) {
+          dynsim_edo_B.p = dynsim_edo_B.b_k_h + 6 * dynsim_edo_B.b_k_f;
           dynsim_edo_B.b_I[dynsim_edo_B.p] = 0.0;
           for (dynsim_edo_B.q_size_tmp = 0; dynsim_edo_B.q_size_tmp < 6;
                dynsim_edo_B.q_size_tmp++) {
             dynsim_edo_B.b_I[dynsim_edo_B.p] += Xtree->data[static_cast<int32_T>
               (dynsim_edo_B.a_idx_0) - 1].f1[6 * dynsim_edo_B.q_size_tmp +
-              dynsim_edo_B.i_n] * dynsim_edo_B.R[6 * dynsim_edo_B.b_k +
+              dynsim_edo_B.b_k_h] * dynsim_edo_B.R[6 * dynsim_edo_B.b_k_f +
               dynsim_edo_B.q_size_tmp];
           }
         }
       }
 
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 36; dynsim_edo_B.i_n++) {
-        Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.i_n] =
-          dynsim_edo_B.b_I[dynsim_edo_B.i_n];
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 36; dynsim_edo_B.b_k_h++)
+      {
+        Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.b_k_h] =
+          dynsim_edo_B.b_I[dynsim_edo_B.b_k_h];
       }
     } else {
       dynsim_edo_B.inner = S->size[1] - 1;
-      for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 6; dynsim_edo_B.b_k++) {
-        dynsim_edo_B.i_n = 6 * dynsim_edo_B.unnamed_idx_1 + dynsim_edo_B.b_k;
-        vB->data[dynsim_edo_B.i_n] = vJ->data[dynsim_edo_B.i_n];
-        dynsim_edo_B.q_data[dynsim_edo_B.b_k] = 0.0;
+      for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 6; dynsim_edo_B.b_k_f++)
+      {
+        dynsim_edo_B.b_k_h = 6 * dynsim_edo_B.unnamed_idx_1 + dynsim_edo_B.b_k_f;
+        vB->data[dynsim_edo_B.b_k_h] = vJ->data[dynsim_edo_B.b_k_h];
+        dynsim_edo_B.y[dynsim_edo_B.b_k_f] = 0.0;
       }
 
-      for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k <= dynsim_edo_B.inner;
-           dynsim_edo_B.b_k++) {
-        dynsim_edo_B.aoffset = dynsim_edo_B.b_k * 6 - 1;
+      for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f <= dynsim_edo_B.inner;
+           dynsim_edo_B.b_k_f++) {
+        dynsim_edo_B.aoffset = dynsim_edo_B.b_k_f * 6 - 1;
         for (dynsim_edo_B.q_size_tmp = 0; dynsim_edo_B.q_size_tmp < 6;
              dynsim_edo_B.q_size_tmp++) {
           dynsim_edo_B.a_idx_1 = S->data[(dynsim_edo_B.aoffset +
             dynsim_edo_B.q_size_tmp) + 1] * 0.0 +
-            dynsim_edo_B.q_data[dynsim_edo_B.q_size_tmp];
-          dynsim_edo_B.q_data[dynsim_edo_B.q_size_tmp] = dynsim_edo_B.a_idx_1;
+            dynsim_edo_B.y[dynsim_edo_B.q_size_tmp];
+          dynsim_edo_B.y[dynsim_edo_B.q_size_tmp] = dynsim_edo_B.a_idx_1;
         }
       }
 
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++)
+      {
         dynsim_edo_B.a_idx_1 = 0.0;
-        for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 6; dynsim_edo_B.b_k++) {
+        for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 6; dynsim_edo_B.b_k_f
+             ++) {
           dynsim_edo_B.a_idx_1 += X->data[dynsim_edo_B.unnamed_idx_1].f1[6 *
-            dynsim_edo_B.b_k + dynsim_edo_B.i_n] *
-            dynsim_edo_B.a0[dynsim_edo_B.b_k];
+            dynsim_edo_B.b_k_f + dynsim_edo_B.b_k_h] *
+            dynsim_edo_B.a0[dynsim_edo_B.b_k_f];
         }
 
-        aB->data[dynsim_edo_B.i_n + 6 * dynsim_edo_B.unnamed_idx_1] =
-          dynsim_edo_B.a_idx_1 + dynsim_edo_B.q_data[dynsim_edo_B.i_n];
+        aB->data[dynsim_edo_B.b_k_h + 6 * dynsim_edo_B.unnamed_idx_1] =
+          dynsim_edo_B.a_idx_1 + dynsim_edo_B.y[dynsim_edo_B.b_k_h];
       }
 
-      dynsim_edo_B.R_c[0] = 0.0;
-      dynsim_edo_B.R_c[3] = -dynsim_edo_B.T[14];
-      dynsim_edo_B.R_c[6] = dynsim_edo_B.T[13];
-      dynsim_edo_B.R_c[1] = dynsim_edo_B.T[14];
-      dynsim_edo_B.R_c[4] = 0.0;
-      dynsim_edo_B.R_c[7] = -dynsim_edo_B.T[12];
-      dynsim_edo_B.R_c[2] = -dynsim_edo_B.T[13];
-      dynsim_edo_B.R_c[5] = dynsim_edo_B.T[12];
-      dynsim_edo_B.R_c[8] = 0.0;
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 3; dynsim_edo_B.i_n++) {
-        for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 3; dynsim_edo_B.b_k++) {
-          dynsim_edo_B.q_size_tmp = dynsim_edo_B.i_n + 3 * dynsim_edo_B.b_k;
-          dynsim_edo_B.R_b[dynsim_edo_B.q_size_tmp] = 0.0;
-          dynsim_edo_B.p = dynsim_edo_B.b_k << 2;
-          dynsim_edo_B.R_b[dynsim_edo_B.q_size_tmp] +=
-            dynsim_edo_B.T[dynsim_edo_B.p] * dynsim_edo_B.R_c[dynsim_edo_B.i_n];
-          dynsim_edo_B.R_b[dynsim_edo_B.q_size_tmp] +=
-            dynsim_edo_B.T[dynsim_edo_B.p + 1] *
-            dynsim_edo_B.R_c[dynsim_edo_B.i_n + 3];
-          dynsim_edo_B.R_b[dynsim_edo_B.q_size_tmp] +=
-            dynsim_edo_B.T[dynsim_edo_B.p + 2] *
-            dynsim_edo_B.R_c[dynsim_edo_B.i_n + 6];
-          Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.b_k + 6 *
-            dynsim_edo_B.i_n] = dynsim_edo_B.T[(dynsim_edo_B.i_n << 2) +
-            dynsim_edo_B.b_k];
-          Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.b_k + 6 *
-            (dynsim_edo_B.i_n + 3)] = 0.0;
+      dynsim_edo_B.R_dy[0] = 0.0;
+      dynsim_edo_B.R_dy[3] = -dynsim_edo_B.T_c[14];
+      dynsim_edo_B.R_dy[6] = dynsim_edo_B.T_c[13];
+      dynsim_edo_B.R_dy[1] = dynsim_edo_B.T_c[14];
+      dynsim_edo_B.R_dy[4] = 0.0;
+      dynsim_edo_B.R_dy[7] = -dynsim_edo_B.T_c[12];
+      dynsim_edo_B.R_dy[2] = -dynsim_edo_B.T_c[13];
+      dynsim_edo_B.R_dy[5] = dynsim_edo_B.T_c[12];
+      dynsim_edo_B.R_dy[8] = 0.0;
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 3; dynsim_edo_B.b_k_h++)
+      {
+        for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 3; dynsim_edo_B.b_k_f
+             ++) {
+          dynsim_edo_B.q_size_tmp = dynsim_edo_B.b_k_h + 3 * dynsim_edo_B.b_k_f;
+          dynsim_edo_B.R_lx[dynsim_edo_B.q_size_tmp] = 0.0;
+          dynsim_edo_B.p = dynsim_edo_B.b_k_f << 2;
+          dynsim_edo_B.R_lx[dynsim_edo_B.q_size_tmp] +=
+            dynsim_edo_B.T_c[dynsim_edo_B.p] *
+            dynsim_edo_B.R_dy[dynsim_edo_B.b_k_h];
+          dynsim_edo_B.R_lx[dynsim_edo_B.q_size_tmp] +=
+            dynsim_edo_B.T_c[dynsim_edo_B.p + 1] *
+            dynsim_edo_B.R_dy[dynsim_edo_B.b_k_h + 3];
+          dynsim_edo_B.R_lx[dynsim_edo_B.q_size_tmp] +=
+            dynsim_edo_B.T_c[dynsim_edo_B.p + 2] *
+            dynsim_edo_B.R_dy[dynsim_edo_B.b_k_h + 6];
+          Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.b_k_f + 6 *
+            dynsim_edo_B.b_k_h] = dynsim_edo_B.T_c[(dynsim_edo_B.b_k_h << 2) +
+            dynsim_edo_B.b_k_f];
+          Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.b_k_f + 6 *
+            (dynsim_edo_B.b_k_h + 3)] = 0.0;
         }
       }
 
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 3; dynsim_edo_B.i_n++) {
-        Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[6 * dynsim_edo_B.i_n + 3] =
-          dynsim_edo_B.R_b[3 * dynsim_edo_B.i_n];
-        dynsim_edo_B.b_k = dynsim_edo_B.i_n << 2;
-        dynsim_edo_B.q_size_tmp = 6 * (dynsim_edo_B.i_n + 3);
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 3; dynsim_edo_B.b_k_h++)
+      {
+        Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[6 * dynsim_edo_B.b_k_h + 3] =
+          dynsim_edo_B.R_lx[3 * dynsim_edo_B.b_k_h];
+        dynsim_edo_B.b_k_f = dynsim_edo_B.b_k_h << 2;
+        dynsim_edo_B.q_size_tmp = 6 * (dynsim_edo_B.b_k_h + 3);
         Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.q_size_tmp + 3] =
-          dynsim_edo_B.T[dynsim_edo_B.b_k];
-        Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[6 * dynsim_edo_B.i_n + 4] =
-          dynsim_edo_B.R_b[3 * dynsim_edo_B.i_n + 1];
+          dynsim_edo_B.T_c[dynsim_edo_B.b_k_f];
+        Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[6 * dynsim_edo_B.b_k_h + 4] =
+          dynsim_edo_B.R_lx[3 * dynsim_edo_B.b_k_h + 1];
         Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.q_size_tmp + 4] =
-          dynsim_edo_B.T[dynsim_edo_B.b_k + 1];
-        Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[6 * dynsim_edo_B.i_n + 5] =
-          dynsim_edo_B.R_b[3 * dynsim_edo_B.i_n + 2];
+          dynsim_edo_B.T_c[dynsim_edo_B.b_k_f + 1];
+        Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[6 * dynsim_edo_B.b_k_h + 5] =
+          dynsim_edo_B.R_lx[3 * dynsim_edo_B.b_k_h + 2];
         Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[dynsim_edo_B.q_size_tmp + 5] =
-          dynsim_edo_B.T[dynsim_edo_B.b_k + 2];
+          dynsim_edo_B.T_c[dynsim_edo_B.b_k_f + 2];
       }
     }
 
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 36; dynsim_edo_B.i_n++) {
-      dynsim_edo_B.b_I[dynsim_edo_B.i_n] = robot->
-        Bodies[dynsim_edo_B.unnamed_idx_1]->SpatialInertia[dynsim_edo_B.i_n];
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 36; dynsim_edo_B.b_k_h++)
+    {
+      dynsim_edo_B.b_I[dynsim_edo_B.b_k_h] = robot->
+        Bodies[dynsim_edo_B.unnamed_idx_1]->SpatialInertia[dynsim_edo_B.b_k_h];
     }
 
-    dynsim_edo_B.R_c[0] = 0.0;
-    dynsim_edo_B.b_k = 6 * dynsim_edo_B.unnamed_idx_1 + 2;
-    dynsim_edo_B.R_c[3] = -vB->data[dynsim_edo_B.b_k];
-    dynsim_edo_B.i_n = 6 * dynsim_edo_B.unnamed_idx_1 + 1;
-    dynsim_edo_B.R_c[6] = vB->data[dynsim_edo_B.i_n];
-    dynsim_edo_B.R_c[1] = vB->data[dynsim_edo_B.b_k];
-    dynsim_edo_B.R_c[4] = 0.0;
-    dynsim_edo_B.R_c[7] = -vB->data[6 * dynsim_edo_B.unnamed_idx_1];
-    dynsim_edo_B.R_c[2] = -vB->data[dynsim_edo_B.i_n];
-    dynsim_edo_B.R_c[5] = vB->data[6 * dynsim_edo_B.unnamed_idx_1];
-    dynsim_edo_B.R_c[8] = 0.0;
+    dynsim_edo_B.R_dy[0] = 0.0;
+    dynsim_edo_B.b_k_f = 6 * dynsim_edo_B.unnamed_idx_1 + 2;
+    dynsim_edo_B.R_dy[3] = -vB->data[dynsim_edo_B.b_k_f];
+    dynsim_edo_B.b_k_h = 6 * dynsim_edo_B.unnamed_idx_1 + 1;
+    dynsim_edo_B.R_dy[6] = vB->data[dynsim_edo_B.b_k_h];
+    dynsim_edo_B.R_dy[1] = vB->data[dynsim_edo_B.b_k_f];
+    dynsim_edo_B.R_dy[4] = 0.0;
+    dynsim_edo_B.R_dy[7] = -vB->data[6 * dynsim_edo_B.unnamed_idx_1];
+    dynsim_edo_B.R_dy[2] = -vB->data[dynsim_edo_B.b_k_h];
+    dynsim_edo_B.R_dy[5] = vB->data[6 * dynsim_edo_B.unnamed_idx_1];
+    dynsim_edo_B.R_dy[8] = 0.0;
     dynsim_edo_B.R[18] = 0.0;
-    dynsim_edo_B.b_k = 6 * dynsim_edo_B.unnamed_idx_1 + 5;
-    dynsim_edo_B.R[24] = -vB->data[dynsim_edo_B.b_k];
-    dynsim_edo_B.i_n = 6 * dynsim_edo_B.unnamed_idx_1 + 4;
-    dynsim_edo_B.R[30] = vB->data[dynsim_edo_B.i_n];
-    dynsim_edo_B.R[19] = vB->data[dynsim_edo_B.b_k];
+    dynsim_edo_B.b_k_f = 6 * dynsim_edo_B.unnamed_idx_1 + 5;
+    dynsim_edo_B.R[24] = -vB->data[dynsim_edo_B.b_k_f];
+    dynsim_edo_B.b_k_h = 6 * dynsim_edo_B.unnamed_idx_1 + 4;
+    dynsim_edo_B.R[30] = vB->data[dynsim_edo_B.b_k_h];
+    dynsim_edo_B.R[19] = vB->data[dynsim_edo_B.b_k_f];
     dynsim_edo_B.R[25] = 0.0;
-    dynsim_edo_B.b_k = 6 * dynsim_edo_B.unnamed_idx_1 + 3;
-    dynsim_edo_B.R[31] = -vB->data[dynsim_edo_B.b_k];
-    dynsim_edo_B.R[20] = -vB->data[dynsim_edo_B.i_n];
-    dynsim_edo_B.R[26] = vB->data[dynsim_edo_B.b_k];
+    dynsim_edo_B.b_k_f = 6 * dynsim_edo_B.unnamed_idx_1 + 3;
+    dynsim_edo_B.R[31] = -vB->data[dynsim_edo_B.b_k_f];
+    dynsim_edo_B.R[20] = -vB->data[dynsim_edo_B.b_k_h];
+    dynsim_edo_B.R[26] = vB->data[dynsim_edo_B.b_k_f];
     dynsim_edo_B.R[32] = 0.0;
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 3; dynsim_edo_B.i_n++) {
-      dynsim_edo_B.a_idx_1 = dynsim_edo_B.R_c[3 * dynsim_edo_B.i_n];
-      dynsim_edo_B.R[6 * dynsim_edo_B.i_n] = dynsim_edo_B.a_idx_1;
-      dynsim_edo_B.R[6 * dynsim_edo_B.i_n + 3] = 0.0;
-      dynsim_edo_B.b_k = 6 * (dynsim_edo_B.i_n + 3);
-      dynsim_edo_B.R[dynsim_edo_B.b_k + 3] = dynsim_edo_B.a_idx_1;
-      dynsim_edo_B.a_idx_1 = dynsim_edo_B.R_c[3 * dynsim_edo_B.i_n + 1];
-      dynsim_edo_B.R[6 * dynsim_edo_B.i_n + 1] = dynsim_edo_B.a_idx_1;
-      dynsim_edo_B.R[6 * dynsim_edo_B.i_n + 4] = 0.0;
-      dynsim_edo_B.R[dynsim_edo_B.b_k + 4] = dynsim_edo_B.a_idx_1;
-      dynsim_edo_B.a_idx_1 = dynsim_edo_B.R_c[3 * dynsim_edo_B.i_n + 2];
-      dynsim_edo_B.R[6 * dynsim_edo_B.i_n + 2] = dynsim_edo_B.a_idx_1;
-      dynsim_edo_B.R[6 * dynsim_edo_B.i_n + 5] = 0.0;
-      dynsim_edo_B.R[dynsim_edo_B.b_k + 5] = dynsim_edo_B.a_idx_1;
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 3; dynsim_edo_B.b_k_h++) {
+      dynsim_edo_B.a_idx_1 = dynsim_edo_B.R_dy[3 * dynsim_edo_B.b_k_h];
+      dynsim_edo_B.R[6 * dynsim_edo_B.b_k_h] = dynsim_edo_B.a_idx_1;
+      dynsim_edo_B.R[6 * dynsim_edo_B.b_k_h + 3] = 0.0;
+      dynsim_edo_B.b_k_f = 6 * (dynsim_edo_B.b_k_h + 3);
+      dynsim_edo_B.R[dynsim_edo_B.b_k_f + 3] = dynsim_edo_B.a_idx_1;
+      dynsim_edo_B.a_idx_1 = dynsim_edo_B.R_dy[3 * dynsim_edo_B.b_k_h + 1];
+      dynsim_edo_B.R[6 * dynsim_edo_B.b_k_h + 1] = dynsim_edo_B.a_idx_1;
+      dynsim_edo_B.R[6 * dynsim_edo_B.b_k_h + 4] = 0.0;
+      dynsim_edo_B.R[dynsim_edo_B.b_k_f + 4] = dynsim_edo_B.a_idx_1;
+      dynsim_edo_B.a_idx_1 = dynsim_edo_B.R_dy[3 * dynsim_edo_B.b_k_h + 2];
+      dynsim_edo_B.R[6 * dynsim_edo_B.b_k_h + 2] = dynsim_edo_B.a_idx_1;
+      dynsim_edo_B.R[6 * dynsim_edo_B.b_k_h + 5] = 0.0;
+      dynsim_edo_B.R[dynsim_edo_B.b_k_f + 5] = dynsim_edo_B.a_idx_1;
     }
 
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
-      dynsim_edo_B.X_m[dynsim_edo_B.i_n] = 0.0;
-      dynsim_edo_B.b_I_n[dynsim_edo_B.i_n] = 0.0;
-      for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 6; dynsim_edo_B.b_k++) {
-        dynsim_edo_B.a_idx_0 = dynsim_edo_B.b_I[6 * dynsim_edo_B.b_k +
-          dynsim_edo_B.i_n];
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++) {
+      dynsim_edo_B.X_e[dynsim_edo_B.b_k_h] = 0.0;
+      dynsim_edo_B.b_I_b[dynsim_edo_B.b_k_h] = 0.0;
+      for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 6; dynsim_edo_B.b_k_f++)
+      {
+        dynsim_edo_B.a_idx_0 = dynsim_edo_B.b_I[6 * dynsim_edo_B.b_k_f +
+          dynsim_edo_B.b_k_h];
         dynsim_edo_B.q_size_tmp = 6 * dynsim_edo_B.unnamed_idx_1 +
-          dynsim_edo_B.b_k;
+          dynsim_edo_B.b_k_f;
         dynsim_edo_B.a_idx_1 = vB->data[dynsim_edo_B.q_size_tmp] *
-          dynsim_edo_B.a_idx_0 + dynsim_edo_B.X_m[dynsim_edo_B.i_n];
+          dynsim_edo_B.a_idx_0 + dynsim_edo_B.X_e[dynsim_edo_B.b_k_h];
         dynsim_edo_B.a_idx_0 = aB->data[dynsim_edo_B.q_size_tmp] *
-          dynsim_edo_B.a_idx_0 + dynsim_edo_B.b_I_n[dynsim_edo_B.i_n];
-        dynsim_edo_B.X_m[dynsim_edo_B.i_n] = dynsim_edo_B.a_idx_1;
-        dynsim_edo_B.b_I_n[dynsim_edo_B.i_n] = dynsim_edo_B.a_idx_0;
+          dynsim_edo_B.a_idx_0 + dynsim_edo_B.b_I_b[dynsim_edo_B.b_k_h];
+        dynsim_edo_B.X_e[dynsim_edo_B.b_k_h] = dynsim_edo_B.a_idx_1;
+        dynsim_edo_B.b_I_b[dynsim_edo_B.b_k_h] = dynsim_edo_B.a_idx_0;
       }
     }
 
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
-      dynsim_edo_B.q_data[dynsim_edo_B.i_n] = 0.0;
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++) {
+      dynsim_edo_B.y[dynsim_edo_B.b_k_h] = 0.0;
       dynsim_edo_B.a_idx_1 = 0.0;
-      for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 6; dynsim_edo_B.b_k++) {
+      for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 6; dynsim_edo_B.b_k_f++)
+      {
         dynsim_edo_B.a_idx_1 += Xtree->data[dynsim_edo_B.unnamed_idx_1].f1[6 *
-          dynsim_edo_B.i_n + dynsim_edo_B.b_k] * fext[6 *
-          dynsim_edo_B.unnamed_idx_1 + dynsim_edo_B.b_k];
-        dynsim_edo_B.q_data[dynsim_edo_B.i_n] += dynsim_edo_B.R[6 *
-          dynsim_edo_B.b_k + dynsim_edo_B.i_n] *
-          dynsim_edo_B.X_m[dynsim_edo_B.b_k];
+          dynsim_edo_B.b_k_h + dynsim_edo_B.b_k_f] * fext[6 *
+          dynsim_edo_B.unnamed_idx_1 + dynsim_edo_B.b_k_f];
+        dynsim_edo_B.y[dynsim_edo_B.b_k_h] += dynsim_edo_B.R[6 *
+          dynsim_edo_B.b_k_f + dynsim_edo_B.b_k_h] *
+          dynsim_edo_B.X_e[dynsim_edo_B.b_k_f];
       }
 
-      f->data[dynsim_edo_B.i_n + 6 * dynsim_edo_B.unnamed_idx_1] =
-        (dynsim_edo_B.b_I_n[dynsim_edo_B.i_n] +
-         dynsim_edo_B.q_data[dynsim_edo_B.i_n]) - dynsim_edo_B.a_idx_1;
+      f->data[dynsim_edo_B.b_k_h + 6 * dynsim_edo_B.unnamed_idx_1] =
+        (dynsim_edo_B.b_I_b[dynsim_edo_B.b_k_h] +
+         dynsim_edo_B.y[dynsim_edo_B.b_k_h]) - dynsim_edo_B.a_idx_1;
     }
   }
 
   dynsim_edo_emxFree_real_T(&aB);
   dynsim_edo_emxFree_real_T(&vB);
   dynsim_edo_emxFree_real_T(&vJ);
-  dynsim_edo_emxFree_f_cell_wrap(&Xtree);
+  dynsim_edo_emxFree_f_cell_wrap1(&Xtree);
   dynsim_edo_B.q_size_tmp = static_cast<int32_T>(((-1.0 - dynsim_edo_B.nb) + 1.0)
     / -1.0) - 1;
   dynsim_edo_emxInit_real_T(&taui, 1);
   dynsim_edo_emxInit_char_T(&a, 2);
   if (0 <= dynsim_edo_B.q_size_tmp) {
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 5; dynsim_edo_B.i_n++) {
-      dynsim_edo_B.b_jz[dynsim_edo_B.i_n] = tmp[dynsim_edo_B.i_n];
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 5; dynsim_edo_B.b_k_h++) {
+      dynsim_edo_B.b_h3[dynsim_edo_B.b_k_h] = tmp[dynsim_edo_B.b_k_h];
     }
   }
 
@@ -2223,63 +3759,65 @@ static void RigidBodyTreeDynamics_inverseDy(n_robotics_manip_internal_Rig_T
     dynsim_edo_B.p = static_cast<int32_T>(dynsim_edo_B.a_idx_0);
     dynsim_edo_B.inner = dynsim_edo_B.p - 1;
     obj = robot->Bodies[dynsim_edo_B.inner];
-    dynsim_edo_B.i_n = a->size[0] * a->size[1];
+    dynsim_edo_B.b_k_h = a->size[0] * a->size[1];
     a->size[0] = 1;
     a->size[1] = obj->JointInternal.Type->size[1];
-    dynsim_emxEnsureCapacity_char_T(a, dynsim_edo_B.i_n);
-    dynsim_edo_B.b_k = obj->JointInternal.Type->size[0] *
+    dynsim_emxEnsureCapacity_char_T(a, dynsim_edo_B.b_k_h);
+    dynsim_edo_B.b_k_f = obj->JointInternal.Type->size[0] *
       obj->JointInternal.Type->size[1] - 1;
-    for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n <= dynsim_edo_B.b_k;
-         dynsim_edo_B.i_n++) {
-      a->data[dynsim_edo_B.i_n] = obj->JointInternal.Type->data[dynsim_edo_B.i_n];
+    for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h <= dynsim_edo_B.b_k_f;
+         dynsim_edo_B.b_k_h++) {
+      a->data[dynsim_edo_B.b_k_h] = obj->JointInternal.Type->
+        data[dynsim_edo_B.b_k_h];
     }
 
-    dynsim_edo_B.b_bool = false;
+    dynsim_edo_B.b_bool_d = false;
     if (a->size[1] == 5) {
-      dynsim_edo_B.i_n = 1;
+      dynsim_edo_B.b_k_h = 1;
       do {
         exitg1 = 0;
-        if (dynsim_edo_B.i_n - 1 < 5) {
-          dynsim_edo_B.unnamed_idx_1 = dynsim_edo_B.i_n - 1;
+        if (dynsim_edo_B.b_k_h - 1 < 5) {
+          dynsim_edo_B.unnamed_idx_1 = dynsim_edo_B.b_k_h - 1;
           if (a->data[dynsim_edo_B.unnamed_idx_1] !=
-              dynsim_edo_B.b_jz[dynsim_edo_B.unnamed_idx_1]) {
+              dynsim_edo_B.b_h3[dynsim_edo_B.unnamed_idx_1]) {
             exitg1 = 1;
           } else {
-            dynsim_edo_B.i_n++;
+            dynsim_edo_B.b_k_h++;
           }
         } else {
-          dynsim_edo_B.b_bool = true;
+          dynsim_edo_B.b_bool_d = true;
           exitg1 = 1;
         }
       } while (exitg1 == 0);
     }
 
-    if (!dynsim_edo_B.b_bool) {
+    if (!dynsim_edo_B.b_bool_d) {
       obj = robot->Bodies[dynsim_edo_B.inner];
-      dynsim_edo_B.i_n = S->size[0] * S->size[1];
+      dynsim_edo_B.b_k_h = S->size[0] * S->size[1];
       S->size[0] = 6;
       S->size[1] = obj->JointInternal.MotionSubspace->size[1];
-      dynsim_emxEnsureCapacity_real_T(S, dynsim_edo_B.i_n);
-      dynsim_edo_B.b_k = obj->JointInternal.MotionSubspace->size[0] *
+      dynsim_emxEnsureCapacity_real_T(S, dynsim_edo_B.b_k_h);
+      dynsim_edo_B.b_k_f = obj->JointInternal.MotionSubspace->size[0] *
         obj->JointInternal.MotionSubspace->size[1] - 1;
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n <= dynsim_edo_B.b_k;
-           dynsim_edo_B.i_n++) {
-        S->data[dynsim_edo_B.i_n] = obj->JointInternal.MotionSubspace->
-          data[dynsim_edo_B.i_n];
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h <= dynsim_edo_B.b_k_f;
+           dynsim_edo_B.b_k_h++) {
+        S->data[dynsim_edo_B.b_k_h] = obj->JointInternal.MotionSubspace->
+          data[dynsim_edo_B.b_k_h];
       }
 
       dynsim_edo_B.m = S->size[1] - 1;
-      dynsim_edo_B.i_n = taui->size[0];
+      dynsim_edo_B.b_k_h = taui->size[0];
       taui->size[0] = S->size[1];
-      dynsim_emxEnsureCapacity_real_T(taui, dynsim_edo_B.i_n);
+      dynsim_emxEnsureCapacity_real_T(taui, dynsim_edo_B.b_k_h);
       for (dynsim_edo_B.unnamed_idx_1 = 0; dynsim_edo_B.unnamed_idx_1 <=
            dynsim_edo_B.m; dynsim_edo_B.unnamed_idx_1++) {
         dynsim_edo_B.aoffset = dynsim_edo_B.unnamed_idx_1 * 6 - 1;
         dynsim_edo_B.a_idx_1 = 0.0;
-        for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 6; dynsim_edo_B.b_k++) {
+        for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 6; dynsim_edo_B.b_k_f
+             ++) {
           dynsim_edo_B.a_idx_1 += f->data[(static_cast<int32_T>
-            (dynsim_edo_B.a_idx_0) - 1) * 6 + dynsim_edo_B.b_k] * S->data
-            [(dynsim_edo_B.aoffset + dynsim_edo_B.b_k) + 1];
+            (dynsim_edo_B.a_idx_0) - 1) * 6 + dynsim_edo_B.b_k_f] * S->data
+            [(dynsim_edo_B.aoffset + dynsim_edo_B.b_k_f) + 1];
         }
 
         taui->data[dynsim_edo_B.unnamed_idx_1] = dynsim_edo_B.a_idx_1;
@@ -2288,38 +3826,42 @@ static void RigidBodyTreeDynamics_inverseDy(n_robotics_manip_internal_Rig_T
       dynsim_edo_B.b_idx_0 = robot->VelocityDoFMap[dynsim_edo_B.p - 1];
       dynsim_edo_B.b_idx_1 = robot->VelocityDoFMap[dynsim_edo_B.p + 5];
       if (dynsim_edo_B.b_idx_0 > dynsim_edo_B.b_idx_1) {
-        dynsim_edo_B.b_k = 0;
-        dynsim_edo_B.i_n = 0;
+        dynsim_edo_B.b_k_f = 0;
+        dynsim_edo_B.b_k_h = 0;
       } else {
-        dynsim_edo_B.b_k = static_cast<int32_T>(dynsim_edo_B.b_idx_0) - 1;
-        dynsim_edo_B.i_n = static_cast<int32_T>(dynsim_edo_B.b_idx_1);
+        dynsim_edo_B.b_k_f = static_cast<int32_T>(dynsim_edo_B.b_idx_0) - 1;
+        dynsim_edo_B.b_k_h = static_cast<int32_T>(dynsim_edo_B.b_idx_1);
       }
 
-      dynsim_edo_B.unnamed_idx_1 = dynsim_edo_B.i_n - dynsim_edo_B.b_k;
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < dynsim_edo_B.unnamed_idx_1;
-           dynsim_edo_B.i_n++) {
-        tau[dynsim_edo_B.b_k + dynsim_edo_B.i_n] = taui->data[dynsim_edo_B.i_n];
+      dynsim_edo_B.unnamed_idx_1 = dynsim_edo_B.b_k_h - dynsim_edo_B.b_k_f;
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h <
+           dynsim_edo_B.unnamed_idx_1; dynsim_edo_B.b_k_h++) {
+        tau[dynsim_edo_B.b_k_f + dynsim_edo_B.b_k_h] = taui->
+          data[dynsim_edo_B.b_k_h];
       }
     }
 
     dynsim_edo_B.a_idx_0 = robot->Bodies[dynsim_edo_B.inner]->ParentIndex;
     if (dynsim_edo_B.a_idx_0 > 0.0) {
       dynsim_edo_B.m = static_cast<int32_T>(dynsim_edo_B.a_idx_0);
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++)
+      {
         dynsim_edo_B.a_idx_1 = 0.0;
-        for (dynsim_edo_B.b_k = 0; dynsim_edo_B.b_k < 6; dynsim_edo_B.b_k++) {
+        for (dynsim_edo_B.b_k_f = 0; dynsim_edo_B.b_k_f < 6; dynsim_edo_B.b_k_f
+             ++) {
           dynsim_edo_B.a_idx_1 += f->data[(dynsim_edo_B.p - 1) * 6 +
-            dynsim_edo_B.b_k] * X->data[dynsim_edo_B.inner].f1[6 *
-            dynsim_edo_B.i_n + dynsim_edo_B.b_k];
+            dynsim_edo_B.b_k_f] * X->data[dynsim_edo_B.inner].f1[6 *
+            dynsim_edo_B.b_k_h + dynsim_edo_B.b_k_f];
         }
 
-        dynsim_edo_B.a0[dynsim_edo_B.i_n] = f->data[(dynsim_edo_B.m - 1) * 6 +
-          dynsim_edo_B.i_n] + dynsim_edo_B.a_idx_1;
+        dynsim_edo_B.a0[dynsim_edo_B.b_k_h] = f->data[(dynsim_edo_B.m - 1) * 6 +
+          dynsim_edo_B.b_k_h] + dynsim_edo_B.a_idx_1;
       }
 
-      for (dynsim_edo_B.i_n = 0; dynsim_edo_B.i_n < 6; dynsim_edo_B.i_n++) {
-        f->data[dynsim_edo_B.i_n + 6 * (dynsim_edo_B.m - 1)] =
-          dynsim_edo_B.a0[dynsim_edo_B.i_n];
+      for (dynsim_edo_B.b_k_h = 0; dynsim_edo_B.b_k_h < 6; dynsim_edo_B.b_k_h++)
+      {
+        f->data[dynsim_edo_B.b_k_h + 6 * (dynsim_edo_B.m - 1)] =
+          dynsim_edo_B.a0[dynsim_edo_B.b_k_h];
       }
     }
   }
@@ -2328,14 +3870,7 @@ static void RigidBodyTreeDynamics_inverseDy(n_robotics_manip_internal_Rig_T
   dynsim_edo_emxFree_real_T(&taui);
   dynsim_edo_emxFree_real_T(&S);
   dynsim_edo_emxFree_real_T(&f);
-  dynsim_edo_emxFree_f_cell_wrap(&X);
-}
-
-static void matlabCodegenHandle_matlabC_hau(ros_slros_internal_block_Subs_T *obj)
-{
-  if (!obj->matlabCodegenIsDeleted) {
-    obj->matlabCodegenIsDeleted = true;
-  }
+  dynsim_edo_emxFree_f_cell_wrap1(&X);
 }
 
 static void matlabCodegenHandle_matlab_hau4(ros_slros_internal_block_GetP_T *obj)
@@ -2355,6 +3890,7 @@ static void emxFreeStruct_c_rigidBodyJoint(c_rigidBodyJoint_dynsim_edo_T
 static void emxFreeStruct_m_robotics_manip_(m_robotics_manip_internal_Rig_T
   *pStruct)
 {
+  dynsim_edo_emxFree_char_T(&pStruct->NameInternal);
   emxFreeStruct_c_rigidBodyJoint(&pStruct->JointInternal);
 }
 
@@ -2376,6 +3912,75 @@ static void emxFreeStruct_l_robotics_manip_(l_robotics_manip_internal_Rig_T
   emxFreeStruct_c_rigidBodyJoint(&pStruct->JointInternal);
 }
 
+static void emxFreeStruct_c_rigidBodyJoint1(c_rigidBodyJoint_dynsim_edo_h_T
+  *pStruct)
+{
+  dynsim_edo_emxFree_char_T(&pStruct->Type);
+}
+
+static void emxFreeStruct_m_robotics_mani_h(m_robotics_manip_internal_R_h_T
+  *pStruct)
+{
+  dynsim_edo_emxFree_char_T(&pStruct->NameInternal);
+  emxFreeStruct_c_rigidBodyJoint1(&pStruct->JointInternal);
+}
+
+static void emxFreeStruct_n_robotics_mani_h(n_robotics_manip_internal_R_h_T
+  *pStruct)
+{
+  emxFreeStruct_m_robotics_mani_h(&pStruct->Base);
+}
+
+static void emxFreeStruct_robotics_slmani_h(robotics_slmanip_internal_b_h_T
+  *pStruct)
+{
+  emxFreeStruct_n_robotics_mani_h(&pStruct->TreeInternal);
+}
+
+static void emxFreeStruct_l_robotics_mani_h(l_robotics_manip_internal_R_h_T
+  *pStruct)
+{
+  emxFreeStruct_c_rigidBodyJoint1(&pStruct->JointInternal);
+}
+
+static void matlabCodegenHandle_matlabC_hau(ros_slros_internal_block_Subs_T *obj)
+{
+  if (!obj->matlabCodegenIsDeleted) {
+    obj->matlabCodegenIsDeleted = true;
+  }
+}
+
+static void emxFreeStruct_c_rigidBodyJoint2(c_rigidBodyJoint_dynsim_ed_ha_T
+  *pStruct)
+{
+  dynsim_edo_emxFree_char_T(&pStruct->Type);
+  dynsim_edo_emxFree_real_T(&pStruct->MotionSubspace);
+}
+
+static void emxFreeStruct_m_robotics_man_ha(m_robotics_manip_internal__ha_T
+  *pStruct)
+{
+  emxFreeStruct_c_rigidBodyJoint2(&pStruct->JointInternal);
+}
+
+static void emxFreeStruct_n_robotics_man_ha(n_robotics_manip_internal__ha_T
+  *pStruct)
+{
+  emxFreeStruct_m_robotics_man_ha(&pStruct->Base);
+}
+
+static void emxFreeStruct_robotics_slman_ha(robotics_slmanip_internal__ha_T
+  *pStruct)
+{
+  emxFreeStruct_n_robotics_man_ha(&pStruct->TreeInternal);
+}
+
+static void emxFreeStruct_l_robotics_man_ha(l_robotics_manip_internal__ha_T
+  *pStruct)
+{
+  emxFreeStruct_c_rigidBodyJoint2(&pStruct->JointInternal);
+}
+
 static void matlabCodegenHandle_matlabCodeg(ros_slros_internal_block_Publ_T *obj)
 {
   if (!obj->matlabCodegenIsDeleted) {
@@ -2393,6 +3998,7 @@ static void emxInitStruct_c_rigidBodyJoint(c_rigidBodyJoint_dynsim_edo_T
 static void emxInitStruct_m_robotics_manip_(m_robotics_manip_internal_Rig_T
   *pStruct)
 {
+  dynsim_edo_emxInit_char_T(&pStruct->NameInternal, 2);
   emxInitStruct_c_rigidBodyJoint(&pStruct->JointInternal);
 }
 
@@ -2426,11 +4032,2361 @@ static l_robotics_manip_internal_Rig_T *dynsim_edo_RigidBody_RigidBody
   char_T b_0[9];
   int32_T loop_ub;
   int8_T tmp[6];
-  static const real_T tmp_0[36] = { 0.01963977352686529, 0.00029712556424630341,
-    -2.0555635461349874E-6, 0.0, 0.000159441301187506, 0.023879428445548689,
-    0.00029712556424630341, 7.2134270934731868E-5, 0.00014018503386442084,
-    -0.000159441301187506, 0.0, 0.0003592140353393829, -2.0555635461349874E-6,
-    0.00014018503386442084, 0.01964319797436196, -0.023879428445548689,
+  static const char_T tmp_0[6] = { 'l', 'i', 'n', 'k', '_', '1' };
+
+  static const char_T tmp_1[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_2[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_3[16] = { -0.99999999997301514, 7.3464102066435871E-6,
+    -6.9389E-16, 0.0, 2.6984177572320606E-11, 3.6732051032474579E-6,
+    0.99999999999325373, 0.0, 7.3464102065940289E-6, 0.99999999996626887,
+    -3.6732051033465739E-6, 0.0, 0.057188, 0.0059831, 0.13343, 1.0 };
+
+  static const real_T tmp_4[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+    0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
+
+  static const real_T tmp_5[36] = { 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
+
+  int32_T exitg1;
+  b_obj = obj;
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->NameInternal[b_kstr] = tmp_0[b_kstr];
+  }
+
+  obj->ParentIndex = 0.0;
+  b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
+  obj->JointInternal.Type->size[0] = 1;
+  obj->JointInternal.Type->size[1] = 8;
+  dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    obj->JointInternal.Type->data[b_kstr] = tmp_1[b_kstr];
+  }
+
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = obj->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1]
+    - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = obj->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_1[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_2[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+  switch (b_kstr) {
+   case 0:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 1;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 0;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 0;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 1;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = 0;
+    }
+
+    obj->JointInternal.PositionNumber = 0.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = msubspace_data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_3[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_4[b_kstr];
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = tmp_5[b_kstr];
+  }
+
+  obj->JointInternal.JointAxisInternal[0] = 0.0;
+  obj->JointInternal.JointAxisInternal[1] = 1.0;
+  obj->JointInternal.JointAxisInternal[2] = 0.0;
+  return b_obj;
+}
+
+static l_robotics_manip_internal_Rig_T *dynsim_ed_RigidBody_RigidBody_h
+  (l_robotics_manip_internal_Rig_T *obj)
+{
+  l_robotics_manip_internal_Rig_T *b_obj;
+  int8_T msubspace_data[36];
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  boolean_T b_bool;
+  int32_T b_kstr;
+  char_T b[8];
+  char_T b_0[9];
+  int32_T loop_ub;
+  int8_T tmp[6];
+  static const char_T tmp_0[6] = { 'l', 'i', 'n', 'k', '_', '2' };
+
+  static const char_T tmp_1[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_2[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_3[16] = { 0.88847119465357549, -0.10400474353252914,
+    0.44699211356978236, 0.0, -0.29079372810919513, 0.62592701137950757,
+    0.7236396783744472, 0.0, -0.35504639691623957, -0.77291551268444,
+    0.52587419245342837, 0.0, 0.0, 0.18967, 0.0, 1.0 };
+
+  static const real_T tmp_4[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+    0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
+
+  static const real_T tmp_5[36] = { -0.88847134048214615, 0.29080043874549294,
+    0.3550405356678123, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
+
+  int32_T exitg1;
+  b_obj = obj;
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->NameInternal[b_kstr] = tmp_0[b_kstr];
+  }
+
+  obj->ParentIndex = 1.0;
+  b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
+  obj->JointInternal.Type->size[0] = 1;
+  obj->JointInternal.Type->size[1] = 8;
+  dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    obj->JointInternal.Type->data[b_kstr] = tmp_1[b_kstr];
+  }
+
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = obj->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1]
+    - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = obj->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_1[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_2[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+  switch (b_kstr) {
+   case 0:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 1;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 0;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 0;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 1;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = 0;
+    }
+
+    obj->JointInternal.PositionNumber = 0.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = msubspace_data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_3[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_4[b_kstr];
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = tmp_5[b_kstr];
+  }
+
+  obj->JointInternal.JointAxisInternal[0] = -0.88847134048214615;
+  obj->JointInternal.JointAxisInternal[1] = 0.29080043874549294;
+  obj->JointInternal.JointAxisInternal[2] = 0.3550405356678123;
+  return b_obj;
+}
+
+static l_robotics_manip_internal_Rig_T *dynsim_e_RigidBody_RigidBody_ha
+  (l_robotics_manip_internal_Rig_T *obj)
+{
+  l_robotics_manip_internal_Rig_T *b_obj;
+  int8_T msubspace_data[36];
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  boolean_T b_bool;
+  int32_T b_kstr;
+  char_T b[8];
+  char_T b_0[9];
+  int32_T loop_ub;
+  int8_T tmp[6];
+  static const char_T tmp_0[6] = { 'l', 'i', 'n', 'k', '_', '3' };
+
+  static const char_T tmp_1[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_2[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_3[16] = { -0.88847685238438157, 0.29078066152542581,
+    0.35504294058603364, 0.0, 0.10401076381482063, -0.62592577039760033,
+    0.77291570754049777, 0.0, 0.44697946685256096, 0.72364600243144184,
+    0.5258762396012906, 0.0, -0.024558, 0.12737, -0.16578, 1.0 };
+
+  static const real_T tmp_4[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+    0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
+
+  static const real_T tmp_5[36] = { 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
+
+  int32_T exitg1;
+  b_obj = obj;
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->NameInternal[b_kstr] = tmp_0[b_kstr];
+  }
+
+  obj->ParentIndex = 2.0;
+  b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
+  obj->JointInternal.Type->size[0] = 1;
+  obj->JointInternal.Type->size[1] = 8;
+  dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    obj->JointInternal.Type->data[b_kstr] = tmp_1[b_kstr];
+  }
+
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = obj->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1]
+    - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = obj->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_1[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_2[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+  switch (b_kstr) {
+   case 0:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 1;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 0;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 0;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 1;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = 0;
+    }
+
+    obj->JointInternal.PositionNumber = 0.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = msubspace_data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_3[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_4[b_kstr];
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = tmp_5[b_kstr];
+  }
+
+  obj->JointInternal.JointAxisInternal[0] = 1.0;
+  obj->JointInternal.JointAxisInternal[1] = 0.0;
+  obj->JointInternal.JointAxisInternal[2] = 0.0;
+  return b_obj;
+}
+
+static l_robotics_manip_internal_Rig_T *dynsim__RigidBody_RigidBody_hau
+  (l_robotics_manip_internal_Rig_T *obj)
+{
+  l_robotics_manip_internal_Rig_T *b_obj;
+  int8_T msubspace_data[36];
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  boolean_T b_bool;
+  int32_T b_kstr;
+  char_T b[8];
+  char_T b_0[9];
+  int32_T loop_ub;
+  int8_T tmp[6];
+  static const char_T tmp_0[6] = { 'l', 'i', 'n', 'k', '_', '4' };
+
+  static const char_T tmp_1[5] = { 'f', 'i', 'x', 'e', 'd' };
+
+  static const char_T tmp_2[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_3[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_4[16] = { 1.0, 0.0, -0.0, 0.0, 0.0,
+    -3.6732051033465739E-6, -0.99999999999325373, 0.0, -0.0, 0.99999999999325373,
+    -3.6732051033465739E-6, 0.0, 0.0088, -0.1588, 0.0, 1.0 };
+
+  static const real_T tmp_5[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+    0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
+
+  int32_T exitg1;
+  b_obj = obj;
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->NameInternal[b_kstr] = tmp_0[b_kstr];
+  }
+
+  obj->ParentIndex = 3.0;
+  b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
+  obj->JointInternal.Type->size[0] = 1;
+  obj->JointInternal.Type->size[1] = 5;
+  dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 5; b_kstr++) {
+    obj->JointInternal.Type->data[b_kstr] = tmp_1[b_kstr];
+  }
+
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = obj->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1]
+    - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = obj->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_2[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_3[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+  switch (b_kstr) {
+   case 0:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 1;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 0;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 0;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 1;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = 0;
+    }
+
+    obj->JointInternal.PositionNumber = 0.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = msubspace_data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_4[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_5[b_kstr];
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = 0.0;
+  }
+
+  obj->JointInternal.JointAxisInternal[0] = 0.0;
+  obj->JointInternal.JointAxisInternal[1] = 0.0;
+  obj->JointInternal.JointAxisInternal[2] = 0.0;
+  return b_obj;
+}
+
+static l_robotics_manip_internal_Rig_T *dynsim_RigidBody_RigidBody_hau4
+  (l_robotics_manip_internal_Rig_T *obj)
+{
+  l_robotics_manip_internal_Rig_T *b_obj;
+  int8_T msubspace_data[36];
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  boolean_T b_bool;
+  int32_T b_kstr;
+  char_T b[8];
+  char_T b_0[9];
+  int32_T loop_ub;
+  int8_T tmp[6];
+  static const char_T tmp_0[6] = { 'l', 'i', 'n', 'k', '_', '5' };
+
+  static const char_T tmp_1[5] = { 'f', 'i', 'x', 'e', 'd' };
+
+  static const char_T tmp_2[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_3[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_4[16] = { -0.99999999997301514, -7.3464102066435871E-6,
+    -1.1102E-14, 0.0, -7.3464102064452637E-6, 0.99999999994603028,
+    -7.3464102066435871E-6, 0.0, 5.3980844924276475E-11, -7.3464102064452637E-6,
+    -0.99999999997301514, 0.0, 0.0, 0.0, -0.1053, 1.0 };
+
+  static const real_T tmp_5[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+    0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
+
+  int32_T exitg1;
+  b_obj = obj;
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->NameInternal[b_kstr] = tmp_0[b_kstr];
+  }
+
+  obj->ParentIndex = 4.0;
+  b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
+  obj->JointInternal.Type->size[0] = 1;
+  obj->JointInternal.Type->size[1] = 5;
+  dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 5; b_kstr++) {
+    obj->JointInternal.Type->data[b_kstr] = tmp_1[b_kstr];
+  }
+
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = obj->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1]
+    - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = obj->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_2[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_3[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+  switch (b_kstr) {
+   case 0:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 1;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 0;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 0;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 1;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = 0;
+    }
+
+    obj->JointInternal.PositionNumber = 0.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = msubspace_data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_4[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_5[b_kstr];
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = 0.0;
+  }
+
+  obj->JointInternal.JointAxisInternal[0] = 0.0;
+  obj->JointInternal.JointAxisInternal[1] = 0.0;
+  obj->JointInternal.JointAxisInternal[2] = 0.0;
+  return b_obj;
+}
+
+static l_robotics_manip_internal_Rig_T *dynsi_RigidBody_RigidBody_hau4i
+  (l_robotics_manip_internal_Rig_T *obj)
+{
+  l_robotics_manip_internal_Rig_T *b_obj;
+  int8_T msubspace_data[36];
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  boolean_T b_bool;
+  int32_T b_kstr;
+  char_T b[8];
+  char_T b_0[9];
+  int32_T loop_ub;
+  int8_T tmp[6];
+  static const char_T tmp_0[6] = { 'l', 'i', 'n', 'k', '_', '6' };
+
+  static const char_T tmp_1[5] = { 'f', 'i', 'x', 'e', 'd' };
+
+  static const char_T tmp_2[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_3[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_4[16] = { 1.0, 0.0, -1.249E-14, 0.0,
+    -1.2489999999915739E-14, -3.6732051033465739E-6, -0.99999999999325373, 0.0,
+    -4.587833174079871E-20, 0.99999999999325373, -3.6732051033465739E-6, 0.0,
+    -0.0039, 0.0, 0.1636, 1.0 };
+
+  static const real_T tmp_5[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+    0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
+
+  int32_T exitg1;
+  b_obj = obj;
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->NameInternal[b_kstr] = tmp_0[b_kstr];
+  }
+
+  obj->ParentIndex = 5.0;
+  b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
+  obj->JointInternal.Type->size[0] = 1;
+  obj->JointInternal.Type->size[1] = 5;
+  dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 5; b_kstr++) {
+    obj->JointInternal.Type->data[b_kstr] = tmp_1[b_kstr];
+  }
+
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = obj->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1]
+    - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = obj->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_2[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_3[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+  switch (b_kstr) {
+   case 0:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 1;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 0;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 0;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 1;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = 0;
+    }
+
+    obj->JointInternal.PositionNumber = 0.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = msubspace_data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_4[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_5[b_kstr];
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = 0.0;
+  }
+
+  obj->JointInternal.JointAxisInternal[0] = 0.0;
+  obj->JointInternal.JointAxisInternal[1] = 0.0;
+  obj->JointInternal.JointAxisInternal[2] = 0.0;
+  return b_obj;
+}
+
+static m_robotics_manip_internal_Rig_T *dyns_RigidBody_RigidBody_hau4ih
+  (m_robotics_manip_internal_Rig_T *obj)
+{
+  m_robotics_manip_internal_Rig_T *b_obj;
+  int8_T msubspace_data[36];
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  boolean_T b_bool;
+  int32_T b_kstr;
+  char_T b[8];
+  char_T b_0[9];
+  int32_T loop_ub;
+  int8_T tmp[6];
+  static const char_T tmp_0[9] = { 'b', 'a', 's', 'e', '_', 'l', 'i', 'n', 'k' };
+
+  static const char_T tmp_1[5] = { 'f', 'i', 'x', 'e', 'd' };
+
+  static const char_T tmp_2[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_3[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  int32_T exitg1;
+  b_obj = obj;
+  b_kstr = obj->NameInternal->size[0] * obj->NameInternal->size[1];
+  obj->NameInternal->size[0] = 1;
+  obj->NameInternal->size[1] = 9;
+  dynsim_emxEnsureCapacity_char_T(obj->NameInternal, b_kstr);
+  for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+    obj->NameInternal->data[b_kstr] = tmp_0[b_kstr];
+  }
+
+  b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
+  obj->JointInternal.Type->size[0] = 1;
+  obj->JointInternal.Type->size[1] = 5;
+  dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 5; b_kstr++) {
+    obj->JointInternal.Type->data[b_kstr] = tmp_1[b_kstr];
+  }
+
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = obj->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1]
+    - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = obj->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_2[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_3[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+  switch (b_kstr) {
+   case 0:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 1;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 0;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    tmp[0] = 0;
+    tmp[1] = 0;
+    tmp[2] = 0;
+    tmp[3] = 0;
+    tmp[4] = 0;
+    tmp[5] = 1;
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = tmp[b_kstr];
+    }
+
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+      msubspace_data[b_kstr] = 0;
+    }
+
+    obj->JointInternal.PositionNumber = 0.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  b_kstr = obj->JointInternal.MotionSubspace->size[0] *
+    obj->JointInternal.MotionSubspace->size[1];
+  obj->JointInternal.MotionSubspace->size[0] = 6;
+  obj->JointInternal.MotionSubspace->size[1] = 1;
+  dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->JointInternal.MotionSubspace->data[b_kstr] = msubspace_data[b_kstr];
+  }
+
+  return b_obj;
+}
+
+static n_robotics_manip_internal_Rig_T *dyn_RigidBodyTree_RigidBodyTree
+  (n_robotics_manip_internal_Rig_T *obj, l_robotics_manip_internal_Rig_T *iobj_0,
+   l_robotics_manip_internal_Rig_T *iobj_1, l_robotics_manip_internal_Rig_T
+   *iobj_2, l_robotics_manip_internal_Rig_T *iobj_3,
+   l_robotics_manip_internal_Rig_T *iobj_4, l_robotics_manip_internal_Rig_T
+   *iobj_5)
+{
+  n_robotics_manip_internal_Rig_T *b_obj;
+  int32_T i;
+  static const int8_T tmp[12] = { 1, 2, 3, 0, 0, 0, 1, 2, 3, -1, -1, -1 };
+
+  b_obj = obj;
+  obj->Bodies[0] = dynsim_edo_RigidBody_RigidBody(iobj_0);
+  obj->Bodies[0]->Index = 1.0;
+  obj->Bodies[1] = dynsim_ed_RigidBody_RigidBody_h(iobj_5);
+  obj->Bodies[1]->Index = 2.0;
+  obj->Bodies[2] = dynsim_e_RigidBody_RigidBody_ha(iobj_1);
+  obj->Bodies[2]->Index = 3.0;
+  obj->Bodies[3] = dynsim__RigidBody_RigidBody_hau(iobj_2);
+  obj->Bodies[3]->Index = 4.0;
+  obj->Bodies[4] = dynsim_RigidBody_RigidBody_hau4(iobj_3);
+  obj->Bodies[4]->Index = 5.0;
+  obj->Bodies[5] = dynsi_RigidBody_RigidBody_hau4i(iobj_4);
+  obj->Bodies[5]->Index = 6.0;
+  obj->NumBodies = 6.0;
+  obj->PositionNumber = 3.0;
+  obj->VelocityNumber = 3.0;
+  for (i = 0; i < 12; i++) {
+    obj->PositionDoFMap[i] = tmp[i];
+  }
+
+  dyns_RigidBody_RigidBody_hau4ih(&obj->Base);
+  return b_obj;
+}
+
+static void emxInitStruct_c_rigidBodyJoint1(c_rigidBodyJoint_dynsim_edo_h_T
+  *pStruct)
+{
+  dynsim_edo_emxInit_char_T(&pStruct->Type, 2);
+}
+
+static void emxInitStruct_m_robotics_mani_h(m_robotics_manip_internal_R_h_T
+  *pStruct)
+{
+  dynsim_edo_emxInit_char_T(&pStruct->NameInternal, 2);
+  emxInitStruct_c_rigidBodyJoint1(&pStruct->JointInternal);
+}
+
+static void emxInitStruct_n_robotics_mani_h(n_robotics_manip_internal_R_h_T
+  *pStruct)
+{
+  emxInitStruct_m_robotics_mani_h(&pStruct->Base);
+}
+
+static void emxInitStruct_robotics_slmani_h(robotics_slmanip_internal_b_h_T
+  *pStruct)
+{
+  emxInitStruct_n_robotics_mani_h(&pStruct->TreeInternal);
+}
+
+static void emxInitStruct_l_robotics_mani_h(l_robotics_manip_internal_R_h_T
+  *pStruct)
+{
+  emxInitStruct_c_rigidBodyJoint1(&pStruct->JointInternal);
+}
+
+static l_robotics_manip_internal_R_h_T *dyn_RigidBody_RigidBody_hau4ihh
+  (l_robotics_manip_internal_R_h_T *obj)
+{
+  l_robotics_manip_internal_R_h_T *b_obj;
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  boolean_T b_bool;
+  int32_T b_kstr;
+  char_T b[8];
+  char_T b_0[9];
+  int32_T loop_ub;
+  static const char_T tmp[6] = { 'l', 'i', 'n', 'k', '_', '1' };
+
+  static const char_T tmp_0[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_1[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_2[16] = { -0.99999999997301514, 7.3464102066435871E-6,
+    -6.9389E-16, 0.0, 2.6984177572320606E-11, 3.6732051032474579E-6,
+    0.99999999999325373, 0.0, 7.3464102065940289E-6, 0.99999999996626887,
+    -3.6732051033465739E-6, 0.0, 0.057188, 0.0059831, 0.13343, 1.0 };
+
+  static const real_T tmp_3[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+    0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
+
+  int32_T exitg1;
+  b_obj = obj;
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->NameInternal[b_kstr] = tmp[b_kstr];
+  }
+
+  obj->ParentIndex = 0.0;
+  b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
+  obj->JointInternal.Type->size[0] = 1;
+  obj->JointInternal.Type->size[1] = 8;
+  dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    obj->JointInternal.Type->data[b_kstr] = tmp_0[b_kstr];
+  }
+
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = obj->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1]
+    - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = obj->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_0[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_1[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+  switch (b_kstr) {
+   case 0:
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    obj->JointInternal.PositionNumber = 0.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_2[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_3[b_kstr];
+  }
+
+  obj->JointInternal.JointAxisInternal[0] = 0.0;
+  obj->JointInternal.JointAxisInternal[1] = 1.0;
+  obj->JointInternal.JointAxisInternal[2] = 0.0;
+  return b_obj;
+}
+
+static l_robotics_manip_internal_R_h_T *dy_RigidBody_RigidBody_hau4ihh0
+  (l_robotics_manip_internal_R_h_T *obj)
+{
+  l_robotics_manip_internal_R_h_T *b_obj;
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  boolean_T b_bool;
+  int32_T b_kstr;
+  char_T b[8];
+  char_T b_0[9];
+  int32_T loop_ub;
+  static const char_T tmp[6] = { 'l', 'i', 'n', 'k', '_', '2' };
+
+  static const char_T tmp_0[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_1[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_2[16] = { 0.88847119465357549, -0.10400474353252914,
+    0.44699211356978236, 0.0, -0.29079372810919513, 0.62592701137950757,
+    0.7236396783744472, 0.0, -0.35504639691623957, -0.77291551268444,
+    0.52587419245342837, 0.0, 0.0, 0.18967, 0.0, 1.0 };
+
+  static const real_T tmp_3[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+    0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
+
+  int32_T exitg1;
+  b_obj = obj;
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->NameInternal[b_kstr] = tmp[b_kstr];
+  }
+
+  obj->ParentIndex = 1.0;
+  b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
+  obj->JointInternal.Type->size[0] = 1;
+  obj->JointInternal.Type->size[1] = 8;
+  dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    obj->JointInternal.Type->data[b_kstr] = tmp_0[b_kstr];
+  }
+
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = obj->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1]
+    - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = obj->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_0[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_1[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+  switch (b_kstr) {
+   case 0:
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    obj->JointInternal.PositionNumber = 0.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_2[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_3[b_kstr];
+  }
+
+  obj->JointInternal.JointAxisInternal[0] = -0.88847134048214615;
+  obj->JointInternal.JointAxisInternal[1] = 0.29080043874549294;
+  obj->JointInternal.JointAxisInternal[2] = 0.3550405356678123;
+  return b_obj;
+}
+
+static l_robotics_manip_internal_R_h_T *d_RigidBody_RigidBody_hau4ihh0a
+  (l_robotics_manip_internal_R_h_T *obj)
+{
+  l_robotics_manip_internal_R_h_T *b_obj;
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  boolean_T b_bool;
+  int32_T b_kstr;
+  char_T b[8];
+  char_T b_0[9];
+  int32_T loop_ub;
+  static const char_T tmp[6] = { 'l', 'i', 'n', 'k', '_', '3' };
+
+  static const char_T tmp_0[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_1[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_2[16] = { -0.88847685238438157, 0.29078066152542581,
+    0.35504294058603364, 0.0, 0.10401076381482063, -0.62592577039760033,
+    0.77291570754049777, 0.0, 0.44697946685256096, 0.72364600243144184,
+    0.5258762396012906, 0.0, -0.024558, 0.12737, -0.16578, 1.0 };
+
+  static const real_T tmp_3[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+    0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
+
+  int32_T exitg1;
+  b_obj = obj;
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    obj->NameInternal[b_kstr] = tmp[b_kstr];
+  }
+
+  obj->ParentIndex = 2.0;
+  b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
+  obj->JointInternal.Type->size[0] = 1;
+  obj->JointInternal.Type->size[1] = 8;
+  dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    obj->JointInternal.Type->data[b_kstr] = tmp_0[b_kstr];
+  }
+
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = obj->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1]
+    - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = obj->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_0[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_1[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+  switch (b_kstr) {
+   case 0:
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    obj->JointInternal.PositionNumber = 1.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    obj->JointInternal.PositionNumber = 0.0;
+    obj->JointInternal.JointAxisInternal[0] = 0.0;
+    obj->JointInternal.JointAxisInternal[1] = 0.0;
+    obj->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_2[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_3[b_kstr];
+  }
+
+  obj->JointInternal.JointAxisInternal[0] = 1.0;
+  obj->JointInternal.JointAxisInternal[1] = 0.0;
+  obj->JointInternal.JointAxisInternal[2] = 0.0;
+  return b_obj;
+}
+
+static n_robotics_manip_internal_R_h_T *d_RigidBodyTree_RigidBodyTree_h
+  (n_robotics_manip_internal_R_h_T *obj, l_robotics_manip_internal_R_h_T *iobj_0,
+   l_robotics_manip_internal_R_h_T *iobj_1, l_robotics_manip_internal_R_h_T
+   *iobj_2, l_robotics_manip_internal_R_h_T *iobj_3,
+   l_robotics_manip_internal_R_h_T *iobj_4, l_robotics_manip_internal_R_h_T
+   *iobj_5)
+{
+  n_robotics_manip_internal_R_h_T *b_obj;
+  m_robotics_manip_internal_R_h_T *obj_0;
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  boolean_T b_bool;
+  int32_T b_kstr;
+  char_T b[8];
+  char_T b_0[9];
+  int32_T loop_ub;
+  static const char_T tmp[6] = { 'l', 'i', 'n', 'k', '_', '4' };
+
+  static const char_T tmp_0[5] = { 'f', 'i', 'x', 'e', 'd' };
+
+  static const char_T tmp_1[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+
+  static const char_T tmp_2[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_3[16] = { 1.0, 0.0, -0.0, 0.0, 0.0,
+    -3.6732051033465739E-6, -0.99999999999325373, 0.0, -0.0, 0.99999999999325373,
+    -3.6732051033465739E-6, 0.0, 0.0088, -0.1588, 0.0, 1.0 };
+
+  static const real_T tmp_4[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+    0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
+
+  static const char_T tmp_5[6] = { 'l', 'i', 'n', 'k', '_', '5' };
+
+  static const real_T tmp_6[16] = { -0.99999999997301514, -7.3464102066435871E-6,
+    -1.1102E-14, 0.0, -7.3464102064452637E-6, 0.99999999994603028,
+    -7.3464102066435871E-6, 0.0, 5.3980844924276475E-11, -7.3464102064452637E-6,
+    -0.99999999997301514, 0.0, 0.0, 0.0, -0.1053, 1.0 };
+
+  static const char_T tmp_7[6] = { 'l', 'i', 'n', 'k', '_', '6' };
+
+  static const real_T tmp_8[16] = { 1.0, 0.0, -1.249E-14, 0.0,
+    -1.2489999999915739E-14, -3.6732051033465739E-6, -0.99999999999325373, 0.0,
+    -4.587833174079871E-20, 0.99999999999325373, -3.6732051033465739E-6, 0.0,
+    -0.0039, 0.0, 0.1636, 1.0 };
+
+  static const char_T tmp_9[9] = { 'b', 'a', 's', 'e', '_', 'l', 'i', 'n', 'k' };
+
+  int32_T exitg1;
+  b_obj = obj;
+  obj->Bodies[0] = dyn_RigidBody_RigidBody_hau4ihh(iobj_0);
+  obj->Bodies[1] = dy_RigidBody_RigidBody_hau4ihh0(iobj_5);
+  obj->Bodies[2] = d_RigidBody_RigidBody_hau4ihh0a(iobj_1);
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    iobj_2->NameInternal[b_kstr] = tmp[b_kstr];
+  }
+
+  iobj_2->ParentIndex = 3.0;
+  b_kstr = iobj_2->JointInternal.Type->size[0] * iobj_2->
+    JointInternal.Type->size[1];
+  iobj_2->JointInternal.Type->size[0] = 1;
+  iobj_2->JointInternal.Type->size[1] = 5;
+  dynsim_emxEnsureCapacity_char_T(iobj_2->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 5; b_kstr++) {
+    iobj_2->JointInternal.Type->data[b_kstr] = tmp_0[b_kstr];
+  }
+
+  dynsim_edo_emxInit_char_T(&switch_expression, 2);
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = iobj_2->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = iobj_2->JointInternal.Type->size[0] * iobj_2->
+    JointInternal.Type->size[1] - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = iobj_2->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_1[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_2[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  switch (b_kstr) {
+   case 0:
+    iobj_2->JointInternal.PositionNumber = 1.0;
+    iobj_2->JointInternal.JointAxisInternal[0] = 0.0;
+    iobj_2->JointInternal.JointAxisInternal[1] = 0.0;
+    iobj_2->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    iobj_2->JointInternal.PositionNumber = 1.0;
+    iobj_2->JointInternal.JointAxisInternal[0] = 0.0;
+    iobj_2->JointInternal.JointAxisInternal[1] = 0.0;
+    iobj_2->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    iobj_2->JointInternal.PositionNumber = 0.0;
+    iobj_2->JointInternal.JointAxisInternal[0] = 0.0;
+    iobj_2->JointInternal.JointAxisInternal[1] = 0.0;
+    iobj_2->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    iobj_2->JointInternal.JointToParentTransform[b_kstr] = tmp_3[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    iobj_2->JointInternal.ChildToJointTransform[b_kstr] = tmp_4[b_kstr];
+  }
+
+  iobj_2->JointInternal.JointAxisInternal[0] = 0.0;
+  iobj_2->JointInternal.JointAxisInternal[1] = 0.0;
+  iobj_2->JointInternal.JointAxisInternal[2] = 0.0;
+  obj->Bodies[3] = iobj_2;
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    iobj_3->NameInternal[b_kstr] = tmp_5[b_kstr];
+  }
+
+  iobj_3->ParentIndex = 4.0;
+  b_kstr = iobj_3->JointInternal.Type->size[0] * iobj_3->
+    JointInternal.Type->size[1];
+  iobj_3->JointInternal.Type->size[0] = 1;
+  iobj_3->JointInternal.Type->size[1] = 5;
+  dynsim_emxEnsureCapacity_char_T(iobj_3->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 5; b_kstr++) {
+    iobj_3->JointInternal.Type->data[b_kstr] = tmp_0[b_kstr];
+  }
+
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = iobj_3->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = iobj_3->JointInternal.Type->size[0] * iobj_3->
+    JointInternal.Type->size[1] - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = iobj_3->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_1[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_2[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  switch (b_kstr) {
+   case 0:
+    iobj_3->JointInternal.PositionNumber = 1.0;
+    iobj_3->JointInternal.JointAxisInternal[0] = 0.0;
+    iobj_3->JointInternal.JointAxisInternal[1] = 0.0;
+    iobj_3->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    iobj_3->JointInternal.PositionNumber = 1.0;
+    iobj_3->JointInternal.JointAxisInternal[0] = 0.0;
+    iobj_3->JointInternal.JointAxisInternal[1] = 0.0;
+    iobj_3->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    iobj_3->JointInternal.PositionNumber = 0.0;
+    iobj_3->JointInternal.JointAxisInternal[0] = 0.0;
+    iobj_3->JointInternal.JointAxisInternal[1] = 0.0;
+    iobj_3->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    iobj_3->JointInternal.JointToParentTransform[b_kstr] = tmp_6[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    iobj_3->JointInternal.ChildToJointTransform[b_kstr] = tmp_4[b_kstr];
+  }
+
+  iobj_3->JointInternal.JointAxisInternal[0] = 0.0;
+  iobj_3->JointInternal.JointAxisInternal[1] = 0.0;
+  iobj_3->JointInternal.JointAxisInternal[2] = 0.0;
+  obj->Bodies[4] = iobj_3;
+  for (b_kstr = 0; b_kstr < 6; b_kstr++) {
+    iobj_4->NameInternal[b_kstr] = tmp_7[b_kstr];
+  }
+
+  iobj_4->ParentIndex = 5.0;
+  b_kstr = iobj_4->JointInternal.Type->size[0] * iobj_4->
+    JointInternal.Type->size[1];
+  iobj_4->JointInternal.Type->size[0] = 1;
+  iobj_4->JointInternal.Type->size[1] = 5;
+  dynsim_emxEnsureCapacity_char_T(iobj_4->JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 5; b_kstr++) {
+    iobj_4->JointInternal.Type->data[b_kstr] = tmp_0[b_kstr];
+  }
+
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = iobj_4->JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = iobj_4->JointInternal.Type->size[0] * iobj_4->
+    JointInternal.Type->size[1] - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = iobj_4->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_1[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_2[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  switch (b_kstr) {
+   case 0:
+    iobj_4->JointInternal.PositionNumber = 1.0;
+    iobj_4->JointInternal.JointAxisInternal[0] = 0.0;
+    iobj_4->JointInternal.JointAxisInternal[1] = 0.0;
+    iobj_4->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    iobj_4->JointInternal.PositionNumber = 1.0;
+    iobj_4->JointInternal.JointAxisInternal[0] = 0.0;
+    iobj_4->JointInternal.JointAxisInternal[1] = 0.0;
+    iobj_4->JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    iobj_4->JointInternal.PositionNumber = 0.0;
+    iobj_4->JointInternal.JointAxisInternal[0] = 0.0;
+    iobj_4->JointInternal.JointAxisInternal[1] = 0.0;
+    iobj_4->JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    iobj_4->JointInternal.JointToParentTransform[b_kstr] = tmp_8[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 16; b_kstr++) {
+    iobj_4->JointInternal.ChildToJointTransform[b_kstr] = tmp_4[b_kstr];
+  }
+
+  iobj_4->JointInternal.JointAxisInternal[0] = 0.0;
+  iobj_4->JointInternal.JointAxisInternal[1] = 0.0;
+  iobj_4->JointInternal.JointAxisInternal[2] = 0.0;
+  obj->Bodies[5] = iobj_4;
+  obj->NumBodies = 6.0;
+  obj->PositionNumber = 3.0;
+  obj_0 = &obj->Base;
+  b_kstr = obj->Base.NameInternal->size[0] * obj->Base.NameInternal->size[1];
+  obj->Base.NameInternal->size[0] = 1;
+  obj->Base.NameInternal->size[1] = 9;
+  dynsim_emxEnsureCapacity_char_T(obj->Base.NameInternal, b_kstr);
+  for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+    obj->Base.NameInternal->data[b_kstr] = tmp_9[b_kstr];
+  }
+
+  b_kstr = obj->Base.JointInternal.Type->size[0] * obj->
+    Base.JointInternal.Type->size[1];
+  obj->Base.JointInternal.Type->size[0] = 1;
+  obj->Base.JointInternal.Type->size[1] = 5;
+  dynsim_emxEnsureCapacity_char_T(obj->Base.JointInternal.Type, b_kstr);
+  for (b_kstr = 0; b_kstr < 5; b_kstr++) {
+    obj_0->JointInternal.Type->data[b_kstr] = tmp_0[b_kstr];
+  }
+
+  b_kstr = switch_expression->size[0] * switch_expression->size[1];
+  switch_expression->size[0] = 1;
+  switch_expression->size[1] = obj->Base.JointInternal.Type->size[1];
+  dynsim_emxEnsureCapacity_char_T(switch_expression, b_kstr);
+  loop_ub = obj->Base.JointInternal.Type->size[0] * obj->
+    Base.JointInternal.Type->size[1] - 1;
+  for (b_kstr = 0; b_kstr <= loop_ub; b_kstr++) {
+    switch_expression->data[b_kstr] = obj_0->JointInternal.Type->data[b_kstr];
+  }
+
+  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+    b[b_kstr] = tmp_1[b_kstr];
+  }
+
+  b_bool = false;
+  if (switch_expression->size[1] == 8) {
+    b_kstr = 1;
+    do {
+      exitg1 = 0;
+      if (b_kstr - 1 < 8) {
+        loop_ub = b_kstr - 1;
+        if (switch_expression->data[loop_ub] != b[loop_ub]) {
+          exitg1 = 1;
+        } else {
+          b_kstr++;
+        }
+      } else {
+        b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  if (b_bool) {
+    b_kstr = 0;
+  } else {
+    for (b_kstr = 0; b_kstr < 9; b_kstr++) {
+      b_0[b_kstr] = tmp_2[b_kstr];
+    }
+
+    b_bool = false;
+    if (switch_expression->size[1] == 9) {
+      b_kstr = 1;
+      do {
+        exitg1 = 0;
+        if (b_kstr - 1 < 9) {
+          loop_ub = b_kstr - 1;
+          if (switch_expression->data[loop_ub] != b_0[loop_ub]) {
+            exitg1 = 1;
+          } else {
+            b_kstr++;
+          }
+        } else {
+          b_bool = true;
+          exitg1 = 1;
+        }
+      } while (exitg1 == 0);
+    }
+
+    if (b_bool) {
+      b_kstr = 1;
+    } else {
+      b_kstr = -1;
+    }
+  }
+
+  dynsim_edo_emxFree_char_T(&switch_expression);
+  switch (b_kstr) {
+   case 0:
+    obj->Base.JointInternal.PositionNumber = 1.0;
+    obj->Base.JointInternal.JointAxisInternal[0] = 0.0;
+    obj->Base.JointInternal.JointAxisInternal[1] = 0.0;
+    obj->Base.JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   case 1:
+    obj->Base.JointInternal.PositionNumber = 1.0;
+    obj->Base.JointInternal.JointAxisInternal[0] = 0.0;
+    obj->Base.JointInternal.JointAxisInternal[1] = 0.0;
+    obj->Base.JointInternal.JointAxisInternal[2] = 1.0;
+    break;
+
+   default:
+    obj->Base.JointInternal.PositionNumber = 0.0;
+    obj->Base.JointInternal.JointAxisInternal[0] = 0.0;
+    obj->Base.JointInternal.JointAxisInternal[1] = 0.0;
+    obj->Base.JointInternal.JointAxisInternal[2] = 0.0;
+    break;
+  }
+
+  return b_obj;
+}
+
+static void emxInitStruct_c_rigidBodyJoint2(c_rigidBodyJoint_dynsim_ed_ha_T
+  *pStruct)
+{
+  dynsim_edo_emxInit_char_T(&pStruct->Type, 2);
+  dynsim_edo_emxInit_real_T(&pStruct->MotionSubspace, 2);
+}
+
+static void emxInitStruct_m_robotics_man_ha(m_robotics_manip_internal__ha_T
+  *pStruct)
+{
+  emxInitStruct_c_rigidBodyJoint2(&pStruct->JointInternal);
+}
+
+static void emxInitStruct_n_robotics_man_ha(n_robotics_manip_internal__ha_T
+  *pStruct)
+{
+  emxInitStruct_m_robotics_man_ha(&pStruct->Base);
+}
+
+static void emxInitStruct_robotics_slman_ha(robotics_slmanip_internal__ha_T
+  *pStruct)
+{
+  emxInitStruct_n_robotics_man_ha(&pStruct->TreeInternal);
+}
+
+static void emxInitStruct_l_robotics_man_ha(l_robotics_manip_internal__ha_T
+  *pStruct)
+{
+  emxInitStruct_c_rigidBodyJoint2(&pStruct->JointInternal);
+}
+
+static l_robotics_manip_internal__ha_T *RigidBody_RigidBody_hau4ihh0a3
+  (l_robotics_manip_internal__ha_T *obj)
+{
+  l_robotics_manip_internal__ha_T *b_obj;
+  int8_T msubspace_data[36];
+  emxArray_char_T_dynsim_edo_T *switch_expression;
+  boolean_T b_bool;
+  int32_T b_kstr;
+  char_T b[8];
+  char_T b_0[9];
+  int32_T loop_ub;
+  int8_T tmp[6];
+  static const real_T tmp_0[36] = { 0.010555653453058492, 0.00010914065104357639,
+    -7.2872461979227709E-7, 0.0, 0.000159441301187506, 0.023879428445548689,
+    0.00010914065104357639, 0.00630196523643137, 4.8443339354484058E-5,
+    -0.000159441301187506, 0.0, 0.0003592140353393829, -7.2872461979227709E-7,
+    4.8443339354484058E-5, 0.010556971783800459, -0.023879428445548689,
     -0.0003592140353393829, 0.0, 0.0, -0.000159441301187506,
     -0.023879428445548689, 0.0785942338762368, 0.0, 0.0, 0.000159441301187506,
     0.0, -0.0003592140353393829, 0.0, 0.0785942338762368, 0.0,
@@ -2612,10 +6568,10 @@ static l_robotics_manip_internal_Rig_T *dynsim_edo_RigidBody_RigidBody
   return b_obj;
 }
 
-static l_robotics_manip_internal_Rig_T *dynsim_ed_RigidBody_RigidBody_h
-  (l_robotics_manip_internal_Rig_T *obj)
+static l_robotics_manip_internal__ha_T *RigidBody_RigidBody_hau4ihh0a3c
+  (l_robotics_manip_internal__ha_T *obj)
 {
-  l_robotics_manip_internal_Rig_T *b_obj;
+  l_robotics_manip_internal__ha_T *b_obj;
   int8_T msubspace_data[36];
   emxArray_char_T_dynsim_edo_T *switch_expression;
   boolean_T b_bool;
@@ -2624,15 +6580,15 @@ static l_robotics_manip_internal_Rig_T *dynsim_ed_RigidBody_RigidBody_h
   char_T b_0[9];
   int32_T loop_ub;
   int8_T tmp[6];
-  static const real_T tmp_0[36] = { 0.013211023632997332, 0.0010249919084558737,
-    -0.0012646868357119422, 0.0, 0.0068913182657821814, 0.0056052022217139017,
-    0.0010249919084558737, 0.0082026017376173183, 0.0064295305818937417,
-    -0.0068913182657821814, 0.0, 0.0013235778724120266, -0.0012646868357119422,
-    0.0064295305818937417, 0.0054794684392445022, -0.0056052022217139017,
-    -0.0013235778724120266, 0.0, 0.0, -0.0068913182657821814,
-    -0.0056052022217139017, 0.0785942338762368, 0.0, 0.0, 0.0068913182657821814,
-    0.0, -0.0013235778724120266, 0.0, 0.0785942338762368, 0.0,
-    0.0056052022217139017, 0.0013235778724120266, 0.0, 0.0, 0.0,
+  static const real_T tmp_0[36] = { 0.0066039993456882317,
+    -0.00070560475921506015, -0.0010160542691045422, 0.0, 0.0068913182657821814,
+    0.0056052022217139017, -0.00070560475921506015, 0.004126536113351318,
+    0.00079147667136404178, -0.0068913182657821814, 0.0, 0.0013235778724120266,
+    -0.0010160542691045422, 0.00079147667136404178, 0.0040220430519480425,
+    -0.0056052022217139017, -0.0013235778724120266, 0.0, 0.0,
+    -0.0068913182657821814, -0.0056052022217139017, 0.0785942338762368, 0.0, 0.0,
+    0.0068913182657821814, 0.0, -0.0013235778724120266, 0.0, 0.0785942338762368,
+    0.0, 0.0056052022217139017, 0.0013235778724120266, 0.0, 0.0, 0.0,
     0.0785942338762368 };
 
   static const char_T tmp_1[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
@@ -2811,10 +6767,10 @@ static l_robotics_manip_internal_Rig_T *dynsim_ed_RigidBody_RigidBody_h
   return b_obj;
 }
 
-static l_robotics_manip_internal_Rig_T *dynsim_e_RigidBody_RigidBody_ha
-  (l_robotics_manip_internal_Rig_T *obj)
+static l_robotics_manip_internal__ha_T *RigidBody_RigidBod_hau4ihh0a3ct
+  (l_robotics_manip_internal__ha_T *obj)
 {
-  l_robotics_manip_internal_Rig_T *b_obj;
+  l_robotics_manip_internal__ha_T *b_obj;
   int8_T msubspace_data[36];
   emxArray_char_T_dynsim_edo_T *switch_expression;
   boolean_T b_bool;
@@ -2823,13 +6779,13 @@ static l_robotics_manip_internal_Rig_T *dynsim_e_RigidBody_RigidBody_ha
   char_T b_0[9];
   int32_T loop_ub;
   int8_T tmp[6];
-  static const real_T tmp_0[36] = { 0.013113488639879966, 0.00015340966821489427,
-    -9.3644949998630182E-8, 0.0, -0.00031079476582565222, 0.0075648906322210207,
-    0.00015340966821489427, 7.3039831742822541E-5, -0.00012165646429114304,
-    0.00031079476582565222, 0.0, -0.00035921403533938209, -9.3644949998630182E-8,
-    -0.00012165646429114304, 0.013116007526568545, -0.0075648906322210207,
-    0.00035921403533938209, 0.0, 0.0, 0.00031079476582565222,
-    -0.0075648906322210207, 0.0785942338762368, 0.0, 0.0,
+  static const real_T tmp_0[36] = { 0.0070293685660731669,
+    -3.4575244987823722E-5, -1.4204838763412903E-6, 0.0, -0.00031079476582565222,
+    0.0075648906322210207, -3.4575244987823722E-5, 0.0033028707972394605,
+    -2.991476978120494E-5, 0.00031079476582565222, 0.0, -0.00035921403533938209,
+    -1.4204838763412903E-6, -2.991476978120494E-5, 0.0040297813360070439,
+    -0.0075648906322210207, 0.00035921403533938209, 0.0, 0.0,
+    0.00031079476582565222, -0.0075648906322210207, 0.0785942338762368, 0.0, 0.0,
     -0.00031079476582565222, 0.0, 0.00035921403533938209, 0.0,
     0.0785942338762368, 0.0, 0.0075648906322210207, -0.00035921403533938209, 0.0,
     0.0, 0.0, 0.0785942338762368 };
@@ -3009,10 +6965,10 @@ static l_robotics_manip_internal_Rig_T *dynsim_e_RigidBody_RigidBody_ha
   return b_obj;
 }
 
-static l_robotics_manip_internal_Rig_T *dynsim__RigidBody_RigidBody_hau
-  (l_robotics_manip_internal_Rig_T *obj)
+static l_robotics_manip_internal__ha_T *RigidBody_RigidBo_hau4ihh0a3ctk
+  (l_robotics_manip_internal__ha_T *obj)
 {
-  l_robotics_manip_internal_Rig_T *b_obj;
+  l_robotics_manip_internal__ha_T *b_obj;
   int8_T msubspace_data[36];
   emxArray_char_T_dynsim_edo_T *switch_expression;
   boolean_T b_bool;
@@ -3021,31 +6977,29 @@ static l_robotics_manip_internal_Rig_T *dynsim__RigidBody_RigidBody_hau
   char_T b_0[9];
   int32_T loop_ub;
   int8_T tmp[6];
-  static const real_T tmp_0[36] = { 0.017498226510398153, -2.6413489892615174E-6,
-    0.00027276976237199086, 0.0, -0.020046014166386395, -0.00031079476582562474,
-    -2.6413489892615174E-6, 0.01750050956753612, 0.00017101209351135795,
-    0.020046014166386395, 0.0, 0.000332415222770069, 0.00027276976237199086,
-    0.00017101209351135795, 7.2804002192213048E-5, 0.00031079476582562474,
-    -0.000332415222770069, 0.0, 0.0, 0.020046014166386395,
-    0.00031079476582562474, 0.0785942338762368, 0.0, 0.0, -0.020046014166386395,
-    0.0, -0.000332415222770069, 0.0, 0.0785942338762368, 0.0,
-    -0.00031079476582562474, 0.000332415222770069, 0.0, 0.0, 0.0,
+  static const real_T tmp_0[36] = { 0.0084141064365913509,
+    -1.3145100629186671E-6, 8.4784849169272869E-5, 0.0, -0.020046014166386395,
+    -0.00031079476582562474, -1.3145100629186671E-6, 0.00841428337697462,
+    7.9270399001407345E-5, 0.020046014166386395, 0.0, 0.000332415222770069,
+    8.4784849169272869E-5, 7.9270399001407345E-5, 0.0063026349676888506,
+    0.00031079476582562474, -0.000332415222770069, 0.0, 0.0,
+    0.020046014166386395, 0.00031079476582562474, 0.0785942338762368, 0.0, 0.0,
+    -0.020046014166386395, 0.0, -0.000332415222770069, 0.0, 0.0785942338762368,
+    0.0, -0.00031079476582562474, 0.000332415222770069, 0.0, 0.0, 0.0,
     0.0785942338762368 };
 
-  static const char_T tmp_1[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+  static const char_T tmp_1[5] = { 'f', 'i', 'x', 'e', 'd' };
 
-  static const char_T tmp_2[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+  static const char_T tmp_2[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
 
-  static const real_T tmp_3[16] = { 1.0, 0.0, -0.0, 0.0, 0.0,
+  static const char_T tmp_3[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_4[16] = { 1.0, 0.0, -0.0, 0.0, 0.0,
     -3.6732051033465739E-6, -0.99999999999325373, 0.0, -0.0, 0.99999999999325373,
     -3.6732051033465739E-6, 0.0, 0.0088, -0.1588, 0.0, 1.0 };
 
-  static const real_T tmp_4[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+  static const real_T tmp_5[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
     0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
-
-  static const real_T tmp_5[36] = { 0.0, 0.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
 
   int32_T exitg1;
   b_obj = obj;
@@ -3056,9 +7010,9 @@ static l_robotics_manip_internal_Rig_T *dynsim__RigidBody_RigidBody_hau
 
   b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
   obj->JointInternal.Type->size[0] = 1;
-  obj->JointInternal.Type->size[1] = 8;
+  obj->JointInternal.Type->size[1] = 5;
   dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
-  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+  for (b_kstr = 0; b_kstr < 5; b_kstr++) {
     obj->JointInternal.Type->data[b_kstr] = tmp_1[b_kstr];
   }
 
@@ -3074,7 +7028,7 @@ static l_robotics_manip_internal_Rig_T *dynsim__RigidBody_RigidBody_hau
   }
 
   for (b_kstr = 0; b_kstr < 8; b_kstr++) {
-    b[b_kstr] = tmp_1[b_kstr];
+    b[b_kstr] = tmp_2[b_kstr];
   }
 
   b_bool = false;
@@ -3100,7 +7054,7 @@ static l_robotics_manip_internal_Rig_T *dynsim__RigidBody_RigidBody_hau
     b_kstr = 0;
   } else {
     for (b_kstr = 0; b_kstr < 9; b_kstr++) {
-      b_0[b_kstr] = tmp_2[b_kstr];
+      b_0[b_kstr] = tmp_3[b_kstr];
     }
 
     b_bool = false;
@@ -3184,11 +7138,11 @@ static l_robotics_manip_internal_Rig_T *dynsim__RigidBody_RigidBody_hau
   }
 
   for (b_kstr = 0; b_kstr < 16; b_kstr++) {
-    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_3[b_kstr];
+    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_4[b_kstr];
   }
 
   for (b_kstr = 0; b_kstr < 16; b_kstr++) {
-    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_4[b_kstr];
+    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_5[b_kstr];
   }
 
   b_kstr = obj->JointInternal.MotionSubspace->size[0] *
@@ -3197,19 +7151,19 @@ static l_robotics_manip_internal_Rig_T *dynsim__RigidBody_RigidBody_hau
   obj->JointInternal.MotionSubspace->size[1] = 1;
   dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
   for (b_kstr = 0; b_kstr < 6; b_kstr++) {
-    obj->JointInternal.MotionSubspace->data[b_kstr] = tmp_5[b_kstr];
+    obj->JointInternal.MotionSubspace->data[b_kstr] = 0.0;
   }
 
   obj->JointInternal.JointAxisInternal[0] = 0.0;
   obj->JointInternal.JointAxisInternal[1] = 0.0;
-  obj->JointInternal.JointAxisInternal[2] = -1.0;
+  obj->JointInternal.JointAxisInternal[2] = 0.0;
   return b_obj;
 }
 
-static l_robotics_manip_internal_Rig_T *dynsim_RigidBody_RigidBody_hau4
-  (l_robotics_manip_internal_Rig_T *obj)
+static l_robotics_manip_internal__ha_T *RigidBody_RigidB_hau4ihh0a3ctk5
+  (l_robotics_manip_internal__ha_T *obj)
 {
-  l_robotics_manip_internal_Rig_T *b_obj;
+  l_robotics_manip_internal__ha_T *b_obj;
   int8_T msubspace_data[36];
   emxArray_char_T_dynsim_edo_T *switch_expression;
   boolean_T b_bool;
@@ -3218,32 +7172,30 @@ static l_robotics_manip_internal_Rig_T *dynsim_RigidBody_RigidBody_hau4
   char_T b_0[9];
   int32_T loop_ub;
   int8_T tmp[6];
-  static const real_T tmp_0[36] = { 0.022591118157548329, 2.6413489892594934E-6,
-    0.00030777156611164522, 0.0, 0.028321627798935184, -0.00031079476582561606,
-    2.6413489892594934E-6, 0.022593401214686296, -0.00020373736194570198,
-    -0.028321627798935184, 0.0, -0.00033241522276980414, 0.00030777156611164522,
-    -0.00020373736194570198, 7.2804002192206746E-5, 0.00031079476582561606,
+  static const real_T tmp_0[36] = { 0.016506998083741529, 1.3145100629175833E-6,
+    0.00011978665290906323, 0.0, 0.028321627798935184, -0.00031079476582561606,
+    1.3145100629175833E-6, 0.013507175024124796, -0.00011199566743574677,
+    -0.028321627798935184, 0.0, -0.00033241522276980414, 0.00011978665290906323,
+    -0.00011199566743574677, 0.0033026349676888488, 0.00031079476582561606,
     0.00033241522276980414, 0.0, 0.0, -0.028321627798935184,
     0.00031079476582561606, 0.0785942338762368, 0.0, 0.0, 0.028321627798935184,
     0.0, 0.00033241522276980414, 0.0, 0.0785942338762368, 0.0,
     -0.00031079476582561606, -0.00033241522276980414, 0.0, 0.0, 0.0,
     0.0785942338762368 };
 
-  static const char_T tmp_1[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+  static const char_T tmp_1[5] = { 'f', 'i', 'x', 'e', 'd' };
 
-  static const char_T tmp_2[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+  static const char_T tmp_2[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
 
-  static const real_T tmp_3[16] = { -0.99999999997301514, -7.3464102066435871E-6,
+  static const char_T tmp_3[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_4[16] = { -0.99999999997301514, -7.3464102066435871E-6,
     -1.1102E-14, 0.0, -7.3464102064452637E-6, 0.99999999994603028,
     -7.3464102066435871E-6, 0.0, 5.3980844924276475E-11, -7.3464102064452637E-6,
     -0.99999999997301514, 0.0, 0.0, 0.0, -0.1053, 1.0 };
 
-  static const real_T tmp_4[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+  static const real_T tmp_5[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
     0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
-
-  static const real_T tmp_5[36] = { -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
 
   int32_T exitg1;
   b_obj = obj;
@@ -3254,9 +7206,9 @@ static l_robotics_manip_internal_Rig_T *dynsim_RigidBody_RigidBody_hau4
 
   b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
   obj->JointInternal.Type->size[0] = 1;
-  obj->JointInternal.Type->size[1] = 8;
+  obj->JointInternal.Type->size[1] = 5;
   dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
-  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+  for (b_kstr = 0; b_kstr < 5; b_kstr++) {
     obj->JointInternal.Type->data[b_kstr] = tmp_1[b_kstr];
   }
 
@@ -3272,7 +7224,7 @@ static l_robotics_manip_internal_Rig_T *dynsim_RigidBody_RigidBody_hau4
   }
 
   for (b_kstr = 0; b_kstr < 8; b_kstr++) {
-    b[b_kstr] = tmp_1[b_kstr];
+    b[b_kstr] = tmp_2[b_kstr];
   }
 
   b_bool = false;
@@ -3298,7 +7250,7 @@ static l_robotics_manip_internal_Rig_T *dynsim_RigidBody_RigidBody_hau4
     b_kstr = 0;
   } else {
     for (b_kstr = 0; b_kstr < 9; b_kstr++) {
-      b_0[b_kstr] = tmp_2[b_kstr];
+      b_0[b_kstr] = tmp_3[b_kstr];
     }
 
     b_bool = false;
@@ -3382,11 +7334,11 @@ static l_robotics_manip_internal_Rig_T *dynsim_RigidBody_RigidBody_hau4
   }
 
   for (b_kstr = 0; b_kstr < 16; b_kstr++) {
-    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_3[b_kstr];
+    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_4[b_kstr];
   }
 
   for (b_kstr = 0; b_kstr < 16; b_kstr++) {
-    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_4[b_kstr];
+    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_5[b_kstr];
   }
 
   b_kstr = obj->JointInternal.MotionSubspace->size[0] *
@@ -3395,19 +7347,19 @@ static l_robotics_manip_internal_Rig_T *dynsim_RigidBody_RigidBody_hau4
   obj->JointInternal.MotionSubspace->size[1] = 1;
   dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
   for (b_kstr = 0; b_kstr < 6; b_kstr++) {
-    obj->JointInternal.MotionSubspace->data[b_kstr] = tmp_5[b_kstr];
+    obj->JointInternal.MotionSubspace->data[b_kstr] = 0.0;
   }
 
-  obj->JointInternal.JointAxisInternal[0] = -1.0;
+  obj->JointInternal.JointAxisInternal[0] = 0.0;
   obj->JointInternal.JointAxisInternal[1] = 0.0;
   obj->JointInternal.JointAxisInternal[2] = 0.0;
   return b_obj;
 }
 
-static l_robotics_manip_internal_Rig_T *dynsi_RigidBody_RigidBody_hau4i
-  (l_robotics_manip_internal_Rig_T *obj)
+static l_robotics_manip_internal__ha_T *RigidBody_Rigid_hau4ihh0a3ctk52
+  (l_robotics_manip_internal__ha_T *obj)
 {
-  l_robotics_manip_internal_Rig_T *b_obj;
+  l_robotics_manip_internal__ha_T *b_obj;
   int8_T msubspace_data[36];
   emxArray_char_T_dynsim_edo_T *switch_expression;
   boolean_T b_bool;
@@ -3416,32 +7368,30 @@ static l_robotics_manip_internal_Rig_T *dynsi_RigidBody_RigidBody_hau4i
   char_T b_0[9];
   int32_T loop_ub;
   int8_T tmp[6];
-  static const real_T tmp_0[36] = { 1.0065981357838704E-5, 3.0729164240456609E-9,
-    5.3277371841056389E-9, 0.0, -1.7778570846549331E-7, -0.00026077765450549392,
-    3.0729164240456609E-9, 1.4574495784752631E-5, 1.7665241858879138E-9,
-    1.7778570846549331E-7, 0.0, -3.0929847108333021E-7, 5.3277371841056389E-9,
-    1.7665241858879138E-9, 1.006005411704865E-5, 0.00026077765450549392,
-    3.0929847108333021E-7, 0.0, 0.0, 1.7778570846549331E-7,
-    0.00026077765450549392, 0.0279702497322662, 0.0, 0.0, -1.7778570846549331E-7,
-    0.0, 3.0929847108333021E-7, 0.0, 0.0279702497322662, 0.0,
-    -0.00026077765450549392, -3.0929847108333021E-7, 0.0, 0.0, 0.0,
+  static const real_T tmp_0[36] = { 0.001202431333911856, 2.88371146497844E-9,
+    -1.9659762903514292E-12, 0.0, -1.7778570846549331E-7,
+    -0.00026077765450549392, 2.88371146497844E-9, 0.00220000000455031,
+    1.6575661819974927E-9, 1.7778570846549331E-7, 0.0, -3.0929847108333021E-7,
+    -1.9659762903514292E-12, 1.6575661819974927E-9, 0.0012024313362020676,
+    0.00026077765450549392, 3.0929847108333021E-7, 0.0, 0.0,
+    1.7778570846549331E-7, 0.00026077765450549392, 0.0279702497322662, 0.0, 0.0,
+    -1.7778570846549331E-7, 0.0, 3.0929847108333021E-7, 0.0, 0.0279702497322662,
+    0.0, -0.00026077765450549392, -3.0929847108333021E-7, 0.0, 0.0, 0.0,
     0.0279702497322662 };
 
-  static const char_T tmp_1[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
+  static const char_T tmp_1[5] = { 'f', 'i', 'x', 'e', 'd' };
 
-  static const char_T tmp_2[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+  static const char_T tmp_2[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
 
-  static const real_T tmp_3[16] = { 1.0, 0.0, -1.249E-14, 0.0,
+  static const char_T tmp_3[9] = { 'p', 'r', 'i', 's', 'm', 'a', 't', 'i', 'c' };
+
+  static const real_T tmp_4[16] = { 1.0, 0.0, -1.249E-14, 0.0,
     -1.2489999999915739E-14, -3.6732051033465739E-6, -0.99999999999325373, 0.0,
     -4.587833174079871E-20, 0.99999999999325373, -3.6732051033465739E-6, 0.0,
     -0.0039, 0.0, 0.1636, 1.0 };
 
-  static const real_T tmp_4[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+  static const real_T tmp_5[16] = { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
     0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
-
-  static const real_T tmp_5[36] = { 0.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
 
   int32_T exitg1;
   b_obj = obj;
@@ -3452,9 +7402,9 @@ static l_robotics_manip_internal_Rig_T *dynsi_RigidBody_RigidBody_hau4i
 
   b_kstr = obj->JointInternal.Type->size[0] * obj->JointInternal.Type->size[1];
   obj->JointInternal.Type->size[0] = 1;
-  obj->JointInternal.Type->size[1] = 8;
+  obj->JointInternal.Type->size[1] = 5;
   dynsim_emxEnsureCapacity_char_T(obj->JointInternal.Type, b_kstr);
-  for (b_kstr = 0; b_kstr < 8; b_kstr++) {
+  for (b_kstr = 0; b_kstr < 5; b_kstr++) {
     obj->JointInternal.Type->data[b_kstr] = tmp_1[b_kstr];
   }
 
@@ -3470,7 +7420,7 @@ static l_robotics_manip_internal_Rig_T *dynsi_RigidBody_RigidBody_hau4i
   }
 
   for (b_kstr = 0; b_kstr < 8; b_kstr++) {
-    b[b_kstr] = tmp_1[b_kstr];
+    b[b_kstr] = tmp_2[b_kstr];
   }
 
   b_bool = false;
@@ -3496,7 +7446,7 @@ static l_robotics_manip_internal_Rig_T *dynsi_RigidBody_RigidBody_hau4i
     b_kstr = 0;
   } else {
     for (b_kstr = 0; b_kstr < 9; b_kstr++) {
-      b_0[b_kstr] = tmp_2[b_kstr];
+      b_0[b_kstr] = tmp_3[b_kstr];
     }
 
     b_bool = false;
@@ -3580,11 +7530,11 @@ static l_robotics_manip_internal_Rig_T *dynsi_RigidBody_RigidBody_hau4i
   }
 
   for (b_kstr = 0; b_kstr < 16; b_kstr++) {
-    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_3[b_kstr];
+    obj->JointInternal.JointToParentTransform[b_kstr] = tmp_4[b_kstr];
   }
 
   for (b_kstr = 0; b_kstr < 16; b_kstr++) {
-    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_4[b_kstr];
+    obj->JointInternal.ChildToJointTransform[b_kstr] = tmp_5[b_kstr];
   }
 
   b_kstr = obj->JointInternal.MotionSubspace->size[0] *
@@ -3593,19 +7543,19 @@ static l_robotics_manip_internal_Rig_T *dynsi_RigidBody_RigidBody_hau4i
   obj->JointInternal.MotionSubspace->size[1] = 1;
   dynsim_emxEnsureCapacity_real_T(obj->JointInternal.MotionSubspace, b_kstr);
   for (b_kstr = 0; b_kstr < 6; b_kstr++) {
-    obj->JointInternal.MotionSubspace->data[b_kstr] = tmp_5[b_kstr];
+    obj->JointInternal.MotionSubspace->data[b_kstr] = 0.0;
   }
 
   obj->JointInternal.JointAxisInternal[0] = 0.0;
-  obj->JointInternal.JointAxisInternal[1] = -1.0;
+  obj->JointInternal.JointAxisInternal[1] = 0.0;
   obj->JointInternal.JointAxisInternal[2] = 0.0;
   return b_obj;
 }
 
-static m_robotics_manip_internal_Rig_T *dyns_RigidBody_RigidBody_hau4ih
-  (m_robotics_manip_internal_Rig_T *obj)
+static m_robotics_manip_internal__ha_T *d_RigidBody_Rigid_c
+  (m_robotics_manip_internal__ha_T *obj)
 {
-  m_robotics_manip_internal_Rig_T *b_obj;
+  m_robotics_manip_internal__ha_T *b_obj;
   emxArray_char_T_dynsim_edo_T *switch_expression;
   boolean_T b_bool;
   int32_T b_kstr;
@@ -3666,7 +7616,7 @@ static m_robotics_manip_internal_Rig_T *dyns_RigidBody_RigidBody_hau4ih
     b_kstr = 0;
   } else {
     for (b_kstr = 0; b_kstr < 9; b_kstr++) {
-      dynsim_edo_B.b_j[b_kstr] = tmp_2[b_kstr];
+      dynsim_edo_B.b_md[b_kstr] = tmp_2[b_kstr];
     }
 
     b_bool = false;
@@ -3676,7 +7626,7 @@ static m_robotics_manip_internal_Rig_T *dyns_RigidBody_RigidBody_hau4ih
         exitg1 = 0;
         if (b_kstr - 1 < 9) {
           loop_ub = b_kstr - 1;
-          if (switch_expression->data[loop_ub] != dynsim_edo_B.b_j[loop_ub]) {
+          if (switch_expression->data[loop_ub] != dynsim_edo_B.b_md[loop_ub]) {
             exitg1 = 1;
           } else {
             b_kstr++;
@@ -3753,35 +7703,35 @@ static m_robotics_manip_internal_Rig_T *dyns_RigidBody_RigidBody_hau4ih
   return b_obj;
 }
 
-static n_robotics_manip_internal_Rig_T *dyn_RigidBodyTree_RigidBodyTree
-  (n_robotics_manip_internal_Rig_T *obj, l_robotics_manip_internal_Rig_T *iobj_0,
-   l_robotics_manip_internal_Rig_T *iobj_1, l_robotics_manip_internal_Rig_T
-   *iobj_2, l_robotics_manip_internal_Rig_T *iobj_3,
-   l_robotics_manip_internal_Rig_T *iobj_4, l_robotics_manip_internal_Rig_T
+static n_robotics_manip_internal__ha_T *RigidBodyTree_RigidBodyTree_ha
+  (n_robotics_manip_internal__ha_T *obj, l_robotics_manip_internal__ha_T *iobj_0,
+   l_robotics_manip_internal__ha_T *iobj_1, l_robotics_manip_internal__ha_T
+   *iobj_2, l_robotics_manip_internal__ha_T *iobj_3,
+   l_robotics_manip_internal__ha_T *iobj_4, l_robotics_manip_internal__ha_T
    *iobj_5)
 {
-  n_robotics_manip_internal_Rig_T *b_obj;
+  n_robotics_manip_internal__ha_T *b_obj;
   int32_T i;
-  static const int8_T tmp[12] = { 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 };
+  static const int8_T tmp[12] = { 1, 2, 3, 0, 0, 0, 1, 2, 3, -1, -1, -1 };
 
   b_obj = obj;
-  obj->Bodies[0] = dynsim_edo_RigidBody_RigidBody(iobj_0);
+  obj->Bodies[0] = RigidBody_RigidBody_hau4ihh0a3(iobj_0);
   obj->Bodies[0]->Index = 1.0;
-  obj->Bodies[1] = dynsim_ed_RigidBody_RigidBody_h(iobj_5);
+  obj->Bodies[1] = RigidBody_RigidBody_hau4ihh0a3c(iobj_5);
   obj->Bodies[1]->Index = 2.0;
-  obj->Bodies[2] = dynsim_e_RigidBody_RigidBody_ha(iobj_1);
+  obj->Bodies[2] = RigidBody_RigidBod_hau4ihh0a3ct(iobj_1);
   obj->Bodies[2]->Index = 3.0;
-  obj->Bodies[3] = dynsim__RigidBody_RigidBody_hau(iobj_2);
+  obj->Bodies[3] = RigidBody_RigidBo_hau4ihh0a3ctk(iobj_2);
   obj->Bodies[3]->Index = 4.0;
-  obj->Bodies[4] = dynsim_RigidBody_RigidBody_hau4(iobj_3);
+  obj->Bodies[4] = RigidBody_RigidB_hau4ihh0a3ctk5(iobj_3);
   obj->Bodies[4]->Index = 5.0;
-  obj->Bodies[5] = dynsi_RigidBody_RigidBody_hau4i(iobj_4);
+  obj->Bodies[5] = RigidBody_Rigid_hau4ihh0a3ctk52(iobj_4);
   obj->Bodies[5]->Index = 6.0;
   obj->NumBodies = 6.0;
   obj->Gravity[0] = 0.0;
   obj->Gravity[1] = 0.0;
   obj->Gravity[2] = 0.0;
-  obj->VelocityNumber = 6.0;
+  obj->VelocityNumber = 3.0;
   for (i = 0; i < 12; i++) {
     obj->PositionDoFMap[i] = tmp[i];
   }
@@ -3790,35 +7740,40 @@ static n_robotics_manip_internal_Rig_T *dyn_RigidBodyTree_RigidBodyTree
     obj->VelocityDoFMap[i] = tmp[i];
   }
 
-  dyns_RigidBody_RigidBody_hau4ih(&obj->Base);
+  d_RigidBody_Rigid_c(&obj->Base);
   return b_obj;
 }
 
 // Model step function
 void dynsim_edo_step(void)
 {
-  robotics_slmanip_internal_blo_T *obj;
+  emxArray_real_T_dynsim_edo_T *b;
+  robotics_slmanip_internal_b_h_T *obj;
+  n_robotics_manip_internal_R_h_T *obj_0;
+  emxArray_f_cell_wrap_dynsim_e_T *Ttree;
+  emxArray_char_T_dynsim_edo_T *bname;
+  l_robotics_manip_internal_R_h_T *obj_1;
+  robotics_slmanip_internal__ha_T *obj_2;
   emxArray_real_T_dynsim_edo_T *L;
   emxArray_real_T_dynsim_edo_T *lambda;
   emxArray_real_T_dynsim_edo_T *H;
   emxArray_real_T_dynsim_edo_T *tmp;
-  static const char_T b[9] = { 'a', 'r', 'm', '_', 'j', 'o', 'i', 'n', 't' };
+  static const char_T tmp_0[6] = { 'l', 'i', 'n', 'k', '_', '4' };
 
-  static const char_T c[13] = { 'f', 'o', 'r', 'e', 'a', 'r', 'm', '_', 'j', 'o',
-    'i', 'n', 't' };
+  static const char_T e[7] = { 'x', '_', 'c', 'o', 'o', 'r', 'd' };
 
-  static const char_T h[7] = { 'j', 'o', 'i', 'n', 't', '_', '1' };
+  static const char_T f[7] = { 'y', '_', 'c', 'o', 'o', 'r', 'd' };
 
-  static const char_T i[7] = { 'j', 'o', 'i', 'n', 't', '_', '2' };
+  static const char_T g[7] = { 'z', '_', 'c', 'o', 'o', 'r', 'd' };
 
-  static const char_T j[7] = { 'j', 'o', 'i', 'n', 't', '_', '3' };
+  static const char_T e_0[7] = { 'j', 'o', 'i', 'n', 't', '_', '1' };
 
-  static const char_T k[7] = { 'j', 'o', 'i', 'n', 't', '_', '4' };
+  static const char_T f_0[7] = { 'j', 'o', 'i', 'n', 't', '_', '2' };
 
-  static const char_T l[7] = { 'j', 'o', 'i', 'n', 't', '_', '5' };
+  static const char_T g_0[7] = { 'j', 'o', 'i', 'n', 't', '_', '3' };
 
-  static const char_T m[7] = { 'j', 'o', 'i', 'n', 't', '_', '6' };
-
+  int32_T exitg1;
+  boolean_T exitg2;
   if (rtmIsMajorTimeStep(dynsim_edo_M)) {
     // set solver stop time
     rtsiSetSolverStopTime(&dynsim_edo_M->solverInfo,
@@ -3831,12 +7786,231 @@ void dynsim_edo_step(void)
     dynsim_edo_M->Timing.t[0] = rtsiGetT(&dynsim_edo_M->solverInfo);
   }
 
+  // MATLABSystem: '<S16>/Get Parameter'
+  ParamGet_dynsim_edo_112.get_parameter(&dynsim_edo_B.bid1);
+
+  // MATLABSystem: '<S16>/Get Parameter1'
+  ParamGet_dynsim_edo_113.get_parameter(&dynsim_edo_B.k);
+
+  // MATLABSystem: '<S16>/Get Parameter4'
+  ParamGet_dynsim_edo_125.get_parameter(&dynsim_edo_B.j);
+
+  // Integrator: '<S13>/Position' incorporates:
+  //   MATLABSystem: '<S16>/Get Parameter'
+  //   MATLABSystem: '<S16>/Get Parameter1'
+  //   MATLABSystem: '<S16>/Get Parameter4'
+
+  if (dynsim_edo_DW.Position_IWORK != 0) {
+    dynsim_edo_X.Position_CSTATE[0] = dynsim_edo_B.bid1;
+    dynsim_edo_X.Position_CSTATE[1] = dynsim_edo_B.k;
+    dynsim_edo_X.Position_CSTATE[2] = dynsim_edo_B.j;
+  }
+
+  dynsim_edo_emxInit_real_T(&b, 2);
+  dynsim_edo_emxInit_f_cell_wrap(&Ttree, 2);
+  dynsim_edo_emxInit_char_T(&bname, 2);
+
+  // MATLABSystem: '<S4>/MATLAB System' incorporates:
+  //   Integrator: '<S13>/Position'
+
+  RigidBodyTree_geometricJacobian(&dynsim_edo_DW.obj_a.TreeInternal,
+    dynsim_edo_X.Position_CSTATE, b);
+
+  // MATLABSystem: '<S5>/MATLAB System' incorporates:
+  //   Integrator: '<S13>/Position'
+
+  obj = &dynsim_edo_DW.obj_o;
+  obj_0 = &dynsim_edo_DW.obj_o.TreeInternal;
+  RigidBodyTree_forwardKinemati_h(&obj->TreeInternal,
+    dynsim_edo_X.Position_CSTATE, Ttree);
+  dynsim_edo_B.bid1 = -1.0;
+  dynsim_edo_B.ret = bname->size[0] * bname->size[1];
+  bname->size[0] = 1;
+  bname->size[1] = obj_0->Base.NameInternal->size[1];
+  dynsim_emxEnsureCapacity_char_T(bname, dynsim_edo_B.ret);
+  dynsim_edo_B.loop_ub = obj_0->Base.NameInternal->size[0] *
+    obj_0->Base.NameInternal->size[1] - 1;
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret <= dynsim_edo_B.loop_ub;
+       dynsim_edo_B.ret++) {
+    bname->data[dynsim_edo_B.ret] = obj_0->Base.NameInternal->
+      data[dynsim_edo_B.ret];
+  }
+
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret < 6; dynsim_edo_B.ret++) {
+    dynsim_edo_B.b_hh[dynsim_edo_B.ret] = tmp_0[dynsim_edo_B.ret];
+  }
+
+  dynsim_edo_B.b_bool = false;
+  if (bname->size[1] == 6) {
+    dynsim_edo_B.loop_ub = 1;
+    do {
+      exitg1 = 0;
+      if (dynsim_edo_B.loop_ub - 1 < 6) {
+        dynsim_edo_B.ret = dynsim_edo_B.loop_ub - 1;
+        if (bname->data[dynsim_edo_B.ret] != dynsim_edo_B.b_hh[dynsim_edo_B.ret])
+        {
+          exitg1 = 1;
+        } else {
+          dynsim_edo_B.loop_ub++;
+        }
+      } else {
+        dynsim_edo_B.b_bool = true;
+        exitg1 = 1;
+      }
+    } while (exitg1 == 0);
+  }
+
+  dynsim_edo_emxFree_char_T(&bname);
+
+  // MATLABSystem: '<S5>/MATLAB System'
+  if (dynsim_edo_B.b_bool) {
+    dynsim_edo_B.bid1 = 0.0;
+  } else {
+    dynsim_edo_B.k = obj->TreeInternal.NumBodies;
+    dynsim_edo_B.loop_ub = 0;
+    exitg2 = false;
+    while ((!exitg2) && (dynsim_edo_B.loop_ub <= static_cast<int32_T>
+                         (dynsim_edo_B.k) - 1)) {
+      obj_1 = obj_0->Bodies[dynsim_edo_B.loop_ub];
+      for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret < 6; dynsim_edo_B.ret++) {
+        dynsim_edo_B.bname[dynsim_edo_B.ret] = obj_1->
+          NameInternal[dynsim_edo_B.ret];
+      }
+
+      for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret < 6; dynsim_edo_B.ret++) {
+        dynsim_edo_B.b_hh[dynsim_edo_B.ret] = tmp_0[dynsim_edo_B.ret];
+      }
+
+      dynsim_edo_B.ret = memcmp(&dynsim_edo_B.bname[0], &dynsim_edo_B.b_hh[0], 6);
+      if (dynsim_edo_B.ret == 0) {
+        dynsim_edo_B.bid1 = static_cast<real_T>(dynsim_edo_B.loop_ub) + 1.0;
+        exitg2 = true;
+      } else {
+        dynsim_edo_B.loop_ub++;
+      }
+    }
+  }
+
+  if (dynsim_edo_B.bid1 == 0.0) {
+    memset(&dynsim_edo_B.T1[0], 0, sizeof(real_T) << 4U);
+    dynsim_edo_B.T1[0] = 1.0;
+    dynsim_edo_B.T1[5] = 1.0;
+    dynsim_edo_B.T1[10] = 1.0;
+    dynsim_edo_B.T1[15] = 1.0;
+  } else {
+    for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret < 16; dynsim_edo_B.ret++) {
+      dynsim_edo_B.T1[dynsim_edo_B.ret] = Ttree->data[static_cast<int32_T>
+        (dynsim_edo_B.bid1) - 1].f1[dynsim_edo_B.ret];
+    }
+  }
+
+  dynsim_edo_emxFree_f_cell_wrap(&Ttree);
+
+  // MATLABSystem: '<S5>/MATLAB System'
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret < 16; dynsim_edo_B.ret++) {
+    dynsim_edo_B.T2_i[dynsim_edo_B.ret] = 0;
+  }
+
+  dynsim_edo_B.T2_i[0] = 1;
+  dynsim_edo_B.T2_i[5] = 1;
+  dynsim_edo_B.T2_i[10] = 1;
+  dynsim_edo_B.T2_i[15] = 1;
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret < 3; dynsim_edo_B.ret++) {
+    dynsim_edo_B.R_j[3 * dynsim_edo_B.ret] = dynsim_edo_B.T2_i[dynsim_edo_B.ret];
+    dynsim_edo_B.R_j[3 * dynsim_edo_B.ret + 1] =
+      dynsim_edo_B.T2_i[dynsim_edo_B.ret + 4];
+    dynsim_edo_B.R_j[3 * dynsim_edo_B.ret + 2] =
+      dynsim_edo_B.T2_i[dynsim_edo_B.ret + 8];
+  }
+
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret < 9; dynsim_edo_B.ret++) {
+    dynsim_edo_B.R_d[dynsim_edo_B.ret] = -dynsim_edo_B.R_j[dynsim_edo_B.ret];
+  }
+
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret < 3; dynsim_edo_B.ret++) {
+    dynsim_edo_B.loop_ub = dynsim_edo_B.ret << 2;
+    dynsim_edo_B.R_c[dynsim_edo_B.loop_ub] = dynsim_edo_B.R_j[3 *
+      dynsim_edo_B.ret];
+    dynsim_edo_B.R_c[dynsim_edo_B.loop_ub + 1] = dynsim_edo_B.R_j[3 *
+      dynsim_edo_B.ret + 1];
+    dynsim_edo_B.R_c[dynsim_edo_B.loop_ub + 2] = dynsim_edo_B.R_j[3 *
+      dynsim_edo_B.ret + 2];
+    dynsim_edo_B.R_c[dynsim_edo_B.ret + 12] = dynsim_edo_B.R_d[dynsim_edo_B.ret
+      + 6] * static_cast<real_T>(dynsim_edo_B.T2_i[14]) +
+      (dynsim_edo_B.R_d[dynsim_edo_B.ret + 3] * static_cast<real_T>
+       (dynsim_edo_B.T2_i[13]) + dynsim_edo_B.R_d[dynsim_edo_B.ret] *
+       static_cast<real_T>(dynsim_edo_B.T2_i[12]));
+  }
+
+  dynsim_edo_B.R_c[3] = 0.0;
+  dynsim_edo_B.R_c[7] = 0.0;
+  dynsim_edo_B.R_c[11] = 0.0;
+  dynsim_edo_B.R_c[15] = 1.0;
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret < 4; dynsim_edo_B.ret++) {
+    for (dynsim_edo_B.n_p = 0; dynsim_edo_B.n_p < 4; dynsim_edo_B.n_p++) {
+      dynsim_edo_B.loop_ub = dynsim_edo_B.ret << 2;
+      dynsim_edo_B.rtb_MATLABSystem_tmp = dynsim_edo_B.n_p +
+        dynsim_edo_B.loop_ub;
+      dynsim_edo_B.MATLABSystem_k[dynsim_edo_B.rtb_MATLABSystem_tmp] = 0.0;
+      dynsim_edo_B.MATLABSystem_k[dynsim_edo_B.rtb_MATLABSystem_tmp] +=
+        dynsim_edo_B.T1[dynsim_edo_B.loop_ub] *
+        dynsim_edo_B.R_c[dynsim_edo_B.n_p];
+      dynsim_edo_B.MATLABSystem_k[dynsim_edo_B.rtb_MATLABSystem_tmp] +=
+        dynsim_edo_B.T1[dynsim_edo_B.loop_ub + 1] *
+        dynsim_edo_B.R_c[dynsim_edo_B.n_p + 4];
+      dynsim_edo_B.MATLABSystem_k[dynsim_edo_B.rtb_MATLABSystem_tmp] +=
+        dynsim_edo_B.T1[dynsim_edo_B.loop_ub + 2] *
+        dynsim_edo_B.R_c[dynsim_edo_B.n_p + 8];
+      dynsim_edo_B.MATLABSystem_k[dynsim_edo_B.rtb_MATLABSystem_tmp] +=
+        dynsim_edo_B.T1[dynsim_edo_B.loop_ub + 3] *
+        dynsim_edo_B.R_c[dynsim_edo_B.n_p + 12];
+    }
+  }
+
+  // MATLABSystem: '<S16>/Get Parameter2'
+  ParamGet_dynsim_edo_117.get_parameter(&dynsim_edo_B.bid1);
+
+  // MATLABSystem: '<S16>/Get Parameter3'
+  ParamGet_dynsim_edo_118.get_parameter(&dynsim_edo_B.k);
+
+  // MATLABSystem: '<S16>/Get Parameter8'
+  ParamGet_dynsim_edo_133.get_parameter(&dynsim_edo_B.j);
+
+  // Integrator: '<S13>/Velocity' incorporates:
+  //   MATLABSystem: '<S16>/Get Parameter2'
+  //   MATLABSystem: '<S16>/Get Parameter3'
+  //   MATLABSystem: '<S16>/Get Parameter8'
+
+  if (dynsim_edo_DW.Velocity_IWORK != 0) {
+    dynsim_edo_X.Velocity_CSTATE[0] = dynsim_edo_B.bid1;
+    dynsim_edo_X.Velocity_CSTATE[1] = dynsim_edo_B.k;
+    dynsim_edo_X.Velocity_CSTATE[2] = dynsim_edo_B.j;
+  }
+
+  dynsim_edo_B.Velocity[0] = dynsim_edo_X.Velocity_CSTATE[0];
+  dynsim_edo_B.Velocity[1] = dynsim_edo_X.Velocity_CSTATE[1];
+  dynsim_edo_B.Velocity[2] = dynsim_edo_X.Velocity_CSTATE[2];
+
+  // End of Integrator: '<S13>/Velocity'
+
+  // MATLAB Function: '<Root>/MATLAB Function' incorporates:
+  //   MATLABSystem: '<S4>/MATLAB System'
+
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret < 4; dynsim_edo_B.ret++) {
+    dynsim_edo_B.bid1 = b->data[dynsim_edo_B.ret + 2] * dynsim_edo_B.Velocity[0];
+    dynsim_edo_B.bid1 += b->data[dynsim_edo_B.ret + 8] * dynsim_edo_B.Velocity[1];
+    dynsim_edo_B.bid1 += b->data[dynsim_edo_B.ret + 14] * dynsim_edo_B.Velocity
+      [2];
+    dynsim_edo_B.cartVel[dynsim_edo_B.ret] = dynsim_edo_B.bid1;
+  }
+
+  dynsim_edo_emxFree_real_T(&b);
   if (rtmIsMajorTimeStep(dynsim_edo_M)) {
     // Outputs for Atomic SubSystem: '<Root>/Subscribe'
-    // MATLABSystem: '<S10>/SourceBlock' incorporates:
-    //   Inport: '<S12>/In1'
+    // MATLABSystem: '<S12>/SourceBlock' incorporates:
+    //   Inport: '<S14>/In1'
 
-    dynsim_edo_SystemCore_step(&dynsim_edo_B.b_varargout_1,
+    dynsim_edo_SystemCore_step(&dynsim_edo_B.b_bool,
       dynsim_edo_B.b_varargout_2_Data,
       &dynsim_edo_B.b_varargout_2_Data_SL_Info_Curr,
       &dynsim_edo_B.b_varargout_2_Data_SL_Info_Rece,
@@ -3845,10 +8019,10 @@ void dynsim_edo_step(void)
       &dynsim_edo_B.b_varargout_2_Layout_Dim_SL_Inf,
       &dynsim_edo_B.b_varargout_2_Layout_Dim_SL_I_f);
 
-    // Outputs for Enabled SubSystem: '<S10>/Enabled Subsystem' incorporates:
-    //   EnablePort: '<S12>/Enable'
+    // Outputs for Enabled SubSystem: '<S12>/Enabled Subsystem' incorporates:
+    //   EnablePort: '<S14>/Enable'
 
-    if (dynsim_edo_B.b_varargout_1) {
+    if (dynsim_edo_B.b_bool) {
       memcpy(&dynsim_edo_B.In1.Data[0], &dynsim_edo_B.b_varargout_2_Data[0],
              sizeof(real_T) << 7U);
       dynsim_edo_B.In1.Data_SL_Info.CurrentLength =
@@ -3866,202 +8040,128 @@ void dynsim_edo_step(void)
         dynsim_edo_B.b_varargout_2_Layout_Dim_SL_I_f;
     }
 
-    // End of MATLABSystem: '<S10>/SourceBlock'
-    // End of Outputs for SubSystem: '<S10>/Enabled Subsystem'
+    // End of MATLABSystem: '<S12>/SourceBlock'
+    // End of Outputs for SubSystem: '<S12>/Enabled Subsystem'
     // End of Outputs for SubSystem: '<Root>/Subscribe'
   }
 
-  // MATLABSystem: '<S14>/Get Parameter'
-  ParamGet_dynsim_edo_112.get_parameter(&dynsim_edo_B.vNum);
-
-  // MATLABSystem: '<S14>/Get Parameter1'
-  ParamGet_dynsim_edo_113.get_parameter(&dynsim_edo_B.k);
-
-  // MATLABSystem: '<S14>/Get Parameter4'
-  ParamGet_dynsim_edo_125.get_parameter(&dynsim_edo_B.j);
-
-  // MATLABSystem: '<S14>/Get Parameter5'
-  ParamGet_dynsim_edo_126.get_parameter(&dynsim_edo_B.value);
-
-  // MATLABSystem: '<S14>/Get Parameter6'
-  ParamGet_dynsim_edo_127.get_parameter(&dynsim_edo_B.value_d);
-
-  // MATLABSystem: '<S14>/Get Parameter7'
-  ParamGet_dynsim_edo_128.get_parameter(&dynsim_edo_B.value_dy);
-
-  // Integrator: '<S11>/Position' incorporates:
-  //   MATLABSystem: '<S14>/Get Parameter'
-  //   MATLABSystem: '<S14>/Get Parameter1'
-  //   MATLABSystem: '<S14>/Get Parameter4'
-  //   MATLABSystem: '<S14>/Get Parameter5'
-  //   MATLABSystem: '<S14>/Get Parameter6'
-  //   MATLABSystem: '<S14>/Get Parameter7'
-
-  if (dynsim_edo_DW.Position_IWORK != 0) {
-    dynsim_edo_X.Position_CSTATE[0] = dynsim_edo_B.vNum;
-    dynsim_edo_X.Position_CSTATE[1] = dynsim_edo_B.k;
-    dynsim_edo_X.Position_CSTATE[2] = dynsim_edo_B.j;
-    dynsim_edo_X.Position_CSTATE[3] = dynsim_edo_B.value;
-    dynsim_edo_X.Position_CSTATE[4] = dynsim_edo_B.value_d;
-    dynsim_edo_X.Position_CSTATE[5] = dynsim_edo_B.value_dy;
-  }
-
-  // MATLABSystem: '<S14>/Get Parameter2'
-  ParamGet_dynsim_edo_117.get_parameter(&dynsim_edo_B.vNum);
-
-  // MATLABSystem: '<S14>/Get Parameter3'
-  ParamGet_dynsim_edo_118.get_parameter(&dynsim_edo_B.k);
-
-  // MATLABSystem: '<S14>/Get Parameter8'
-  ParamGet_dynsim_edo_133.get_parameter(&dynsim_edo_B.j);
-
-  // MATLABSystem: '<S14>/Get Parameter9'
-  ParamGet_dynsim_edo_134.get_parameter(&dynsim_edo_B.value);
-
-  // MATLABSystem: '<S14>/Get Parameter10'
-  ParamGet_dynsim_edo_135.get_parameter(&dynsim_edo_B.value_d);
-
-  // MATLABSystem: '<S14>/Get Parameter11'
-  ParamGet_dynsim_edo_136.get_parameter(&dynsim_edo_B.value_dy);
-
-  // Integrator: '<S11>/Velocity' incorporates:
-  //   MATLABSystem: '<S14>/Get Parameter10'
-  //   MATLABSystem: '<S14>/Get Parameter11'
-  //   MATLABSystem: '<S14>/Get Parameter2'
-  //   MATLABSystem: '<S14>/Get Parameter3'
-  //   MATLABSystem: '<S14>/Get Parameter8'
-  //   MATLABSystem: '<S14>/Get Parameter9'
-
-  if (dynsim_edo_DW.Velocity_IWORK != 0) {
-    dynsim_edo_X.Velocity_CSTATE[0] = dynsim_edo_B.vNum;
-    dynsim_edo_X.Velocity_CSTATE[1] = dynsim_edo_B.k;
-    dynsim_edo_X.Velocity_CSTATE[2] = dynsim_edo_B.j;
-    dynsim_edo_X.Velocity_CSTATE[3] = dynsim_edo_B.value;
-    dynsim_edo_X.Velocity_CSTATE[4] = dynsim_edo_B.value_d;
-    dynsim_edo_X.Velocity_CSTATE[5] = dynsim_edo_B.value_dy;
-  }
-
-  for (dynsim_edo_B.i = 0; dynsim_edo_B.i < 6; dynsim_edo_B.i++) {
-    dynsim_edo_B.Velocity[dynsim_edo_B.i] =
-      dynsim_edo_X.Velocity_CSTATE[dynsim_edo_B.i];
-  }
-
-  // End of Integrator: '<S11>/Velocity'
   dynsim_edo_emxInit_real_T(&L, 2);
   dynsim_edo_emxInit_real_T(&lambda, 2);
   dynsim_edo_emxInit_real_T(&tmp, 1);
 
-  // MATLABSystem: '<S13>/MATLAB System' incorporates:
-  //   Constant: '<S11>/Constant'
-  //   Integrator: '<S11>/Position'
+  // MATLABSystem: '<S15>/MATLAB System' incorporates:
+  //   Constant: '<S13>/Constant'
+  //   Integrator: '<S13>/Position'
 
-  obj = &dynsim_edo_DW.obj;
+  obj_2 = &dynsim_edo_DW.obj;
   RigidBodyTreeDynamics_massMatri(&dynsim_edo_DW.obj.TreeInternal,
     dynsim_edo_X.Position_CSTATE, L, lambda);
-  dynsim_edo_B.vNum = obj->TreeInternal.VelocityNumber;
-  dynsim_edo_B.vNum_idx_0_tmp = static_cast<int32_T>(dynsim_edo_B.vNum);
-  dynsim_edo_B.j_j = tmp->size[0];
-  tmp->size[0] = dynsim_edo_B.vNum_idx_0_tmp;
-  dynsim_emxEnsureCapacity_real_T(tmp, dynsim_edo_B.j_j);
-  for (dynsim_edo_B.j_j = 0; dynsim_edo_B.j_j < dynsim_edo_B.vNum_idx_0_tmp;
-       dynsim_edo_B.j_j++) {
-    tmp->data[dynsim_edo_B.j_j] = 0.0;
+  dynsim_edo_B.bid1 = obj_2->TreeInternal.VelocityNumber;
+  dynsim_edo_B.rtb_MATLABSystem_tmp = static_cast<int32_T>(dynsim_edo_B.bid1);
+  dynsim_edo_B.ret = tmp->size[0];
+  tmp->size[0] = dynsim_edo_B.rtb_MATLABSystem_tmp;
+  dynsim_emxEnsureCapacity_real_T(tmp, dynsim_edo_B.ret);
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret <
+       dynsim_edo_B.rtb_MATLABSystem_tmp; dynsim_edo_B.ret++) {
+    tmp->data[dynsim_edo_B.ret] = 0.0;
   }
 
-  RigidBodyTreeDynamics_inverseDy(&obj->TreeInternal,
+  RigidBodyTreeDynamics_inverseDy(&obj_2->TreeInternal,
     dynsim_edo_X.Position_CSTATE, dynsim_edo_B.Velocity,
     dynsim_edo_P.Constant_Value_f, dynsim_edo_B.MATLABSystem);
   dynsim_edo_emxFree_real_T(&tmp);
 
-  // MATLABSystem: '<S13>/MATLAB System'
-  for (dynsim_edo_B.j_j = 0; dynsim_edo_B.j_j < 6; dynsim_edo_B.j_j++) {
-    dynsim_edo_B.MATLABSystem[dynsim_edo_B.j_j] =
-      dynsim_edo_B.In1.Data[dynsim_edo_B.j_j + 1] -
-      dynsim_edo_B.MATLABSystem[dynsim_edo_B.j_j];
-  }
-
+  // MATLABSystem: '<S15>/MATLAB System'
+  dynsim_edo_B.MATLABSystem[0] = dynsim_edo_B.In1.Data[1] -
+    dynsim_edo_B.MATLABSystem[0];
+  dynsim_edo_B.MATLABSystem[1] = dynsim_edo_B.In1.Data[2] -
+    dynsim_edo_B.MATLABSystem[1];
+  dynsim_edo_B.MATLABSystem[2] = dynsim_edo_B.In1.Data[3] -
+    dynsim_edo_B.MATLABSystem[2];
   if ((L->size[0] == 0) || (L->size[1] == 0)) {
-    dynsim_edo_B.iend = 0;
+    dynsim_edo_B.u1 = 0;
   } else {
-    dynsim_edo_B.i = L->size[0];
-    dynsim_edo_B.iend = L->size[1];
-    if (dynsim_edo_B.i > dynsim_edo_B.iend) {
-      dynsim_edo_B.iend = dynsim_edo_B.i;
+    dynsim_edo_B.loop_ub = L->size[0];
+    dynsim_edo_B.u1 = L->size[1];
+    if (dynsim_edo_B.loop_ub > dynsim_edo_B.u1) {
+      dynsim_edo_B.u1 = dynsim_edo_B.loop_ub;
     }
   }
 
   dynsim_edo_emxInit_real_T(&H, 2);
 
-  // MATLABSystem: '<S13>/MATLAB System'
-  dynsim_edo_B.j_j = H->size[0] * H->size[1];
+  // MATLABSystem: '<S15>/MATLAB System'
+  dynsim_edo_B.ret = H->size[0] * H->size[1];
   H->size[0] = L->size[0];
   H->size[1] = L->size[1];
-  dynsim_emxEnsureCapacity_real_T(H, dynsim_edo_B.j_j);
-  dynsim_edo_B.i = L->size[0] * L->size[1] - 1;
-  for (dynsim_edo_B.j_j = 0; dynsim_edo_B.j_j <= dynsim_edo_B.i;
-       dynsim_edo_B.j_j++) {
-    H->data[dynsim_edo_B.j_j] = L->data[dynsim_edo_B.j_j];
+  dynsim_emxEnsureCapacity_real_T(H, dynsim_edo_B.ret);
+  dynsim_edo_B.loop_ub = L->size[0] * L->size[1] - 1;
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret <= dynsim_edo_B.loop_ub;
+       dynsim_edo_B.ret++) {
+    H->data[dynsim_edo_B.ret] = L->data[dynsim_edo_B.ret];
   }
 
-  dynsim_edo_B.n = static_cast<int32_T>(((-1.0 - static_cast<real_T>
-    (dynsim_edo_B.iend)) + 1.0) / -1.0) - 1;
-  for (dynsim_edo_B.i = 0; dynsim_edo_B.i <= dynsim_edo_B.n; dynsim_edo_B.i++) {
-    dynsim_edo_B.j = static_cast<real_T>(dynsim_edo_B.iend) +
-      -static_cast<real_T>(dynsim_edo_B.i);
-    dynsim_edo_B.j_j = static_cast<int32_T>(dynsim_edo_B.j);
-    dynsim_edo_B.MATLABSystem_tmp = dynsim_edo_B.j_j - 1;
+  dynsim_edo_B.iend = static_cast<int32_T>(((-1.0 - static_cast<real_T>
+    (dynsim_edo_B.u1)) + 1.0) / -1.0) - 1;
+  for (dynsim_edo_B.loop_ub = 0; dynsim_edo_B.loop_ub <= dynsim_edo_B.iend;
+       dynsim_edo_B.loop_ub++) {
+    dynsim_edo_B.j = static_cast<real_T>(dynsim_edo_B.u1) + -static_cast<real_T>
+      (dynsim_edo_B.loop_ub);
+    dynsim_edo_B.ret = static_cast<int32_T>(dynsim_edo_B.j);
+    dynsim_edo_B.n_p = dynsim_edo_B.ret - 1;
     H->data[(static_cast<int32_T>(dynsim_edo_B.j) + H->size[0] *
              (static_cast<int32_T>(dynsim_edo_B.j) - 1)) - 1] = sqrt(H->data
-      [(dynsim_edo_B.MATLABSystem_tmp * H->size[0] + dynsim_edo_B.j_j) - 1]);
-    dynsim_edo_B.k = lambda->data[dynsim_edo_B.MATLABSystem_tmp];
+      [(dynsim_edo_B.n_p * H->size[0] + dynsim_edo_B.ret) - 1]);
+    dynsim_edo_B.k = lambda->data[dynsim_edo_B.n_p];
     while (dynsim_edo_B.k > 0.0) {
-      dynsim_edo_B.i_o = static_cast<int32_T>(dynsim_edo_B.k) - 1;
-      H->data[(static_cast<int32_T>(dynsim_edo_B.j) + H->size[0] *
-               (static_cast<int32_T>(dynsim_edo_B.k) - 1)) - 1] = H->data
-        [(dynsim_edo_B.i_o * H->size[0] + dynsim_edo_B.j_j) - 1] / H->data[((
-        static_cast<int32_T>(dynsim_edo_B.j) - 1) * H->size[0] +
-        static_cast<int32_T>(dynsim_edo_B.j)) - 1];
-      dynsim_edo_B.k = lambda->data[dynsim_edo_B.i_o];
+      dynsim_edo_B.i = static_cast<int32_T>(dynsim_edo_B.k) - 1;
+      H->data[(static_cast<int32_T>(dynsim_edo_B.j) + H->size[0] * (static_cast<
+                int32_T>(dynsim_edo_B.k) - 1)) - 1] = H->data[(dynsim_edo_B.i *
+        H->size[0] + dynsim_edo_B.ret) - 1] / H->data[((static_cast<int32_T>
+        (dynsim_edo_B.j) - 1) * H->size[0] + static_cast<int32_T>(dynsim_edo_B.j))
+        - 1];
+      dynsim_edo_B.k = lambda->data[dynsim_edo_B.i];
     }
 
-    dynsim_edo_B.k = lambda->data[dynsim_edo_B.MATLABSystem_tmp];
+    dynsim_edo_B.k = lambda->data[dynsim_edo_B.n_p];
     while (dynsim_edo_B.k > 0.0) {
       dynsim_edo_B.j = dynsim_edo_B.k;
       while (dynsim_edo_B.j > 0.0) {
-        dynsim_edo_B.MATLABSystem_tmp = static_cast<int32_T>(dynsim_edo_B.j) - 1;
+        dynsim_edo_B.n_p = static_cast<int32_T>(dynsim_edo_B.j) - 1;
         H->data[(static_cast<int32_T>(dynsim_edo_B.k) + H->size[0] * (
                   static_cast<int32_T>(dynsim_edo_B.j) - 1)) - 1] = H->data
-          [(dynsim_edo_B.MATLABSystem_tmp * H->size[0] + static_cast<int32_T>
-            (dynsim_edo_B.k)) - 1] - H->data[((static_cast<int32_T>
-          (dynsim_edo_B.k) - 1) * H->size[0] + dynsim_edo_B.j_j) - 1] * H->data
+          [(dynsim_edo_B.n_p * H->size[0] + static_cast<int32_T>(dynsim_edo_B.k))
+          - 1] - H->data[((static_cast<int32_T>(dynsim_edo_B.k) - 1) * H->size[0]
+                          + dynsim_edo_B.ret) - 1] * H->data
           [((static_cast<int32_T>(dynsim_edo_B.j) - 1) * H->size[0] +
-            dynsim_edo_B.j_j) - 1];
-        dynsim_edo_B.j = lambda->data[dynsim_edo_B.MATLABSystem_tmp];
+            dynsim_edo_B.ret) - 1];
+        dynsim_edo_B.j = lambda->data[dynsim_edo_B.n_p];
       }
 
       dynsim_edo_B.k = lambda->data[static_cast<int32_T>(dynsim_edo_B.k) - 1];
     }
   }
 
-  dynsim_edo_B.j_j = L->size[0] * L->size[1];
+  dynsim_edo_B.ret = L->size[0] * L->size[1];
   L->size[0] = H->size[0];
   L->size[1] = H->size[1];
-  dynsim_emxEnsureCapacity_real_T(L, dynsim_edo_B.j_j);
-  dynsim_edo_B.i = H->size[0] * H->size[1] - 1;
-  for (dynsim_edo_B.j_j = 0; dynsim_edo_B.j_j <= dynsim_edo_B.i;
-       dynsim_edo_B.j_j++) {
-    L->data[dynsim_edo_B.j_j] = H->data[dynsim_edo_B.j_j];
+  dynsim_emxEnsureCapacity_real_T(L, dynsim_edo_B.ret);
+  dynsim_edo_B.loop_ub = H->size[0] * H->size[1] - 1;
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret <= dynsim_edo_B.loop_ub;
+       dynsim_edo_B.ret++) {
+    L->data[dynsim_edo_B.ret] = H->data[dynsim_edo_B.ret];
   }
 
-  dynsim_edo_B.n = H->size[1];
+  dynsim_edo_B.n_p = H->size[1];
   if ((H->size[0] == 0) || (H->size[1] == 0) || (1 >= H->size[1])) {
   } else {
     dynsim_edo_B.iend = 0;
-    for (dynsim_edo_B.j_j = 2; dynsim_edo_B.j_j <= dynsim_edo_B.n;
-         dynsim_edo_B.j_j++) {
-      for (dynsim_edo_B.i = 0; dynsim_edo_B.i <= dynsim_edo_B.iend;
-           dynsim_edo_B.i++) {
-        L->data[dynsim_edo_B.i + L->size[0] * (dynsim_edo_B.j_j - 1)] = 0.0;
+    for (dynsim_edo_B.ret = 2; dynsim_edo_B.ret <= dynsim_edo_B.n_p;
+         dynsim_edo_B.ret++) {
+      for (dynsim_edo_B.loop_ub = 0; dynsim_edo_B.loop_ub <= dynsim_edo_B.iend;
+           dynsim_edo_B.loop_ub++) {
+        L->data[dynsim_edo_B.loop_ub + L->size[0] * (dynsim_edo_B.ret - 1)] =
+          0.0;
       }
 
       if (dynsim_edo_B.iend + 1 < H->size[0]) {
@@ -4072,39 +8172,40 @@ void dynsim_edo_step(void)
 
   dynsim_edo_emxFree_real_T(&H);
 
-  // MATLABSystem: '<S13>/MATLAB System'
-  dynsim_edo_B.n = static_cast<int32_T>(((-1.0 - dynsim_edo_B.vNum) + 1.0) /
+  // MATLABSystem: '<S15>/MATLAB System'
+  dynsim_edo_B.iend = static_cast<int32_T>(((-1.0 - dynsim_edo_B.bid1) + 1.0) /
     -1.0) - 1;
-  for (dynsim_edo_B.i = 0; dynsim_edo_B.i <= dynsim_edo_B.n; dynsim_edo_B.i++) {
-    dynsim_edo_B.iend = static_cast<int32_T>(dynsim_edo_B.vNum +
-      -static_cast<real_T>(dynsim_edo_B.i));
-    dynsim_edo_B.j_j = dynsim_edo_B.iend - 1;
-    dynsim_edo_B.MATLABSystem[dynsim_edo_B.j_j] /= L->data[(dynsim_edo_B.j_j *
-      L->size[0] + dynsim_edo_B.iend) - 1];
-    dynsim_edo_B.j = lambda->data[dynsim_edo_B.j_j];
+  for (dynsim_edo_B.loop_ub = 0; dynsim_edo_B.loop_ub <= dynsim_edo_B.iend;
+       dynsim_edo_B.loop_ub++) {
+    dynsim_edo_B.n_p = static_cast<int32_T>(dynsim_edo_B.bid1 +
+      -static_cast<real_T>(dynsim_edo_B.loop_ub));
+    dynsim_edo_B.ret = dynsim_edo_B.n_p - 1;
+    dynsim_edo_B.MATLABSystem[dynsim_edo_B.ret] /= L->data[(dynsim_edo_B.ret *
+      L->size[0] + dynsim_edo_B.n_p) - 1];
+    dynsim_edo_B.j = lambda->data[dynsim_edo_B.ret];
     while (dynsim_edo_B.j > 0.0) {
-      dynsim_edo_B.MATLABSystem_tmp = static_cast<int32_T>(dynsim_edo_B.j) - 1;
-      dynsim_edo_B.MATLABSystem[dynsim_edo_B.MATLABSystem_tmp] -= L->data
-        [(dynsim_edo_B.MATLABSystem_tmp * L->size[0] + dynsim_edo_B.iend) - 1] *
-        dynsim_edo_B.MATLABSystem[dynsim_edo_B.j_j];
-      dynsim_edo_B.j = lambda->data[dynsim_edo_B.MATLABSystem_tmp];
+      dynsim_edo_B.u1 = static_cast<int32_T>(dynsim_edo_B.j) - 1;
+      dynsim_edo_B.MATLABSystem[dynsim_edo_B.u1] -= L->data[(dynsim_edo_B.u1 *
+        L->size[0] + dynsim_edo_B.n_p) - 1] *
+        dynsim_edo_B.MATLABSystem[dynsim_edo_B.ret];
+      dynsim_edo_B.j = lambda->data[dynsim_edo_B.u1];
     }
   }
 
-  dynsim_edo_B.vNum_idx_0_tmp--;
-  for (dynsim_edo_B.i = 0; dynsim_edo_B.i <= dynsim_edo_B.vNum_idx_0_tmp;
-       dynsim_edo_B.i++) {
-    dynsim_edo_B.j = lambda->data[dynsim_edo_B.i];
+  dynsim_edo_B.n_p = dynsim_edo_B.rtb_MATLABSystem_tmp - 1;
+  for (dynsim_edo_B.loop_ub = 0; dynsim_edo_B.loop_ub <= dynsim_edo_B.n_p;
+       dynsim_edo_B.loop_ub++) {
+    dynsim_edo_B.j = lambda->data[dynsim_edo_B.loop_ub];
     while (dynsim_edo_B.j > 0.0) {
-      dynsim_edo_B.j_j = static_cast<int32_T>(dynsim_edo_B.j) - 1;
-      dynsim_edo_B.MATLABSystem[dynsim_edo_B.i] -= L->data[dynsim_edo_B.j_j *
-        L->size[0] + dynsim_edo_B.i] *
-        dynsim_edo_B.MATLABSystem[dynsim_edo_B.j_j];
-      dynsim_edo_B.j = lambda->data[dynsim_edo_B.j_j];
+      dynsim_edo_B.ret = static_cast<int32_T>(dynsim_edo_B.j) - 1;
+      dynsim_edo_B.MATLABSystem[dynsim_edo_B.loop_ub] -= L->
+        data[dynsim_edo_B.ret * L->size[0] + dynsim_edo_B.loop_ub] *
+        dynsim_edo_B.MATLABSystem[dynsim_edo_B.ret];
+      dynsim_edo_B.j = lambda->data[dynsim_edo_B.ret];
     }
 
-    dynsim_edo_B.MATLABSystem[dynsim_edo_B.i] /= L->data[L->size[0] *
-      dynsim_edo_B.i + dynsim_edo_B.i];
+    dynsim_edo_B.MATLABSystem[dynsim_edo_B.loop_ub] /= L->data[L->size[0] *
+      dynsim_edo_B.loop_ub + dynsim_edo_B.loop_ub];
   }
 
   dynsim_edo_emxFree_real_T(&lambda);
@@ -4113,23 +8214,24 @@ void dynsim_edo_step(void)
   // Clock: '<Root>/Clock1' incorporates:
   //   Clock: '<Root>/Clock'
 
-  dynsim_edo_B.vNum = dynsim_edo_M->Timing.t[0];
+  dynsim_edo_B.bid1 = dynsim_edo_M->Timing.t[0];
 
   // MATLAB Function: '<Root>/Assign to CartesianState msg' incorporates:
   //   Clock: '<Root>/Clock1'
-  //   Constant: '<S4>/Constant'
+  //   Constant: '<S6>/Constant'
+  //   MATLAB Function: '<Root>/MATLAB Function'
 
   dynsim_edo_B.msg_g = dynsim_edo_P.Constant_Value;
-  if (dynsim_edo_B.vNum < 0.0) {
+  if (dynsim_edo_B.bid1 < 0.0) {
     // MATLAB Function: '<Root>/Assign to JointState msg'
-    dynsim_edo_B.k = ceil(dynsim_edo_B.vNum);
+    dynsim_edo_B.k = ceil(dynsim_edo_B.bid1);
   } else {
     // MATLAB Function: '<Root>/Assign to JointState msg'
-    dynsim_edo_B.k = floor(dynsim_edo_B.vNum);
+    dynsim_edo_B.k = floor(dynsim_edo_B.bid1);
   }
 
   dynsim_edo_B.msg_g.Header.Stamp.Sec = dynsim_edo_B.k;
-  dynsim_edo_B.j = (dynsim_edo_B.vNum - dynsim_edo_B.k) * 1.0E+9;
+  dynsim_edo_B.j = (dynsim_edo_B.bid1 - dynsim_edo_B.k) * 1.0E+9;
   if (dynsim_edo_B.j < 0.0) {
     // MATLAB Function: '<Root>/Assign to JointState msg'
     dynsim_edo_B.j = ceil(dynsim_edo_B.j);
@@ -4139,131 +8241,86 @@ void dynsim_edo_step(void)
   }
 
   dynsim_edo_B.msg_g.Header.Stamp.Nsec = dynsim_edo_B.j;
-  dynsim_edo_B.msg_g.Name_SL_Info.CurrentLength = 2U;
-  dynsim_edo_B.msg_g.Position_SL_Info.CurrentLength = 2U;
-  dynsim_edo_B.msg_g.Velocity_SL_Info.CurrentLength = 2U;
-  for (dynsim_edo_B.j_j = 0; dynsim_edo_B.j_j < 9; dynsim_edo_B.j_j++) {
-    dynsim_edo_B.msg_g.Name[0].Data[dynsim_edo_B.j_j] = static_cast<uint8_T>
-      (b[dynsim_edo_B.j_j]);
+  dynsim_edo_B.msg_g.Name_SL_Info.CurrentLength = 3U;
+  dynsim_edo_B.msg_g.Position_SL_Info.CurrentLength = 3U;
+  dynsim_edo_B.msg_g.Velocity_SL_Info.CurrentLength = 3U;
+  dynsim_edo_B.msg_g.Name[0].Data_SL_Info.CurrentLength = 7U;
+  dynsim_edo_B.msg_g.Position[0] = dynsim_edo_B.MATLABSystem_k[12];
+  dynsim_edo_B.msg_g.Velocity[0] = dynsim_edo_B.cartVel[0];
+  dynsim_edo_B.msg_g.Name[1].Data_SL_Info.CurrentLength = 7U;
+  dynsim_edo_B.msg_g.Position[1] = dynsim_edo_B.MATLABSystem_k[13];
+  dynsim_edo_B.msg_g.Velocity[1] = dynsim_edo_B.cartVel[1];
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret < 7; dynsim_edo_B.ret++) {
+    dynsim_edo_B.b_o4.f1[dynsim_edo_B.ret] = e[dynsim_edo_B.ret];
+    dynsim_edo_B.c.f1[dynsim_edo_B.ret] = f[dynsim_edo_B.ret];
+    dynsim_edo_B.d.f1[dynsim_edo_B.ret] = g[dynsim_edo_B.ret];
+    dynsim_edo_B.msg_g.Name[0].Data[dynsim_edo_B.ret] = static_cast<uint8_T>
+      (dynsim_edo_B.b_o4.f1[dynsim_edo_B.ret]);
+    dynsim_edo_B.msg_g.Name[1].Data[dynsim_edo_B.ret] = static_cast<uint8_T>
+      (dynsim_edo_B.c.f1[dynsim_edo_B.ret]);
+    dynsim_edo_B.msg_g.Name[2].Data[dynsim_edo_B.ret] = static_cast<uint8_T>
+      (dynsim_edo_B.d.f1[dynsim_edo_B.ret]);
   }
 
-  dynsim_edo_B.msg_g.Name[0].Data_SL_Info.CurrentLength = 9U;
+  dynsim_edo_B.msg_g.Name[2].Data_SL_Info.CurrentLength = 7U;
+  dynsim_edo_B.msg_g.Position[2] = dynsim_edo_B.MATLABSystem_k[14];
+  dynsim_edo_B.msg_g.Velocity[2] = dynsim_edo_B.cartVel[2];
 
-  // MATLAB Function: '<Root>/MATLAB Function' incorporates:
-  //   Integrator: '<S11>/Position'
-
-  dynsim_edo_B.value = cos(dynsim_edo_X.Position_CSTATE[0]);
-  dynsim_edo_B.value_d = dynsim_edo_X.Position_CSTATE[0] +
-    dynsim_edo_X.Position_CSTATE[1];
-  dynsim_edo_B.value_dy = cos(dynsim_edo_B.value_d);
-
-  // MATLAB Function: '<Root>/Assign to CartesianState msg' incorporates:
-  //   Constant: '<Root>/Constant'
-  //   MATLAB Function: '<Root>/MATLAB Function'
-
-  dynsim_edo_B.msg_g.Position[0] = dynsim_edo_P.Constant_Value_oa[0] *
-    dynsim_edo_B.value + dynsim_edo_P.Constant_Value_oa[1] *
-    dynsim_edo_B.value_dy;
-
-  // MATLAB Function: '<Root>/MATLAB Function' incorporates:
-  //   Constant: '<Root>/Constant'
-  //   Integrator: '<S11>/Position'
-
-  dynsim_edo_B.d = sin(dynsim_edo_X.Position_CSTATE[0]);
-  dynsim_edo_B.value_d = sin(dynsim_edo_B.value_d);
-  dynsim_edo_B.d1 = (dynsim_edo_B.Velocity[0] + dynsim_edo_B.Velocity[1]) *
-    dynsim_edo_P.Constant_Value_oa[1];
-
-  // MATLAB Function: '<Root>/Assign to CartesianState msg' incorporates:
-  //   Constant: '<Root>/Constant'
-  //   MATLAB Function: '<Root>/MATLAB Function'
-
-  dynsim_edo_B.msg_g.Velocity[0] = -dynsim_edo_P.Constant_Value_oa[0] *
-    dynsim_edo_B.Velocity[0] * dynsim_edo_B.d - dynsim_edo_B.d1 *
-    dynsim_edo_B.value_d;
-  for (dynsim_edo_B.j_j = 0; dynsim_edo_B.j_j < 13; dynsim_edo_B.j_j++) {
-    dynsim_edo_B.msg_g.Name[1].Data[dynsim_edo_B.j_j] = static_cast<uint8_T>
-      (c[dynsim_edo_B.j_j]);
-  }
-
-  dynsim_edo_B.msg_g.Name[1].Data_SL_Info.CurrentLength = 13U;
-  dynsim_edo_B.msg_g.Position[1] = dynsim_edo_P.Constant_Value_oa[0] *
-    dynsim_edo_B.d + dynsim_edo_P.Constant_Value_oa[1] * dynsim_edo_B.value_d;
-  dynsim_edo_B.msg_g.Velocity[1] = dynsim_edo_B.d1 * dynsim_edo_B.value_dy +
-    dynsim_edo_P.Constant_Value_oa[0] * dynsim_edo_B.Velocity[0] *
-    dynsim_edo_B.value;
+  // End of MATLAB Function: '<Root>/Assign to CartesianState msg'
 
   // Outputs for Atomic SubSystem: '<Root>/Publish2'
-  // MATLABSystem: '<S9>/SinkBlock'
+  // MATLABSystem: '<S11>/SinkBlock'
   Pub_dynsim_edo_124.publish(&dynsim_edo_B.msg_g);
 
   // End of Outputs for SubSystem: '<Root>/Publish2'
 
   // MATLAB Function: '<Root>/Assign to JointState msg' incorporates:
-  //   Constant: '<S4>/Constant'
-  //   Integrator: '<S11>/Position'
+  //   Constant: '<S6>/Constant'
+  //   Integrator: '<S13>/Position'
 
   dynsim_edo_B.msg_g = dynsim_edo_P.Constant_Value;
   dynsim_edo_B.msg_g.Header.Stamp.Sec = dynsim_edo_B.k;
   dynsim_edo_B.msg_g.Header.Stamp.Nsec = dynsim_edo_B.j;
-  dynsim_edo_B.msg_g.Name_SL_Info.CurrentLength = 6U;
-  dynsim_edo_B.msg_g.Position_SL_Info.CurrentLength = 6U;
-  dynsim_edo_B.msg_g.Velocity_SL_Info.CurrentLength = 6U;
+  dynsim_edo_B.msg_g.Name_SL_Info.CurrentLength = 3U;
+  dynsim_edo_B.msg_g.Position_SL_Info.CurrentLength = 3U;
+  dynsim_edo_B.msg_g.Velocity_SL_Info.CurrentLength = 3U;
   dynsim_edo_B.msg_g.Name[0].Data_SL_Info.CurrentLength = 7U;
   dynsim_edo_B.msg_g.Position[0] = dynsim_edo_X.Position_CSTATE[0];
   dynsim_edo_B.msg_g.Velocity[0] = dynsim_edo_B.Velocity[0];
   dynsim_edo_B.msg_g.Name[1].Data_SL_Info.CurrentLength = 7U;
   dynsim_edo_B.msg_g.Position[1] = dynsim_edo_X.Position_CSTATE[1];
   dynsim_edo_B.msg_g.Velocity[1] = dynsim_edo_B.Velocity[1];
+  for (dynsim_edo_B.ret = 0; dynsim_edo_B.ret < 7; dynsim_edo_B.ret++) {
+    dynsim_edo_B.b_o4.f1[dynsim_edo_B.ret] = e_0[dynsim_edo_B.ret];
+    dynsim_edo_B.c.f1[dynsim_edo_B.ret] = f_0[dynsim_edo_B.ret];
+    dynsim_edo_B.d.f1[dynsim_edo_B.ret] = g_0[dynsim_edo_B.ret];
+    dynsim_edo_B.msg_g.Name[0].Data[dynsim_edo_B.ret] = static_cast<uint8_T>
+      (dynsim_edo_B.b_o4.f1[dynsim_edo_B.ret]);
+    dynsim_edo_B.msg_g.Name[1].Data[dynsim_edo_B.ret] = static_cast<uint8_T>
+      (dynsim_edo_B.c.f1[dynsim_edo_B.ret]);
+    dynsim_edo_B.msg_g.Name[2].Data[dynsim_edo_B.ret] = static_cast<uint8_T>
+      (dynsim_edo_B.d.f1[dynsim_edo_B.ret]);
+  }
+
   dynsim_edo_B.msg_g.Name[2].Data_SL_Info.CurrentLength = 7U;
   dynsim_edo_B.msg_g.Position[2] = dynsim_edo_X.Position_CSTATE[2];
   dynsim_edo_B.msg_g.Velocity[2] = dynsim_edo_B.Velocity[2];
-  dynsim_edo_B.msg_g.Name[3].Data_SL_Info.CurrentLength = 7U;
-  dynsim_edo_B.msg_g.Position[3] = dynsim_edo_X.Position_CSTATE[3];
-  dynsim_edo_B.msg_g.Velocity[3] = dynsim_edo_B.Velocity[3];
-  dynsim_edo_B.msg_g.Name[4].Data_SL_Info.CurrentLength = 7U;
-  dynsim_edo_B.msg_g.Position[4] = dynsim_edo_X.Position_CSTATE[4];
-  dynsim_edo_B.msg_g.Velocity[4] = dynsim_edo_B.Velocity[4];
-  for (dynsim_edo_B.j_j = 0; dynsim_edo_B.j_j < 7; dynsim_edo_B.j_j++) {
-    dynsim_edo_B.b_e.f1[dynsim_edo_B.j_j] = h[dynsim_edo_B.j_j];
-    dynsim_edo_B.c.f1[dynsim_edo_B.j_j] = i[dynsim_edo_B.j_j];
-    dynsim_edo_B.d_b.f1[dynsim_edo_B.j_j] = j[dynsim_edo_B.j_j];
-    dynsim_edo_B.e.f1[dynsim_edo_B.j_j] = k[dynsim_edo_B.j_j];
-    dynsim_edo_B.f.f1[dynsim_edo_B.j_j] = l[dynsim_edo_B.j_j];
-    dynsim_edo_B.g.f1[dynsim_edo_B.j_j] = m[dynsim_edo_B.j_j];
-    dynsim_edo_B.msg_g.Name[0].Data[dynsim_edo_B.j_j] = static_cast<uint8_T>
-      (dynsim_edo_B.b_e.f1[dynsim_edo_B.j_j]);
-    dynsim_edo_B.msg_g.Name[1].Data[dynsim_edo_B.j_j] = static_cast<uint8_T>
-      (dynsim_edo_B.c.f1[dynsim_edo_B.j_j]);
-    dynsim_edo_B.msg_g.Name[2].Data[dynsim_edo_B.j_j] = static_cast<uint8_T>
-      (dynsim_edo_B.d_b.f1[dynsim_edo_B.j_j]);
-    dynsim_edo_B.msg_g.Name[3].Data[dynsim_edo_B.j_j] = static_cast<uint8_T>
-      (dynsim_edo_B.e.f1[dynsim_edo_B.j_j]);
-    dynsim_edo_B.msg_g.Name[4].Data[dynsim_edo_B.j_j] = static_cast<uint8_T>
-      (dynsim_edo_B.f.f1[dynsim_edo_B.j_j]);
-    dynsim_edo_B.msg_g.Name[5].Data[dynsim_edo_B.j_j] = static_cast<uint8_T>
-      (dynsim_edo_B.g.f1[dynsim_edo_B.j_j]);
-  }
-
-  dynsim_edo_B.msg_g.Name[5].Data_SL_Info.CurrentLength = 7U;
-  dynsim_edo_B.msg_g.Position[5] = dynsim_edo_X.Position_CSTATE[5];
-  dynsim_edo_B.msg_g.Velocity[5] = dynsim_edo_B.Velocity[5];
 
   // Outputs for Atomic SubSystem: '<Root>/Publish'
-  // MATLABSystem: '<S7>/SinkBlock'
+  // MATLABSystem: '<S9>/SinkBlock'
   Pub_dynsim_edo_22.publish(&dynsim_edo_B.msg_g);
 
   // End of Outputs for SubSystem: '<Root>/Publish'
 
   // MATLAB Function: '<Root>/Assign to Time msg'
-  if (dynsim_edo_B.vNum < 0.0) {
-    dynsim_edo_B.k = ceil(dynsim_edo_B.vNum);
+  if (dynsim_edo_B.bid1 < 0.0) {
+    dynsim_edo_B.k = ceil(dynsim_edo_B.bid1);
   } else {
-    dynsim_edo_B.k = floor(dynsim_edo_B.vNum);
+    dynsim_edo_B.k = floor(dynsim_edo_B.bid1);
   }
 
   dynsim_edo_B.msg_l.Clock_.Sec = dynsim_edo_B.k;
-  dynsim_edo_B.j = (dynsim_edo_B.vNum - dynsim_edo_B.k) * 1.0E+9;
+  dynsim_edo_B.j = (dynsim_edo_B.bid1 - dynsim_edo_B.k) * 1.0E+9;
   if (dynsim_edo_B.j < 0.0) {
     dynsim_edo_B.msg_l.Clock_.Nsec = ceil(dynsim_edo_B.j);
   } else {
@@ -4273,15 +8330,15 @@ void dynsim_edo_step(void)
   // End of MATLAB Function: '<Root>/Assign to Time msg'
 
   // Outputs for Atomic SubSystem: '<Root>/Publish1'
-  // MATLABSystem: '<S8>/SinkBlock'
+  // MATLABSystem: '<S10>/SinkBlock'
   Pub_dynsim_edo_50.publish(&dynsim_edo_B.msg_l);
 
   // End of Outputs for SubSystem: '<Root>/Publish1'
   if (rtmIsMajorTimeStep(dynsim_edo_M)) {
-    // Update for Integrator: '<S11>/Position'
+    // Update for Integrator: '<S13>/Position'
     dynsim_edo_DW.Position_IWORK = 0;
 
-    // Update for Integrator: '<S11>/Velocity'
+    // Update for Integrator: '<S13>/Velocity'
     dynsim_edo_DW.Velocity_IWORK = 0;
   }                                    // end MajorTimeStep
 
@@ -4312,16 +8369,26 @@ void dynsim_edo_step(void)
 // Derivatives for root system: '<Root>'
 void dynsim_edo_derivatives(void)
 {
-  int32_T i;
   XDot_dynsim_edo_T *_rtXdot;
   _rtXdot = ((XDot_dynsim_edo_T *) dynsim_edo_M->derivs);
-  for (i = 0; i < 6; i++) {
-    // Derivatives for Integrator: '<S11>/Position'
-    _rtXdot->Position_CSTATE[i] = dynsim_edo_B.Velocity[i];
 
-    // Derivatives for Integrator: '<S11>/Velocity'
-    _rtXdot->Velocity_CSTATE[i] = dynsim_edo_B.MATLABSystem[i];
-  }
+  // Derivatives for Integrator: '<S13>/Position'
+  _rtXdot->Position_CSTATE[0] = dynsim_edo_B.Velocity[0];
+
+  // Derivatives for Integrator: '<S13>/Velocity'
+  _rtXdot->Velocity_CSTATE[0] = dynsim_edo_B.MATLABSystem[0];
+
+  // Derivatives for Integrator: '<S13>/Position'
+  _rtXdot->Position_CSTATE[1] = dynsim_edo_B.Velocity[1];
+
+  // Derivatives for Integrator: '<S13>/Velocity'
+  _rtXdot->Velocity_CSTATE[1] = dynsim_edo_B.MATLABSystem[1];
+
+  // Derivatives for Integrator: '<S13>/Position'
+  _rtXdot->Position_CSTATE[2] = dynsim_edo_B.Velocity[2];
+
+  // Derivatives for Integrator: '<S13>/Velocity'
+  _rtXdot->Velocity_CSTATE[2] = dynsim_edo_B.MATLABSystem[2];
 }
 
 // Model initialize function
@@ -4391,72 +8458,45 @@ void dynsim_edo_initialize(void)
     static const char_T tmp_6[22] = { '/', 'd', 'y', 'n', 's', 'i', 'm', '_',
       'e', 'd', 'o', '/', 'q', '3', '_', 'i', 'n', 'i', 't', 'i', 'a', 'l' };
 
-    static const char_T tmp_7[22] = { '/', 'd', 'y', 'n', 's', 'i', 'm', '_',
-      'e', 'd', 'o', '/', 'q', '4', '_', 'i', 'n', 'i', 't', 'i', 'a', 'l' };
-
-    static const char_T tmp_8[22] = { '/', 'd', 'y', 'n', 's', 'i', 'm', '_',
-      'e', 'd', 'o', '/', 'q', '5', '_', 'i', 'n', 'i', 't', 'i', 'a', 'l' };
-
-    static const char_T tmp_9[22] = { '/', 'd', 'y', 'n', 's', 'i', 'm', '_',
-      'e', 'd', 'o', '/', 'q', '6', '_', 'i', 'n', 'i', 't', 'i', 'a', 'l' };
-
-    static const char_T tmp_a[23] = { '/', 'd', 'y', 'n', 's', 'i', 'm', '_',
+    static const char_T tmp_7[23] = { '/', 'd', 'y', 'n', 's', 'i', 'm', '_',
       'e', 'd', 'o', '/', 'q', 'v', '1', '_', 'i', 'n', 'i', 't', 'i', 'a', 'l'
     };
 
-    static const char_T tmp_b[24] = { '/', 'd', 'y', 'n', 'n', 's', 'i', 'm',
+    static const char_T tmp_8[24] = { '/', 'd', 'y', 'n', 'n', 's', 'i', 'm',
       '_', 'e', 'd', 'o', '/', 'q', 'v', '2', '_', 'i', 'n', 'i', 't', 'i', 'a',
       'l' };
 
-    static const char_T tmp_c[24] = { '/', 'd', 'y', 'n', 'n', 's', 'i', 'm',
+    static const char_T tmp_9[24] = { '/', 'd', 'y', 'n', 'n', 's', 'i', 'm',
       '_', 'e', 'd', 'o', '/', 'q', 'v', '3', '_', 'i', 'n', 'i', 't', 'i', 'a',
       'l' };
 
-    static const char_T tmp_d[24] = { '/', 'd', 'y', 'n', 'n', 's', 'i', 'm',
-      '_', 'e', 'd', 'o', '/', 'q', 'v', '4', '_', 'i', 'n', 'i', 't', 'i', 'a',
-      'l' };
-
-    static const char_T tmp_e[24] = { '/', 'd', 'y', 'n', 'n', 's', 'i', 'm',
-      '_', 'e', 'd', 'o', '/', 'q', 'v', '5', '_', 'i', 'n', 'i', 't', 'i', 'a',
-      'l' };
-
-    static const char_T tmp_f[24] = { '/', 'd', 'y', 'n', 'n', 's', 'i', 'm',
-      '_', 'e', 'd', 'o', '/', 'q', 'v', '6', '_', 'i', 'n', 'i', 't', 'i', 'a',
-      'l' };
-
-    // InitializeConditions for Integrator: '<S11>/Position' incorporates:
-    //   Integrator: '<S11>/Velocity'
+    // InitializeConditions for Integrator: '<S13>/Position' incorporates:
+    //   Integrator: '<S13>/Velocity'
 
     if (rtmIsFirstInitCond(dynsim_edo_M)) {
       dynsim_edo_X.Position_CSTATE[0] = 0.0;
       dynsim_edo_X.Position_CSTATE[1] = 0.0;
       dynsim_edo_X.Position_CSTATE[2] = 0.0;
-      dynsim_edo_X.Position_CSTATE[3] = 0.0;
-      dynsim_edo_X.Position_CSTATE[4] = 0.0;
-      dynsim_edo_X.Position_CSTATE[5] = 0.0;
       dynsim_edo_X.Velocity_CSTATE[0] = 0.0;
       dynsim_edo_X.Velocity_CSTATE[1] = 0.0;
       dynsim_edo_X.Velocity_CSTATE[2] = 0.0;
-      dynsim_edo_X.Velocity_CSTATE[3] = 0.0;
-      dynsim_edo_X.Velocity_CSTATE[4] = 0.0;
-      dynsim_edo_X.Velocity_CSTATE[5] = 0.0;
     }
 
     dynsim_edo_DW.Position_IWORK = 1;
 
-    // End of InitializeConditions for Integrator: '<S11>/Position'
+    // End of InitializeConditions for Integrator: '<S13>/Position'
 
-    // InitializeConditions for Integrator: '<S11>/Velocity'
+    // InitializeConditions for Integrator: '<S13>/Velocity'
     dynsim_edo_DW.Velocity_IWORK = 1;
 
     // SystemInitialize for Atomic SubSystem: '<Root>/Subscribe'
-    // SystemInitialize for Enabled SubSystem: '<S10>/Enabled Subsystem'
-    // SystemInitialize for Outport: '<S12>/Out1'
+    // SystemInitialize for Enabled SubSystem: '<S12>/Enabled Subsystem'
+    // SystemInitialize for Outport: '<S14>/Out1'
     dynsim_edo_B.In1 = dynsim_edo_P.Out1_Y0;
 
-    // End of SystemInitialize for SubSystem: '<S10>/Enabled Subsystem'
+    // End of SystemInitialize for SubSystem: '<S12>/Enabled Subsystem'
 
-    // Start for MATLABSystem: '<S10>/SourceBlock'
+    // Start for MATLABSystem: '<S12>/SourceBlock'
     dynsim_edo_DW.obj_pp.matlabCodegenIsDeleted = false;
     dynsim_edo_DW.obj_pp.isInitialized = 1;
     for (i = 0; i < 13; i++) {
@@ -4467,26 +8507,26 @@ void dynsim_edo_initialize(void)
     Sub_dynsim_edo_16.createSubscriber(dynsim_edo_B.cv4, 1);
     dynsim_edo_DW.obj_pp.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S10>/SourceBlock'
+    // End of Start for MATLABSystem: '<S12>/SourceBlock'
     // End of SystemInitialize for SubSystem: '<Root>/Subscribe'
 
     // SystemInitialize for Atomic SubSystem: '<Root>/Publish2'
-    // Start for MATLABSystem: '<S9>/SinkBlock'
-    dynsim_edo_DW.obj_a.matlabCodegenIsDeleted = false;
-    dynsim_edo_DW.obj_a.isInitialized = 1;
+    // Start for MATLABSystem: '<S11>/SinkBlock'
+    dynsim_edo_DW.obj_ar.matlabCodegenIsDeleted = false;
+    dynsim_edo_DW.obj_ar.isInitialized = 1;
     for (i = 0; i < 17; i++) {
       dynsim_edo_B.cv3[i] = tmp_1[i];
     }
 
     dynsim_edo_B.cv3[17] = '\x00';
     Pub_dynsim_edo_124.createPublisher(dynsim_edo_B.cv3, 1);
-    dynsim_edo_DW.obj_a.isSetupComplete = true;
+    dynsim_edo_DW.obj_ar.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S9>/SinkBlock'
+    // End of Start for MATLABSystem: '<S11>/SinkBlock'
     // End of SystemInitialize for SubSystem: '<Root>/Publish2'
 
     // SystemInitialize for Atomic SubSystem: '<Root>/Publish'
-    // Start for MATLABSystem: '<S7>/SinkBlock'
+    // Start for MATLABSystem: '<S9>/SinkBlock'
     dynsim_edo_DW.obj_nr.matlabCodegenIsDeleted = false;
     dynsim_edo_DW.obj_nr.isInitialized = 1;
     for (i = 0; i < 13; i++) {
@@ -4497,25 +8537,25 @@ void dynsim_edo_initialize(void)
     Pub_dynsim_edo_22.createPublisher(dynsim_edo_B.cv4, 1);
     dynsim_edo_DW.obj_nr.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S7>/SinkBlock'
+    // End of Start for MATLABSystem: '<S9>/SinkBlock'
     // End of SystemInitialize for SubSystem: '<Root>/Publish'
 
     // SystemInitialize for Atomic SubSystem: '<Root>/Publish1'
-    // Start for MATLABSystem: '<S8>/SinkBlock'
-    dynsim_edo_DW.obj_f2.matlabCodegenIsDeleted = false;
-    dynsim_edo_DW.obj_f2.isInitialized = 1;
+    // Start for MATLABSystem: '<S10>/SinkBlock'
+    dynsim_edo_DW.obj_f.matlabCodegenIsDeleted = false;
+    dynsim_edo_DW.obj_f.isInitialized = 1;
     for (i = 0; i < 6; i++) {
       tmp[i] = tmp_3[i];
     }
 
     tmp[6] = '\x00';
     Pub_dynsim_edo_50.createPublisher(tmp, 1);
-    dynsim_edo_DW.obj_f2.isSetupComplete = true;
+    dynsim_edo_DW.obj_f.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S8>/SinkBlock'
+    // End of Start for MATLABSystem: '<S10>/SinkBlock'
     // End of SystemInitialize for SubSystem: '<Root>/Publish1'
 
-    // Start for MATLABSystem: '<S14>/Get Parameter'
+    // Start for MATLABSystem: '<S16>/Get Parameter'
     dynsim_edo_DW.obj_p.matlabCodegenIsDeleted = false;
     dynsim_edo_DW.obj_p.isInitialized = 1;
     for (i = 0; i < 22; i++) {
@@ -4528,9 +8568,9 @@ void dynsim_edo_initialize(void)
     ParamGet_dynsim_edo_112.set_initial_value(0.78539816339744828);
     dynsim_edo_DW.obj_p.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S14>/Get Parameter'
+    // End of Start for MATLABSystem: '<S16>/Get Parameter'
 
-    // Start for MATLABSystem: '<S14>/Get Parameter1'
+    // Start for MATLABSystem: '<S16>/Get Parameter1'
     dynsim_edo_DW.obj_n.matlabCodegenIsDeleted = false;
     dynsim_edo_DW.obj_n.isInitialized = 1;
     for (i = 0; i < 22; i++) {
@@ -4543,9 +8583,9 @@ void dynsim_edo_initialize(void)
     ParamGet_dynsim_edo_113.set_initial_value(-1.5707963267948966);
     dynsim_edo_DW.obj_n.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S14>/Get Parameter1'
+    // End of Start for MATLABSystem: '<S16>/Get Parameter1'
 
-    // Start for MATLABSystem: '<S14>/Get Parameter4'
+    // Start for MATLABSystem: '<S16>/Get Parameter4'
     dynsim_edo_DW.obj_nf.matlabCodegenIsDeleted = false;
     dynsim_edo_DW.obj_nf.isInitialized = 1;
     for (i = 0; i < 22; i++) {
@@ -4558,58 +8598,53 @@ void dynsim_edo_initialize(void)
     ParamGet_dynsim_edo_125.set_initial_value(-1.5707963267948966);
     dynsim_edo_DW.obj_nf.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S14>/Get Parameter4'
+    // End of Start for MATLABSystem: '<S16>/Get Parameter4'
+    emxInitStruct_robotics_slmanip_(&dynsim_edo_DW.obj_a);
+    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_1_p);
+    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_12_m);
+    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_11_a);
+    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_10_h);
+    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_9_d);
+    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_8_l);
+    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_7_p);
+    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_6_n);
+    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_5_l);
+    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_4_b);
+    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_3_g);
+    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_2_a);
 
-    // Start for MATLABSystem: '<S14>/Get Parameter5'
-    dynsim_edo_DW.obj_e.matlabCodegenIsDeleted = false;
-    dynsim_edo_DW.obj_e.isInitialized = 1;
-    for (i = 0; i < 22; i++) {
-      dynsim_edo_B.cv2[i] = tmp_7[i];
-    }
+    // Start for MATLABSystem: '<S4>/MATLAB System'
+    dynsim_edo_DW.obj_a.isInitialized = 0;
+    dynsim_edo_DW.obj_a.isInitialized = 1;
+    dyn_RigidBodyTree_RigidBodyTree(&dynsim_edo_DW.obj_a.TreeInternal,
+      &dynsim_edo_DW.gobj_2_a, &dynsim_edo_DW.gobj_4_b, &dynsim_edo_DW.gobj_5_l,
+      &dynsim_edo_DW.gobj_6_n, &dynsim_edo_DW.gobj_7_p, &dynsim_edo_DW.gobj_3_g);
+    emxInitStruct_robotics_slmani_h(&dynsim_edo_DW.obj_o);
+    emxInitStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_1_pg);
+    emxInitStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_12_c);
+    emxInitStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_11_d);
+    emxInitStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_10_k);
+    emxInitStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_9_b);
+    emxInitStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_8_o);
+    emxInitStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_7_h);
+    emxInitStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_6_o);
+    emxInitStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_5_o);
+    emxInitStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_4_c);
+    emxInitStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_3_m);
+    emxInitStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_2_j);
 
-    dynsim_edo_B.cv2[22] = '\x00';
-    ParamGet_dynsim_edo_126.initialize(dynsim_edo_B.cv2);
-    ParamGet_dynsim_edo_126.initialize_error_codes(0, 1, 2, 3);
-    ParamGet_dynsim_edo_126.set_initial_value(-1.5707963267948966);
-    dynsim_edo_DW.obj_e.isSetupComplete = true;
+    // Start for MATLABSystem: '<S5>/MATLAB System'
+    dynsim_edo_DW.obj_o.isInitialized = 0;
+    dynsim_edo_DW.obj_o.isInitialized = 1;
+    d_RigidBodyTree_RigidBodyTree_h(&dynsim_edo_DW.obj_o.TreeInternal,
+      &dynsim_edo_DW.gobj_2_j, &dynsim_edo_DW.gobj_4_c, &dynsim_edo_DW.gobj_5_o,
+      &dynsim_edo_DW.gobj_6_o, &dynsim_edo_DW.gobj_7_h, &dynsim_edo_DW.gobj_3_m);
 
-    // End of Start for MATLABSystem: '<S14>/Get Parameter5'
-
-    // Start for MATLABSystem: '<S14>/Get Parameter6'
-    dynsim_edo_DW.obj_n4.matlabCodegenIsDeleted = false;
-    dynsim_edo_DW.obj_n4.isInitialized = 1;
-    for (i = 0; i < 22; i++) {
-      dynsim_edo_B.cv2[i] = tmp_8[i];
-    }
-
-    dynsim_edo_B.cv2[22] = '\x00';
-    ParamGet_dynsim_edo_127.initialize(dynsim_edo_B.cv2);
-    ParamGet_dynsim_edo_127.initialize_error_codes(0, 1, 2, 3);
-    ParamGet_dynsim_edo_127.set_initial_value(-1.5707963267948966);
-    dynsim_edo_DW.obj_n4.isSetupComplete = true;
-
-    // End of Start for MATLABSystem: '<S14>/Get Parameter6'
-
-    // Start for MATLABSystem: '<S14>/Get Parameter7'
-    dynsim_edo_DW.obj_f.matlabCodegenIsDeleted = false;
-    dynsim_edo_DW.obj_f.isInitialized = 1;
-    for (i = 0; i < 22; i++) {
-      dynsim_edo_B.cv2[i] = tmp_9[i];
-    }
-
-    dynsim_edo_B.cv2[22] = '\x00';
-    ParamGet_dynsim_edo_128.initialize(dynsim_edo_B.cv2);
-    ParamGet_dynsim_edo_128.initialize_error_codes(0, 1, 2, 3);
-    ParamGet_dynsim_edo_128.set_initial_value(-1.5707963267948966);
-    dynsim_edo_DW.obj_f.isSetupComplete = true;
-
-    // End of Start for MATLABSystem: '<S14>/Get Parameter7'
-
-    // Start for MATLABSystem: '<S14>/Get Parameter2'
+    // Start for MATLABSystem: '<S16>/Get Parameter2'
     dynsim_edo_DW.obj_h.matlabCodegenIsDeleted = false;
     dynsim_edo_DW.obj_h.isInitialized = 1;
     for (i = 0; i < 23; i++) {
-      dynsim_edo_B.cv1[i] = tmp_a[i];
+      dynsim_edo_B.cv1[i] = tmp_7[i];
     }
 
     dynsim_edo_B.cv1[23] = '\x00';
@@ -4618,13 +8653,13 @@ void dynsim_edo_initialize(void)
     ParamGet_dynsim_edo_117.set_initial_value(0.0);
     dynsim_edo_DW.obj_h.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S14>/Get Parameter2'
+    // End of Start for MATLABSystem: '<S16>/Get Parameter2'
 
-    // Start for MATLABSystem: '<S14>/Get Parameter3'
+    // Start for MATLABSystem: '<S16>/Get Parameter3'
     dynsim_edo_DW.obj_b.matlabCodegenIsDeleted = false;
     dynsim_edo_DW.obj_b.isInitialized = 1;
     for (i = 0; i < 24; i++) {
-      dynsim_edo_B.cv[i] = tmp_b[i];
+      dynsim_edo_B.cv[i] = tmp_8[i];
     }
 
     dynsim_edo_B.cv[24] = '\x00';
@@ -4633,13 +8668,13 @@ void dynsim_edo_initialize(void)
     ParamGet_dynsim_edo_118.set_initial_value(0.0);
     dynsim_edo_DW.obj_b.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S14>/Get Parameter3'
+    // End of Start for MATLABSystem: '<S16>/Get Parameter3'
 
-    // Start for MATLABSystem: '<S14>/Get Parameter8'
+    // Start for MATLABSystem: '<S16>/Get Parameter8'
     dynsim_edo_DW.obj_nb.matlabCodegenIsDeleted = false;
     dynsim_edo_DW.obj_nb.isInitialized = 1;
     for (i = 0; i < 24; i++) {
-      dynsim_edo_B.cv[i] = tmp_c[i];
+      dynsim_edo_B.cv[i] = tmp_9[i];
     }
 
     dynsim_edo_B.cv[24] = '\x00';
@@ -4648,70 +8683,25 @@ void dynsim_edo_initialize(void)
     ParamGet_dynsim_edo_133.set_initial_value(0.0);
     dynsim_edo_DW.obj_nb.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S14>/Get Parameter8'
+    // End of Start for MATLABSystem: '<S16>/Get Parameter8'
+    emxInitStruct_robotics_slman_ha(&dynsim_edo_DW.obj);
+    emxInitStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_1);
+    emxInitStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_12);
+    emxInitStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_11);
+    emxInitStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_10);
+    emxInitStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_9);
+    emxInitStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_8);
+    emxInitStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_7);
+    emxInitStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_6);
+    emxInitStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_5);
+    emxInitStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_4);
+    emxInitStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_3);
+    emxInitStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_2);
 
-    // Start for MATLABSystem: '<S14>/Get Parameter9'
-    dynsim_edo_DW.obj_pd.matlabCodegenIsDeleted = false;
-    dynsim_edo_DW.obj_pd.isInitialized = 1;
-    for (i = 0; i < 24; i++) {
-      dynsim_edo_B.cv[i] = tmp_d[i];
-    }
-
-    dynsim_edo_B.cv[24] = '\x00';
-    ParamGet_dynsim_edo_134.initialize(dynsim_edo_B.cv);
-    ParamGet_dynsim_edo_134.initialize_error_codes(0, 1, 2, 3);
-    ParamGet_dynsim_edo_134.set_initial_value(0.0);
-    dynsim_edo_DW.obj_pd.isSetupComplete = true;
-
-    // End of Start for MATLABSystem: '<S14>/Get Parameter9'
-
-    // Start for MATLABSystem: '<S14>/Get Parameter10'
-    dynsim_edo_DW.obj_eu.matlabCodegenIsDeleted = false;
-    dynsim_edo_DW.obj_eu.isInitialized = 1;
-    for (i = 0; i < 24; i++) {
-      dynsim_edo_B.cv[i] = tmp_e[i];
-    }
-
-    dynsim_edo_B.cv[24] = '\x00';
-    ParamGet_dynsim_edo_135.initialize(dynsim_edo_B.cv);
-    ParamGet_dynsim_edo_135.initialize_error_codes(0, 1, 2, 3);
-    ParamGet_dynsim_edo_135.set_initial_value(0.0);
-    dynsim_edo_DW.obj_eu.isSetupComplete = true;
-
-    // End of Start for MATLABSystem: '<S14>/Get Parameter10'
-
-    // Start for MATLABSystem: '<S14>/Get Parameter11'
-    dynsim_edo_DW.obj_ez.matlabCodegenIsDeleted = false;
-    dynsim_edo_DW.obj_ez.isInitialized = 1;
-    for (i = 0; i < 24; i++) {
-      dynsim_edo_B.cv[i] = tmp_f[i];
-    }
-
-    dynsim_edo_B.cv[24] = '\x00';
-    ParamGet_dynsim_edo_136.initialize(dynsim_edo_B.cv);
-    ParamGet_dynsim_edo_136.initialize_error_codes(0, 1, 2, 3);
-    ParamGet_dynsim_edo_136.set_initial_value(0.0);
-    dynsim_edo_DW.obj_ez.isSetupComplete = true;
-
-    // End of Start for MATLABSystem: '<S14>/Get Parameter11'
-    emxInitStruct_robotics_slmanip_(&dynsim_edo_DW.obj);
-    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_1);
-    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_12);
-    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_11);
-    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_10);
-    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_9);
-    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_8);
-    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_7);
-    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_6);
-    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_5);
-    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_4);
-    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_3);
-    emxInitStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_2);
-
-    // Start for MATLABSystem: '<S13>/MATLAB System'
+    // Start for MATLABSystem: '<S15>/MATLAB System'
     dynsim_edo_DW.obj.isInitialized = 0;
     dynsim_edo_DW.obj.isInitialized = 1;
-    dyn_RigidBodyTree_RigidBodyTree(&dynsim_edo_DW.obj.TreeInternal,
+    RigidBodyTree_RigidBodyTree_ha(&dynsim_edo_DW.obj.TreeInternal,
       &dynsim_edo_DW.gobj_2, &dynsim_edo_DW.gobj_4, &dynsim_edo_DW.gobj_5,
       &dynsim_edo_DW.gobj_6, &dynsim_edo_DW.gobj_7, &dynsim_edo_DW.gobj_3);
   }
@@ -4725,76 +8715,84 @@ void dynsim_edo_initialize(void)
 // Model terminate function
 void dynsim_edo_terminate(void)
 {
+  // Terminate for MATLABSystem: '<S16>/Get Parameter'
+  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_p);
+
+  // Terminate for MATLABSystem: '<S16>/Get Parameter1'
+  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_n);
+
+  // Terminate for MATLABSystem: '<S16>/Get Parameter4'
+  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_nf);
+  emxFreeStruct_robotics_slmanip_(&dynsim_edo_DW.obj_a);
+  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_1_p);
+  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_12_m);
+  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_11_a);
+  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_10_h);
+  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_9_d);
+  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_8_l);
+  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_7_p);
+  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_6_n);
+  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_5_l);
+  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_4_b);
+  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_3_g);
+  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_2_a);
+  emxFreeStruct_robotics_slmani_h(&dynsim_edo_DW.obj_o);
+  emxFreeStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_1_pg);
+  emxFreeStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_12_c);
+  emxFreeStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_11_d);
+  emxFreeStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_10_k);
+  emxFreeStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_9_b);
+  emxFreeStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_8_o);
+  emxFreeStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_7_h);
+  emxFreeStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_6_o);
+  emxFreeStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_5_o);
+  emxFreeStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_4_c);
+  emxFreeStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_3_m);
+  emxFreeStruct_l_robotics_mani_h(&dynsim_edo_DW.gobj_2_j);
+
+  // Terminate for MATLABSystem: '<S16>/Get Parameter2'
+  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_h);
+
+  // Terminate for MATLABSystem: '<S16>/Get Parameter3'
+  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_b);
+
+  // Terminate for MATLABSystem: '<S16>/Get Parameter8'
+  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_nb);
+
   // Terminate for Atomic SubSystem: '<Root>/Subscribe'
-  // Terminate for MATLABSystem: '<S10>/SourceBlock'
+  // Terminate for MATLABSystem: '<S12>/SourceBlock'
   matlabCodegenHandle_matlabC_hau(&dynsim_edo_DW.obj_pp);
 
   // End of Terminate for SubSystem: '<Root>/Subscribe'
-
-  // Terminate for MATLABSystem: '<S14>/Get Parameter'
-  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_p);
-
-  // Terminate for MATLABSystem: '<S14>/Get Parameter1'
-  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_n);
-
-  // Terminate for MATLABSystem: '<S14>/Get Parameter4'
-  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_nf);
-
-  // Terminate for MATLABSystem: '<S14>/Get Parameter5'
-  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_e);
-
-  // Terminate for MATLABSystem: '<S14>/Get Parameter6'
-  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_n4);
-
-  // Terminate for MATLABSystem: '<S14>/Get Parameter7'
-  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_f);
-
-  // Terminate for MATLABSystem: '<S14>/Get Parameter2'
-  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_h);
-
-  // Terminate for MATLABSystem: '<S14>/Get Parameter3'
-  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_b);
-
-  // Terminate for MATLABSystem: '<S14>/Get Parameter8'
-  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_nb);
-
-  // Terminate for MATLABSystem: '<S14>/Get Parameter9'
-  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_pd);
-
-  // Terminate for MATLABSystem: '<S14>/Get Parameter10'
-  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_eu);
-
-  // Terminate for MATLABSystem: '<S14>/Get Parameter11'
-  matlabCodegenHandle_matlab_hau4(&dynsim_edo_DW.obj_ez);
-  emxFreeStruct_robotics_slmanip_(&dynsim_edo_DW.obj);
-  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_1);
-  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_12);
-  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_11);
-  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_10);
-  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_9);
-  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_8);
-  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_7);
-  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_6);
-  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_5);
-  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_4);
-  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_3);
-  emxFreeStruct_l_robotics_manip_(&dynsim_edo_DW.gobj_2);
+  emxFreeStruct_robotics_slman_ha(&dynsim_edo_DW.obj);
+  emxFreeStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_1);
+  emxFreeStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_12);
+  emxFreeStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_11);
+  emxFreeStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_10);
+  emxFreeStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_9);
+  emxFreeStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_8);
+  emxFreeStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_7);
+  emxFreeStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_6);
+  emxFreeStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_5);
+  emxFreeStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_4);
+  emxFreeStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_3);
+  emxFreeStruct_l_robotics_man_ha(&dynsim_edo_DW.gobj_2);
 
   // Terminate for Atomic SubSystem: '<Root>/Publish2'
-  // Terminate for MATLABSystem: '<S9>/SinkBlock'
-  matlabCodegenHandle_matlabCodeg(&dynsim_edo_DW.obj_a);
+  // Terminate for MATLABSystem: '<S11>/SinkBlock'
+  matlabCodegenHandle_matlabCodeg(&dynsim_edo_DW.obj_ar);
 
   // End of Terminate for SubSystem: '<Root>/Publish2'
 
   // Terminate for Atomic SubSystem: '<Root>/Publish'
-  // Terminate for MATLABSystem: '<S7>/SinkBlock'
+  // Terminate for MATLABSystem: '<S9>/SinkBlock'
   matlabCodegenHandle_matlabCodeg(&dynsim_edo_DW.obj_nr);
 
   // End of Terminate for SubSystem: '<Root>/Publish'
 
   // Terminate for Atomic SubSystem: '<Root>/Publish1'
-  // Terminate for MATLABSystem: '<S8>/SinkBlock'
-  matlabCodegenHandle_matlabCodeg(&dynsim_edo_DW.obj_f2);
+  // Terminate for MATLABSystem: '<S10>/SinkBlock'
+  matlabCodegenHandle_matlabCodeg(&dynsim_edo_DW.obj_f);
 
   // End of Terminate for SubSystem: '<Root>/Publish1'
 }
