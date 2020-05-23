@@ -1,2 +1,0 @@
-  dynsim_edo_drag_gravity.cpp
-
