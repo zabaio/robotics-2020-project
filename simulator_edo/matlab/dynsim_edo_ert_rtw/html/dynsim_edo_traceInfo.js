@@ -133,14 +133,10 @@ function RTW_rtwnameSIDMap() {
 	this.sidHashMap["dynsim_edo:63"] = {rtwname: "<S13>/Constant"};
 	this.rtwnameHashMap["<S13>/Forward Dynamics"] = {sid: "dynsim_edo:60"};
 	this.sidHashMap["dynsim_edo:60"] = {rtwname: "<S13>/Forward Dynamics"};
-	this.rtwnameHashMap["<S13>/Gain"] = {sid: "dynsim_edo:140"};
-	this.sidHashMap["dynsim_edo:140"] = {rtwname: "<S13>/Gain"};
 	this.rtwnameHashMap["<S13>/Position"] = {sid: "dynsim_edo:62"};
 	this.sidHashMap["dynsim_edo:62"] = {rtwname: "<S13>/Position"};
 	this.rtwnameHashMap["<S13>/Subsystem"] = {sid: "dynsim_edo:111"};
 	this.sidHashMap["dynsim_edo:111"] = {rtwname: "<S13>/Subsystem"};
-	this.rtwnameHashMap["<S13>/Sum"] = {sid: "dynsim_edo:141"};
-	this.sidHashMap["dynsim_edo:141"] = {rtwname: "<S13>/Sum"};
 	this.rtwnameHashMap["<S13>/Velocity"] = {sid: "dynsim_edo:61"};
 	this.sidHashMap["dynsim_edo:61"] = {rtwname: "<S13>/Velocity"};
 	this.rtwnameHashMap["<S13>/jointPos"] = {sid: "dynsim_edo:66"};

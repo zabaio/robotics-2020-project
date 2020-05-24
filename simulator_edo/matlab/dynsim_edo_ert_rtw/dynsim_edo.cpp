@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'dynsim_edo'.
 //
-// Model version                  : 1.122
+// Model version                  : 1.123
 // Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
-// C/C++ source code generated on : Sat May 23 15:26:22 2020
+// C/C++ source code generated on : Sun May 24 20:24:55 2020
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -6382,8 +6382,8 @@ static l_robotics_manip_internal__ha_T *RigidBody_RigidBody_hau4ihh0a3
   char_T b_0[9];
   int32_T loop_ub;
   int8_T tmp[6];
-  static const real_T tmp_0[36] = { 0.0033, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0,
-    0.0063, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0033, -0.0, 0.0, 0.0, 0.0, 0.0,
+  static const real_T tmp_0[36] = { 0.0002, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0,
+    6.29E-5, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0002, -0.0, 0.0, 0.0, 0.0, 0.0,
     -0.0, 0.0785942338762368, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0785942338762368,
     0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0785942338762368 };
 
@@ -6574,10 +6574,10 @@ static l_robotics_manip_internal__ha_T *RigidBody_RigidBody_hau4ihh0a3c
   char_T b_0[9];
   int32_T loop_ub;
   int8_T tmp[6];
-  static const real_T tmp_0[36] = { 0.0056, -0.0008, -0.0009, 0.0, -0.0, 0.0,
-    -0.0008, 0.0035, 0.0003, 0.0, 0.0, -0.0, -0.0009, 0.0003, 0.0036, -0.0, 0.0,
-    0.0, 0.0, 0.0, -0.0, 0.0785942338762368, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0,
-    0.0785942338762368, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0785942338762368 };
+  static const real_T tmp_0[36] = { 9.15E-5, 3.51E-5, 4.25E-5, 0.0, -0.0, 0.0,
+    3.51E-5, 0.0001836, -1.39E-5, 0.0, 0.0, -0.0, 4.25E-5, -1.39E-5, 0.0001784,
+    -0.0, 0.0, 0.0, 0.0, 0.0, -0.0, 0.0785942338762368, 0.0, 0.0, -0.0, 0.0, 0.0,
+    0.0, 0.0785942338762368, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0785942338762368 };
 
   static const char_T tmp_1[8] = { 'r', 'e', 'v', 'o', 'l', 'u', 't', 'e' };
 
@@ -6767,8 +6767,8 @@ static l_robotics_manip_internal__ha_T *RigidBody_RigidBod_hau4ihh0a3ct
   char_T b_0[9];
   int32_T loop_ub;
   int8_T tmp[6];
-  static const real_T tmp_0[36] = { 0.0063, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0,
-    0.0033, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0033, -0.0, 0.0, 0.0, 0.0, 0.0,
+  static const real_T tmp_0[36] = { 6.29E-5, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0,
+    0.0002, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0002, -0.0, 0.0, 0.0, 0.0, 0.0,
     -0.0, 0.0785942338762368, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0785942338762368,
     0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0785942338762368 };
 
@@ -6959,8 +6959,8 @@ static l_robotics_manip_internal__ha_T *RigidBody_RigidBo_hau4ihh0a3ctk
   char_T b_0[9];
   int32_T loop_ub;
   int8_T tmp[6];
-  static const real_T tmp_0[36] = { 0.0033, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0,
-    0.0033, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0063, -0.0, 0.0, 0.0, 0.0, 0.0,
+  static const real_T tmp_0[36] = { 0.0002, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0,
+    0.0002, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 6.29E-5, -0.0, 0.0, 0.0, 0.0, 0.0,
     -0.0, 0.0785942338762368, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0785942338762368,
     0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0785942338762368 };
 
@@ -7148,8 +7148,8 @@ static l_robotics_manip_internal__ha_T *RigidBody_RigidB_hau4ihh0a3ctk5
   char_T b_0[9];
   int32_T loop_ub;
   int8_T tmp[6];
-  static const real_T tmp_0[36] = { 0.0063, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0,
-    0.0033, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0033, -0.0, 0.0, 0.0, 0.0, 0.0,
+  static const real_T tmp_0[36] = { 6.29E-5, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0,
+    0.0002, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0002, -0.0, 0.0, 0.0, 0.0, 0.0,
     -0.0, 0.0785942338762368, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0785942338762368,
     0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0785942338762368 };
 
@@ -7338,8 +7338,8 @@ static l_robotics_manip_internal__ha_T *RigidBody_Rigid_hau4ihh0a3ctk52
   char_T b_0[9];
   int32_T loop_ub;
   int8_T tmp[6];
-  static const real_T tmp_0[36] = { 0.0012, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0,
-    0.0022, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0012, -0.0, 0.0, 0.0, 0.0, 0.0,
+  static const real_T tmp_0[36] = { 7.0E-5, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0,
+    2.2E-5, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 7.0E-5, -0.0, 0.0, 0.0, 0.0, 0.0,
     -0.0, 0.0279702497322662, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0279702497322662,
     0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0279702497322662 };
 
@@ -7694,7 +7694,7 @@ static n_robotics_manip_internal__ha_T *RigidBodyTree_RigidBodyTree_ha
   obj->NumBodies = 6.0;
   obj->Gravity[0] = 0.0;
   obj->Gravity[1] = 0.0;
-  obj->Gravity[2] = -9.8;
+  obj->Gravity[2] = 0.0;
   obj->VelocityNumber = 3.0;
   for (i = 0; i < 12; i++) {
     obj->PositionDoFMap[i] = tmp[i];
@@ -8035,18 +8035,12 @@ void dynsim_edo_step(void)
     dynsim_edo_P.Constant_Value_f, dynsim_edo_B.MATLABSystem);
   dynsim_edo_emxFree_real_T(&tmp);
 
-  // MATLABSystem: '<S15>/MATLAB System' incorporates:
-  //   Gain: '<S13>/Gain'
-  //   Sum: '<S13>/Sum'
-
-  dynsim_edo_B.MATLABSystem[0] = (dynsim_edo_B.In1.Data[1] -
-    dynsim_edo_P.Gain_Gain * dynsim_edo_B.Velocity[0]) -
+  // MATLABSystem: '<S15>/MATLAB System'
+  dynsim_edo_B.MATLABSystem[0] = dynsim_edo_B.In1.Data[1] -
     dynsim_edo_B.MATLABSystem[0];
-  dynsim_edo_B.MATLABSystem[1] = (dynsim_edo_B.In1.Data[2] -
-    dynsim_edo_P.Gain_Gain * dynsim_edo_B.Velocity[1]) -
+  dynsim_edo_B.MATLABSystem[1] = dynsim_edo_B.In1.Data[2] -
     dynsim_edo_B.MATLABSystem[1];
-  dynsim_edo_B.MATLABSystem[2] = (dynsim_edo_B.In1.Data[3] -
-    dynsim_edo_P.Gain_Gain * dynsim_edo_B.Velocity[2]) -
+  dynsim_edo_B.MATLABSystem[2] = dynsim_edo_B.In1.Data[3] -
     dynsim_edo_B.MATLABSystem[2];
   if ((L->size[0] == 0) || (L->size[1] == 0)) {
     dynsim_edo_B.u1 = 0;
