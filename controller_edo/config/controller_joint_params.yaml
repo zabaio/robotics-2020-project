@@ -1,5 +1,5 @@
 # Joint controller configuration parameters
-  /controller_joint/run_period: 0.001          # Node execution period
+  /controller_joint/run_period: 0.0005          # Node execution period
   /controller_joint/start_delay: 0.5          # Execution start delay
 
   /controller_joint/Kp_pos: [20.0, 20.0, 20.0]        # Position control, proportional gains
