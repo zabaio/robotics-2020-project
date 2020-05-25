@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'dynsim_edo'.
 //
-// Model version                  : 1.123
+// Model version                  : 1.124
 // Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
-// C/C++ source code generated on : Sun May 24 20:24:55 2020
+// C/C++ source code generated on : Sun May 24 21:57:59 2020
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -7694,7 +7694,7 @@ static n_robotics_manip_internal__ha_T *RigidBodyTree_RigidBodyTree_ha
   obj->NumBodies = 6.0;
   obj->Gravity[0] = 0.0;
   obj->Gravity[1] = 0.0;
-  obj->Gravity[2] = 0.0;
+  obj->Gravity[2] = -9.8;
   obj->VelocityNumber = 3.0;
   for (i = 0; i < 12; i++) {
     obj->PositionDoFMap[i] = tmp[i];
@@ -8035,12 +8035,18 @@ void dynsim_edo_step(void)
     dynsim_edo_P.Constant_Value_f, dynsim_edo_B.MATLABSystem);
   dynsim_edo_emxFree_real_T(&tmp);
 
-  // MATLABSystem: '<S15>/MATLAB System'
-  dynsim_edo_B.MATLABSystem[0] = dynsim_edo_B.In1.Data[1] -
+  // MATLABSystem: '<S15>/MATLAB System' incorporates:
+  //   Gain: '<S13>/Gain'
+  //   Sum: '<S13>/Sum'
+
+  dynsim_edo_B.MATLABSystem[0] = (dynsim_edo_B.In1.Data[1] -
+    dynsim_edo_P.Gain_Gain * dynsim_edo_B.Velocity[0]) -
     dynsim_edo_B.MATLABSystem[0];
-  dynsim_edo_B.MATLABSystem[1] = dynsim_edo_B.In1.Data[2] -
+  dynsim_edo_B.MATLABSystem[1] = (dynsim_edo_B.In1.Data[2] -
+    dynsim_edo_P.Gain_Gain * dynsim_edo_B.Velocity[1]) -
     dynsim_edo_B.MATLABSystem[1];
-  dynsim_edo_B.MATLABSystem[2] = dynsim_edo_B.In1.Data[3] -
+  dynsim_edo_B.MATLABSystem[2] = (dynsim_edo_B.In1.Data[3] -
+    dynsim_edo_P.Gain_Gain * dynsim_edo_B.Velocity[2]) -
     dynsim_edo_B.MATLABSystem[2];
   if ((L->size[0] == 0) || (L->size[1] == 0)) {
     dynsim_edo_B.u1 = 0;

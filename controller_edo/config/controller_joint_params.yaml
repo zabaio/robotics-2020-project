@@ -2,7 +2,7 @@
   /controller_joint/run_period: 0.0005          # Node execution period
   /controller_joint/start_delay: 1          # Execution start delay
 
-  /controller_joint/Kp_pos: [20,20,20]        # Position control, proportional gains
+  /controller_joint/Kp_pos: [20.0, 20.0, 20.0]        # Position control, proportional gains
   /controller_joint/uMin_pos: [-1000, -1000, -1000]  # Position control, low saturation
   /controller_joint/uMax_pos: [1000, 1000, 1000]    # Position control, high saturation
 

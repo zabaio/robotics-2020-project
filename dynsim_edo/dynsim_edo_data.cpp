@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'dynsim_edo'.
 //
-// Model version                  : 1.123
+// Model version                  : 1.124
 // Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
-// C/C++ source code generated on : Sun May 24 20:24:55 2020
+// C/C++ source code generated on : Sun May 24 21:57:59 2020
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -1028,7 +1028,12 @@ P_dynsim_edo_T dynsim_edo_P = {
 
   { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0 }
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
+
+  // Expression: 0.02
+  //  Referenced by: '<S13>/Gain'
+
+  0.02
 };
 
 //
