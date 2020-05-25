@@ -1,6 +1,6 @@
 # Joint planner configuration parameters
   /planner_joint/run_period: 0.0005          # Node execution period
-  /planner_joint/start_delay: 1          # Execution start delay
+  /planner_joint/start_delay: 0.5          # Execution start delay
 
   /planner_joint/trajectoryType: 1         # Trajectory type: 1, trapezoidal; 2, polynomial
 
