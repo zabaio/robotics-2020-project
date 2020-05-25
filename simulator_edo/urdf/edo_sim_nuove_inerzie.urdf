@@ -140,7 +140,7 @@
   </link>
   <joint
     name="joint_2"
-    type="continuous">
+    type="fixed">
     <limit 
       lower= "-1.972"
       upper= "1.972"
@@ -198,7 +198,7 @@
   </link>
   <joint
     name="joint_3"
-    type="continuous">
+    type="fixed">
     <limit 
       lower= "-1.972"
       upper= "1.972"
